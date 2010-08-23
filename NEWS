@@ -1,3 +1,10 @@
+0.1.12
+==
+- Add the ability to specify a bus on the command line using the --bus-address 
+  or -a switch (jdahlin)
+- fix up some UI bugs (jdahlin)
+- move project to gnome.org
+
 0.1.11
 ===
 - Add a NEWS file
