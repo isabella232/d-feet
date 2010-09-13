@@ -20,7 +20,8 @@ class Settings:
                 "windowheight" : 550,
                 "windowwidth" : 900,
                 "windowstate" : None,
-                "bustabs_list" : []
+                "bustabs_list" : [],
+                "addbus_list" : []
                 }
     
     def __init__(self, filename = None):

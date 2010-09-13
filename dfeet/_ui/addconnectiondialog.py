@@ -28,3 +28,7 @@ class AddConnectionDialog:
         self.dialog.response(self.RESPONSE_CONNECT)
         return True
 
+    def set_model(self, model):
+        self.combo_entry.set_model(model)
+        self.combo_entry.set_text_column(0)
+

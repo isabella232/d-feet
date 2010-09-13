@@ -16,6 +16,9 @@ from _ui.executemethoddialog import ExecuteMethodDialog
 
 
 class DFeetApp:
+
+    HISTORY_MAX_SIZE = 10
+
     def __init__(self):
         signal_dict = {'add_session_bus': self.add_session_bus_cb,
                        'add_system_bus': self.add_system_bus_cb,
@@ -42,6 +45,7 @@ class DFeetApp:
                                  int(settings.general['windowheight']))
 
         self._load_tabs(settings)
+        self._load_addbus_history(settings)
 
         self.main_window.show()
 
@@ -55,6 +59,13 @@ class DFeetApp:
                 self.add_bus(dbus_introspector.SYSTEM_BUS)
             else:
                 self.add_bus(address = bus_name)
+
+    def _load_addbus_history(self, settings):
+        self.add_bus_history = []
+        self.combo_addbus_history_model = gtk.ListStore(str)
+        for bus_add in settings.general['addbus_list']:
+            if bus_add != '':
+                self.add_bus_history.append(bus_add)
 
     def _add_bus_tab(self, bus_watch):
         name = bus_watch.get_bus_name()
@@ -126,6 +137,11 @@ class DFeetApp:
 
     def add_bus_address_cb(self, action):
         dialog = AddConnectionDialog(self.main_window)
+        self.combo_addbus_history_model.clear()
+        # Load combo box history
+        for el in self.add_bus_history:
+            self.combo_addbus_history_model.append([el])
+        dialog.set_model(self.combo_addbus_history_model)
         result = dialog.run()
         if result == 1:
             bus_address = dialog.get_address()
@@ -135,6 +151,13 @@ class DFeetApp:
                 self.add_bus(dbus_introspector.SYSTEM_BUS)
             else:
                 self.add_bus(address = bus_address)
+                # Fill history
+                if bus_address in self.add_bus_history:
+                    self.add_bus_history.remove(bus_address)
+                self.add_bus_history.insert(0, bus_address)
+                # Truncating history
+                if (len(self.add_bus_history) > self.HISTORY_MAX_SIZE):
+                    self.add_bus_history = self.add_bus_history[0:self.HISTORY_MAX_SIZE]
 
         dialog.destroy()
 
@@ -155,8 +178,11 @@ class DFeetApp:
             child = self.notebook.get_nth_page(i)
             bus_watch = child.get_bus_watch()
             tab_list.append(bus_watch.get_bus_name())
-   
+
+        self.add_bus_history = self.add_bus_history[0:self.HISTORY_MAX_SIZE]
+
         settings.general['bustabs_list'] = tab_list
+        settings.general['addbus_list'] = self.add_bus_history
          
         settings.write()
 
