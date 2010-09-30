@@ -20,6 +20,17 @@
           </object>
         </child>
         <child>
+          <object class="GtkAction" id="reconnect_current_bus">
+            <property name="name">reconnect_current_bus</property>
+            <property name="label" translatable="yes">Reconnect current Bus...</property>
+            <property name="short_label" translatable="yes">Reconnect</property>
+            <property name="tooltip" translatable="yes">Reconnect the bus of the current tab address</property>
+            <property name="sensitive">False</property>
+            <property name="stock_id">gtk-refresh</property>
+            <signal handler="reconnect_current_bus" name="activate"/>
+          </object>
+        </child>
+        <child>
           <object class="GtkAction" id="add_session_bus">
             <property name="name">add_session_bus</property>
             <property name="label" translatable="yes">Connect to S_ession Bus</property>
@@ -79,6 +90,7 @@
           </menu>
          -->
         </toolitem>
+        <toolitem name="ConnReconnect" action="reconnect_current_bus"/>
         <separator/>
         <toolitem name="ExecuteMethod" action="execute_method"/>
       </toolbar>

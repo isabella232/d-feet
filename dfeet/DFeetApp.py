@@ -23,6 +23,7 @@ class DFeetApp:
         signal_dict = {'add_session_bus': self.add_session_bus_cb,
                        'add_system_bus': self.add_system_bus_cb,
                        'add_bus_address': self.add_bus_address_cb,
+                       'reconnect_current_bus': self.reconnect_current_bus_cb,
                        'execute_method': self.execute_current_method_cb,
                        'quit': self.quit_cb}
 
@@ -40,6 +41,9 @@ class DFeetApp:
         self.notebook.show_all()
 
         self.execute_method_action = ui.get_widget('execute_method')
+        self.reconnect_current_bus_action = ui.get_widget('reconnect_current_bus')
+
+        self.notebook.connect('switch-page', self.switch_tab_cb)
 
         self.main_window.set_default_size(int(settings.general['windowwidth']), 
                                  int(settings.general['windowheight']))
@@ -67,7 +71,7 @@ class DFeetApp:
             if bus_add != '':
                 self.add_bus_history.append(bus_add)
 
-    def _add_bus_tab(self, bus_watch):
+    def _add_bus_tab(self, bus_watch, position=None):
         name = bus_watch.get_bus_name()
         bus_paned = _ui.BusBox(bus_watch)
         bus_paned.connect('introspectnode-selected', 
@@ -85,9 +89,14 @@ class DFeetApp:
         hbox.pack_start(close_btn, False, False)
         hbox.show_all()
 
-        p = self.notebook.append_page(bus_paned, hbox)
-        self.notebook.set_current_page(p)
-        self.notebook.set_tab_reorderable(bus_paned, True)
+        if position:
+            self.notebook.insert_page(bus_paned, hbox, position)
+            self.notebook.set_current_page(position)
+            self.notebook.set_tab_reorderable(bus_paned, True)
+        else:
+            p = self.notebook.append_page(bus_paned, hbox)
+            self.notebook.set_current_page(p)
+            self.notebook.set_tab_reorderable(bus_paned, True)
 
     def introspect_node_selected_cb(self, widget, node):
         if isinstance(node, introspect_data.Method):
@@ -109,6 +118,15 @@ class DFeetApp:
         if child.get_bus_watch().get_bus_name() not in [u'Session Bus', u'System Bus']:
             child.get_bus_watch().close_bus()
         self.notebook.remove_page(n)
+        if self.notebook.get_n_pages() <= 0:
+            self.reconnect_current_bus_action.set_sensitive(False)
+
+    def switch_tab_cb(self, notebook, page, page_num):
+        child = self.notebook.get_nth_page(page_num)
+        if child.get_bus_watch().get_bus_name() not in [u'Session Bus', u'System Bus']:
+            self.reconnect_current_bus_action.set_sensitive(True)
+        else:
+            self.reconnect_current_bus_action.set_sensitive(False)
 
     def select_or_add_bus(self, address):
         for i in range(self.notebook.get_n_pages()):
@@ -162,6 +180,26 @@ class DFeetApp:
                     self.add_bus_history = self.add_bus_history[0:self.HISTORY_MAX_SIZE]
 
         dialog.destroy()
+
+    def reconnect_current_bus_cb(self, action):
+        page = self.notebook.get_current_page()
+        if page >= 0:
+            child = self.notebook.get_nth_page(page)
+            bus_watch = child.get_bus_watch()
+
+            bus_type = bus_watch.get_bus_type()
+            bus_address = bus_watch.get_bus_address()
+
+            if bus_type == dbus_introspector.SESSION_BUS or bus_type == dbus_introspector.SYSTEM_BUS:
+                pass
+            else:
+                bus_watch.close_bus()
+                self.notebook.remove_page(page)
+                try:
+                    new_bus_watch = BusWatch(None, address=bus_address)
+                    self._add_bus_tab(new_bus_watch, page)
+                except Exception, e:
+                    print e
 
     def quit_cb(self, action):
         self._quit_dfeet(self.main_window, None)
