@@ -120,7 +120,10 @@ class BusNameInfoBox(gtk.VBox):
 
     def set_busname(self, busname):
         if self.busname:
-            self.busname.disconnect(self.busname._introspect_changed_signal_id)
+            try:
+                self.busname.disconnect(self.busname._introspect_changed_signal_id)
+            except:
+                pass
 
         self.busname = busname
         self.introspect_tree_view.set_model(busname.common_data._introspection_data)

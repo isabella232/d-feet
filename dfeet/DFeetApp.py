@@ -106,6 +106,8 @@ class DFeetApp:
 
     def close_tab_cb(self, button, child):
         n = self.notebook.page_num(child)
+        if child.get_bus_watch().get_bus_name() not in [u'Session Bus', u'System Bus']:
+            child.get_bus_watch().close_bus()
         self.notebook.remove_page(n)
 
     def select_or_add_bus(self, address):
