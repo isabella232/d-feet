@@ -7,6 +7,9 @@
    
 import ConfigParser
 import os
+import re
+
+list_splitter = re.compile(',|"([^".]*)"')
 
 class Settings:
     """
@@ -49,6 +52,14 @@ class Settings:
         cls.instance = Settings()
         return cls.instance
 
+    def decode_list(self, s):
+        result = []
+        split = list_splitter.split(s);
+        for item in split:
+            if item:
+                result.append(item)
+        return result
+
     def read(self):
         """
         Reads configuration settings from the config file and loads
@@ -61,7 +72,7 @@ class Settings:
     
         for key, value in self.config.items("General"):
             if key.endswith('list'):
-                value = value.split(',')
+                value = self.decode_list(value)
 
             self.general[key] = value
     
@@ -71,6 +82,8 @@ class Settings:
         """        
         for key in self.general:
             if key.endswith('list'):
+                for i in range(0, len(self.general[key])):
+                    self.general[key][i] = '"' + self.general[key][i] + '"'
                 self.general[key] = ','.join(self.general[key])
                   
             self.config.set("General", key, self.general[key])
