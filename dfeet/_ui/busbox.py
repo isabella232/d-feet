@@ -1,6 +1,5 @@
 import gobject 
 import gtk
-import gtk.glade
 
 from dfeet import _util
 
