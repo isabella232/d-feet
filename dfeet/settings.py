@@ -4,12 +4,83 @@
 #
 #   portions taken from the Jokosher project
 #
-   
+
 import ConfigParser
 import os
 import re
 
-list_splitter = re.compile(',|"([^".]*)"')
+class ConfigTokenizer():
+    COMMA = re.compile(",")
+    FALLTHROUGH = re.compile('(?:[^,.])+')
+    # FIXME: String re does not ignore escaped quotes (e.g. \") correctly
+    STRING = re.compile('"((?:[^\\"]|\\.)*)"' + "|'((?:[^\\']|\\.)*)'")
+    NUMBER = re.compile('[+-]?[0-9]*\.?[0-9]+')
+    WHITESPACE = re.compile('\s')
+
+    _parse_order = [STRING, NUMBER, WHITESPACE, COMMA, FALLTHROUGH]
+
+    class Match():
+        ENDWHITESPACE=re.compile('\s$')
+        UNESCAPE=re.compile('\\\(.)')
+
+        def __init__(self, match, regex):
+            self.match = match
+            self.regex = regex
+
+        def is_whitespace(self):
+            if self.regex == ConfigTokenizer.WHITESPACE:
+                return True
+            return False
+
+        def is_comma(self):
+            if self.regex == ConfigTokenizer.COMMA:
+                return True
+            return False
+
+        def is_value(self):
+            if (self.regex == ConfigTokenizer.STRING or
+                self.regex == ConfigTokenizer.NUMBER or
+                self.regex == ConfigTokenizer.FALLTHROUGH):
+                return True
+            return False
+
+
+        def strip(self, s):
+            return self.ENDWHITESPACE.sub('', s)
+
+        def unescape(self, s):
+            return self.UNESCAPE.sub(r'\1', s)
+
+        def __str__(self):
+            result = ''
+            groups = self.match.groups()
+            if groups:
+                for g in groups:
+                    if g is not None:
+                        result = g
+            else:
+                result = self.match.group(0)
+
+            result = self.strip(result)
+            if self.regex == ConfigTokenizer.STRING:
+                result = self.unescape(result)
+
+            return result
+
+    def __init__(self, s):
+        self._consumable = s
+
+    def __iter__(self):
+        return self
+
+    def next(self):
+        for r in self._parse_order:
+            m = r.match(self._consumable)
+            if m:
+                self._consumable = self._consumable[len(m.group(0)):]
+                return self.Match(m, r)
+
+        raise StopIteration
 
 class Settings:
     """
@@ -26,11 +97,11 @@ class Settings:
                 "bustabs_list" : [],
                 "addbus_list" : []
                 }
-    
+
     def __init__(self, filename = None):
         """
         Creates a new instance of Settings.
-        
+
         Parameters:
             filename -- path to the settings file.
                         If None, the default ~/.dfeet/config will be used.
@@ -54,10 +125,11 @@ class Settings:
 
     def decode_list(self, s):
         result = []
-        split = list_splitter.split(s);
-        for item in split:
-            if item:
-                result.append(item)
+        lex = ConfigTokenizer(s);
+        for item in lex:
+            if item.is_value():
+                result.append(str(item))
+
         return result
 
     def read(self):
@@ -66,33 +138,37 @@ class Settings:
         then into the Settings dictionaries.
         """
         self.config.read(self.filename)
-    
+
         if not self.config.has_section("General"):
             self.config.add_section("General")
-    
+
         for key, value in self.config.items("General"):
             if key.endswith('list'):
                 value = self.decode_list(value)
 
             self.general[key] = value
-    
+
+    def quote(self, value):
+        result = ''
+        result = re.sub(r'([\\\"\'])', r'\\\1', value)
+        return '"%s"' % result
+
     def write(self):
         """
         Writes configuration settings to the Settings config file.
-        """        
+        """
         for key in self.general:
             if key.endswith('list'):
                 for i in range(0, len(self.general[key])):
-                    self.general[key][i] = '"' + self.general[key][i] + '"'
+                    self.general[key][i] = self.quote(self.general[key][i])
                 self.general[key] = ','.join(self.general[key])
-                  
+
             self.config.set("General", key, self.general[key])
-            
+
         # make sure that the directory that the config file is in exists
         new_file_dir = os.path.split(self.filename)[0]
-        if not os.path.isdir(new_file_dir): 
+        if not os.path.isdir(new_file_dir):
             os.makedirs(new_file_dir)
         file = open(self.filename, 'w')
         self.config.write(file)
         file.close()
-        
