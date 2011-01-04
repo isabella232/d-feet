@@ -1,4 +1,5 @@
 import gtk
+import dbus
 
 from dfeet import _util
 
@@ -61,7 +62,19 @@ class ExecuteMethodDialog:
                                   buf.get_end_iter())
             if params:
                 params = '(' + params + ',)'
-                args = eval(params)
+                args = eval(params, {'Boolean':dbus.Boolean,
+                                     'Byte':dbus.Byte,
+                                     'Int16':dbus.Int16,
+                                     'Int32':dbus.Int32,
+                                     'Int64':dbus.Int64,
+                                     'UInt16':dbus.UInt16,
+                                     'UInt32':dbus.UInt32,
+                                     'UInt64':dbus.UInt64,
+                                     'Double':dbus.Double,
+                                     'ObjectPath':dbus.ObjectPath,
+                                     'Signature':dbus.Signature,
+                                     'String':dbus.String,
+                                     'UTF8String':dbus.UTF8String})
 
             result = self.method.dbus_call(self.busname.get_bus(), 
                               self.busname.get_display_name(),
