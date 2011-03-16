@@ -1,11 +1,11 @@
 import gobject 
-import gtk
+from gi.repository import Gtk
 
 from dfeet.dbus_introspector import BusWatch
 
 from busnameview import BusNameView
 
-class BusNameBox(gtk.VBox):
+class BusNameBox(Gtk.VBox):
     __gsignals__ = {
         'busname-selected' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE,
                              (gobject.TYPE_PYOBJECT,))
@@ -17,10 +17,10 @@ class BusNameBox(gtk.VBox):
         self.tree_view = BusNameView(watch)
         self.tree_view.connect('cursor_changed', self.busname_selected_cb)
 
-        scroll = gtk.ScrolledWindow()
+        scroll = Gtk.ScrolledWindow()
         scroll.add(self.tree_view)
-        self.pack_start(scroll, True, True)
-        scroll.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
+        self.pack_start(scroll, True, True, 0)
+        scroll.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
 
         self.show_all()
 

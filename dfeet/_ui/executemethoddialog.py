@@ -1,4 +1,4 @@
-import gtk
+from gi.repository import Gtk
 import dbus
 
 from dfeet import _util

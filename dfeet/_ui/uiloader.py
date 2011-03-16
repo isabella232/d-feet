@@ -1,4 +1,4 @@
-import gtk
+from gi.repository import Gtk
 
 from dfeet import _util
 
@@ -31,7 +31,7 @@ class UILoader:
         ui_dir = _util.get_ui_dir()
        
         ui_info = self._ui_map[ui]
-        self.ui = gtk.Builder()
+        self.ui = Gtk.Builder()
 
         #load ui files
         for file in ui_info[0]:

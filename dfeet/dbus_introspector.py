@@ -1,8 +1,5 @@
-import dbus
-import dbus.bus
-import dbus.mainloop.glib
-import gobject
-import gtk
+
+from gi.repository import GObject, Gdk, GdkPixbuf, Gtk, Gio
 import _util
 import _introspect_parser 
 import os
@@ -13,8 +10,6 @@ from introspect_data import IntrospectData
 SESSION_BUS = 1
 SYSTEM_BUS = 2
 ADDRESS_BUS = 3
-
-dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
 
 class Error(Exception):
     pass
@@ -33,9 +28,9 @@ class InvalidColumnError(Error):
     def __str__(self):
         return repr('Column number \'%i\' requested but is not valid' % self.column)
 
-class CommonNameData(gobject.GObject):
+class CommonNameData(GObject.GObject):
     __gsignals__ = {
-        'introspect_data_changed' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE,())
+        'introspect_data_changed' : (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE,())
                    }
 
     def __init__(self):
@@ -86,9 +81,9 @@ class CommonNameData(gobject.GObject):
              
         self.emit('introspect_data_changed')
         
-class BusName(gobject.GObject):
+class BusName(GObject.GObject):
     __gsignals__ = {
-        'changed' : (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE,())
+        'changed' : (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE,())
                    }
 
 
@@ -200,10 +195,10 @@ class BusName(gobject.GObject):
 
         return result 
 
-class BusWatch(gtk.GenericTreeModel):
+class BusWatch(Gtk.ListStore):
     NUM_COL = 9 
 
-    (BUSNAME_OBJ_COL, 
+    (BUSNAME_OBJ_COL,
      UNIQUE_NAME_COL,
      COMMON_NAME_COL,
      IS_PUBLIC_COL,        # has a common name
@@ -213,15 +208,15 @@ class BusWatch(gtk.GenericTreeModel):
      DISPLAY_COL,
      ICON_COL) = range(NUM_COL)
 
-    COL_TYPES = (gobject.TYPE_PYOBJECT,
-                 gobject.TYPE_STRING,
-                 gobject.TYPE_STRING,
-                 gobject.TYPE_BOOLEAN,
-                 gobject.TYPE_STRING,
-                 gobject.TYPE_PYOBJECT,
-                 gobject.TYPE_STRING,
-                 gobject.TYPE_STRING,
-                 gtk.gdk.Pixbuf)
+    COL_TYPES = (GObject.TYPE_PYOBJECT,
+                 GObject.TYPE_STRING,
+                 GObject.TYPE_STRING,
+                 GObject.TYPE_BOOLEAN,
+                 GObject.TYPE_STRING,
+                 GObject.TYPE_PYOBJECT,
+                 GObject.TYPE_STRING,
+                 GObject.TYPE_STRING,
+                 GdkPixbuf.Pixbuf)
 
     def __init__(self, bus, address=None):
         self.bus = None
@@ -229,33 +224,43 @@ class BusWatch(gtk.GenericTreeModel):
         self.name_list = []
         self.bus_type = bus
         self.address = address
-        #self.completion_model = gtk.ListStore()
+        #self.completion_model = Gtk.ListStore()
 
-        super(BusWatch, self).__init__()
+        super(BusWatch, self).__init__(*self.COL_TYPES)
 
         if bus == SESSION_BUS:
-            self.bus = dbus.SessionBus()
+            self.bus = Gio.bus_get_sync(Gio.BusType.SESSION, None)
         elif bus == SYSTEM_BUS:
-            self.bus = dbus.SystemBus()
+            self.bus = Gio.bus_get_sync(Gio.BusType.SYSTEM, None)
         else:
             if not address:
                 raise BusAddressError(address)
-            self.bus = dbus.bus.BusConnection(address)
+            self.bus = Gio.DBusConnection.new_for_address_sync(
+                address,
+                Gio.DBusConnectionFlags.MESSAGE_BUS_CONNECTION, 
+                None, None)
 
             if not self.bus:
                 raise BusAddressError(address)
 
-        self.bus.add_signal_receiver(self.name_owner_changed_cb,
-                                     dbus_interface='org.freedesktop.DBus',
-                                     signal_name='NameOwnerChanged')
+        self.bus.signal_subscribe('',
+                                  'org.freedesktop.DBus',
+                                  'NameOwnerChanged',
+                                  '',
+                                  '',
+                                  0,
+                                  self.name_owner_changed_cb,
+                                  None)
+        self.bus_proxy = Gio.DBusProxy.new_sync(self.bus,
+                                                Gio.DBusProxyFlags.NONE, 
+                                                None, 
+                                                'org.freedesktop.DBus',
+                                                '/org/freedesktop/DBus',
+                                                'org.freedesktop.DBus', None)
 
-        bus_object = self.bus.get_object('org.freedesktop.DBus', 
-                                         '/org/freedesktop/DBus')
-        self.bus_interface = dbus.Interface(bus_object, 
-                                            'org.freedesktop.DBus')
-
-        self.bus_interface.ListNames(reply_handler=self.list_names_handler,
-                                     error_handler=self.list_names_error_handler)
+        self.bus_proxy.ListNames('()',
+                                 result_handler=self.list_names_handler,
+                                 error_handler=self.list_names_error_handler)
 
     def get_bus_name(self):
         if self.bus_type == SESSION_BUS:
@@ -280,30 +285,32 @@ class BusWatch(gtk.GenericTreeModel):
     def get_completion_model(self):
         return self.completion_model()
 
-    def get_unix_process_id_cb(self, name, id):
+    def get_unix_process_id_cb(self, obj, id_, name):
         names = self.unique_names[name]
         if not names:
             return
-        
+
         name = names[0]
         if not name:
             return
 
-        process_path = _util.get_proc_from_pid(id)
-        name.set_process_info(id, process_path)
+        process_path = _util.get_proc_from_pid(id_)
+        name.set_process_info(id_, process_path)
 
-    def get_unix_process_id_error_cb(self, name, error):
+    def get_unix_process_id_error_cb(self, obj, error, name):
         print error
 
     # get the Unix process ID so we can associate the name
     # with a process (this will only work under Unix like OS's)
     def get_unix_process_id_async_helper(self, name):
-         self.bus_interface.GetConnectionUnixProcessID(name, 
-                reply_handler = lambda id: self.get_unix_process_id_cb(name, id),
-                error_handler = lambda error: self.get_unix_process_id_error_cb(name, error))
+         self.bus_proxy.GetConnectionUnixProcessID('(s)', name, 
+                result_handler = self.get_unix_process_id_cb,
+                error_handler =  self.get_unix_process_id_error_cb,
+                user_data=name)
 
 
     def name_changed_cb(self, name):
+        pass
         path = (self.name_list.index(name,))
         iter = self.get_iter(path)
         self.row_changed(path, iter)
@@ -320,14 +327,21 @@ class BusWatch(gtk.GenericTreeModel):
             self.unique_names[name] = [busnameobj]
             self.get_unix_process_id_async_helper(name)
             self.name_list.append(busnameobj)
-            path = (self.name_list.index(busnameobj),)
-            iter = self.get_iter(path)
-            self.row_inserted(path, iter) 
+
+            self.append((busnameobj,
+                         busnameobj.get_unique_name(),
+                         busnameobj.get_common_name(),
+                         busnameobj.is_public(),
+                         busnameobj.get_process_id(),
+                         busnameobj.get_process_path(),
+                         busnameobj.get_process_name(),
+                         busnameobj.get_unique_name(),
+                         busnameobj.get_icon()))
         else:
             if not owner:
-                owner = self.bus_interface.GetNameOwner(name)
+                owner = self.bus_proxy.GetNameOwner('(s)', name)
                 if owner == 'org.freedesktop.DBus':
-                    return 
+                    return
 
             # if owner still does not exist then we move on
             if not owner:
@@ -339,9 +353,16 @@ class BusWatch(gtk.GenericTreeModel):
                     busnameobj = BusName(owner, self.bus, name, busnameobj)
                     self.unique_names[owner].append(busnameobj)
                     self.name_list.append(busnameobj)
-                    path = (self.name_list.index(busnameobj),)
-                    iter = self.get_iter(path)
-                    self.row_inserted(path, iter)
+
+                    self.append((busnameobj,
+                                 busnameobj.get_unique_name(),
+                                 busnameobj.get_common_name(),
+                                 busnameobj.is_public(),
+                                 busnameobj.get_process_id(),
+                                 busnameobj.get_process_path(),
+                                 busnameobj.get_process_name(),
+                                 busnameobj.get_common_name(),
+                                 busnameobj.get_icon()))
                 else:
                     busnameobj.set_common_name(name)
 
@@ -350,9 +371,15 @@ class BusWatch(gtk.GenericTreeModel):
                 self.unique_names[owner] = [busnameobj]
                 self.name_list.append(busnameobj)
                 self.get_unix_process_id_async_helper(owner)
-                path = (self.name_list.index(busnameobj),)
-                iter = self.get_iter(path)
-                self.row_inserted(path, iter)
+                self.append((busnameobj,
+                             busnameobj.get_unique_name(),
+                             busnameobj.get_common_name(),
+                             busnameobj.is_public(),
+                             busnameobj.get_process_id(),
+                             busnameobj.get_process_path(),
+                             busnameobj.get_process_name(),
+                             busnameobj.get_common_name(),
+                             busnameobj.get_icon()))
 
     def remove_name(self, name, owner=None):
         if not name:
@@ -403,40 +430,16 @@ class BusWatch(gtk.GenericTreeModel):
             if old_owner:
                 self.remove_name(name, old_owner)
 
-    def list_names_handler(self, names):
+    def list_names_handler(self, obj, results, userdata):
+        names = results
         for n in names:
             self.add_name(n)
 
-    def list_names_error_handler(self, error):
+    def list_names_error_handler(self, obj, error, userdata):
         print "error getting bus names - %s" % str(error)
 
     def get_name_list(self):
         return self.name_list
-
-    def on_get_flags(self):
-        return gtk.TREE_MODEL_ITERS_PERSIST
-
-    def on_get_n_columns(self):
-        return self.NUM_COL
-
-    def on_get_column_type(self, n):
-        return self.COL_TYPES[n]
-
-    def on_get_iter(self, path):
-        try:
-            if len(path) == 1:
-                return (self.name_list[path[0]],)
-            else:
-                return (self.name_list[path[0]],path[1])
-        except IndexError:
-            return None
-
-    def on_get_path(self, rowref):
-        index = self.files.index(rowref[0])
-        if len(rowref) == 1:
-            return (index,)
-        else:
-            return (index, rowref[1])
 
     def on_get_value(self, rowref, column):
         name = rowref[0]
@@ -462,69 +465,13 @@ class BusWatch(gtk.GenericTreeModel):
             return name.get_icon()
         elif column == self.DISPLAY_COL:
             if child == -1:
-                return '<b>' + gobject.markup_escape_text(name.get_display_name()) + '</b>'
+                return '<b>' + GObject.markup_escape_text(name.get_display_name()) + '</b>'
             elif child == 1:
-                return '<b>Command Line: </b>' + gobject.markup_escape_text(name.get_process_name()) + ' (' + gobject.markup_escape_text(str(name.get_process_id())) + ')' 
+                return '<b>Command Line: </b>' + GObject.markup_escape_text(name.get_process_name()) + ' (' + GObject.markup_escape_text(str(name.get_process_id())) + ')' 
             elif child == 0:
-                return '<b>Unique Name: </b>'+ gobject.markup_escape_text(name.get_unique_name())
+                return '<b>Unique Name: </b>'+ GObject.markup_escape_text(name.get_unique_name())
         else:
             raise InvalidColumnError(column) 
 
         return None
-
-    def on_iter_next(self, rowref):
-        try:
-            name = rowref[0]
-            child = -1
-            if len(rowref) == 2:
-                child = rowref[1]
-
-            if child == 0:
-                return (name, child +1)
-            elif child == 1:
-                return None
-            else:
-                i = self.name_list.index(rowref[0]) + 1
-                return (self.name_list[i],)
-        except IndexError:
-            return None
-
-    def on_iter_children(self, parent):
-        if parent:
-            if len(parent) == 1:
-                return (parent[0], 0) 
-            else:
-                return None
-
-        return (self.name_list[0],)
-
-    def on_iter_has_child(self, rowref):
-        return False
-        if len(rowref) == 1:
-            return True
-        else:
-            return False
-
-    def on_iter_n_children(self, rowref):
-        if rowref:
-            if len(rowref) == 1:
-                return 2
-            else:
-                return None
-
-        return len(self.name_list)
-
-    def on_iter_nth_child(self, parent, n):
-        if parent:
-            if n < 2:
-                return (parent, n)
-            else:
-                return None
-        try:
-            return (self.name_list[n],)
-        except IndexError:
-            return None
-
-    def on_iter_parent(self, child):
-        return (child[0],) 
 

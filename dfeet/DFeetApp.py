@@ -1,7 +1,6 @@
 import os
 import sys
-import gtk
-import gobject 
+from gi.repository import Gtk
 import _ui
 import _util
 
@@ -27,7 +26,7 @@ class DFeetApp:
                        'execute_method': self.execute_current_method_cb,
                        'quit': self.quit_cb}
 
-        self.ICON_SIZE_CLOSE_BUTTON = gtk.icon_size_register('ICON_SIZE_CLOSE_BUTTON', 14, 14)
+        self.ICON_SIZE_CLOSE_BUTTON = Gtk.icon_size_register('ICON_SIZE_CLOSE_BUTTON', 14, 14)
 
         settings = Settings.get_instance()
 
@@ -66,7 +65,7 @@ class DFeetApp:
 
     def _load_addbus_history(self, settings):
         self.add_bus_history = []
-        self.combo_addbus_history_model = gtk.ListStore(str)
+        self.combo_addbus_history_model = Gtk.ListStore(str)
         for bus_add in settings.general['addbus_list']:
             if bus_add != '':
                 self.add_bus_history.append(bus_add)
@@ -77,16 +76,16 @@ class DFeetApp:
         bus_paned.connect('introspectnode-selected', 
                           self.introspect_node_selected_cb)
         bus_paned.show_all()
-        hbox = gtk.HBox()
-        hbox.pack_start(gtk.Label(name), True, True)
-        close_btn = gtk.Button()
-        img = gtk.Image()
-        img.set_from_stock(gtk.STOCK_CLOSE, self.ICON_SIZE_CLOSE_BUTTON)
+        hbox = Gtk.HBox()
+        hbox.pack_start(Gtk.Label(name), True, True, 0)
+        close_btn = Gtk.Button()
+        img = Gtk.Image()
+        img.set_from_stock(Gtk.STOCK_CLOSE, self.ICON_SIZE_CLOSE_BUTTON)
         img.show()
         close_btn.set_image(img)
-        close_btn.set_relief(gtk.RELIEF_NONE)
+        close_btn.set_relief(Gtk.ReliefStyle.NONE)
         close_btn.connect('clicked', self.close_tab_cb, bus_paned)
-        hbox.pack_start(close_btn, False, False)
+        hbox.pack_start(close_btn, False, False, 0)
         hbox.show_all()
 
         if position:
@@ -226,8 +225,10 @@ class DFeetApp:
          
         settings.write()
 
-        gtk.main_quit()
+        Gtk.main_quit()
+
+    def run(self):
+        Gtk.main()
 
 if __name__ == "__main__":
-    DFeetApp()
-    gtk.main()
+    DFeetApp().run()

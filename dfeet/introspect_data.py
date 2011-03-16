@@ -1,4 +1,4 @@
-import gtk
+from gi.repository import Gtk
 import gobject
 import dbus_utils
 import dbus
@@ -540,7 +540,7 @@ class ObjectPathLabel(Node):
     def __str__(self):
         return self._label
 
-class IntrospectData(gtk.GenericTreeModel):
+class IntrospectData(Gtk.TreeStore):
     NUM_COL = 3 
 
     (SUBTREE_COL, 
@@ -586,7 +586,7 @@ class IntrospectData(gtk.GenericTreeModel):
         del(data)
 
     def on_get_flags(self):
-        return gtk.TREE_MODEL_ITERS_PERSIST
+        return Gtk.TREE_MODEL_ITERS_PERSIST
 
     def on_get_n_columns(self):
         return self.NUM_COL

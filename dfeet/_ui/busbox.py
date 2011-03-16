@@ -1,5 +1,5 @@
 import gobject 
-import gtk
+from gi.repository import Gtk
 
 from dfeet import _util
 
@@ -7,7 +7,7 @@ from busnamebox import BusNameBox
 from busnameinfobox import BusNameInfoBox
 from uiloader import UILoader
 
-class BusBox(gtk.VBox):
+class BusBox(Gtk.VBox):
     __gsignals__ =  {
         'introspectnode-selected': (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE,
                                    (gobject.TYPE_PYOBJECT,))
@@ -29,9 +29,9 @@ class BusBox(gtk.VBox):
         filter_box = ui.get_root_widget()
         filter_entry = ui.get_widget('filter_entry1')
 
-        self.pack_start(filter_box, False, False)
+        self.pack_start(filter_box, False, False, 0)
 
-        self.completion = gtk.EntryCompletion()
+        self.completion = Gtk.EntryCompletion()
         self.completion.set_model(watch)
         self.completion.set_inline_completion(True)
 
@@ -45,7 +45,7 @@ class BusBox(gtk.VBox):
         filter_entry.set_completion(self.completion)
 
         # Content
-        self.paned = gtk.HPaned()
+        self.paned = Gtk.HPaned()
         self.busname_box = BusNameBox(watch)
         self.busname_info_box = BusNameInfoBox()
 
@@ -55,7 +55,7 @@ class BusBox(gtk.VBox):
         self.paned.pack1(self.busname_box)
         self.paned.pack2(self.busname_info_box)
         self.paned.set_position(300)
-        self.pack_start(self.paned, True, True)
+        self.pack_start(self.paned, True, True, 0)
 
         ui.connect_signals(signal_dict)
         

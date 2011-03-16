@@ -1,9 +1,9 @@
 import gobject
-import gtk
+from gi.repository import Gtk
 
 from dfeet.dbus_introspector import BusWatch
 
-class BusNameView(gtk.TreeView):
+class BusNameView(Gtk.TreeView):
     def __init__(self, watch):
         super(BusNameView, self).__init__()
 
@@ -14,15 +14,15 @@ class BusNameView(gtk.TreeView):
         self.set_property('enable-grid-lines', False)
         self.watch = watch
        
-        self.filter_model = self.watch.filter_new()
-        self.filter_model.set_visible_func(self._filter_cb)
+        self.filter_model = self.watch.filter_new(None)
+        self.filter_model.set_visible_func(self._filter_cb, None)
         
-        self.sort_model = gtk.TreeModelSort(self.filter_model)
-        self.sort_model.set_sort_column_id(self.watch.COMMON_NAME_COL, gtk.SORT_ASCENDING)
+        self.sort_model = Gtk.TreeModelSort(model=self.filter_model)
+        self.sort_model.set_sort_column_id(self.watch.COMMON_NAME_COL, Gtk.SortType.ASCENDING)
         self.sort_model.set_sort_func(self.watch.COMMON_NAME_COL, self._sort_on_name, (self.watch.COMMON_NAME_COL, self.watch.UNIQUE_NAME_COL))
 
-        renderer = gtk.CellRendererPixbuf()
-        column = gtk.TreeViewColumn("", 
+        renderer = Gtk.CellRendererPixbuf()
+        column = Gtk.TreeViewColumn("", 
                                     renderer, 
                                     pixbuf=watch.ICON_COL
                                     )
@@ -30,8 +30,8 @@ class BusNameView(gtk.TreeView):
         column.set_sort_column_id(watch.PROCESS_ID_COL)
         self.append_column(column)
 
-        renderer = gtk.CellRendererText()
-        column = gtk.TreeViewColumn("Bus Name", 
+        renderer = Gtk.CellRendererText()
+        column = Gtk.TreeViewColumn("Bus Name", 
                                     renderer, 
                                     markup=watch.DISPLAY_COL
                                     )
@@ -40,7 +40,7 @@ class BusNameView(gtk.TreeView):
         self.append_column(column)
 
         """
-        column = gtk.TreeViewColumn("Unique Name", 
+        column = Gtk.TreeViewColumn("Unique Name", 
                                     renderer, 
                                     text=watch.UNIQUE_NAME_COL
                                     )
@@ -49,7 +49,7 @@ class BusNameView(gtk.TreeView):
         self.append_column(column)
         """
 
-        column = gtk.TreeViewColumn("Process", 
+        column = Gtk.TreeViewColumn("Process", 
                                     renderer, 
                                     text=watch.PROCESS_NAME_COL
                                     )
@@ -58,7 +58,7 @@ class BusNameView(gtk.TreeView):
         self.append_column(column)
 
         """
-        column = gtk.TreeViewColumn("PID", 
+        column = Gtk.TreeViewColumn("PID", 
                                     renderer, 
                                     text=watch.PROCESS_ID_COL
                                     )
@@ -69,11 +69,11 @@ class BusNameView(gtk.TreeView):
 
         self.set_headers_clickable(True)
         self.set_reorderable(False)
-        self.set_search_equal_func(self._search_cb)
+        self.set_search_equal_func(self._search_cb, None)
         self.set_model(self.sort_model)
 
     def set_sort_column(self, col):
-        self.sort_model.set_sort_column_id(col, gtk.SORT_ASCENDING)
+        self.sort_model.set_sort_column_id(col, Gtk.SortType.ASCENDING)
 
     def set_hide_private(self, value):
         self.hide_private = value
@@ -118,11 +118,11 @@ class BusNameView(gtk.TreeView):
         return True
 
 
-    def _search_cb(self, model, column, key, iter):
-        return not self._is_iter_equal(model, iter, key)
+    def _search_cb(self, model, column, key, iter_):
+        return not self._is_iter_equal(model, iter_, key)
 
-    def _filter_cb(self, model, iter):
-        return self._is_iter_equal(model, iter, self.filter_string)
+    def _filter_cb(self, model, iter_, data):
+        return self._is_iter_equal(model, iter_, self.filter_string)
 
     def _sort_on_name(self, model, iter1, iter2, cols):
         (col, alt_col) = cols
@@ -130,10 +130,10 @@ class BusNameView(gtk.TreeView):
         un1 = model.get_value(iter1, col)
         un2 = model.get_value(iter2, col)
 
-        if not un1:
+        if un1 is None:
             un1 = model.get_value(iter1, alt_col)
-        
-        if not un2:
+
+        if un2 is None:
             un2 = model.get_value(iter2, alt_col)
 
         # covert to integers if comparing two unique names        

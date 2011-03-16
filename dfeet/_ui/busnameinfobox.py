@@ -1,5 +1,5 @@
 import gobject 
-import gtk
+from gi.repository import Gtk
 import pango 
 
 from dfeet import _util
@@ -8,7 +8,7 @@ from dfeet.introspect_data import IntrospectData, Method, Signal
 from executemethoddialog import ExecuteMethodDialog
 from uiloader import UILoader
 
-class BusNameInfoBox(gtk.VBox):
+class BusNameInfoBox(Gtk.VBox):
     __gsignals__ =  {
         'selected': (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE,
                      (gobject.TYPE_PYOBJECT,))
@@ -26,11 +26,11 @@ class BusNameInfoBox(gtk.VBox):
         self.process_label = ui.get_widget('process_label1')
         self.introspection_box = ui.get_widget('introspect_box1')
 
-        self.introspect_tree_view = gtk.TreeView()
+        self.introspect_tree_view = Gtk.TreeView()
 
-        button_renderer = gtk.CellRendererPixbuf()
-        text_renderer = gtk.CellRendererText()
-        column = gtk.TreeViewColumn("Introspection Data", 
+        button_renderer = Gtk.CellRendererPixbuf()
+        text_renderer = Gtk.CellRendererText()
+        column = Gtk.TreeViewColumn("Introspection Data", 
                                     None)
 
         column.pack_start(button_renderer, False)
@@ -54,12 +54,12 @@ class BusNameInfoBox(gtk.VBox):
 
         self.introspect_tree_view.append_column(column) 
         
-        scroll = gtk.ScrolledWindow()
+        scroll = Gtk.ScrolledWindow()
         scroll.add(self.introspect_tree_view)
         self.introspection_box.pack_start(scroll,
-                                          True, True)
+                                          True, True, 0)
 
-        scroll.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
+        scroll.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
 
         self.introspect_tree_view.show_all()
 
