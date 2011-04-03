@@ -104,10 +104,13 @@ class Settings:
 
         Parameters:
             filename -- path to the settings file.
-                        If None, the default ~/.dfeet/config will be used.
+                        If None, the default $XDG_CONFIG_HOME/d-feet/config will be used.
         """
         if not filename:
-            self.filename = os.path.expanduser("~/.d-feet/config")
+            if os.environ.has_key('XDG_CONFIG_HOME'):
+                self.filename = os.path.join(os.environ['XDG_CONFIG_HOME'], 'd-feet', 'config')
+            else:
+                self.filename = os.path.join(os.environ['HOME'], '.config', 'd-feet', 'config')
         else:
             self.filename = filename
         self.config = ConfigParser.ConfigParser()
