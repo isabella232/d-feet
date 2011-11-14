@@ -61,9 +61,10 @@ dist = setup(name='d-feet',
     data_files=[
         ('share/dfeet', glob.glob("ui/*.ui")),
         ('share/icons/hicolor/16x16/apps', glob.glob("icons/16x16/*.png")),
-        ('share/icons/hicolor/24x24/apps', ['icons/32x32/*.png']),
-        ('share/icons/hicolor/32x32/apps', ['icons/32x32/*.png']),
-        ('share/icons/hicolor/256x256/apps', ['icons/32x32/*.png']),
+        ('share/icons/hicolor/24x24/apps', glob.glob("icons/24x24/*.png")),
+        ('share/icons/hicolor/32x32/apps', glob.glob("icons/32x32/*.png")),
+        ('share/icons/hicolor/48x48/apps', glob.glob("icons/48x48/*.png")),
+        ('share/icons/hicolor/256x256/apps', glob.glob("icons/256x256/*.png")),
         ('share/applications', ['ui/dfeet.desktop']),
         ]+I18NFILES+HELPDOCS+HELPIMAGES+OMFFILES
 )
