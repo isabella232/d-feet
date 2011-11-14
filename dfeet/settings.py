@@ -163,6 +163,9 @@ class Settings:
                     self.general[key][i] = self.quote(self.general[key][i])
                 self.general[key] = ','.join(self.general[key])
 
+            if self.general[key] == None:
+                self.general[key] = ''
+
             self.config.set("General", key, self.general[key])
 
         # make sure that the directory that the config file is in exists
