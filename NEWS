@@ -1,3 +1,16 @@
+0.1.14 - Nov 14, 2011
+==
+- replace old icon with new hi-res icons (John (J5) Palmieri)
+- deal with None config values by making them empty strings (John (J5) Palmieri)
+- add dbus type wrappers global scope of methods executed by the exec dialog (John (J5) Palmieri)
+- remove lingering glade import (John (J5) Palmieri)
+- fix quoting and unquoting config lists (John (J5) Palmieri)
+- Add a reconnect button to the main panel that will allow to close and reconnect the dbus connection for the current tab if this tab address is not either Session Bus or System Bus. (Florent Viard)
+- Close the bus connection when we close a connection tab for the buses different than Session Bus and System Bus. + Fix a potentiel bug. (Florent Viard)
+- Quote and unquote list items to avoid splitting on comma litterals (John (J5) Palmieri)
+- D-Feet: Add a persistant history to the combobox in the "connect to other bus" dialog. (Florent Viard)
+- Pressing "Enter" in the add connection combobox activates the connect action (Florent Viard)
+
 0.1.12
 ==
 - Add the ability to specify a bus on the command line using the --bus-address 
