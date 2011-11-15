@@ -51,6 +51,8 @@ class Node:
         return self.child_list.index(child)
 
     def on_get_iter(self, path):
+        if path[0] >= len(self.child_list):
+            return None
         op = self.child_list[path[0]]
         if len(path) == 1:
             return op
