@@ -12,6 +12,13 @@
 #
 #-------------------------------------------------------------------------------
 
+try:
+    # import gtk to make sure DISPLAY is set
+    import gtk
+except Exception as e:
+    print(e)
+    exit(-1)
+
 import os, sys
 import optparse
 
