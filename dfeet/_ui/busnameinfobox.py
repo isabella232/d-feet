@@ -1,6 +1,6 @@
-import gobject 
+from gi.repository import GObject as gobject 
 from gi.repository import Gtk
-import pango 
+from gi.repository import Pango as pango 
 
 from dfeet import _util
 from dfeet.introspect_data import IntrospectData, Method, Signal

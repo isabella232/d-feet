@@ -1,0 +1,10 @@
+* reimplement the bustab list save/restore stuff
+* Add checkbox in addconnectiondialog.ui to be able to start a
+   peer-to-peer connection
+* Add filter for introspector treeview. Should be possible to filter
+   methods, properties and interfaces
+* Add menu entry to start a service by name
+   (org.freedesktop.DBus.StartServiceByName)
+* Add a list with activateable services
+   (org.freedesktop.DBus.ListActivatableNames)
+

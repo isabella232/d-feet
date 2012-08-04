@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 def convert_complex_type(subsig):
     result = None
     len_consumed = 0

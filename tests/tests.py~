@@ -1,0 +1,79 @@
+#!/usr/bin/env python
+import sys, os
+sys.path.insert(0, os.path.abspath(os.path.join(__file__, "../../")))
+
+from gi.repository import Gtk, Gio, GLib
+from dfeet.gdbus_introspector import BusNameInfo
+import threading
+import unittest
+import time
+
+
+class DBusServer:
+    """ a dbus server for testing. Sever runs inside a thread """
+    XML = '''
+<node>
+  <interface name='de.toabctl.Demo.Hello'>
+    <method name='hello'>
+      <arg type='s' name='ping' direction='in'/>
+      <arg type='s' name='pong' direction='out'/>
+    </method>
+  </interface>
+</node>'''
+    def __init__(self, addr):
+        self.addr = addr
+        self.server = Gio.DBusServer.new_sync(self.addr,
+                                              Gio.DBusServerFlags.AUTHENTICATION_ALLOW_ANONYMOUS,
+                                              Gio.dbus_generate_guid(),
+                                              None, None)
+        self.server.start()
+        self.server.connect("new-connection", self.new_connection_cb, self)
+        self.loop = GLib.MainLoop()
+        self.vtable = Gio.DBusInterfaceVTable()
+        self.vtable.method_call(self.handle_method_call_cb)
+        self.vtable.get_property(None)
+        self.vtable.set_property(None)
+    
+    def handle_method_call_cb(self, connection, sender, object_path, interface_name, method_name, parameters, invocation, user_data):
+        print "method call"
+        if method_name == "hello":
+            ret = GLib.Variant(("s"), ("Adios"))  
+            involcation.return_value(ret)
+
+    def new_connection_cb(self, server, connection, user_data):
+        print "new connection"
+        connection.register_object("/de/toabctl/Demo/", DBusServer.XML,
+                                   self.vtable, None, None)
+
+    def start(self):
+        self.loop.run()
+
+    def quit(self):
+        self.server.stop()
+        self.loop.quit()
+
+class Introspector(unittest.TestCase):
+    """ tests for gdbus_introspector.py """
+
+    def test_system_bus(self):
+        return
+        bni = BusNameInfo(Gio.BusType.SYSTEM, "org.freedesktop.DBus")
+
+    def test_session_bus(self):
+        return 
+        bni = BusNameInfo(Gio.BusType.SESSION, "org.freedesktop.DBus")
+
+if __name__ == '__main__':
+    #FIXME: this is copied from the file "f-deet"
+    ENV_PATHS = {"DFEET_DATA_PATH" : "ui/",
+                 "DFEET_IMAGE_PATH" : "ui/",
+                 "DFEET_LOCALE_PATH" : "locale/",
+                 "DFEET_HELP_PATH" : "/usr/share/gnome/dfeet/"
+                 }
+    for var, path in ENV_PATHS.iteritems():
+        os.environ.setdefault(var, path)
+
+    #run tests
+    #unittest.main()
+    s = DBusServer("unix:abstract=myaddr")
+    s.start()    

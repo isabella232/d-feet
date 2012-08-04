@@ -2,7 +2,7 @@
 # icon information. If the wnck module is not installed we fallback to default
 # behvior
 
-import gobject
+from gi.repository import GObject as gobject
 from gi.repository import Gtk
 
 try:
