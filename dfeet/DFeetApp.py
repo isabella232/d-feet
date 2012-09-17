@@ -131,7 +131,7 @@ class DFeetApp:
 
     def __close_cb(self, action):
         """ quit program """
-        self._quit_dfeet(self.main_window, None)
+        self.__quit_dfeet(self.main_window, None)
 
 
     def __quit_dfeet(self, main_window, event):
