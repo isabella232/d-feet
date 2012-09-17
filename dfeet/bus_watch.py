@@ -54,6 +54,8 @@ class BusWatch:
         ui = UILoader(UILoader.UI_BUSWATCH)
         self.paned_buswatch = ui.get_root_widget()
         self.liststore_model = ui.get_widget('liststore_buswatch')
+        self.treemodelfilter_buswatch = ui.get_widget('treemodelfilter_buswatch')
+        self.treemodelfilter_buswatch.set_visible_func(self.__treemodelfilter_buswatch_cb)
         self.treeview = ui.get_widget('treeview_buswatch')
         self.entry_filter = ui.get_widget('entry_filter')
         self.grid_bus_name_selected_info = ui.get_widget('grid_bus_name_info')
@@ -64,6 +66,8 @@ class BusWatch:
         
         self.treeview.connect('cursor-changed',
                                self.__tree_view_cursor_changed_cb)
+        self.entry_filter.connect("changed",
+                                  self.__entry_filter_changed_cb)
 
 
         #setup the conection
@@ -89,6 +93,16 @@ class BusWatch:
         self.bus_proxy.ListNames('()',
                                  result_handler=self.__list_names_handler,
                                  error_handler=self.__list_names_error_handler)
+
+    def __treemodelfilter_buswatch_cb(self, model, iter, user_data):
+        #return model.get_value(iter, 1) in data
+        bus_name_obj = model.get(iter, 0)[0]
+        filter_text = self.entry_filter.get_text()
+        return filter_text.lower() in bus_name_obj.bus_name_unique.lower()
+
+    def __entry_filter_changed_cb(self, entry_filter):
+        self.treemodelfilter_buswatch.refilter()
+
 
     def __tree_view_cursor_changed_cb(self, treeview):
         """ do something when a row is selected """
