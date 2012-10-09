@@ -201,8 +201,6 @@ class AddressInfo():
                     pass
 
                 self.introspect_box.show_all()
-                #TODO: remove this and add a button to expand the whole tree!?
-                self.__treeview.expand_all()
 
 
     def __dbus_node_introspect(self, object_path):
