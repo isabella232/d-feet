@@ -112,7 +112,7 @@ class DFeetApp:
                     # Truncating history
                     if (len(self.bus_history) > self.HISTORY_MAX_SIZE):
                         self.bus_history = self.bus_history[0:self.HISTORY_MAX_SIZE]
-                except Exception, e:
+                except Exception as e:
                     print "can not connect to '%s': %s" % (address, str(e))
         dialog.destroy()
 

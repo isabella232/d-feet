@@ -38,7 +38,7 @@ class DBusBusName(GObject.GObject):
         self.__pid = pid_new
         try:
             self.__update_cmdline()
-        except Exception, e:
+        except Exception as e:
             self.__cmdline = ''
 
     @property

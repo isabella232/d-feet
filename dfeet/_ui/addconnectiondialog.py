@@ -44,7 +44,7 @@ class AddConnectionDialog:
             #check if given address is valid
             try:
                 is_supported = Gio.dbus_is_supported_address(self.address)
-            except Exception, e:
+            except Exception as e:
                 self.label_status.set_text(str(e))
                 self.run()
             else:

@@ -135,7 +135,7 @@ class AddressInfo():
         """callback when Introspect dbus function call finished"""
         try:
             res = connection.call_finish(result_async)
-        except Exception, e:
+        except Exception as e:
             #got an exception (eg dbus timeout). show the exception
             print "Exception: '%s'" % (str(e))
             self.__messagedialog.set_title("DBus Exception")

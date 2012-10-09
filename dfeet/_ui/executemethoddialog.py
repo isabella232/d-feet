@@ -78,7 +78,7 @@ class ExecuteMethodDialog:
                 #self.connection.call(None, object_path, self.method_obj.iface_obj.iface_info.name, self.method_obj.method_info.name, params_gvariant, GLib.VariantType.new("(s)"), Gio.DBusCallFlags.NONE, -1, None)
 
             
-        except Exception, e:
+        except Exception as e:
             #output the exception
             self.source_textview.get_buffer().set_text(str(e))
             self.prettyprint_textview.get_buffer().set_text(pformat(str(e)))
@@ -106,7 +106,7 @@ class ExecuteMethodDialog:
                 self.prettyprint_textview.get_buffer().set_text(str(result.unpack()[0]))
             else:
                 self.prettyprint_textview.get_buffer().set_text('This method did not return anything')
-        except Exception, e:
+        except Exception as e:
             #output the exception
             self.source_textview.get_buffer().set_text(str(e))
             self.prettyprint_textview.get_buffer().set_text(pformat(str(e)))
