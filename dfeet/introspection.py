@@ -77,7 +77,7 @@ class AddressInfo():
 
 
     def __treeview_cursor_changed_cb(self, treeview):
-        """ do something when a row is selected """
+        """do something when a row is selected"""
         selection = self.__treeview.get_selection()
         if selection:
             model, iter = selection.get_selected()
@@ -119,7 +119,7 @@ class AddressInfo():
 
 
     def introspect_start(self):
-        """ introspect the given bus name and update the tree model """
+        """introspect the given bus name and update the tree model"""
         #cleanup current tree model
         self.__treemodel.clear()
         #start introspection
@@ -127,12 +127,12 @@ class AddressInfo():
 
 
     def __button_reload_clicked_cb(widget, address_info):
-        """ reload the introspection data """
+        """reload the introspection data"""
         address_info.introspect_start()
 
 
     def __dbus_node_introspect_cb(self, connection, result_async, object_path):
-        """ callback when Introspect dbus function call finished """
+        """callback when Introspect dbus function call finished"""
         try:
             res = connection.call_finish(result_async)
         except Exception, e:
@@ -204,7 +204,7 @@ class AddressInfo():
 
 
     def __dbus_node_introspect(self, object_path):
-        """ Introspect the given object path. This function will be called recursive """
+        """Introspect the given object path. This function will be called recursive"""
         #start spinner
         self.__spinner.start()
         self.__spinner.set_visible(True)
@@ -215,7 +215,7 @@ class AddressInfo():
 
 
 if __name__ == "__main__":
-    """ for debugging """
+    """for debugging"""
     import sys
     import argparse
 

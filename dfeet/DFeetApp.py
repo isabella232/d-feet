@@ -78,19 +78,19 @@ class DFeetApp:
 
 
     def __systembus_connect_cb(self, action):
-        """ connect to system bus """
+        """connect to system bus"""
         bw = BusWatch(Gio.BusType.SYSTEM)
         self.__notebook_append_page(bw.paned_buswatch, "System Bus")
 
 
     def __sessionbus_connect_cb(self, action):
-        """ connect to session bus """
+        """connect to session bus"""
         bw = BusWatch(Gio.BusType.SESSION)
         self.__notebook_append_page(bw.paned_buswatch, "Session Bus")
 
 
     def __otherbus_connect_cb(self, action):
-        """ connect to other bus """
+        """connect to other bus"""
         dialog = AddConnectionDialog(self.main_window, self.bus_history)
         result = dialog.run()
         if result == Gtk.ResponseType.OK:
@@ -117,32 +117,32 @@ class DFeetApp:
         dialog.destroy()
 
     def __action_about_activate_cb(self, action):
-        """ show the about dialog """
+        """show the about dialog"""
         self.about_dialog.set_visible(True)
         self.about_dialog.run()
         self.about_dialog.set_visible(False)
 
 
     def __notebook_append_page(self, widget, text):
-        """ add a page to the notebook """
+        """add a page to the notebook"""
         ntl = NotebookTabLabel(text)
         page_nbr = self.notebook.append_page(widget, ntl)
         ntl.connect("close-clicked", self.__notebook_page_close_clicked_cb, widget)
 
 
     def __notebook_page_close_clicked_cb(self, button, widget):
-        """ remove a page from the notebook """
+        """remove a page from the notebook"""
         nbr = self.notebook.page_num(widget)
         self.notebook.remove_page(nbr)
 
 
     def __close_cb(self, action):
-        """ quit program """
+        """quit program"""
         self.__quit_dfeet(self.main_window, None)
 
 
     def __quit_dfeet(self, main_window, event):
-        """ quit d-feet application and store some settings """
+        """quit d-feet application and store some settings"""
         settings = Settings.get_instance()
         size = main_window.get_size()
         pos = main_window.get_position() 
@@ -158,7 +158,7 @@ class DFeetApp:
 
 
     def run(self):
-        """ start the application """
+        """start the application"""
         #add a System- and Session Bus tab
         self.__systembus_connect_cb(None)
         self.__sessionbus_connect_cb(None)

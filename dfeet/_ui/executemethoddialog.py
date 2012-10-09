@@ -85,7 +85,7 @@ class ExecuteMethodDialog:
 
 
     def method_connection_bus_cb(self, proxy, res_async, user_data):
-        """ async callback for executed method """
+        """async callback for executed method"""
         try:
             #get the result from the dbus method call
             result = proxy.call_finish(res_async)

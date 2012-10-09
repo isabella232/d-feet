@@ -13,7 +13,7 @@ def args_name_markup(arg_name):
 
 
 class DBusNode(GObject.GObject):
-    """ object to represent a DBus Node (object path) """
+    """object to represent a DBus Node (object path)"""
     def __init__(self, name, object_path, node_info):
         GObject.GObject.__init__(self)
         self.__name = name
@@ -37,7 +37,7 @@ class DBusNode(GObject.GObject):
 
 
 class DBusInterface(DBusNode):
-    """ object to represent a DBus Interface """
+    """object to represent a DBus Interface"""
     def __init__(self, dbus_node_obj, iface_info):
         DBusNode.__init__(self, dbus_node_obj.name, dbus_node_obj.object_path, dbus_node_obj.node_info)
         self.__iface_info = iface_info # Gio.GDBusInterfaceInfo object
@@ -51,7 +51,7 @@ class DBusInterface(DBusNode):
 
 
 class DBusProperty(DBusInterface):
-    """ object to represent a DBus Property """
+    """object to represent a DBus Property"""
     def __init__(self, dbus_iface_obj, property_info):
         DBusInterface.__init__(self, dbus_iface_obj, dbus_iface_obj.iface_info)
         self.__property_info = property_info # Gio.GDBusPropertyInfo object
@@ -103,7 +103,7 @@ class DBusProperty(DBusInterface):
 
 
 class DBusSignal(DBusInterface):
-    """ object to represent a DBus Signal """
+    """object to represent a DBus Signal"""
     def __init__(self, dbus_iface_obj, signal_info):
         DBusInterface.__init__(self, dbus_iface_obj, dbus_iface_obj.iface_info)
         self.__signal_info = signal_info #Gio.GDBusSignalInfo object
@@ -137,7 +137,7 @@ class DBusSignal(DBusInterface):
 
 
 class DBusMethod(DBusInterface):
-    """ object to represent a DBus Method """
+    """object to represent a DBus Method"""
     def __init__(self, dbus_iface_obj, method_info):
         DBusInterface.__init__(self, dbus_iface_obj, dbus_iface_obj.iface_info)
         self.__method_info = method_info #Gio.GDBusMethodInfo object
@@ -202,7 +202,7 @@ class DBusMethod(DBusInterface):
         return result[0:-2]
 
     def __args_markup_str(self, args):
-        """ markup a given list of args """
+        """markup a given list of args"""
         result = ''
         result += '<span foreground="#FF00FF">(</span>'
         result += ', '.join('%s %s' % (args_signature_markup(arg['signature']), args_name_markup(arg['name'])) for arg in args)

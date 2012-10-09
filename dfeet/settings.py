@@ -116,7 +116,7 @@ class Settings:
 
     @classmethod
     def get_instance(cls):
-        """ This class is a singlton so use this method to get it """
+        """This class is a singlton so use this method to get it"""
         if cls.instance:
             return cls.instance
 

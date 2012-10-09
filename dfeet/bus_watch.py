@@ -7,7 +7,7 @@ from introspection import AddressInfo
 
 
 class DBusBusName(GObject.GObject):
-    """ class to represent a name on the bus """
+    """class to represent a name on the bus"""
     def __init__(self, bus_name_unique):
         super(DBusBusName, self).__init__()
         self.__bus_name_unique = bus_name_unique
@@ -47,7 +47,7 @@ class DBusBusName(GObject.GObject):
 
 
 class BusWatch:
-    """ watch for a given bus """
+    """watch for a given bus"""
     def __init__(self, address):
         self.address = address
         #setup UI
@@ -108,7 +108,7 @@ class BusWatch:
 
 
     def __tree_view_cursor_changed_cb(self, treeview):
-        """ do something when a row is selected """
+        """do something when a row is selected"""
         selection = self.treeview.get_selection()
         if selection:
             model, iter = selection.get_selected()
@@ -137,7 +137,7 @@ class BusWatch:
             
 
     def __liststore_model_add(self, bus_name_obj):
-        """ add a DBusBusName object to the liststore model """
+        """add a DBusBusName object to the liststore model"""
         #update bus info stuff
         self.bus_proxy.GetConnectionUnixProcessID('(s)', bus_name_obj.bus_name_unique, 
                                                   result_handler = self.__get_unix_process_id_cb,
@@ -148,14 +148,14 @@ class BusWatch:
 
 
     def __liststore_model_remove(self, bus_name_obj):
-        """ remove a DBusBusName object to the liststore model """
+        """remove a DBusBusName object to the liststore model"""
         for n, obj in enumerate(self.liststore_model):
             if obj[2] == bus_name_obj.bus_name_unique:
                 del(self.liststore_model[n])
                 break
     
     def __liststore_model_get(self, bus_name_obj):
-        """ get a object from the liststore """
+        """get a object from the liststore"""
         for n, obj in enumerate(self.liststore_model):
             if obj[2] == bus_name_obj.bus_name_unique:
                 return obj
@@ -163,7 +163,7 @@ class BusWatch:
 
 
     def __name_owner_changed_cb(self, connection, sender_name, object_path, interface_name, signal_name, parameters, user_data):
-        """ bus name added or removed """
+        """bus name added or removed"""
         bus_name = parameters[0]
         old_owner = parameters[1]
         new_owner = parameters[2]
@@ -202,7 +202,7 @@ class BusWatch:
 
 
 if __name__ == "__main__":
-    """ for debugging """
+    """for debugging"""
     import sys
     import argparse
 

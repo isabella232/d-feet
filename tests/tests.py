@@ -26,21 +26,21 @@ XML = """
 """
 
 class IntrospectionHelperTest(unittest.TestCase):
-    """ tests for the introspection helper classes """
+    """tests for the introspection helper classes"""
     def setUp(self):
         self.name = "org.gnome.d-feet"
         self.object_path = "/org/gnome/d-feet"
         self.node_info = Gio.DBusNodeInfo.new_for_xml(XML)
 
     def test_dbus_node_info(self):
-        """ test DBusNode class """
+        """test DBusNode class"""
         obj_node = DBusNode(self.name, self.object_path, self.node_info)
         self.assertEqual(obj_node.name, self.name)
         self.assertEqual(obj_node.object_path, self.object_path)
         self.assertEqual(len(obj_node.node_info.interfaces), 1)
 
     def test_dbus_interface(self):
-        """ test DBusInterface class """
+        """test DBusInterface class"""
         obj_node = DBusNode(self.name, self.object_path, self.node_info)
         obj_iface = DBusInterface(obj_node, obj_node.node_info.interfaces[0])
         self.assertEqual(obj_iface.name, self.name)
@@ -50,7 +50,7 @@ class IntrospectionHelperTest(unittest.TestCase):
         self.assertEqual(len(obj_iface.iface_info.signals), 1)
 
     def test_dbus_property(self):
-        """ test DBusProperty class """
+        """test DBusProperty class"""
         obj_node = DBusNode(self.name, self.object_path, self.node_info)
         obj_iface = DBusInterface(obj_node, obj_node.node_info.interfaces[0])
         obj_prop = DBusProperty(obj_iface, obj_iface.iface_info.properties[0])
@@ -58,7 +58,7 @@ class IntrospectionHelperTest(unittest.TestCase):
         self.assertEqual(obj_prop.object_path, self.object_path)
 
     def test_dbus_signal(self):
-        """ test DBusSignal class """
+        """test DBusSignal class"""
         obj_node = DBusNode(self.name, self.object_path, self.node_info)
         obj_iface = DBusInterface(obj_node, obj_node.node_info.interfaces[0])
         obj_sig = DBusSignal(obj_iface, obj_iface.iface_info.signals[0])
@@ -67,25 +67,25 @@ class IntrospectionHelperTest(unittest.TestCase):
 
 
 class AddressInfoTest(unittest.TestCase):
-    """ tests for the AddressInfo class and the introspection stuff """
+    """tests for the AddressInfo class and the introspection stuff"""
 
     def test_system_bus(self):
-        """ introspect a name on the system bus """
+        """introspect a name on the system bus"""
         ai = AddressInfo(Gio.BusType.SYSTEM, "org.freedesktop.DBus")
 
     def test_session_bus(self):
-        """ introspect a name on the session bus """
+        """introspect a name on the session bus"""
         ai = AddressInfo(Gio.BusType.SESSION, "org.freedesktop.DBus")
 
     @unittest.skip("TODO: create another bus and test with the other bus")
     def test_other_bus(self):
-        """ test another bus """
+        """test another bus"""
         sysbus_addr = os.getenv("DBUS_SYSTEM_BUS_ADDRESS")
         ai = AddressInfo(sysbus_addr, "org.freedesktop.DBus")
     
     @unittest.skip("TODO:peer to peer test not implemented")
     def test_peer_to_peer(self):
-        """ test a p2p connection """
+        """test a p2p connection"""
         #TODO: setup a gdbus server and test a peer to peer connection
         #(see http://developer.gnome.org/gio/unstable/GDBusServer.html#gdbus-peer-to-peer)
         pass
