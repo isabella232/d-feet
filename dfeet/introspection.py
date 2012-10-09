@@ -31,7 +31,6 @@ class AddressInfo():
         self.address = address # can be Gio.BusType.SYSTEM or Gio.BusType.SYSTEM or an other address
         self.name = name #the bus name or None
         self.connection_is_bus = connection_is_bus # is it a bus or a p2p connection?
-        self.__introspection_time = -1 # time needed to introspect the given bus name (in seconds)
 
         #setup UI
         ui = UILoader(UILoader.UI_INTROSPECTION)
@@ -75,11 +74,6 @@ class AddressInfo():
             
         #start processing data
         self.introspect_start()
-
-
-    @property
-    def introspection_time(self):
-        return self.__introspection_time
 
 
     def __treeview_cursor_changed_cb(self, treeview):
@@ -132,8 +126,7 @@ class AddressInfo():
         self.introspect_box.pack_end(self.__spinner, True, False, 0)
         #cleanup current tree model
         self.__treemodel.clear()
-        #start introspection and measure introspection time
-        self.__introspection_time_start = time.time()
+        #start introspection
         self.__dbus_node_introspect("/")
 
 
@@ -204,7 +197,6 @@ class AddressInfo():
                     self.__dbus_node_introspect(object_path_new)
             else:
                 #no nodes left. we finished the introspection
-                self.__introspection_time = time.time() - self.__introspection_time_start
                 #update name, unique name, ...
                 self.__label_name.set_text(self.name)
                 try:
@@ -217,7 +209,6 @@ class AddressInfo():
                 self.__spinner.stop()
                 self.introspect_box.pack_end(self.__scrolledwindow, True, True, 0)
                 self.introspect_box.show_all()
-                print "Introspection for '%s' finished after %.5f s" % (self.name, self.introspection_time)
                 #TODO: remove this and add a button to expand the whole tree!?
                 self.__treeview.expand_all()
 
