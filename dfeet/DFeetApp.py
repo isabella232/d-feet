@@ -159,6 +159,9 @@ class DFeetApp:
 
     def run(self):
         """ start the application """
+        #add a System- and Session Bus tab
+        self.__systembus_connect_cb(None)
+        self.__sessionbus_connect_cb(None)
         Gtk.main()
 
 
