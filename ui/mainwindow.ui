@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <!-- interface-requires gtk+ 3.0 -->
+  <object class="GtkAccelGroup" id="accelgroup_connect"/>
+  <object class="GtkAccelGroup" id="accelgroup_help"/>
   <object class="GtkAction" id="action_close">
     <property name="label" translatable="yes">Close</property>
     <property name="stock_id">gtk-close</property>
     <signal name="activate" handler="action_close_activate_cb" swapped="no"/>
   </object>
   <object class="GtkActionGroup" id="actiongroup_connect">
+    <property name="accel_group">accelgroup_connect</property>
     <child>
       <object class="GtkAction" id="action_systembus_connect">
         <property name="label" translatable="yes">Connect to System Bus</property>
@@ -36,6 +39,7 @@
     </child>
   </object>
   <object class="GtkActionGroup" id="actiongroup_help">
+    <property name="accel_group">accelgroup_help</property>
     <child>
       <object class="GtkAction" id="action_about">
         <property name="label" translatable="yes">About</property>
@@ -96,7 +100,6 @@
             <property name="can_focus">False</property>
             <child>
               <object class="GtkMenuItem" id="menuitem_file">
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">File</property>
@@ -128,7 +131,6 @@
                     </child>
                     <child>
                       <object class="GtkSeparatorMenuItem" id="menuitem1">
-                        <property name="use_action_appearance">False</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                       </object>
@@ -148,7 +150,6 @@
             </child>
             <child>
               <object class="GtkMenuItem" id="menuitem_help">
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">Help</property>
@@ -184,7 +185,6 @@
                 <property name="related_action">action_systembus_connect</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="related_action">action_systembus_connect</property>
                 <property name="label" translatable="yes">toolbutton1</property>
                 <property name="use_underline">True</property>
               </object>
@@ -198,7 +198,6 @@
                 <property name="related_action">action_sessionbus_connect</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="related_action">action_sessionbus_connect</property>
                 <property name="label" translatable="yes">toolbutton1</property>
                 <property name="use_underline">True</property>
               </object>
@@ -212,7 +211,6 @@
                 <property name="related_action">action_otherbus_connect</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="related_action">action_otherbus_connect</property>
                 <property name="label" translatable="yes">toolbutton1</property>
                 <property name="use_underline">True</property>
               </object>
