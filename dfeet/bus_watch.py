@@ -56,6 +56,8 @@ class BusWatch:
         self.liststore_model = ui.get_widget('liststore_buswatch')
         self.treemodelfilter_buswatch = ui.get_widget('treemodelfilter_buswatch')
         self.treemodelfilter_buswatch.set_visible_func(self.__treemodelfilter_buswatch_cb)
+        self.treemodelsort_buswatch = ui.get_widget("treemodelsort_buswatch")
+        self.treemodelsort_buswatch.set_sort_column_id(2, Gtk.SortType.DESCENDING)
         self.treeview = ui.get_widget('treeview_buswatch')
         self.entry_filter = ui.get_widget('entry_filter')
         self.grid_bus_name_selected_info = ui.get_widget('grid_bus_name_info')
@@ -63,7 +65,7 @@ class BusWatch:
         self.label_bus_name_selected_pid = ui.get_widget('label_bus_name_selected_pid')
         self.label_bus_name_selected_cmdline = ui.get_widget('label_bus_name_selected_cmdline')
         self.addr_info = None # hold the currently selected AddressInfo object
-        
+
         self.treeview.connect('cursor-changed',
                                self.__tree_view_cursor_changed_cb)
         self.entry_filter.connect("changed",
@@ -93,6 +95,7 @@ class BusWatch:
         self.bus_proxy.ListNames('()',
                                  result_handler=self.__list_names_handler,
                                  error_handler=self.__list_names_error_handler)
+
 
     def __treemodelfilter_buswatch_cb(self, model, iter, user_data):
         #return model.get_value(iter, 1) in data
