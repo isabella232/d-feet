@@ -75,15 +75,13 @@ class AddressInfoTest(unittest.TestCase):
 
     def test_session_bus(self):
         """ introspect a name on the session bus """
-        return
         ai = AddressInfo(Gio.BusType.SESSION, "org.freedesktop.DBus")
 
+    @unittest.skip("TODO: create another bus and test with the other bus")
     def test_other_bus(self):
         """ test another bus """
-        return 
         sysbus_addr = os.getenv("DBUS_SYSTEM_BUS_ADDRESS")
         ai = AddressInfo(sysbus_addr, "org.freedesktop.DBus")
-        #TODO: create another bus and test with the other bus
     
     @unittest.skip("TODO:peer to peer test not implemented")
     def test_peer_to_peer(self):
