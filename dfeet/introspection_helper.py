@@ -150,22 +150,6 @@ class DBusMethod(DBusInterface):
         return self.__method_info
 
     @property
-    def iface_info(self):
-        return super(DBusMethod, self).iface_info
-
-    @property
-    def name(self):
-        return super(DBusMethod, self).name
-
-    @property
-    def object_path(self):
-        return super(DBusMethod, self).object_path
-
-    @property
-    def node_info(self):
-        return super(DBusMethod, self).node_info
-
-    @property
     def markup_str(self):
         return u"%s %s <b>↦</b> %s" % (self.method_info.name, self.in_args_markup_str, self.out_args_markup_str)
 
