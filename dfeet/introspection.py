@@ -34,7 +34,7 @@ class AddressInfo():
 
         #setup UI
         ui = UILoader(UILoader.UI_INTROSPECTION)
-        self.introspect_box = ui.get_root_widget() #this is the main box with the treeview (or the spinner during the introspection)
+        self.introspect_box = ui.get_root_widget() #this is the main box with the treeview
         self.__spinner = ui.get_widget('spinner') #the spinner is used to show progress during the introspection
         self.__scrolledwindow = ui.get_widget('scrolledwindow') #the scrolledwindow contains the treeview
         self.__treemodel = ui.get_widget('treestore')
@@ -120,10 +120,6 @@ class AddressInfo():
 
     def introspect_start(self):
         """ introspect the given bus name and update the tree model """
-        #remove scrolledwindow and add the spinner
-        self.introspect_box.remove(self.__scrolledwindow)
-        self.__spinner.start()
-        self.introspect_box.pack_end(self.__spinner, True, False, 0)
         #cleanup current tree model
         self.__treemodel.clear()
         #start introspection
@@ -142,8 +138,6 @@ class AddressInfo():
         except Exception, e:
             #got an exception (eg dbus timeout). show the exception
             print "Exception: '%s'" % (str(e))
-            self.__spinner.stop()
-            self.introspect_box.remove(self.__spinner)
             self.__messagedialog.set_title("DBus Exception")
             self.__messagedialog.set_property("text", "%s : %s" % (self.name, str(e)))
             self.__messagedialog.run()
@@ -197,6 +191,8 @@ class AddressInfo():
                     self.__dbus_node_introspect(object_path_new)
             else:
                 #no nodes left. we finished the introspection
+                self.__spinner.stop()
+                self.__spinner.set_visible(False)
                 #update name, unique name, ...
                 self.__label_name.set_text(self.name)
                 try:
@@ -204,10 +200,6 @@ class AddressInfo():
                 except:
                     pass
 
-                #remove the spinner and add the scrolledwindow (with the treeview)
-                self.introspect_box.remove(self.__spinner)
-                self.__spinner.stop()
-                self.introspect_box.pack_end(self.__scrolledwindow, True, True, 0)
                 self.introspect_box.show_all()
                 #TODO: remove this and add a button to expand the whole tree!?
                 self.__treeview.expand_all()
@@ -215,6 +207,10 @@ class AddressInfo():
 
     def __dbus_node_introspect(self, object_path):
         """ Introspect the given object path. This function will be called recursive """
+        #start spinner
+        self.__spinner.start()
+        self.__spinner.set_visible(True)
+        #start async dbus call
         self.connection.call(self.name, object_path, 'org.freedesktop.DBus.Introspectable', 'Introspect',
                              None, GLib.VariantType.new("(s)"), Gio.DBusCallFlags.NONE, -1,
                              None, self.__dbus_node_introspect_cb, object_path)
