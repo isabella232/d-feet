@@ -46,7 +46,7 @@ class DBusBusName(GObject.GObject):
         return self.__cmdline
 
 
-class BusWatch:
+class BusWatch(object):
     """watch for a given bus"""
     def __init__(self, address):
         self.address = address
@@ -57,7 +57,8 @@ class BusWatch:
         self.treemodelfilter_buswatch = ui.get_widget('treemodelfilter_buswatch')
         self.treemodelfilter_buswatch.set_visible_func(self.__treemodelfilter_buswatch_cb)
         self.treemodelsort_buswatch = ui.get_widget("treemodelsort_buswatch")
-        self.treemodelsort_buswatch.set_sort_column_id(2, Gtk.SortType.DESCENDING)
+        self.treemodelsort_buswatch.set_sort_func(2, self.__sort_on_name)
+        self.treemodelsort_buswatch.set_sort_column_id(2, Gtk.SortType.ASCENDING)
         self.treeview = ui.get_widget('treeview_buswatch')
         self.entry_filter = ui.get_widget('entry_filter')
         self.grid_bus_name_selected_info = ui.get_widget('grid_bus_name_info')
@@ -199,6 +200,34 @@ class BusWatch:
     def __get_unix_process_id_error_cb(self, obj, error, bus_name_obj):
         print "error getting unix process id for %s: %s" % (bus_name_obj.bus_name_unique, str(error))
         bus_name_obj.pid = 0
+
+
+    def __sort_on_name(self, model, iter1, iter2, user_data):
+        un1 = model.get_value(iter1, 2)
+        un2 = model.get_value(iter2, 2)
+
+        # covert to integers if comparing two unique names
+        if un1[0] == ':' and un2[0] == ':':
+           un1 = un1[1:].split('.')
+           un1 = tuple(map(int, un1))
+
+           un2 = un2[1:].split('.')
+           un2 = tuple(map(int, un2))
+
+        elif un1[0] == ':' and un2[0] != ':':
+            return 1
+        elif un1[0] != ':' and un2[0] == ':':
+            return -1
+        else:
+            un1 = un1.split('.')
+            un2 = un2.split('.')
+
+        if un1 == un2:
+            return 0
+        elif un1 > un2:
+            return 1
+        else:
+            return -1
 
 
 if __name__ == "__main__":
