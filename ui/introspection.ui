@@ -152,7 +152,7 @@
           <object class="GtkTreeView" id="treeview">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
-            <property name="model">treestore</property>
+            <property name="model">treemodelsort</property>
             <property name="search_column">0</property>
             <property name="enable_tree_lines">True</property>
             <property name="tooltip_column">0</property>
@@ -163,7 +163,8 @@
             </child>
             <child>
               <object class="GtkTreeViewColumn" id="treeviewcolumn_name">
-                <property name="title" translatable="yes">Name</property>
+                <property name="title" translatable="yes">Object path</property>
+                <property name="sort_indicator">True</property>
                 <property name="sort_column_id">0</property>
                 <child>
                   <object class="GtkCellRendererText" id="cellrenderertext_name"/>
@@ -217,5 +218,8 @@
       <!-- column-name GObject1 -->
       <column type="GObject"/>
     </columns>
+  </object>
+  <object class="GtkTreeModelSort" id="treemodelsort">
+    <property name="model">treestore</property>
   </object>
 </interface>

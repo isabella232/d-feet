@@ -38,6 +38,9 @@ class AddressInfo():
         self.__spinner = ui.get_widget('spinner') #the spinner is used to show progress during the introspection
         self.__scrolledwindow = ui.get_widget('scrolledwindow') #the scrolledwindow contains the treeview
         self.__treemodel = ui.get_widget('treestore')
+        self.__treemodelsort = ui.get_widget("treemodelsort")
+        self.__treemodelsort.set_sort_func(0, self.__sort_model)
+        self.__treemodelsort.set_sort_column_id(0, Gtk.SortType.ASCENDING)
         self.__treeview = ui.get_widget('treeview')
         self.__label_name = ui.get_widget('label_name')
         self.__label_unique_name = ui.get_widget('label_unique_name')
@@ -116,6 +119,21 @@ class AddressInfo():
                 treeview.collapse_row(path)
             else:
                 treeview.expand_row(path, False)
+
+    def __sort_model(self, model, iter1, iter2, user_data):
+        """objects with small path depth first"""
+        un1 = model.get_value(iter1, 0)
+        un2 = model.get_value(iter2, 0)
+
+        un1_depth = len(un1.split("/"))
+        un2_depth = len(un2.split("/"))
+
+        if un1_depth > un2_depth:
+            return 1
+        elif un1_depth < un2_depth:
+            return -1
+        else:
+            return un1 > un2
 
 
     def introspect_start(self):
