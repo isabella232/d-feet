@@ -126,9 +126,9 @@ class AddressInfo():
         self.__dbus_node_introspect("/")
 
 
-    def __button_reload_clicked_cb(widget, address_info):
+    def __button_reload_clicked_cb(self, widget):
         """reload the introspection data"""
-        address_info.introspect_start()
+        self.introspect_start()
 
 
     def __dbus_node_introspect_cb(self, connection, result_async, object_path):
