@@ -25,6 +25,7 @@ class AddressInfo():
         signal_dict = {
             'treeview_cursor_changed_cb' : self.__treeview_cursor_changed_cb,
             'treeview_row_activated_cb' : self.__treeview_row_activated_cb,
+            'treeview_row_expanded_cb' : self.__treeview_row_expanded_cb,
             'button_reload_clicked_cb' : self.__button_reload_clicked_cb,
             }
 
@@ -119,6 +120,19 @@ class AddressInfo():
                 treeview.collapse_row(path)
             else:
                 treeview.expand_row(path, False)
+
+
+    def __treeview_row_expanded_cb(self, treeview, iter, path):
+        model = treeview.get_model()
+        node = model.get(iter, 1)[0]
+        if isinstance(node, DBusNode):
+            if model.iter_has_child(iter):
+                childiter = model.iter_children(iter)
+                while childiter != None:
+                    childpath = model.get_path(childiter)
+                    treeview.expand_to_path(childpath)
+                    childiter = model.iter_next(childiter)
+
 
     def __sort_model(self, model, iter1, iter2, user_data):
         """objects with small path depth first"""
