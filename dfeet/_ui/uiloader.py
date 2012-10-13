@@ -33,8 +33,8 @@ class UILoader:
         self.ui = Gtk.Builder()
 
         #load ui files
-        for file in ui_info[0]:
-            self.ui.add_from_file(self.ui_dir + '/' + file)
+        for f in ui_info[0]:
+            self.ui.add_from_file(self.ui_dir + '/' + f)
 
         self.root_widget_name = ui_info[1]
 

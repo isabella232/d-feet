@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from gi.repository import GObject, Gio, GLib
+from gi.repository import GObject, Gio
 import dbus_utils
 
 

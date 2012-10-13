@@ -156,7 +156,6 @@
             <property name="search_column">0</property>
             <property name="enable_tree_lines">True</property>
             <property name="tooltip_column">0</property>
-            <signal name="cursor-changed" handler="treeview_cursor_changed_cb" swapped="no"/>
             <signal name="row-activated" handler="treeview_row_activated_cb" swapped="no"/>
             <signal name="row-expanded" handler="treeview_row_expanded_cb" swapped="no"/>
             <child internal-child="selection">

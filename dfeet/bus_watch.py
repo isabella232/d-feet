@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import os
-from gi.repository import GObject, GdkPixbuf, Gtk, Gio, GLib
+from gi.repository import GObject, Gtk, Gio
 from _ui.uiloader import UILoader
 from introspection import AddressInfo
 
@@ -38,7 +37,7 @@ class DBusBusName(GObject.GObject):
         self.__pid = pid_new
         try:
             self.__update_cmdline()
-        except Exception as e:
+        except:
             self.__cmdline = ''
 
     @property
@@ -76,7 +75,7 @@ class BusWatch(object):
         #setup the conection
         if self.address == Gio.BusType.SYSTEM or self.address == Gio.BusType.SESSION:
             self.connection = Gio.bus_get_sync(self.address, None)
-        elif Gio.dbus_is_supported_address(self.address) == True:
+        elif Gio.dbus_is_supported_address(self.address):
             self.connection = Gio.DBusConnection.new_for_address_sync(self.address,
                                                                       Gio.DBusConnectionFlags.AUTHENTICATION_CLIENT | Gio.DBusConnectionFlags.MESSAGE_BUS_CONNECTION,
                                                                       None, None)
@@ -112,11 +111,11 @@ class BusWatch(object):
         """do something when a row is selected"""
         selection = self.treeview.get_selection()
         if selection:
-            model, iter = selection.get_selected()
-            if not iter:
+            model, iter_ = selection.get_selected()
+            if not iter_:
                 return
         
-            bus_name_obj = model.get(iter, 0)[0]
+            bus_name_obj = model.get(iter_, 0)[0]
             #remove current child
             c2 = self.paned_buswatch.get_child2()
             if c2:

@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from gi.repository import GObject, Gdk, GdkPixbuf, Gtk, Gio, Pango, GLib
-import dbus_utils
+from gi.repository import Gtk, Gio, GLib
 from _ui.executemethoddialog import ExecuteMethodDialog
-import time
 
 from _ui.uiloader import UILoader
 
@@ -23,7 +21,6 @@ class AddressInfo():
 
     def __init__(self, address, name, connection_is_bus=True):
         signal_dict = {
-            'treeview_cursor_changed_cb' : self.__treeview_cursor_changed_cb,
             'treeview_row_activated_cb' : self.__treeview_row_activated_cb,
             'treeview_row_expanded_cb' : self.__treeview_row_expanded_cb,
             'button_reload_clicked_cb' : self.__button_reload_clicked_cb,
@@ -47,7 +44,6 @@ class AddressInfo():
         self.__label_unique_name = ui.get_widget('label_unique_name')
         self.__label_address = ui.get_widget('label_address')
         self.__messagedialog = ui.get_widget('messagedialog')
-        button_reload = ui.get_widget('button_reload')
 
         #connect signals
         ui.connect_signals(signal_dict)
@@ -57,45 +53,34 @@ class AddressInfo():
             if self.address == Gio.BusType.SYSTEM or self.address == Gio.BusType.SESSION:
                 self.connection = Gio.bus_get_sync(self.address, None)
                 self.__label_address.set_text(Gio.dbus_address_get_for_bus_sync(self.address, None))
-            elif Gio.dbus_is_supported_address(self.address) == True:
+            elif Gio.dbus_is_supported_address(self.address):
                 self.connection = Gio.DBusConnection.new_for_address_sync(self.address,
                                                                           Gio.DBusConnectionFlags.AUTHENTICATION_CLIENT | Gio.DBusConnectionFlags.MESSAGE_BUS_CONNECTION,
                                                                           None, None)
                 self.__label_address.set_text(self.address)
             else:
                 self.connection = None
-                raise Exception("Invalid bus address '%'" % (self.address))
+                raise Exception("Invalid bus address '%s'" % (self.address))
         else:
             #we have a peer-to-peer connection
-            if Gio.dbus_is_supported_address(self.address) == True:
+            if Gio.dbus_is_supported_address(self.address):
                 self.connection = Gio.DBusConnection.new_for_address_sync(self.address,
                                                                           Gio.DBusConnectionFlags.AUTHENTICATION_CLIENT,
                                                                           None, None)
                 self.__label_address.set_text(self.address)
             else:
                 self.connection = None
-                raise Exception("Invalid p2p address '%'" % (self.address))
+                raise Exception("Invalid p2p address '%s'" % (self.address))
             
         #start processing data
         self.introspect_start()
 
 
-    def __treeview_cursor_changed_cb(self, treeview):
-        """do something when a row is selected"""
-        selection = self.__treeview.get_selection()
-        if selection:
-            model, iter = selection.get_selected()
-            if not iter:
-                return
-        
-            node_obj = model.get(iter, 1)[0]
-
-
     def __treeview_row_activated_cb(self, treeview, path, view_column):
         model = treeview.get_model() 
-        iter = model.get_iter(path)
+        iter_ = model.get_iter(path)
 
-        obj = model.get_value(iter, 1)
+        obj = model.get_value(iter_, 1)
 
         if isinstance(obj, DBusMethod):
             #execute the selected method
@@ -114,7 +99,7 @@ class AddressInfo():
             #update the object value so markup string is calculated correct
             obj.value = result[0]
             #set new markup string
-            model[iter][0] = obj.markup_str
+            model[iter_][0] = obj.markup_str
         else:
             if treeview.row_expanded(path):
                 treeview.collapse_row(path)
@@ -122,12 +107,12 @@ class AddressInfo():
                 treeview.expand_row(path, False)
 
 
-    def __treeview_row_expanded_cb(self, treeview, iter, path):
+    def __treeview_row_expanded_cb(self, treeview, iter_, path):
         model = treeview.get_model()
-        node = model.get(iter, 1)[0]
+        node = model.get(iter_, 1)[0]
         if isinstance(node, DBusNode):
-            if model.iter_has_child(iter):
-                childiter = model.iter_children(iter)
+            if model.iter_has_child(iter_):
+                childiter = model.iter_children(iter_)
                 while childiter != None:
                     childpath = model.get_path(childiter)
                     treeview.expand_to_path(childpath)
@@ -248,7 +233,6 @@ class AddressInfo():
 
 if __name__ == "__main__":
     """for debugging"""
-    import sys
     import argparse
 
     parser = argparse.ArgumentParser(description='introspect a given dbus address and name')

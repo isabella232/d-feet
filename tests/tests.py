@@ -6,7 +6,6 @@ from gi.repository import Gtk, Gio, GLib
 from dfeet.introspection import AddressInfo
 from dfeet.introspection_helper import DBusNode, DBusInterface, DBusProperty, DBusSignal, DBusMethod
 import unittest
-import time
 
 XML = """
 <node>

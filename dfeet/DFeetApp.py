@@ -1,12 +1,8 @@
 # -*- coding: utf-8 -*-
-import os
-import sys
-
 from gi.repository import Gtk, Gio, GObject
 
 
 from bus_watch import BusWatch
-from introspection import AddressInfo
 from settings import Settings
 from _ui.uiloader import UILoader
 from _ui.addconnectiondialog import AddConnectionDialog
@@ -37,7 +33,7 @@ class NotebookTabLabel(Gtk.Box):
         self.emit("close-clicked")
 
 
-class DFeetApp:
+class DFeetApp(object):
 
     HISTORY_MAX_SIZE = 10
 
@@ -75,6 +71,11 @@ class DFeetApp:
     @property
     def bus_history(self):
         return self.__bus_history
+
+
+    @bus_history.setter
+    def bus_history(self, history_new):
+        self.__bus_history = history_new
 
 
     def __systembus_connect_cb(self, action):

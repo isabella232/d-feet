@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import time
 from pprint import pformat
-from gi.repository import Gtk, GLib, Gio
+from gi.repository import GLib, Gio
 
 from uiloader import UILoader
 
