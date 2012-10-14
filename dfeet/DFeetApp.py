@@ -33,11 +33,16 @@ class NotebookTabLabel(Gtk.Box):
         self.emit("close-clicked")
 
 
-class DFeetApp(object):
+class DFeetApp(Gtk.Application):
 
     HISTORY_MAX_SIZE = 10
 
     def __init__(self):
+        Gtk.Application.__init__(self, application_id="org.gnome.d-feet",
+                                 flags=Gio.ApplicationFlags.FLAGS_NONE)
+
+        self.connect("activate", self.on_application_activate_cb)
+
         signal_dict = {
             'action_systembus_connect_activate_cb': self.__systembus_connect_cb,
             'action_sessionbus_connect_activate_cb': self.__sessionbus_connect_cb,
@@ -65,7 +70,14 @@ class DFeetApp(object):
                 self.__bus_history.append(bus)
 
         ui.connect_signals(signal_dict)
+        #add a System- and Session Bus tab
+        self.__systembus_connect_cb(None)
+        self.__sessionbus_connect_cb(None)
+
+
+    def on_application_activate_cb(self, data=None):
         self.main_window.show()
+        self.add_window(self.main_window)
 
 
     @property
@@ -117,6 +129,7 @@ class DFeetApp(object):
                     print "can not connect to '%s': %s" % (address, str(e))
         dialog.destroy()
 
+
     def __action_about_activate_cb(self, action):
         """show the about dialog"""
         self.about_dialog.set_visible(True)
@@ -155,16 +168,4 @@ class DFeetApp(object):
 
         settings.general['addbus_list'] = self.bus_history
         settings.write()
-        Gtk.main_quit()
-
-
-    def run(self):
-        """start the application"""
-        #add a System- and Session Bus tab
-        self.__systembus_connect_cb(None)
-        self.__sessionbus_connect_cb(None)
-        Gtk.main()
-
-
-if __name__ == "__main__":
-    DFeetApp().run()
+        self.quit()

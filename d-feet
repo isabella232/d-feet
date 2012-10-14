@@ -48,4 +48,4 @@ app = DFeetApp.DFeetApp()
 if options.bus_address is not None:
     app.select_or_add_bus(address=options.bus_address)
 
-app.run()
+app.run(None)
