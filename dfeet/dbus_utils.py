@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 def convert_complex_type(subsig):
     result = None
     len_consumed = 0
@@ -103,19 +104,19 @@ def sig_to_type_list(sig):
     sig_len = len(sig)
     while i < sig_len:
         c = sig[i]
-        type = convert_simple_type(c)
-        if not type:
-            (type, len_consumed) = convert_complex_type(sig[i:])
-            if not type:
-                type = 'Error(' + c + ')'
+        type_ = convert_simple_type(c)
+        if not type_:
+            (type_, len_consumed) = convert_complex_type(sig[i:])
+            if not type_:
+                type_ = 'Error(' + c + ')'
 
             i += len_consumed
 
-        if isinstance(type, list):
-            for item in type:
+        if isinstance(type_, list):
+            for item in type_:
                 result.append(item)
         else:
-                result.append(type)
+                result.append(type_)
 
         i+=1
         
@@ -144,10 +145,10 @@ def type_list_to_string(type_list):
     return result[2:]
 
 def sig_to_markup(sig, span_attr_str):
-    list = sig_to_type_list(sig)
+    list_ = sig_to_type_list(sig)
     markedup_list = []
     m = '<span ' + span_attr_str + '>'
-    m += type_list_to_string(list)
+    m += type_list_to_string(list_)
     m += '</span>'
 
     return m 

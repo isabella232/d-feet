@@ -1,5 +1,5 @@
 include AUTHORS COPYING NEWS 
-recursive-include ui *.ui *.desktop 
+recursive-include ui *.ui *.desktop
 recursive-include icons *.png *.svg
 recursive-include locale */LC_MESSAGES/dfeet.mo
 recursive-include help *.omf *.xml *.png

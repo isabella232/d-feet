@@ -1,210 +1,162 @@
-import os
-import sys
-import gtk
-import gobject 
-import _ui
-import _util
+# -*- coding: utf-8 -*-
+from gi.repository import Gtk, Gio, GObject
 
-import dbus_introspector
-import introspect_data
 
-from dbus_introspector import BusWatch
+from bus_watch import BusWatch
 from settings import Settings
 from _ui.uiloader import UILoader
 from _ui.addconnectiondialog import AddConnectionDialog
 from _ui.executemethoddialog import ExecuteMethodDialog
 
 
-class DFeetApp:
+class NotebookTabLabel(Gtk.Box):
+    __gsignals__ = {
+        "close-clicked": (GObject.SIGNAL_RUN_FIRST, GObject.TYPE_NONE, ()),
+    }
+    def __init__(self, label_text):
+        Gtk.Box.__init__(self)
+        self.set_orientation(Gtk.Orientation.HORIZONTAL)
+        self.set_spacing(5)
+        # label 
+        label = Gtk.Label(label_text)
+        self.pack_start(label, True, True, 0)
+        # close button
+        button = Gtk.Button()
+        button.set_relief(Gtk.ReliefStyle.NONE)
+        button.set_focus_on_click(False)
+        button.add(Gtk.Image.new_from_stock(Gtk.STOCK_CLOSE, Gtk.IconSize.MENU))
+        button.connect("clicked", self.__button_clicked)
+        self.pack_end(button, False, False, 0)
+        self.show_all()
+    
+    def __button_clicked(self, button, data=None):
+        self.emit("close-clicked")
+
+
+class DFeetApp(Gtk.Application):
 
     HISTORY_MAX_SIZE = 10
 
     def __init__(self):
-        signal_dict = {'add_session_bus': self.add_session_bus_cb,
-                       'add_system_bus': self.add_system_bus_cb,
-                       'add_bus_address': self.add_bus_address_cb,
-                       'reconnect_current_bus': self.reconnect_current_bus_cb,
-                       'execute_method': self.execute_current_method_cb,
-                       'quit': self.quit_cb}
+        Gtk.Application.__init__(self, application_id="org.gnome.d-feet",
+                                 flags=Gio.ApplicationFlags.FLAGS_NONE)
 
-        self.ICON_SIZE_CLOSE_BUTTON = gtk.icon_size_register('ICON_SIZE_CLOSE_BUTTON', 14, 14)
+        self.connect("activate", self.on_application_activate_cb)
+
+        signal_dict = {
+            'action_systembus_connect_activate_cb': self.__systembus_connect_cb,
+            'action_sessionbus_connect_activate_cb': self.__sessionbus_connect_cb,
+            'action_otherbus_connect_activate_cb': self.__otherbus_connect_cb,
+            'action_close_activate_cb': self.__close_cb,
+            'action_about_activate_cb': self.__action_about_activate_cb,
+            }
 
         settings = Settings.get_instance()
 
         ui = UILoader(UILoader.UI_MAINWINDOW) 
-
         self.main_window = ui.get_root_widget()
-        self.main_window.set_icon_name('dfeet-icon')
-        self.main_window.connect('delete-event', self._quit_dfeet)
+        self.main_window.connect('delete-event', self.__quit_dfeet)
+        self.main_window.set_default_size(int(settings.general['windowwidth']), 
+                                          int(settings.general['windowheight']))
 
         self.notebook = ui.get_widget('display_notebook')
         self.notebook.show_all()
-
-        self.execute_method_action = ui.get_widget('execute_method')
-        self.reconnect_current_bus_action = ui.get_widget('reconnect_current_bus')
-
-        self.notebook.connect('switch-page', self.switch_tab_cb)
-
-        self.main_window.set_default_size(int(settings.general['windowwidth']), 
-                                 int(settings.general['windowheight']))
-
-        self._load_tabs(settings)
-        self._load_addbus_history(settings)
-
-        self.main_window.show()
+        self.notebook_page_widget = ui.get_widget('box_notebook_page')
+        self.about_dialog = ui.get_widget('aboutdialog')
+        #create bus history list and load entries from settings
+        self.__bus_history = []
+        for bus in settings.general['addbus_list']:
+            if bus != '':
+                self.__bus_history.append(bus)
 
         ui.connect_signals(signal_dict)
+        #add a System- and Session Bus tab
+        self.__systembus_connect_cb(None)
+        self.__sessionbus_connect_cb(None)
 
-    def _load_tabs(self, settings):
-        for bus_name in settings.general['bustabs_list']:
-            if bus_name == 'Session Bus':
-                self.add_bus(dbus_introspector.SESSION_BUS)
-            elif bus_name == 'System Bus':
-                self.add_bus(dbus_introspector.SYSTEM_BUS)
-            else:
-                self.add_bus(address = bus_name)
 
-    def _load_addbus_history(self, settings):
-        self.add_bus_history = []
-        self.combo_addbus_history_model = gtk.ListStore(str)
-        for bus_add in settings.general['addbus_list']:
-            if bus_add != '':
-                self.add_bus_history.append(bus_add)
+    def on_application_activate_cb(self, data=None):
+        self.main_window.show()
+        self.add_window(self.main_window)
 
-    def _add_bus_tab(self, bus_watch, position=None):
-        name = bus_watch.get_bus_name()
-        bus_paned = _ui.BusBox(bus_watch)
-        bus_paned.connect('introspectnode-selected', 
-                          self.introspect_node_selected_cb)
-        bus_paned.show_all()
-        hbox = gtk.HBox()
-        hbox.pack_start(gtk.Label(name), True, True)
-        close_btn = gtk.Button()
-        img = gtk.Image()
-        img.set_from_stock(gtk.STOCK_CLOSE, self.ICON_SIZE_CLOSE_BUTTON)
-        img.show()
-        close_btn.set_image(img)
-        close_btn.set_relief(gtk.RELIEF_NONE)
-        close_btn.connect('clicked', self.close_tab_cb, bus_paned)
-        hbox.pack_start(close_btn, False, False)
-        hbox.show_all()
 
-        if position:
-            self.notebook.insert_page(bus_paned, hbox, position)
-            self.notebook.set_current_page(position)
-            self.notebook.set_tab_reorderable(bus_paned, True)
-        else:
-            p = self.notebook.append_page(bus_paned, hbox)
-            self.notebook.set_current_page(p)
-            self.notebook.set_tab_reorderable(bus_paned, True)
+    @property
+    def bus_history(self):
+        return self.__bus_history
 
-    def introspect_node_selected_cb(self, widget, node):
-        if isinstance(node, introspect_data.Method):
-            self.execute_method_action.set_sensitive(True)
-        else:
-            self.execute_method_action.set_sensitive(False)
-            
-    def execute_current_method_cb(self, action):
-        page = self.notebook.get_current_page()
-        if page >= 0:
-            busbox = self.notebook.get_nth_page(page)
-            node = busbox.get_selected_introspect_node()
-            busname = busbox.get_selected_busname()
-            dialog = ExecuteMethodDialog(busname, node)
-            dialog.run()
 
-    def close_tab_cb(self, button, child):
-        n = self.notebook.page_num(child)
-        if child.get_bus_watch().get_bus_name() not in [u'Session Bus', u'System Bus']:
-            child.get_bus_watch().close_bus()
-        self.notebook.remove_page(n)
-        if self.notebook.get_n_pages() <= 0:
-            self.reconnect_current_bus_action.set_sensitive(False)
+    @bus_history.setter
+    def bus_history(self, history_new):
+        self.__bus_history = history_new
 
-    def switch_tab_cb(self, notebook, page, page_num):
-        child = self.notebook.get_nth_page(page_num)
-        if child.get_bus_watch().get_bus_name() not in [u'Session Bus', u'System Bus']:
-            self.reconnect_current_bus_action.set_sensitive(True)
-        else:
-            self.reconnect_current_bus_action.set_sensitive(False)
 
-    def select_or_add_bus(self, address):
-        for i in range(self.notebook.get_n_pages()):
-            page = self.notebook.get_nth_page(i)
-            tab_label = self.notebook.get_tab_label(page)
-            if tab_label.get_children()[0].get_text() == address:
-                self.notebook.set_current_page(i)
-                break
-        else:
-            self.add_bus(address=address)
+    def __systembus_connect_cb(self, action):
+        """connect to system bus"""
+        bw = BusWatch(Gio.BusType.SYSTEM)
+        self.__notebook_append_page(bw.paned_buswatch, "System Bus")
 
-    def add_bus(self, bus_type=None, address=None):
-        if bus_type == dbus_introspector.SESSION_BUS or bus_type == dbus_introspector.SYSTEM_BUS:
-            bus_watch = BusWatch(bus_type)
-            self._add_bus_tab(bus_watch)
-        else:
-            try:
-                bus_watch = BusWatch(None, address=address)
-                self._add_bus_tab(bus_watch)
-            except Exception, e:
-                print e
 
-    def add_session_bus_cb(self, action):
-        self.add_bus(dbus_introspector.SESSION_BUS)
+    def __sessionbus_connect_cb(self, action):
+        """connect to session bus"""
+        bw = BusWatch(Gio.BusType.SESSION)
+        self.__notebook_append_page(bw.paned_buswatch, "Session Bus")
 
-    def add_system_bus_cb(self, action):
-        self.add_bus(dbus_introspector.SYSTEM_BUS)
 
-    def add_bus_address_cb(self, action):
-        dialog = AddConnectionDialog(self.main_window)
-        self.combo_addbus_history_model.clear()
-        # Load combo box history
-        for el in self.add_bus_history:
-            self.combo_addbus_history_model.append([el])
-        dialog.set_model(self.combo_addbus_history_model)
+    def __otherbus_connect_cb(self, action):
+        """connect to other bus"""
+        dialog = AddConnectionDialog(self.main_window, self.bus_history)
         result = dialog.run()
-        if result == 1:
-            bus_address = dialog.get_address()
-            if bus_address == 'Session Bus':
-                self.add_bus(dbus_introspector.SESSION_BUS)
-            elif bus_address == 'System Bus':
-                self.add_bus(dbus_introspector.SYSTEM_BUS)
+        if result == Gtk.ResponseType.OK:
+            address = dialog.address
+            if address == 'Session Bus':
+                self.__sessionbus_connect_cb(None)
+                return
+            elif address == 'System Bus':
+                self.__systembus_connect_cb(None)
+                return
             else:
-                self.add_bus(address = bus_address)
-                # Fill history
-                if bus_address in self.add_bus_history:
-                    self.add_bus_history.remove(bus_address)
-                self.add_bus_history.insert(0, bus_address)
-                # Truncating history
-                if (len(self.add_bus_history) > self.HISTORY_MAX_SIZE):
-                    self.add_bus_history = self.add_bus_history[0:self.HISTORY_MAX_SIZE]
-
+                try:
+                    bw = BusWatch(address)
+                    self.__notebook_append_page(bw.paned_buswatch, address)
+                    # Fill history
+                    if address in self.bus_history:
+                        self.bus_history.remove(address)
+                    self.bus_history.insert(0, address)
+                    # Truncating history
+                    if (len(self.bus_history) > self.HISTORY_MAX_SIZE):
+                        self.bus_history = self.bus_history[0:self.HISTORY_MAX_SIZE]
+                except Exception as e:
+                    print "can not connect to '%s': %s" % (address, str(e))
         dialog.destroy()
 
-    def reconnect_current_bus_cb(self, action):
-        page = self.notebook.get_current_page()
-        if page >= 0:
-            child = self.notebook.get_nth_page(page)
-            bus_watch = child.get_bus_watch()
 
-            bus_type = bus_watch.get_bus_type()
-            bus_address = bus_watch.get_bus_address()
+    def __action_about_activate_cb(self, action):
+        """show the about dialog"""
+        self.about_dialog.set_visible(True)
+        self.about_dialog.run()
+        self.about_dialog.set_visible(False)
 
-            if bus_type == dbus_introspector.SESSION_BUS or bus_type == dbus_introspector.SYSTEM_BUS:
-                pass
-            else:
-                bus_watch.close_bus()
-                self.notebook.remove_page(page)
-                try:
-                    new_bus_watch = BusWatch(None, address=bus_address)
-                    self._add_bus_tab(new_bus_watch, page)
-                except Exception, e:
-                    print e
 
-    def quit_cb(self, action):
-        self._quit_dfeet(self.main_window, None)
+    def __notebook_append_page(self, widget, text):
+        """add a page to the notebook"""
+        ntl = NotebookTabLabel(text)
+        page_nbr = self.notebook.append_page(widget, ntl)
+        ntl.connect("close-clicked", self.__notebook_page_close_clicked_cb, widget)
 
-    def _quit_dfeet(self, main_window, event):
+
+    def __notebook_page_close_clicked_cb(self, button, widget):
+        """remove a page from the notebook"""
+        nbr = self.notebook.page_num(widget)
+        self.notebook.remove_page(nbr)
+
+
+    def __close_cb(self, action):
+        """quit program"""
+        self.__quit_dfeet(self.main_window, None)
+
+
+    def __quit_dfeet(self, main_window, event):
+        """quit d-feet application and store some settings"""
         settings = Settings.get_instance()
         size = main_window.get_size()
         pos = main_window.get_position() 
@@ -212,22 +164,8 @@ class DFeetApp:
         settings.general['windowwidth'] = size[0]
         settings.general['windowheight'] = size[1]
 
-        n = self.notebook.get_n_pages()
-        tab_list = []
-        for i in xrange(n):
-            child = self.notebook.get_nth_page(i)
-            bus_watch = child.get_bus_watch()
-            tab_list.append(bus_watch.get_bus_name())
+        self.bus_history = self.bus_history[0:self.HISTORY_MAX_SIZE]
 
-        self.add_bus_history = self.add_bus_history[0:self.HISTORY_MAX_SIZE]
-
-        settings.general['bustabs_list'] = tab_list
-        settings.general['addbus_list'] = self.add_bus_history
-         
+        settings.general['addbus_list'] = self.bus_history
         settings.write()
-
-        gtk.main_quit()
-
-if __name__ == "__main__":
-    DFeetApp()
-    gtk.main()
+        self.quit()

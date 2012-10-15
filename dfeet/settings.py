@@ -119,7 +119,7 @@ class Settings:
 
     @classmethod
     def get_instance(cls):
-        """ This class is a singlton so use this method to get it """
+        """This class is a singlton so use this method to get it"""
         if cls.instance:
             return cls.instance
 
@@ -175,6 +175,6 @@ class Settings:
         new_file_dir = os.path.split(self.filename)[0]
         if not os.path.isdir(new_file_dir):
             os.makedirs(new_file_dir)
-        file = open(self.filename, 'w')
-        self.config.write(file)
-        file.close()
+        f = open(self.filename, 'w')
+        self.config.write(f)
+        f.close()

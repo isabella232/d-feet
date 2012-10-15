@@ -9,7 +9,7 @@ Making a release
 6. Upload tarball: scp dist/d-feet-0.1.14.tar.gz johnp@master.gnome.org:
 7. Install tarball: ssh john@master.gnome.org 'ftpadmin install d-feet-0.1.14.tar.gz'
 8. update the wiki at https://live.gnome.org/DFeet
-9. blog about it if you would like 
+9. blog about it if you would like
 10. Make post-release version bump
 
 Based on http://live.gnome.org/MaintainersCorner/Releasing

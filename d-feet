@@ -12,13 +12,6 @@
 #
 #-------------------------------------------------------------------------------
 
-try:
-    # import gtk to make sure DISPLAY is set
-    import gtk
-except Exception as e:
-    print(e)
-    exit(-1)
-
 import os, sys
 import optparse
 
@@ -36,8 +29,6 @@ if options.use_local_dirs:
                  "DFEET_LOCALE_PATH" : "locale/",
                  "DFEET_HELP_PATH" : "/usr/share/gnome/dfeet/"
                 }
-    
-
 else:
     ENV_PATHS = {"DFEET_DATA_PATH" : "/usr/share/dfeet/",
                  "DFEET_IMAGE_PATH" : "/usr/share/dfeet/pixmaps/",
@@ -56,4 +47,5 @@ import dfeet.DFeetApp as DFeetApp
 app = DFeetApp.DFeetApp()
 if options.bus_address is not None:
     app.select_or_add_bus(address=options.bus_address)
-DFeetApp.gtk.main()
+
+app.run(None)

@@ -3,9 +3,9 @@
 *.swp
 *~
 *.orig
+\#*#
 log
 d_feet.egg-info/
 test/
 dist/
 build/
-

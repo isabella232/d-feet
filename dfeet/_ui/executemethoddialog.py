@@ -1,33 +1,13 @@
-import gtk
-import dbus
-
-from dfeet import _util
+# -*- coding: utf-8 -*-
+import time
+from pprint import pformat
+from gi.repository import GLib, Gio
 
 from uiloader import UILoader
 
-from pprint import pformat
-
-def unwrap(x):
-    """Hack to unwrap D-Bus values, so that they're easier to read when
-    printed."""
-
-    if isinstance(x, list):
-        return map(unwrap, x)
-
-    if isinstance(x, tuple):
-        return tuple(map(unwrap, x))
-
-    if isinstance(x, dict):
-        return dict([(unwrap(k), unwrap(v)) for k, v in x.iteritems()])
-
-    for t in [unicode, str, long, int, float, bool]:
-        if isinstance(x, t):
-            return t(x)
-
-    return x
 
 class ExecuteMethodDialog:
-    def __init__(self, busname, method):
+    def __init__(self, connection, connection_is_bus, bus_name, method_obj):
         signal_dict = { 
                         'execute_dbus_method_cb' : self.execute_cb,
                         'execute_dialog_close_cb': self.close_cb
@@ -35,62 +15,102 @@ class ExecuteMethodDialog:
 
         ui = UILoader(UILoader.UI_EXECUTEDIALOG)
         self.dialog = ui.get_root_widget()
-        self.command_label = ui.get_widget('commandlabel1')
+        self.label_method_name = ui.get_widget('label_method_name')
+        self.label_object_path = ui.get_widget('label_object_path')
+        self.label_interface = ui.get_widget('label_interface')
         self.notebook = ui.get_widget('notebook1')
         self.parameter_textview = ui.get_widget('parametertextview1')
         self.source_textview = ui.get_widget('sourcetextview1')
-        self.notebook.set_tab_label_text(self.source_textview.get_parent(), 
-                                         'Source')
         self.prettyprint_textview = ui.get_widget('prettyprinttextview1')
-        self.notebook.set_tab_label_text(self.prettyprint_textview.get_parent(), 
-                                         'Pretty Print')
+        self.method_execution_count_spinbutton = ui.get_widget('method_exec_count_spinbutton')
+        self.label_avg = ui.get_widget('label_avg')
+        self.label_min = ui.get_widget('label_min')
+        self.label_max = ui.get_widget('label_max')
         ui.connect_signals(signal_dict)
 
-        self.busname = busname
-        self.method = method
+        self.connection = connection
+        self.connection_is_bus = connection_is_bus
+        self.bus_name = bus_name
+        self.method_obj = method_obj
 
-        # FIXME: get the interface and object path
-        text = 'Execute ' + str(self.method) 
-        self.command_label.set_text(text)
+        self.label_method_name.set_markup("%s" % (self.method_obj.markup_str))
+        self.label_object_path.set_markup("%s" % (self.method_obj.object_path))
+        self.label_interface.set_markup("%s" % (self.method_obj.iface_info.name))
 
     def execute_cb(self, widget):
-        # TODO: make call async, time it and add spinner to dialog 
+        #get given parameters
+        buf = self.parameter_textview.get_buffer()
+        params = buf.get_text(buf.get_start_iter(), 
+                              buf.get_end_iter(), False)
+
+        #reset the statistics stuff
+        self.label_avg.set_text("")
+        self.label_min.set_text("")
+        self.label_max.set_text("")
+        user_data = {
+            'avg': 0,
+            'count': 0,
+            }
+        
         try:
-            args = ()
-            buf = self.parameter_textview.get_buffer()
-            params = buf.get_text(buf.get_start_iter(), 
-                                  buf.get_end_iter())
+            #build a GVariant
             if params:
                 params = '(' + params + ',)'
-                args = eval(params, {'Boolean':dbus.Boolean,
-                                     'Byte':dbus.Byte,
-                                     'Int16':dbus.Int16,
-                                     'Int32':dbus.Int32,
-                                     'Int64':dbus.Int64,
-                                     'UInt16':dbus.UInt16,
-                                     'UInt32':dbus.UInt32,
-                                     'UInt64':dbus.UInt64,
-                                     'Double':dbus.Double,
-                                     'ObjectPath':dbus.ObjectPath,
-                                     'Signature':dbus.Signature,
-                                     'String':dbus.String,
-                                     'UTF8String':dbus.UTF8String})
+                params_gvariant = GLib.Variant.parse(None, params, None, None)
+            else:
+                params_gvariant = None
+            
+            if self.connection_is_bus:
+                proxy = Gio.DBusProxy.new_sync(self.connection,
+                                               Gio.DBusProxyFlags.NONE, 
+                                               None, 
+                                               self.bus_name,
+                                               self.method_obj.object_path,
+                                               self.method_obj.iface_info.name,
+                                               None)
+                #call the function
+                for i in range(0, self.method_execution_count_spinbutton.get_value_as_int()):
+                    user_data['method_call_time_start'] = time.time()
+                    proxy.call(self.method_obj.method_info.name, params_gvariant, Gio.DBusCallFlags.NONE, -1, None, self.method_connection_bus_cb, user_data)
+            else:
+                #FIXME: implement p2p connection execution
+                raise Exception("Function execution on p2p connections not yet implemented")
+                #self.connection.call(None, object_path, self.method_obj.iface_obj.iface_info.name, self.method_obj.method_info.name, params_gvariant, GLib.VariantType.new("(s)"), Gio.DBusCallFlags.NONE, -1, None)
 
-            result = self.method.dbus_call(self.busname.get_bus(), 
-                              self.busname.get_display_name(),
-                              *args)
-        except Exception, e: # FIXME: treat D-Bus errors differently
-                             #        from parameter errors?
-            result = str(e) 
+            
+        except Exception as e:
+            #output the exception
+            self.source_textview.get_buffer().set_text(str(e))
+            self.prettyprint_textview.get_buffer().set_text(pformat(str(e)))
 
-        if result is None:
-            result = 'This method did not return anything'
 
-        prettified = pformat(unwrap(result))
-        self.prettyprint_textview.get_buffer().set_text(prettified)
+    def method_connection_bus_cb(self, proxy, res_async, user_data):
+        """async callback for executed method"""
+        try:
+            #get the result from the dbus method call
+            result = proxy.call_finish(res_async)
+            #remember the needed time for the method call
+            method_call_time_end = time.time()
+            method_call_time_needed = method_call_time_end - user_data['method_call_time_start']
+            
+            #update avg, min, max
+            user_data['avg'] += method_call_time_needed
+            user_data['count'] += 1
+            self.label_avg.set_text("%.4f" % (float(user_data['avg'] / user_data['count'])))
+            self.label_min.set_text("%.4f" % min(float(self.label_min.get_text() or "999"), method_call_time_needed))
+            self.label_max.set_text("%.4f" % max(float(self.label_max.get_text() or "0"), method_call_time_needed))
 
-        self.source_textview.get_buffer().set_text(str(result))
-
+            #output result
+            if result:
+                self.source_textview.get_buffer().set_text(str(result))
+                self.prettyprint_textview.get_buffer().set_text(str(result.unpack()[0]))
+            else:
+                self.prettyprint_textview.get_buffer().set_text('This method did not return anything')
+        except Exception as e:
+            #output the exception
+            self.source_textview.get_buffer().set_text(str(e))
+            self.prettyprint_textview.get_buffer().set_text(pformat(str(e)))
+                
     def run(self):
         self.dialog.run()
 

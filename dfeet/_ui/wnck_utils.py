@@ -2,11 +2,11 @@
 # icon information. If the wnck module is not installed we fallback to default
 # behvior
 
-import gobject
-import gtk
+from gi.repository import GObject
+from gi.repository import Gtk
 
 try:
-    import wnck
+    from gi.repository import Wnck
     has_libwnck = True
 except:
     has_libwnck = False
@@ -18,11 +18,11 @@ class IconTable:
         # {pid: icon} 
         self.app_map = {}
 
-        icon_theme = gtk.icon_theme_get_default()
+        icon_theme = Gtk.IconTheme.get_default()
         self.default_icon = icon_theme.load_icon('dfeet-icon-default-service', 16, 0)
 
         if has_libwnck:
-            screen = wnck.screen_get_default()
+            screen = Wnck.Screen.get_default()
             screen.connect('application_opened', self.on_app_open)
             screen.connect('application_closed', self.on_app_close)
 
