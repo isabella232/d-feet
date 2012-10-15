@@ -123,8 +123,14 @@ class AddressInfo():
         un1 = model.get_value(iter1, 0)
         un2 = model.get_value(iter2, 0)
 
-        un1_depth = len(un1.split("/"))
-        un2_depth = len(un2.split("/"))
+        if un1.startswith("/"):
+            un1_depth = len(un1.split("/"))
+        else:
+            un1_depth = 1
+        if un2.startswith("/"):
+            un2_depth = len(un2.split("/"))
+        else:
+            un2_depth = 1
 
         if un1_depth > un2_depth:
             return 1
