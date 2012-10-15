@@ -219,7 +219,4 @@
       <column type="GObject"/>
     </columns>
   </object>
-  <object class="GtkTreeModelSort" id="treemodelsort">
-    <property name="model">treestore</property>
-  </object>
 </interface>

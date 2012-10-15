@@ -36,9 +36,8 @@ class AddressInfo():
         self.__spinner = ui.get_widget('spinner') #the spinner is used to show progress during the introspection
         self.__scrolledwindow = ui.get_widget('scrolledwindow') #the scrolledwindow contains the treeview
         self.__treemodel = ui.get_widget('treestore')
-        self.__treemodelsort = ui.get_widget("treemodelsort")
-        self.__treemodelsort.set_sort_func(0, self.__sort_model)
-        self.__treemodelsort.set_sort_column_id(0, Gtk.SortType.ASCENDING)
+        self.__treemodel.set_sort_func(0, self.__sort_model)
+        self.__treemodel.set_sort_column_id(0, Gtk.SortType.ASCENDING)
         self.__treeview = ui.get_widget('treeview')
         self.__label_name = ui.get_widget('label_name')
         self.__label_unique_name = ui.get_widget('label_unique_name')
@@ -77,7 +76,7 @@ class AddressInfo():
 
 
     def __treeview_row_activated_cb(self, treeview, path, view_column):
-        model = treeview.get_model() 
+        model = treeview.get_model()
         iter_ = model.get_iter(path)
 
         obj = model.get_value(iter_, 1)
