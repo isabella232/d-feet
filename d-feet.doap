@@ -19,4 +19,11 @@
       <gnome:userid>johnp</gnome:userid>
     </foaf:Person>
   </maintainer>
+  <maintainer>
+    <foaf:Person>
+      <foaf:name>Thomas Bechtold</foaf:name>
+      <foaf:mbox rdf:resource="mailto:thomasbechtold@jpberlin.de" />
+      <gnome:userid>toabctl</gnome:userid>
+    </foaf:Person>
+  </maintainer>
 </Project>
