@@ -1,3 +1,14 @@
+0.1.15 - Oct 15, 2012
+==
+- Add Thomas Bechtold as a project maintainer (Thomas Bechtold)
+- fixed tree model crash (Robert Ancell)
+- fix crash on empty selection (Robert Ancell)
+- removed gap between window titlebar and menubar (Chris Couzens)
+- import gtk early in a try except block so we catch if display is not set (John (J5) Palmieri)
+- Use XDG config dir (William Jon McCann)
+- update .gitignore (John (J5) Palmieri)
+- fix icon globbing in setup.py (John (J5) Palmieri)
+
 0.1.14 - Nov 14, 2011
 ==
 - replace old icon with new hi-res icons (John (J5) Palmieri)
