@@ -110,6 +110,7 @@
               <object class="GtkLabel" id="label4">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">start</property>
                 <property name="label" translatable="yes">Command line:</property>
               </object>
               <packing>
@@ -123,6 +124,8 @@
               <object class="GtkLabel" id="label_bus_name_selected_cmdline">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">start</property>
+                <property name="margin_left">5</property>
                 <property name="wrap">True</property>
                 <property name="wrap_mode">char</property>
                 <property name="selectable">True</property>
@@ -138,6 +141,7 @@
               <object class="GtkLabel" id="label2">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">start</property>
                 <property name="label" translatable="yes">Process ID:</property>
               </object>
               <packing>
@@ -151,6 +155,8 @@
               <object class="GtkLabel" id="label_bus_name_selected_pid">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">start</property>
+                <property name="margin_left">5</property>
                 <property name="xalign">0.52999997138977051</property>
                 <property name="selectable">True</property>
               </object>
@@ -165,6 +171,7 @@
               <object class="GtkLabel" id="label3">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">start</property>
                 <property name="label" translatable="yes">Name:</property>
               </object>
               <packing>
@@ -178,6 +185,8 @@
               <object class="GtkLabel" id="label_bus_name_selected_name">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">start</property>
+                <property name="margin_left">5</property>
                 <property name="selectable">True</property>
               </object>
               <packing>

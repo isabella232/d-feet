@@ -28,11 +28,9 @@
             <child>
               <object class="GtkButton" id="closebutton1">
                 <property name="label" context="yes">gtk-close</property>
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="receives_default">False</property>
-                <property name="use_action_appearance">False</property>
                 <property name="use_stock">True</property>
                 <signal name="clicked" handler="execute_dialog_close_cb" swapped="no"/>
               </object>
@@ -45,12 +43,10 @@
             <child>
               <object class="GtkButton" id="executebutton1">
                 <property name="label" translatable="yes" context="yes">_Execute</property>
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="is_focus">True</property>
                 <property name="receives_default">False</property>
-                <property name="use_action_appearance">False</property>
                 <property name="use_underline">True</property>
                 <signal name="clicked" handler="execute_dbus_method_cb" swapped="no"/>
               </object>
@@ -80,6 +76,8 @@
                   <object class="GtkLabel" id="label_method_name">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <property name="halign">start</property>
+                    <property name="margin_left">5</property>
                     <property name="xalign">0</property>
                     <property name="ypad">5</property>
                     <property name="use_markup">True</property>
@@ -140,6 +138,8 @@
                   <object class="GtkLabel" id="label_object_path">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <property name="halign">start</property>
+                    <property name="margin_left">5</property>
                     <property name="use_markup">True</property>
                   </object>
                   <packing>
@@ -153,6 +153,8 @@
                   <object class="GtkLabel" id="label_interface">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <property name="halign">start</property>
+                    <property name="margin_left">5</property>
                     <property name="use_markup">True</property>
                   </object>
                   <packing>
