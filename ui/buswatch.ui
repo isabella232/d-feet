@@ -213,7 +213,7 @@
       <object class="GtkImage" id="image1">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="icon_name">d-feet-icon</property>
+        <property name="icon_name">d-feet</property>
       </object>
       <packing>
         <property name="resize">True</property>

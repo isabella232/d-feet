@@ -14,6 +14,7 @@
 
 import os, sys
 import optparse
+from gi.repository import Gtk
 
 parser = optparse.OptionParser(usage="%prog [options] [project-file]")
 
@@ -29,6 +30,8 @@ if options.use_local_dirs:
                  "DFEET_LOCALE_PATH" : "locale/",
                  "DFEET_HELP_PATH" : "/usr/share/gnome/dfeet/"
                 }
+    theme = Gtk.IconTheme.get_default()
+    theme.prepend_search_path(os.path.abspath("./icons/"))
 else:
     ENV_PATHS = {"DFEET_DATA_PATH" : "/usr/share/dfeet/",
                  "DFEET_IMAGE_PATH" : "/usr/share/dfeet/pixmaps/",

@@ -56,7 +56,7 @@
     <property name="type_hint">normal</property>
     <property name="program_name">d-feet</property>
     <property name="website">https://live.gnome.org/DFeet/</property>
-    <property name="logo_icon_name">d-feet-icon</property>
+    <property name="logo_icon_name">d-feet</property>
     <property name="license_type">gpl-2-0</property>
     <child internal-child="vbox">
       <object class="GtkBox" id="aboutdialog-vbox1">
@@ -88,7 +88,7 @@
     <property name="title" translatable="yes" context="yes">D-Feet D-Bus debugger</property>
     <property name="default_width">640</property>
     <property name="default_height">480</property>
-    <property name="icon_name">d-feet-icon</property>
+    <property name="icon_name">d-feet</property>
     <child>
       <object class="GtkVBox" id="vbox1">
         <property name="visible">True</property>
