@@ -1,3 +1,16 @@
+0.3.1 - Oct 23, 2012
+====================
+
+This is a new unstable release of DFeet.
+It's the first release based on gobject-introspection and gdbus.
+
+- Update setup.py (Thomas Bechtold)
+- Enlarge icon (Thomas Bechtold)
+- Fix icon handling (Thomas Bechtold)
+- Adjust UI (Thomas Bechtold)
+- Fix d-feet icon usage (Thomas Bechtold)
+- Merge branch 'pygi' (Thomas Bechtold)
+
 0.1.15 - Oct 15, 2012
 ==
 - Add Thomas Bechtold as a project maintainer (Thomas Bechtold)
