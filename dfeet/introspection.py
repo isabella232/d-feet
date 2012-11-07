@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 
 from gi.repository import Gtk, Gio, GLib
-from _ui.executemethoddialog import ExecuteMethodDialog
+from dfeet._ui.executemethoddialog import ExecuteMethodDialog
 
-from _ui.uiloader import UILoader
+from dfeet._ui.uiloader import UILoader
 
-from introspection_helper import DBusNode, DBusInterface, DBusProperty, DBusSignal, DBusMethod
+from dfeet.introspection_helper import DBusNode, DBusInterface, DBusProperty, DBusSignal, DBusMethod
 
 
 class AddressInfo():
@@ -159,7 +160,7 @@ class AddressInfo():
             res = connection.call_finish(result_async)
         except Exception as e:
             #got an exception (eg dbus timeout). show the exception
-            print "Exception: '%s'" % (str(e))
+            print("Exception: '%s'" % (str(e)))
             self.__messagedialog.set_title("DBus Exception")
             self.__messagedialog.set_property("text", "%s : %s" % (self.name, str(e)))
             self.__messagedialog.run()

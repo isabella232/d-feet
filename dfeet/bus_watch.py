@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 
 from gi.repository import GObject, Gtk, Gio
-from _ui.uiloader import UILoader
-from introspection import AddressInfo
+
+from dfeet._ui.uiloader import UILoader
+from dfeet.introspection import AddressInfo
 
 
 class DBusBusName(GObject.GObject):
@@ -14,7 +16,7 @@ class DBusBusName(GObject.GObject):
         self.__cmdline = ''
 
     def __repr__(self):
-        return u"%s (pid: %s)" % (self.bus_name_unique, self.pid)
+        return "%s (pid: %s)" % (self.bus_name_unique, self.pid)
 
     def __update_cmdline(self):
         if self.pid > 0:
@@ -144,7 +146,7 @@ class BusWatch(object):
                                                   error_handler =  self.__get_unix_process_id_error_cb,
                                                   user_data=bus_name_obj)
         #add bus to liststore
-        return self.liststore_model.append([bus_name_obj, 0, u"%s" % (bus_name_obj.bus_name_unique), bus_name_obj.cmdline])
+        return self.liststore_model.append([bus_name_obj, 0, "%s" % (bus_name_obj.bus_name_unique), bus_name_obj.cmdline])
 
 
     def __liststore_model_remove(self, bus_name_obj):
@@ -189,7 +191,7 @@ class BusWatch(object):
 
 
     def __list_names_error_handler(self, obj, error, userdata):
-        print "error getting bus names: %s" % str(error)
+        print("error getting bus names: %s" % str(error))
 
 
     def __get_unix_process_id_cb(self, obj, pid, bus_name_obj):
@@ -197,7 +199,7 @@ class BusWatch(object):
 
 
     def __get_unix_process_id_error_cb(self, obj, error, bus_name_obj):
-        print "error getting unix process id for %s: %s" % (bus_name_obj.bus_name_unique, str(error))
+        print("error getting unix process id for %s: %s" % (bus_name_obj.bus_name_unique, str(error)))
         bus_name_obj.pid = 0
 
 

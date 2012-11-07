@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
+
 def convert_complex_type(subsig):
     result = None
     len_consumed = 0
@@ -140,7 +142,7 @@ def type_list_to_string(type_list):
             try:
                 result += dbus_type
             except:
-                print type_list
+                print(type_list)
 
     return result[2:]
 

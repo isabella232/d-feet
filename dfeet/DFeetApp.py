@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
+
 from gi.repository import Gtk, Gio, GObject
 
-
-from bus_watch import BusWatch
-from settings import Settings
-from _ui.uiloader import UILoader
-from _ui.addconnectiondialog import AddConnectionDialog
-from _ui.executemethoddialog import ExecuteMethodDialog
+from dfeet.bus_watch import BusWatch
+from dfeet.settings import Settings
+from dfeet._ui.uiloader import UILoader
+from dfeet._ui.addconnectiondialog import AddConnectionDialog
+from dfeet._ui.executemethoddialog import ExecuteMethodDialog
 
 
 class NotebookTabLabel(Gtk.Box):
@@ -126,7 +127,7 @@ class DFeetApp(Gtk.Application):
                     if (len(self.bus_history) > self.HISTORY_MAX_SIZE):
                         self.bus_history = self.bus_history[0:self.HISTORY_MAX_SIZE]
                 except Exception as e:
-                    print "can not connect to '%s': %s" % (address, str(e))
+                    print("can not connect to '%s': %s" % (address, str(e)))
         dialog.destroy()
 
 

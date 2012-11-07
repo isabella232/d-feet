@@ -3,7 +3,7 @@ import time
 from pprint import pformat
 from gi.repository import GLib, Gio
 
-from uiloader import UILoader
+from dfeet._ui.uiloader import UILoader
 
 
 class ExecuteMethodDialog:

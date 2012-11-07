@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from gi.repository import GObject, Gio
-import dbus_utils
+from dfeet import dbus_utils
 
 
 def args_signature_markup(arg_signature):
@@ -21,7 +21,7 @@ class DBusNode(GObject.GObject):
         self.__node_info = node_info # Gio.GDBusNodeInfo object
 
     def __repr__(self):
-        return u"Name: %s ; ObjPath: %s ; NodeInfo: %s" % (self.name, self.object_path, self.node_info)
+        return "Name: %s ; ObjPath: %s ; NodeInfo: %s" % (self.name, self.object_path, self.node_info)
 
     @property
     def name(self):
@@ -43,7 +43,7 @@ class DBusInterface(DBusNode):
         self.__iface_info = iface_info # Gio.GDBusInterfaceInfo object
 
     def __repr__(self):
-        return u"iface '%s' on node '%s'" % (self.iface_info.name, self.node_info.path)
+        return "iface '%s' on node '%s'" % (self.iface_info.name, self.node_info.path)
 
     @property
     def iface_info(self):
@@ -59,7 +59,7 @@ class DBusProperty(DBusInterface):
 
     def __repr__(self):
         sig = dbus_utils.sig_to_string(self.property_info.signature)
-        return u"%s %s (%s)" % (sig, self.property_info.name, self.property_info.flags)
+        return "%s %s (%s)" % (sig, self.property_info.name, self.property_info.flags)
 
     @property
     def property_info(self):
@@ -109,7 +109,7 @@ class DBusSignal(DBusInterface):
         self.__signal_info = signal_info #Gio.GDBusSignalInfo object
 
     def __repr__(self):
-        return u"%s" % (self.signal_info.name)
+        return "%s" % (self.signal_info.name)
     
     @property
     def signal_info(self):
@@ -143,7 +143,7 @@ class DBusMethod(DBusInterface):
         self.__method_info = method_info #Gio.GDBusMethodInfo object
 
     def __repr__(self):
-        return u"%s(%s) ↦ %s (%s)" % (self.method_info.name, self.in_args_str, self.out_args_str, DBusInterface.__repr__(self))
+        return "%s(%s) ↦ %s (%s)" % (self.method_info.name, self.in_args_str, self.out_args_str, DBusInterface.__repr__(self))
 
     @property
     def method_info(self):
@@ -151,7 +151,7 @@ class DBusMethod(DBusInterface):
 
     @property
     def markup_str(self):
-        return u"%s %s <b>↦</b> %s" % (self.method_info.name, self.in_args_markup_str, self.out_args_markup_str)
+        return "%s %s <b>↦</b> %s" % (self.method_info.name, self.in_args_markup_str, self.out_args_markup_str)
 
     @property
     def in_args(self):
@@ -171,7 +171,7 @@ class DBusMethod(DBusInterface):
     
     @property
     def in_args_str(self):
-        result = u''
+        result = ""
         for arg in self.in_args:
             result += "%s %s, " % (arg['signature'], arg['name'])
         
@@ -179,7 +179,7 @@ class DBusMethod(DBusInterface):
 
     @property
     def out_args_str(self):
-        result = u''
+        result = ""
         for arg in self.out_args:
             result += "%s %s, " % (arg['signature'], arg['name'])
         

@@ -4,8 +4,12 @@
 #
 #   portions taken from the Jokosher project
 #
-
-import ConfigParser
+try:
+    #python2.x
+    import ConfigParser as configparser
+except:
+    #python3
+    import configparser
 import os
 import re
 
@@ -74,6 +78,10 @@ class ConfigTokenizer():
         return self
 
     def next(self):
+        """for python2"""
+        return self.__next__()
+
+    def __next__(self):
         for r in self._parse_order:
             m = r.match(self._consumable)
             if m:
@@ -107,13 +115,13 @@ class Settings:
                         If None, the default $XDG_CONFIG_HOME/d-feet/config will be used.
         """
         if not filename:
-            if os.environ.has_key('XDG_CONFIG_HOME'):
+            if 'XDG_CONFIG_HOME' in list(os.environ.keys()):
                 self.filename = os.path.join(os.environ['XDG_CONFIG_HOME'], 'd-feet', 'config')
             else:
                 self.filename = os.path.join(os.environ['HOME'], '.config', 'd-feet', 'config')
         else:
             self.filename = filename
-        self.config = ConfigParser.ConfigParser()
+        self.config = configparser.ConfigParser()
 
         self.read()
 
@@ -128,7 +136,7 @@ class Settings:
 
     def decode_list(self, s):
         result = []
-        lex = ConfigTokenizer(s);
+        lex = ConfigTokenizer(s)
         for item in lex:
             if item.is_value():
                 result.append(str(item))
@@ -169,7 +177,7 @@ class Settings:
             if self.general[key] == None:
                 self.general[key] = ''
 
-            self.config.set("General", key, self.general[key])
+            self.config.set("General", str(key), str(self.general[key]))
 
         # make sure that the directory that the config file is in exists
         new_file_dir = os.path.split(self.filename)[0]

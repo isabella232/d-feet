@@ -40,7 +40,7 @@ else:
                 }
 
 #must set variables before importing Globals because it requires them
-for var, path in ENV_PATHS.iteritems():
+for var, path in ENV_PATHS.items():
     #if it is not already set, set the enviroment variable.
     os.environ.setdefault(var, path)
 
