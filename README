@@ -1,11 +1,10 @@
-Welcome to D-Feet (http://live.gnome.org/d-feet)
+Welcome to D-Feet (https://live.gnome.org/DFeet/)
 
 Requirements:
 
 python >= 2.7
-glib >= 2.34
-gobject-introspection
-python-gi
+python-gi >= 3.3.91
+gtk >= 3.6
 
 Optional Requriements:
 
