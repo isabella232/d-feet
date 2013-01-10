@@ -146,6 +146,13 @@ class DBusMethod(DBusInterface):
         return "%s(%s) ↦ %s (%s)" % (self.method_info.name, self.in_args_str, self.out_args_str, DBusInterface.__repr__(self))
 
     @property
+    def in_args_code(self):
+        in_args = ""
+        for a in self.__method_info.in_args:
+            in_args += a.signature
+        return in_args
+
+    @property
     def method_info(self):
         return self.__method_info
 
