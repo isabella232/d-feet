@@ -1,3 +1,10 @@
+0.3.2 - Jan 10, 2013
+====================
+
+- Fix input parameter handling for method execution dialog (Thomas Bechtold)
+- Update requirements in README (Thomas Bechtold)
+- Make d-feet ready for Python 3 (Thomas Bechtold)
+
 0.3.1 - Oct 23, 2012
 ====================
 
