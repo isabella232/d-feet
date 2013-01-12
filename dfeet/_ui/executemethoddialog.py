@@ -114,6 +114,7 @@ class ExecuteMethodDialog:
                 
     def run(self):
         self.dialog.run()
+        self.dialog.destroy()
 
     def close_cb(self, widget):
         self.dialog.destroy()
