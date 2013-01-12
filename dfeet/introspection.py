@@ -44,10 +44,9 @@ class AddressInfo():
         self.__label_unique_name = ui.get_widget('label_unique_name')
         self.__label_address = ui.get_widget('label_address')
         self.__messagedialog = ui.get_widget('messagedialog')
-
+        self.__messagedialog.connect("close", self.__messagedialog_close_cb)
         #connect signals
         ui.connect_signals(signal_dict)
-
         if self.connection_is_bus:
             #we expect a bus connection
             if self.address == Gio.BusType.SYSTEM or self.address == Gio.BusType.SESSION:
@@ -74,6 +73,9 @@ class AddressInfo():
             
         #start processing data
         self.introspect_start()
+
+    def __messagedialog_close_cb(self, dialog):
+        self.__messagedialog.destroy()
 
 
     def __treeview_row_activated_cb(self, treeview, path, view_column):
@@ -160,10 +162,10 @@ class AddressInfo():
             res = connection.call_finish(result_async)
         except Exception as e:
             #got an exception (eg dbus timeout). show the exception
-            print("Exception: '%s'" % (str(e)))
             self.__messagedialog.set_title("DBus Exception")
             self.__messagedialog.set_property("text", "%s : %s" % (self.name, str(e)))
             self.__messagedialog.run()
+            self.__messagedialog.destroy()
         else:
             #we got a valid result from dbus call! Create nodes and add to treemodel
             node_info = Gio.DBusNodeInfo.new_for_xml(res[0])
