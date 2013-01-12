@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import time
 from pprint import pformat
-from gi.repository import GLib, Gio
+from gi.repository import GLib, Gio, Gtk
 
 from dfeet._ui.uiloader import UILoader
 
@@ -32,7 +32,6 @@ class ExecuteMethodDialog:
         self.label_min = ui.get_widget('label_min')
         self.label_max = ui.get_widget('label_max')
         ui.connect_signals(signal_dict)
-
         self.label_method_name.set_markup("%s" % (self.method_obj.markup_str))
         self.label_object_path.set_markup("%s" % (self.method_obj.object_path))
         self.label_interface.set_markup("%s" % (self.method_obj.iface_info.name))
@@ -113,8 +112,9 @@ class ExecuteMethodDialog:
             self.prettyprint_textview.get_buffer().set_text(pformat(str(e)))
                 
     def run(self):
-        self.dialog.run()
-        self.dialog.destroy()
+        response =self.dialog.run()
+        if response == Gtk.ResponseType.DELETE_EVENT or response == Gtk.ResponseType.CLOSE:
+            self.dialog.destroy()
 
     def close_cb(self, widget):
         self.dialog.destroy()
