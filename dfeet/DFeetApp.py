@@ -18,7 +18,7 @@ class NotebookTabLabel(Gtk.Box):
         Gtk.Box.__init__(self)
         self.set_orientation(Gtk.Orientation.HORIZONTAL)
         self.set_spacing(5)
-        # label 
+        # label
         label = Gtk.Label(label_text)
         self.pack_start(label, True, True, 0)
         # close button
@@ -29,7 +29,7 @@ class NotebookTabLabel(Gtk.Box):
         button.connect("clicked", self.__button_clicked)
         self.pack_end(button, False, False, 0)
         self.show_all()
-    
+
     def __button_clicked(self, button, data=None):
         self.emit("close-clicked")
 
@@ -54,10 +54,10 @@ class DFeetApp(Gtk.Application):
 
         settings = Settings.get_instance()
 
-        ui = UILoader(UILoader.UI_MAINWINDOW) 
+        ui = UILoader(UILoader.UI_MAINWINDOW)
         self.main_window = ui.get_root_widget()
         self.main_window.connect('delete-event', self.__quit_dfeet)
-        self.main_window.set_default_size(int(settings.general['windowwidth']), 
+        self.main_window.set_default_size(int(settings.general['windowwidth']),
                                           int(settings.general['windowheight']))
 
         self.notebook = ui.get_widget('display_notebook')
@@ -160,8 +160,8 @@ class DFeetApp(Gtk.Application):
         """quit d-feet application and store some settings"""
         settings = Settings.get_instance()
         size = main_window.get_size()
-        pos = main_window.get_position() 
-    
+        pos = main_window.get_position()
+
         settings.general['windowwidth'] = size[0]
         settings.general['windowheight'] = size[1]
 
