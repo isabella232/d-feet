@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from gi.repository import Gtk, Gio
-from dfeet._ui.uiloader import UILoader
+from dfeet.uiloader import UILoader
 
 class AddConnectionDialog:
 

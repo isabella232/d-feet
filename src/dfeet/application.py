@@ -5,9 +5,9 @@ from gi.repository import Gtk, Gio, GObject
 
 from dfeet.bus_watch import BusWatch
 from dfeet.settings import Settings
-from dfeet._ui.uiloader import UILoader
-from dfeet._ui.addconnectiondialog import AddConnectionDialog
-from dfeet._ui.executemethoddialog import ExecuteMethodDialog
+from dfeet.uiloader import UILoader
+from dfeet.addconnectiondialog import AddConnectionDialog
+from dfeet.executemethoddialog import ExecuteMethodDialog
 
 
 class NotebookTabLabel(Gtk.Box):
@@ -38,7 +38,10 @@ class DFeetApp(Gtk.Application):
 
     HISTORY_MAX_SIZE = 10
 
-    def __init__(self):
+    def __init__(self, package, version, data_dir):
+        self.package = package
+        self.version = version
+        self.data_dir = data_dir
         Gtk.Application.__init__(self, application_id="org.gnome.d-feet",
                                  flags=Gio.ApplicationFlags.FLAGS_NONE)
 

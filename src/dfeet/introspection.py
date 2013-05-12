@@ -2,9 +2,9 @@
 from __future__ import print_function
 
 from gi.repository import Gtk, Gio, GLib
-from dfeet._ui.executemethoddialog import ExecuteMethodDialog
+from dfeet.executemethoddialog import ExecuteMethodDialog
 
-from dfeet._ui.uiloader import UILoader
+from dfeet.uiloader import UILoader
 
 from dfeet.introspection_helper import DBusNode, DBusInterface, DBusProperty, DBusSignal, DBusMethod
 

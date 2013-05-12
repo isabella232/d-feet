@@ -3,7 +3,7 @@ from __future__ import print_function
 
 from gi.repository import GObject, Gtk, Gio
 
-from dfeet._ui.uiloader import UILoader
+from dfeet.uiloader import UILoader
 from dfeet.introspection import AddressInfo
 
 

@@ -1,0 +1,4 @@
+<schemalist gettext-domain="d-feet">
+  <schema id="org.gnome.d-feet" path="/org/gnome/d-feet/">
+  </schema>
+</schemalist>
