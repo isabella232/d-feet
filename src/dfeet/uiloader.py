@@ -5,7 +5,7 @@ from gi.repository import Gtk
 
 class UILoader:
     instance = None
-    
+
     UI_COUNT = 5
 
     (UI_MAINWINDOW,
@@ -16,7 +16,7 @@ class UILoader:
     ) = range(UI_COUNT)
 
     # {ui_id: ((files,...), root widget)}
-    _ui_map = {UI_MAINWINDOW           : (('mainwindow.ui',), 
+    _ui_map = {UI_MAINWINDOW           : (('mainwindow.ui',),
                                           'appwindow1'),
                UI_INTROSPECTION        : (('introspection.ui',),
                                           'box_introspectview'),
@@ -28,9 +28,10 @@ class UILoader:
                                           'add_connection_dialog1')
               }
 
-    def __init__(self, ui):
+    def __init__(self, data_dir, ui):
         ui_info = self._ui_map[ui]
         self.ui = Gtk.Builder()
+        self.data_dir = data_dir
 
         #load ui files
         for f in ui_info[0]:
@@ -49,10 +50,4 @@ class UILoader:
 
     @property
     def ui_dir(self):
-        try:
-            ui_dir = os.environ['DFEET_DATA_PATH']
-        except:
-            ui_dir = "../ui"
-            
-        return ui_dir 
-
+        return os.path.join(self.data_dir, "ui")

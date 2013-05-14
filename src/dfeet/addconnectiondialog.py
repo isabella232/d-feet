@@ -4,8 +4,8 @@ from dfeet.uiloader import UILoader
 
 class AddConnectionDialog:
 
-    def __init__(self, parent, address_bus_history=[]):
-        ui = UILoader(UILoader.UI_ADDCONNECTIONDIALOG)
+    def __init__(self, data_dir, parent, address_bus_history=[]):
+        ui = UILoader(data_dir, UILoader.UI_ADDCONNECTIONDIALOG)
 
         self.dialog = ui.get_root_widget()
 
@@ -26,7 +26,7 @@ class AddConnectionDialog:
         self.dialog.add_button('gtk-cancel', Gtk.ResponseType.CANCEL)
         self.dialog.add_button('gtk-connect', Gtk.ResponseType.OK)
 
-    
+
     @property
     def address(self):
         tree_iter = self.address_combo_box.get_active_iter()

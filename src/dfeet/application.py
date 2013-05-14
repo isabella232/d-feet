@@ -57,7 +57,7 @@ class DFeetApp(Gtk.Application):
 
         settings = Settings.get_instance()
 
-        ui = UILoader(UILoader.UI_MAINWINDOW)
+        ui = UILoader(self.data_dir, UILoader.UI_MAINWINDOW)
         self.main_window = ui.get_root_widget()
         self.main_window.connect('delete-event', self.__quit_dfeet)
         self.main_window.set_default_size(int(settings.general['windowwidth']),
@@ -96,19 +96,19 @@ class DFeetApp(Gtk.Application):
 
     def __systembus_connect_cb(self, action):
         """connect to system bus"""
-        bw = BusWatch(Gio.BusType.SYSTEM)
+        bw = BusWatch(self.data_dir, Gio.BusType.SYSTEM)
         self.__notebook_append_page(bw.paned_buswatch, "System Bus")
 
 
     def __sessionbus_connect_cb(self, action):
         """connect to session bus"""
-        bw = BusWatch(Gio.BusType.SESSION)
+        bw = BusWatch(self.data_dir, Gio.BusType.SESSION)
         self.__notebook_append_page(bw.paned_buswatch, "Session Bus")
 
 
     def __otherbus_connect_cb(self, action):
         """connect to other bus"""
-        dialog = AddConnectionDialog(self.main_window, self.bus_history)
+        dialog = AddConnectionDialog(self.data_dir, self.main_window, self.bus_history)
         result = dialog.run()
         if result == Gtk.ResponseType.OK:
             address = dialog.address
@@ -120,7 +120,7 @@ class DFeetApp(Gtk.Application):
                 return
             else:
                 try:
-                    bw = BusWatch(address)
+                    bw = BusWatch(self.data_dir, address)
                     self.__notebook_append_page(bw.paned_buswatch, address)
                     # Fill history
                     if address in self.bus_history:

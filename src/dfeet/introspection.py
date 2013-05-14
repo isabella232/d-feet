@@ -20,7 +20,8 @@ class AddressInfo():
         except:
             pass
 
-    def __init__(self, address, name, connection_is_bus=True):
+    def __init__(self, data_dir, address, name, connection_is_bus=True):
+        self.data_dir = data_dir
         signal_dict = {
             'treeview_row_activated_cb' : self.__treeview_row_activated_cb,
             'treeview_row_expanded_cb' : self.__treeview_row_expanded_cb,
@@ -32,7 +33,7 @@ class AddressInfo():
         self.connection_is_bus = connection_is_bus # is it a bus or a p2p connection?
 
         #setup UI
-        ui = UILoader(UILoader.UI_INTROSPECTION)
+        ui = UILoader(self.data_dir, UILoader.UI_INTROSPECTION)
         self.introspect_box = ui.get_root_widget() #this is the main box with the treeview
         self.__spinner = ui.get_widget('spinner') #the spinner is used to show progress during the introspection
         self.__scrolledwindow = ui.get_widget('scrolledwindow') #the scrolledwindow contains the treeview
@@ -70,7 +71,7 @@ class AddressInfo():
             else:
                 self.connection = None
                 raise Exception("Invalid p2p address '%s'" % (self.address))
-            
+
         #start processing data
         self.introspect_start()
 
@@ -86,13 +87,13 @@ class AddressInfo():
 
         if isinstance(obj, DBusMethod):
             #execute the selected method
-            dialog = ExecuteMethodDialog(self.connection, self.connection_is_bus, self.name, obj)
+            dialog = ExecuteMethodDialog(self.data_dir, self.connection, self.connection_is_bus, self.name, obj)
             dialog.run()
         elif isinstance(obj, DBusProperty):
             #update the selected property (TODO: do this async)
             proxy = Gio.DBusProxy.new_sync(self.connection,
-                                           Gio.DBusProxyFlags.NONE, 
-                                           None, 
+                                           Gio.DBusProxyFlags.NONE,
+                                           None,
                                            self.name,
                                            obj.object_path,
                                            "org.freedesktop.DBus.Properties", None)

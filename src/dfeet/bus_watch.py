@@ -33,7 +33,7 @@ class DBusBusName(GObject.GObject):
     @property
     def pid(self):
         return self.__pid
-    
+
     @pid.setter
     def pid(self, pid_new):
         self.__pid = pid_new
@@ -49,10 +49,11 @@ class DBusBusName(GObject.GObject):
 
 class BusWatch(object):
     """watch for a given bus"""
-    def __init__(self, address):
+    def __init__(self, data_dir, address):
+        self.data_dir = data_dir
         self.address = address
         #setup UI
-        ui = UILoader(UILoader.UI_BUSWATCH)
+        ui = UILoader(self.data_dir, UILoader.UI_BUSWATCH)
         self.paned_buswatch = ui.get_root_widget()
         self.liststore_model = ui.get_widget('liststore_buswatch')
         self.treemodelfilter_buswatch = ui.get_widget('treemodelfilter_buswatch')
@@ -87,8 +88,8 @@ class BusWatch(object):
                                          None, None, 0, self.__name_owner_changed_cb, None)
 
         self.bus_proxy = Gio.DBusProxy.new_sync(self.connection,
-                                                Gio.DBusProxyFlags.NONE, 
-                                                None, 
+                                                Gio.DBusProxyFlags.NONE,
+                                                None,
                                                 'org.freedesktop.DBus',
                                                 '/org/freedesktop/DBus',
                                                 'org.freedesktop.DBus', None)
@@ -116,7 +117,7 @@ class BusWatch(object):
             model, iter_ = selection.get_selected()
             if not iter_:
                 return
-        
+
             bus_name_obj = model.get(iter_, 0)[0]
             #remove current child
             c2 = self.paned_buswatch.get_child2()
@@ -128,15 +129,15 @@ class BusWatch(object):
                 pass
 
             #add Introspection to paned
-            self.addr_info = AddressInfo(self.address, bus_name_obj.bus_name_unique, connection_is_bus=True)
+            self.addr_info = AddressInfo(self.data_dir, self.address, bus_name_obj.bus_name_unique, connection_is_bus=True)
             self.paned_buswatch.add2(self.addr_info.introspect_box)
-            
+
             #update info about selected bus name
             self.label_bus_name_selected_name.set_text(bus_name_obj.bus_name_unique)
             self.label_bus_name_selected_pid.set_text("%s" % bus_name_obj.pid)
             self.label_bus_name_selected_cmdline.set_text(bus_name_obj.cmdline)
             self.grid_bus_name_selected_info.set_visible(True)
-            
+
 
     def __liststore_model_add(self, bus_name_obj):
         """add a DBusBusName object to the liststore model"""
@@ -155,7 +156,7 @@ class BusWatch(object):
             if obj[2] == bus_name_obj.bus_name_unique:
                 del(self.liststore_model[n])
                 break
-    
+
     def __liststore_model_get(self, bus_name_obj):
         """get a object from the liststore"""
         for n, obj in enumerate(self.liststore_model):

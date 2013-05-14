@@ -7,18 +7,18 @@ from dfeet.uiloader import UILoader
 
 
 class ExecuteMethodDialog:
-    def __init__(self, connection, connection_is_bus, bus_name, method_obj):
-        signal_dict = { 
+    def __init__(self, data_dir, connection, connection_is_bus, bus_name, method_obj):
+        signal_dict = {
                         'execute_dbus_method_cb' : self.execute_cb,
                         'execute_dialog_close_cb': self.close_cb
-                      } 
+                      }
 
         self.connection = connection
         self.connection_is_bus = connection_is_bus
         self.bus_name = bus_name
         self.method_obj = method_obj
 
-        ui = UILoader(UILoader.UI_EXECUTEDIALOG)
+        ui = UILoader(data_dir, UILoader.UI_EXECUTEDIALOG)
         self.dialog = ui.get_root_widget()
         self.label_method_name = ui.get_widget('label_method_name')
         self.label_object_path = ui.get_widget('label_object_path')
@@ -39,7 +39,7 @@ class ExecuteMethodDialog:
     def execute_cb(self, widget):
         #get given parameters
         buf = self.parameter_textview.get_buffer()
-        params = buf.get_text(buf.get_start_iter(), 
+        params = buf.get_text(buf.get_start_iter(),
                               buf.get_end_iter(), False)
 
         #reset the statistics stuff
@@ -50,7 +50,7 @@ class ExecuteMethodDialog:
             'avg': 0,
             'count': 0,
             }
-        
+
         try:
             #build a GVariant
             if params:
