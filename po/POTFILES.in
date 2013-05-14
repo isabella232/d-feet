@@ -1,3 +1,10 @@
 # List of source files containing translatable strings.
 # Please keep this file sorted alphabetically.
+data/d-feet.desktop.in
 data/d-feet.desktop.in.in
+data/ui/addconnectiondialog.ui
+data/ui/buswatch.ui
+data/ui/executedialog.ui
+data/ui/introspection.ui
+data/ui/mainwindow.ui
+

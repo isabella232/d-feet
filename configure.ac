@@ -37,6 +37,7 @@ AC_CONFIG_FILES([
 	po/Makefile.in
 	src/Makefile
 	src/dfeet/Makefile
+	src/tests/Makefile
 	data/Makefile
 	data/d-feet.desktop.in
 	data/icons/Makefile

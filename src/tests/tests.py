@@ -24,6 +24,8 @@ XML = """
 </node>
 """
 
+DATA_DIR = os.path.abspath("../../data/")
+
 class IntrospectionHelperTest(unittest.TestCase):
     """tests for the introspection helper classes"""
     def setUp(self):
@@ -70,18 +72,18 @@ class AddressInfoTest(unittest.TestCase):
 
     def test_system_bus(self):
         """introspect a name on the system bus"""
-        ai = AddressInfo(Gio.BusType.SYSTEM, "org.freedesktop.DBus")
+        ai = AddressInfo(DATA_DIR, Gio.BusType.SYSTEM, "org.freedesktop.DBus")
 
     def test_session_bus(self):
         """introspect a name on the session bus"""
-        ai = AddressInfo(Gio.BusType.SESSION, "org.freedesktop.DBus")
+        ai = AddressInfo(DATA_DIR, Gio.BusType.SESSION, "org.freedesktop.DBus")
 
     @unittest.skip("TODO: create another bus and test with the other bus")
     def test_other_bus(self):
         """test another bus"""
         sysbus_addr = os.getenv("DBUS_SYSTEM_BUS_ADDRESS")
-        ai = AddressInfo(sysbus_addr, "org.freedesktop.DBus")
-    
+        ai = AddressInfo(DATA_DIR, sysbus_addr, "org.freedesktop.DBus")
+
     @unittest.skip("TODO:peer to peer test not implemented")
     def test_peer_to_peer(self):
         """test a p2p connection"""
