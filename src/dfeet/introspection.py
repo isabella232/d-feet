@@ -6,7 +6,11 @@ from dfeet.executemethoddialog import ExecuteMethodDialog
 
 from dfeet.uiloader import UILoader
 
-from dfeet.introspection_helper import DBusNode, DBusInterface, DBusProperty, DBusSignal, DBusMethod
+from dfeet.introspection_helper import DBusNode
+from dfeet.introspection_helper import DBusInterface
+from dfeet.introspection_helper import DBusProperty
+from dfeet.introspection_helper import DBusSignal
+from dfeet.introspection_helper import DBusMethod
 
 
 class AddressInfo():
@@ -23,20 +27,21 @@ class AddressInfo():
     def __init__(self, data_dir, address, name, connection_is_bus=True):
         self.data_dir = data_dir
         signal_dict = {
-            'treeview_row_activated_cb' : self.__treeview_row_activated_cb,
-            'treeview_row_expanded_cb' : self.__treeview_row_expanded_cb,
-            'button_reload_clicked_cb' : self.__button_reload_clicked_cb,
+            'treeview_row_activated_cb': self.__treeview_row_activated_cb,
+            'treeview_row_expanded_cb': self.__treeview_row_expanded_cb,
+            'button_reload_clicked_cb': self.__button_reload_clicked_cb,
             }
 
-        self.address = address # can be Gio.BusType.SYSTEM or Gio.BusType.SYSTEM or an other address
-        self.name = name #the bus name or None
-        self.connection_is_bus = connection_is_bus # is it a bus or a p2p connection?
+        self.address = address  # can be Gio.BusType.SYSTEM or Gio.BusType.SYSTEM or other address
+        self.name = name  # the bus name or None
+        self.connection_is_bus = connection_is_bus  # is it a bus or a p2p connection?
 
         #setup UI
         ui = UILoader(self.data_dir, UILoader.UI_INTROSPECTION)
-        self.introspect_box = ui.get_root_widget() #this is the main box with the treeview
-        self.__spinner = ui.get_widget('spinner') #the spinner is used to show progress during the introspection
-        self.__scrolledwindow = ui.get_widget('scrolledwindow') #the scrolledwindow contains the treeview
+        self.introspect_box = ui.get_root_widget()  # this is the main box with the treeview
+        self.__spinner = ui.get_widget('spinner')  # progress during the introspection
+        self.__scrolledwindow = \
+            ui.get_widget('scrolledwindow')  # the scrolledwindow contains the treeview
         self.__treemodel = ui.get_widget('treestore')
         self.__treemodel.set_sort_func(0, self.__sort_model)
         self.__treemodel.set_sort_column_id(0, Gtk.SortType.ASCENDING)
@@ -52,11 +57,14 @@ class AddressInfo():
             #we expect a bus connection
             if self.address == Gio.BusType.SYSTEM or self.address == Gio.BusType.SESSION:
                 self.connection = Gio.bus_get_sync(self.address, None)
-                self.__label_address.set_text(Gio.dbus_address_get_for_bus_sync(self.address, None))
+                self.__label_address.set_text(
+                    Gio.dbus_address_get_for_bus_sync(self.address, None))
             elif Gio.dbus_is_supported_address(self.address):
-                self.connection = Gio.DBusConnection.new_for_address_sync(self.address,
-                                                                          Gio.DBusConnectionFlags.AUTHENTICATION_CLIENT | Gio.DBusConnectionFlags.MESSAGE_BUS_CONNECTION,
-                                                                          None, None)
+                self.connection = Gio.DBusConnection.new_for_address_sync(
+                    self.address,
+                    Gio.DBusConnectionFlags.AUTHENTICATION_CLIENT |
+                    Gio.DBusConnectionFlags.MESSAGE_BUS_CONNECTION,
+                    None, None)
                 self.__label_address.set_text(self.address)
             else:
                 self.connection = None
@@ -64,9 +72,10 @@ class AddressInfo():
         else:
             #we have a peer-to-peer connection
             if Gio.dbus_is_supported_address(self.address):
-                self.connection = Gio.DBusConnection.new_for_address_sync(self.address,
-                                                                          Gio.DBusConnectionFlags.AUTHENTICATION_CLIENT,
-                                                                          None, None)
+                self.connection = Gio.DBusConnection.new_for_address_sync(
+                    self.address,
+                    Gio.DBusConnectionFlags.AUTHENTICATION_CLIENT,
+                    None, None)
                 self.__label_address.set_text(self.address)
             else:
                 self.connection = None
@@ -78,7 +87,6 @@ class AddressInfo():
     def __messagedialog_close_cb(self, dialog):
         self.__messagedialog.destroy()
 
-
     def __treeview_row_activated_cb(self, treeview, path, view_column):
         model = treeview.get_model()
         iter_ = model.get_iter(path)
@@ -87,7 +95,8 @@ class AddressInfo():
 
         if isinstance(obj, DBusMethod):
             #execute the selected method
-            dialog = ExecuteMethodDialog(self.data_dir, self.connection, self.connection_is_bus, self.name, obj)
+            dialog = ExecuteMethodDialog(
+                self.data_dir, self.connection, self.connection_is_bus, self.name, obj)
             dialog.run()
         elif isinstance(obj, DBusProperty):
             #update the selected property (TODO: do this async)
@@ -109,18 +118,16 @@ class AddressInfo():
             else:
                 treeview.expand_row(path, False)
 
-
     def __treeview_row_expanded_cb(self, treeview, iter_, path):
         model = treeview.get_model()
         node = model.get(iter_, 1)[0]
         if isinstance(node, DBusNode):
             if model.iter_has_child(iter_):
                 childiter = model.iter_children(iter_)
-                while childiter != None:
+                while childiter is not None:
                     childpath = model.get_path(childiter)
                     treeview.expand_to_path(childpath)
                     childiter = model.iter_next(childiter)
-
 
     def __sort_model(self, model, iter1, iter2, user_data):
         """objects with small path depth first"""
@@ -143,7 +150,6 @@ class AddressInfo():
         else:
             return un1 > un2
 
-
     def introspect_start(self):
         """introspect the given bus name and update the tree model"""
         #cleanup current tree model
@@ -151,11 +157,9 @@ class AddressInfo():
         #start introspection
         self.__dbus_node_introspect("/")
 
-
     def __button_reload_clicked_cb(self, widget):
         """reload the introspection data"""
         self.introspect_start()
-
 
     def __dbus_node_introspect_cb(self, connection, result_async, object_path):
         """callback when Introspect dbus function call finished"""
@@ -179,33 +183,48 @@ class AddressInfo():
 
                 #append interfaces to tree model
                 if len(node_info.interfaces) > 0:
-                    name_iter = self.__treemodel.append(tree_iter, ["<b>Interfaces</b>", None])
+                    name_iter = self.__treemodel.append(tree_iter,
+                                                        ["<b>Interfaces</b>", None])
                     for iface in node_info.interfaces:
                         iface_obj = DBusInterface(node_obj, iface)
-                        iface_iter = self.__treemodel.append(name_iter, ["%s" % iface.name, iface_obj])
+                        iface_iter = self.__treemodel.append(
+                            name_iter,
+                            ["%s" % iface.name, iface_obj])
                         #interface methods
                         if len(iface.methods) > 0:
-                            iface_methods_iter = self.__treemodel.append(iface_iter, ["<b>Methods</b>", None])
+                            iface_methods_iter = self.__treemodel.append(
+                                iface_iter, ["<b>Methods</b>", None])
                             for iface_method in iface.methods:
                                 method_obj = DBusMethod(iface_obj, iface_method)
-                                self.__treemodel.append(iface_methods_iter, ["%s" % method_obj.markup_str, method_obj])
+                                self.__treemodel.append(
+                                    iface_methods_iter,
+                                    ["%s" % method_obj.markup_str, method_obj])
                         #interface signals
                         if len(iface.signals) > 0:
-                            iface_signals_iter = self.__treemodel.append(iface_iter, ["<b>Signals</b>", None])
+                            iface_signals_iter = self.__treemodel.append(
+                                iface_iter, ["<b>Signals</b>", None])
                             for iface_signal in iface.signals:
                                 signal_obj = DBusSignal(iface_obj, iface_signal)
-                                self.__treemodel.append(iface_signals_iter, ["%s" % signal_obj.markup_str, signal_obj])
+                                self.__treemodel.append(
+                                    iface_signals_iter,
+                                    ["%s" % signal_obj.markup_str, signal_obj])
                         #interface properties
                         if len(iface.properties) > 0:
-                            iface_properties_iter = self.__treemodel.append(iface_iter, ["<b>Properties</b>", None])
+                            iface_properties_iter = self.__treemodel.append(
+                                iface_iter, ["<b>Properties</b>", None])
                             for iface_property in iface.properties:
                                 property_obj = DBusProperty(iface_obj, iface_property)
-                                self.__treemodel.append(iface_properties_iter, ["%s" % property_obj.markup_str, property_obj])
+                                self.__treemodel.append(
+                                    iface_properties_iter,
+                                    ["%s" % property_obj.markup_str, property_obj])
                         #interface annotations #FIXME: add Annotation object!!!
                         if len(iface.annotations) > 0:
-                            iface_annotations_iter = self.__treemodel.append(iface_iter, ["<b>Annotations</b>", None])
+                            iface_annotations_iter = self.__treemodel.append(
+                                iface_iter, ["<b>Annotations</b>", None])
                             for iface_annotation in iface.annotations:
-                                self.__treemodel.append(iface_annotations_iter, ["%s" % iface_annotation.name, iface_annotation])
+                                self.__treemodel.append(
+                                    iface_annotations_iter,
+                                    ["%s" % iface_annotation.name, iface_annotation])
 
             #are more nodes left?
             if len(node_info.nodes) > 0:
@@ -228,16 +247,16 @@ class AddressInfo():
 
                 self.introspect_box.show_all()
 
-
     def __dbus_node_introspect(self, object_path):
         """Introspect the given object path. This function will be called recursive"""
         #start spinner
         self.__spinner.start()
         self.__spinner.set_visible(True)
         #start async dbus call
-        self.connection.call(self.name, object_path, 'org.freedesktop.DBus.Introspectable', 'Introspect',
-                             None, GLib.VariantType.new("(s)"), Gio.DBusCallFlags.NONE, -1,
-                             None, self.__dbus_node_introspect_cb, object_path)
+        self.connection.call(
+            self.name, object_path, 'org.freedesktop.DBus.Introspectable', 'Introspect',
+            None, GLib.VariantType.new("(s)"), Gio.DBusCallFlags.NONE, -1,
+            None, self.__dbus_node_introspect_cb, object_path)
 
 
 if __name__ == "__main__":
@@ -257,7 +276,6 @@ if __name__ == "__main__":
     else:
         addr = p.addr
 
-    
     name = p.name
     ai = AddressInfo(addr, name, not p.p2p)
     win = Gtk.Window()

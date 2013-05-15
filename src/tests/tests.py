@@ -1,10 +1,17 @@
 #!/usr/bin/env python
-import sys, os
+import sys
+import os
 sys.path.insert(0, os.path.abspath(os.path.join(__file__, "../../")))
 
-from gi.repository import Gtk, Gio, GLib
+from gi.repository import Gtk
+from gi.repository import Gio
+from gi.repository import GLib
 from dfeet.introspection import AddressInfo
-from dfeet.introspection_helper import DBusNode, DBusInterface, DBusProperty, DBusSignal, DBusMethod
+from dfeet.introspection_helper import DBusNode
+from dfeet.introspection_helper import DBusInterface
+from dfeet.introspection_helper import DBusProperty
+from dfeet.introspection_helper import DBusSignal
+from dfeet.introspection_helper import DBusMethod
 import unittest
 
 XML = """
@@ -25,6 +32,7 @@ XML = """
 """
 
 DATA_DIR = os.path.abspath("../../data/")
+
 
 class IntrospectionHelperTest(unittest.TestCase):
     """tests for the introspection helper classes"""
@@ -92,14 +100,5 @@ class AddressInfoTest(unittest.TestCase):
         pass
 
 if __name__ == "__main__":
-    #FIXME: this is copied from the file "f-deet"
-    ENV_PATHS = {"DFEET_DATA_PATH" : "ui/",
-                 "DFEET_IMAGE_PATH" : "ui/",
-                 "DFEET_LOCALE_PATH" : "locale/",
-                 "DFEET_HELP_PATH" : "/usr/share/gnome/dfeet/"
-                 }
-    for var, path in ENV_PATHS.iteritems():
-        os.environ.setdefault(var, path)
-
     #run tests
     unittest.main()

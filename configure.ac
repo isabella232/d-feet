@@ -21,6 +21,8 @@ PKG_CHECK_MODULES(DFEET, [
   gtk+-3.0 >= 3.6
 ])
 
+AC_CHECK_PROG([PEP8], [pep8], [yes])
+test -z "$PEP8" && AC_MSG_ERROR([pep8 binary not found but needed for testsuite])
 
 # i18n stuff
 IT_PROG_INTLTOOL([0.40.0])

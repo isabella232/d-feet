@@ -14,6 +14,7 @@ class NotebookTabLabel(Gtk.Box):
     __gsignals__ = {
         "close-clicked": (GObject.SIGNAL_RUN_FIRST, GObject.TYPE_NONE, ()),
     }
+
     def __init__(self, label_text):
         Gtk.Box.__init__(self)
         self.set_orientation(Gtk.Orientation.HORIZONTAL)
@@ -78,33 +79,27 @@ class DFeetApp(Gtk.Application):
         self.__systembus_connect_cb(None)
         self.__sessionbus_connect_cb(None)
 
-
     def on_application_activate_cb(self, data=None):
         self.main_window.show()
         self.add_window(self.main_window)
-
 
     @property
     def bus_history(self):
         return self.__bus_history
 
-
     @bus_history.setter
     def bus_history(self, history_new):
         self.__bus_history = history_new
-
 
     def __systembus_connect_cb(self, action):
         """connect to system bus"""
         bw = BusWatch(self.data_dir, Gio.BusType.SYSTEM)
         self.__notebook_append_page(bw.paned_buswatch, "System Bus")
 
-
     def __sessionbus_connect_cb(self, action):
         """connect to session bus"""
         bw = BusWatch(self.data_dir, Gio.BusType.SESSION)
         self.__notebook_append_page(bw.paned_buswatch, "Session Bus")
-
 
     def __otherbus_connect_cb(self, action):
         """connect to other bus"""
@@ -133,13 +128,11 @@ class DFeetApp(Gtk.Application):
                     print("can not connect to '%s': %s" % (address, str(e)))
         dialog.destroy()
 
-
     def __action_about_activate_cb(self, action):
         """show the about dialog"""
         self.about_dialog.set_visible(True)
         self.about_dialog.run()
         self.about_dialog.set_visible(False)
-
 
     def __notebook_append_page(self, widget, text):
         """add a page to the notebook"""
@@ -147,17 +140,14 @@ class DFeetApp(Gtk.Application):
         page_nbr = self.notebook.append_page(widget, ntl)
         ntl.connect("close-clicked", self.__notebook_page_close_clicked_cb, widget)
 
-
     def __notebook_page_close_clicked_cb(self, button, widget):
         """remove a page from the notebook"""
         nbr = self.notebook.page_num(widget)
         self.notebook.remove_page(nbr)
 
-
     def __close_cb(self, action):
         """quit program"""
         self.__quit_dfeet(self.main_window, None)
-
 
     def __quit_dfeet(self, main_window, event):
         """quit d-feet application and store some settings"""

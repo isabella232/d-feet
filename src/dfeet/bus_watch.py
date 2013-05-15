@@ -67,21 +67,22 @@ class BusWatch(object):
         self.label_bus_name_selected_name = ui.get_widget('label_bus_name_selected_name')
         self.label_bus_name_selected_pid = ui.get_widget('label_bus_name_selected_pid')
         self.label_bus_name_selected_cmdline = ui.get_widget('label_bus_name_selected_cmdline')
-        self.addr_info = None # hold the currently selected AddressInfo object
+        self.addr_info = None  # hold the currently selected AddressInfo object
 
         self.treeview.connect('cursor-changed',
-                               self.__tree_view_cursor_changed_cb)
+                              self.__tree_view_cursor_changed_cb)
         self.entry_filter.connect("changed",
                                   self.__entry_filter_changed_cb)
-
 
         #setup the conection
         if self.address == Gio.BusType.SYSTEM or self.address == Gio.BusType.SESSION:
             self.connection = Gio.bus_get_sync(self.address, None)
         elif Gio.dbus_is_supported_address(self.address):
-            self.connection = Gio.DBusConnection.new_for_address_sync(self.address,
-                                                                      Gio.DBusConnectionFlags.AUTHENTICATION_CLIENT | Gio.DBusConnectionFlags.MESSAGE_BUS_CONNECTION,
-                                                                      None, None)
+            self.connection = Gio.DBusConnection.new_for_address_sync(
+                self.address,
+                Gio.DBusConnectionFlags.AUTHENTICATION_CLIENT |
+                Gio.DBusConnectionFlags.MESSAGE_BUS_CONNECTION,
+                None, None)
 
         #setup signals
         self.connection.signal_subscribe(None, "org.freedesktop.DBus", "NameOwnerChanged",
@@ -99,7 +100,6 @@ class BusWatch(object):
                                  result_handler=self.__list_names_handler,
                                  error_handler=self.__list_names_error_handler)
 
-
     def __treemodelfilter_buswatch_cb(self, model, iter, user_data):
         #return model.get_value(iter, 1) in data
         bus_name_obj = model.get(iter, 0)[0]
@@ -108,7 +108,6 @@ class BusWatch(object):
 
     def __entry_filter_changed_cb(self, entry_filter):
         self.treemodelfilter_buswatch.refilter()
-
 
     def __tree_view_cursor_changed_cb(self, treeview):
         """do something when a row is selected"""
@@ -129,7 +128,8 @@ class BusWatch(object):
                 pass
 
             #add Introspection to paned
-            self.addr_info = AddressInfo(self.data_dir, self.address, bus_name_obj.bus_name_unique, connection_is_bus=True)
+            self.addr_info = AddressInfo(
+                self.data_dir, self.address, bus_name_obj.bus_name_unique, connection_is_bus=True)
             self.paned_buswatch.add2(self.addr_info.introspect_box)
 
             #update info about selected bus name
@@ -138,17 +138,17 @@ class BusWatch(object):
             self.label_bus_name_selected_cmdline.set_text(bus_name_obj.cmdline)
             self.grid_bus_name_selected_info.set_visible(True)
 
-
     def __liststore_model_add(self, bus_name_obj):
         """add a DBusBusName object to the liststore model"""
         #update bus info stuff
-        self.bus_proxy.GetConnectionUnixProcessID('(s)', bus_name_obj.bus_name_unique, 
-                                                  result_handler = self.__get_unix_process_id_cb,
-                                                  error_handler =  self.__get_unix_process_id_error_cb,
-                                                  user_data=bus_name_obj)
+        self.bus_proxy.GetConnectionUnixProcessID(
+            '(s)', bus_name_obj.bus_name_unique,
+            result_handler=self.__get_unix_process_id_cb,
+            error_handler=self.__get_unix_process_id_error_cb,
+            user_data=bus_name_obj)
         #add bus to liststore
-        return self.liststore_model.append([bus_name_obj, 0, "%s" % (bus_name_obj.bus_name_unique), bus_name_obj.cmdline])
-
+        return self.liststore_model.append(
+            [bus_name_obj, 0, "%s" % (bus_name_obj.bus_name_unique), bus_name_obj.cmdline])
 
     def __liststore_model_remove(self, bus_name_obj):
         """remove a DBusBusName object to the liststore model"""
@@ -164,8 +164,9 @@ class BusWatch(object):
                 return obj
         raise Exception("bus name object '%s' not found in liststore" % (bus_name_obj))
 
-
-    def __name_owner_changed_cb(self, connection, sender_name, object_path, interface_name, signal_name, parameters, user_data):
+    def __name_owner_changed_cb(self, connection, sender_name,
+                                object_path, interface_name, signal_name,
+                                parameters, user_data):
         """bus name added or removed"""
         bus_name = parameters[0]
         old_owner = parameters[1]
@@ -178,31 +179,28 @@ class BusWatch(object):
                 self.__liststore_model_add(bus_name_obj)
             else:
                 self.__liststore_model_remove(bus_name_obj)
-        else :
+        else:
             if new_owner:
                 self.__liststore_model_add(bus_name_obj)
             if old_owner:
                 self.__liststore_model_remove(bus_name_obj)
-
 
     def __list_names_handler(self, obj, names, userdata):
         for n in names:
             bus_name_obj = DBusBusName(n)
             self.__liststore_model_add(bus_name_obj)
 
-
     def __list_names_error_handler(self, obj, error, userdata):
         print("error getting bus names: %s" % str(error))
-
 
     def __get_unix_process_id_cb(self, obj, pid, bus_name_obj):
         bus_name_obj.pid = pid
 
-
     def __get_unix_process_id_error_cb(self, obj, error, bus_name_obj):
-        print("error getting unix process id for %s: %s" % (bus_name_obj.bus_name_unique, str(error)))
+        print(
+            "error getting unix process id for %s: %s" % (
+                bus_name_obj.bus_name_unique, str(error)))
         bus_name_obj.pid = 0
-
 
     def __sort_on_name(self, model, iter1, iter2, user_data):
         un1 = model.get_value(iter1, 2)
@@ -210,11 +208,11 @@ class BusWatch(object):
 
         # covert to integers if comparing two unique names
         if un1[0] == ':' and un2[0] == ':':
-           un1 = un1[1:].split('.')
-           un1 = tuple(map(int, un1))
+            un1 = un1[1:].split('.')
+            un1 = tuple(map(int, un1))
 
-           un2 = un2[1:].split('.')
-           un2 = tuple(map(int, un2))
+            un2 = un2[1:].split('.')
+            un2 = tuple(map(int, un2))
 
         elif un1[0] == ':' and un2[0] != ':':
             return 1
@@ -259,5 +257,3 @@ if __name__ == "__main__":
         Gtk.main()
     except (KeyboardInterrupt, SystemExit):
         Gtk.main_quit()
-
-        

@@ -11,11 +11,12 @@ try:
 except:
     has_libwnck = False
 
+
 class IconTable:
     instance = None
 
     def __init__(self):
-        # {pid: icon} 
+        # {pid: icon}
         self.app_map = {}
 
         icon_theme = Gtk.IconTheme.get_default()
@@ -31,7 +32,7 @@ class IconTable:
                 pid = app.get_pid()
                 icon = app.get_mini_icon()
 
-                if not self.app_map.has_key(pid):
+                if not pid in self.app_map.keys():
                     self.app_map[pid] = icon
 
     def on_app_open(self, screen, app):
@@ -40,17 +41,17 @@ class IconTable:
             self.app_map[app.get_pid()] = icon
 
     def on_app_close(self, screen, app):
-        return # this is a leak but some apps still exist even if all their
-               # top level windows don't.  We need to have a better cleanup
-               # based on when an app's services go away  
+        return  # this is a leak but some apps still exist even if all their
+                # top level windows don't.  We need to have a better cleanup
+                # based on when an app's services go away
         pid = app.get_pid()
 
-        if self.app_map.has_key(pid):
+        if not pid in self.app_map.keys():
             del self.app_map[pid]
 
     def get_icon(self, pid):
         icon = None
-        if self.app_map.has_key(pid):
+        if not pid in self.app_map.keys():
             icon = self.app_map[pid]
 
         if not icon:
@@ -64,4 +65,3 @@ class IconTable:
             cls.instance = IconTable()
 
         return cls.instance
-

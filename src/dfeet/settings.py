@@ -13,6 +13,7 @@ except:
 import os
 import re
 
+
 class ConfigTokenizer():
     COMMA = re.compile(",")
     FALLTHROUGH = re.compile('(?:[^,.])+')
@@ -24,8 +25,8 @@ class ConfigTokenizer():
     _parse_order = [STRING, NUMBER, WHITESPACE, COMMA, FALLTHROUGH]
 
     class Match():
-        ENDWHITESPACE=re.compile('\s$')
-        UNESCAPE=re.compile('\\\(.)')
+        ENDWHITESPACE = re.compile('\s$')
+        UNESCAPE = re.compile('\\\(.)')
 
         def __init__(self, match, regex):
             self.match = match
@@ -42,12 +43,11 @@ class ConfigTokenizer():
             return False
 
         def is_value(self):
-            if (self.regex == ConfigTokenizer.STRING or
-                self.regex == ConfigTokenizer.NUMBER or
-                self.regex == ConfigTokenizer.FALLTHROUGH):
+            if self.regex == ConfigTokenizer.STRING or \
+                    self.regex == ConfigTokenizer.NUMBER or \
+                    self.regex == ConfigTokenizer.FALLTHROUGH:
                 return True
             return False
-
 
         def strip(self, s):
             return self.ENDWHITESPACE.sub('', s)
@@ -90,6 +90,7 @@ class ConfigTokenizer():
 
         raise StopIteration
 
+
 class Settings:
     """
     Handles loading/saving settings from/to a file on disk.
@@ -98,15 +99,15 @@ class Settings:
     instance = None
 
     # the different settings in each config block
-    general =   {
-                "windowheight" : 550,
-                "windowwidth" : 900,
-                "windowstate" : None,
-                "bustabs_list" : [],
-                "addbus_list" : []
-                }
+    general = {
+        "windowheight": 550,
+        "windowwidth": 900,
+        "windowstate": None,
+        "bustabs_list": [],
+        "addbus_list": [],
+        }
 
-    def __init__(self, filename = None):
+    def __init__(self, filename=None):
         """
         Creates a new instance of Settings.
 
@@ -174,7 +175,7 @@ class Settings:
                     self.general[key][i] = self.quote(self.general[key][i])
                 self.general[key] = ','.join(self.general[key])
 
-            if self.general[key] == None:
+            if self.general[key] is None:
                 self.general[key] = ''
 
             self.config.set("General", str(key), str(self.general[key]))

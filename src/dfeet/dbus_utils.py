@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function
 
+
 def convert_complex_type(subsig):
     result = None
     len_consumed = 0
@@ -34,9 +35,9 @@ def convert_complex_type(subsig):
             subtypelist = [key, value]
             len_consumed += 1
 
-        result = ['Dict of {', subtypelist,'}']
+        result = ['Dict of {', subtypelist, '}']
 
-    elif c == 'a':                       # handle an array 
+    elif c == 'a':                       # handle an array
         ss = subsig[1:]
         (r, lc) = convert_complex_type(ss)
         if r:
@@ -55,17 +56,18 @@ def convert_complex_type(subsig):
         len_ss = len(ss)
         while i < len_ss and paren_count != 0:
             if ss[i] == '(':
-                paren_count+=1
+                paren_count += 1
             elif ss[i] == ')':
-                paren_count-=1
+                paren_count -= 1
 
-            i+=1
-        
+            i += 1
+
         len_consumed = i
-        ss = ss[0:i-1]
-        result = ['Struct of (', sig_to_type_list(ss), ')'] 
+        ss = ss[0:i - 1]
+        result = ['Struct of (', sig_to_type_list(ss), ')']
 
     return (result, len_consumed)
+
 
 def convert_simple_type(c):
     result = None
@@ -99,6 +101,7 @@ def convert_simple_type(c):
 
     return result
 
+
 def sig_to_type_list(sig):
     i = 0
     result = []
@@ -120,9 +123,10 @@ def sig_to_type_list(sig):
         else:
                 result.append(type_)
 
-        i+=1
-        
+        i += 1
+
     return result
+
 
 def type_list_to_string(type_list):
     result = ''
@@ -146,6 +150,7 @@ def type_list_to_string(type_list):
 
     return result[2:]
 
+
 def sig_to_markup(sig, span_attr_str):
     list_ = sig_to_type_list(sig)
     markedup_list = []
@@ -153,7 +158,8 @@ def sig_to_markup(sig, span_attr_str):
     m += type_list_to_string(list_)
     m += '</span>'
 
-    return m 
+    return m
+
 
 def sig_to_string(sig):
     return type_list_to_string(sig_to_type_list(sig))
