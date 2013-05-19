@@ -1,0 +1,27 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="basics">
+
+<info>
+  <link type="guide" xref="index#contents"/>
+  <credit type="author">
+    <name>Thomas Bechtold</name>
+    <email>thomasbechtold@jpberlin.de</email>
+    <years>2012-2013</years>
+  </credit>
+  <desc>Basic usage of d-feet</desc>
+</info>
+
+
+<title>Basics</title>
+<section id="quick-guide">
+  <title>Quick guide</title>
+  <p>Here is the quick guide howto use d-feet</p>
+  <steps>
+    <item><p>Select a bus you want to connect to (System Bus or Session Bus)</p></item>
+    <item><p>Select a service you want information about</p></item>
+    <item><p>Select a property or a method of the service</p></item>
+  </steps>
+</section>
+
+</page>
