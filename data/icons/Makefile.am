@@ -27,8 +27,12 @@ icon48_DATA = hicolor/48x48/apps/d-feet.png
 icon256dir = $(datadir)/icons/hicolor/256x256/apps
 icon256_DATA = hicolor/256x256/apps/d-feet.png
 
-scaleabledir = $(datadir)/icons/hicolor/scaleable/apps
-scaleable_DATA = hicolor/scalable/apps/d-feet.svg
+scalabledir = $(datadir)/icons/hicolor/scalable/apps
+scalable_DATA = hicolor/scalable/apps/d-feet.svg
+
+scalablehcdir = $(datadir)/icons/HighContrast/scalable/apps
+scalablehc_DATA = HighContrast/scalable/apps/d-feet.svg
+
 
 gtk_update_icon_cache = gtk-update-icon-cache -f -t $(datadir)/icons/hicolor
 
@@ -49,5 +53,6 @@ EXTRA_DIST = \
 	$(icon32_DATA)  	\
 	$(icon48_DATA)  	\
 	$(icon256_DATA)  	\
-	$(scaleable_DATA)
+	$(scalable_DATA)	\
+	$(scalablehc_DATA)
 
