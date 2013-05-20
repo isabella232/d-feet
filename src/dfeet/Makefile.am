@@ -9,7 +9,8 @@ dfeet_PYTHON =			\
 	introspection.py	\
 	settings.py		\
 	uiloader.py		\
-	wnck_utils.py
+	wnck_utils.py		\
+	window.py
 
 
 dfeetdir = $(pythondir)/dfeet
