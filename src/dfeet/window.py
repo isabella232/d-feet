@@ -74,7 +74,6 @@ class DFeetWindow(Gtk.ApplicationWindow):
             'action_sessionbus_connect_activate_cb': self.__sessionbus_connect_cb,
             'action_otherbus_connect_activate_cb': self.__otherbus_connect_cb,
             'action_close_activate_cb': self.__close_cb,
-            'action_about_activate_cb': self.__action_about_activate_cb,
             }
 
         #get settings
@@ -90,7 +89,6 @@ class DFeetWindow(Gtk.ApplicationWindow):
         self.notebook = ui.get_widget('display_notebook')
         self.notebook.show_all()
         self.notebook_page_widget = ui.get_widget('box_notebook_page')
-        self.about_dialog = ui.get_widget('aboutdialog')
         #create bus history list and load entries from settings
         self.__bus_history = []
         for bus in settings.general['addbus_list']:
@@ -148,12 +146,6 @@ class DFeetWindow(Gtk.ApplicationWindow):
                 except Exception as e:
                     print("can not connect to '%s': %s" % (address, str(e)))
         dialog.destroy()
-
-    def __action_about_activate_cb(self, action):
-        """show the about dialog"""
-        self.about_dialog.set_visible(True)
-        self.about_dialog.run()
-        self.about_dialog.set_visible(False)
 
     def __notebook_append_page(self, widget, text):
         """add a page to the notebook"""
