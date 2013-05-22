@@ -1,6 +1,6 @@
 AC_PREREQ([2.64])
 AC_INIT([d-feet],
-	[0.3.5],
+	[0.3.4],
 	[http://bugzilla.gnome.org/enter_bug.cgi?product=d-feet],
         [d-feet],
         [http://live.gnome.org/DFeet])
