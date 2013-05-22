@@ -1,3 +1,29 @@
+0.3.4 - May 22, 2013
+====================
+- Update README and HACKING (Thomas Bechtold)
+- Improve the HighContrast icon (Thomas Bechtold)
+- Add missing source (Thomas Bechtold)
+- Add scalable HighContrast icon (Thomas Bechtold)
+- Remove useless text and duplicate icons from scalable logo (Thomas Bechtold)
+- Don't fail if no systembus or sessionbus is available (Thomas Bechtold)
+- Add app menu (Thomas Bechtold)
+- Move window logic to own file and use GtkApplicationWindow (Thomas Bechtold)
+- Update .gitignore (Thomas Bechtold)
+- Add help files (Thomas Bechtold)
+- Check source for pep8 (Thomas Bechtold)
+- Fix unittests (Thomas Bechtold)
+- Use correct data dir (Thomas Bechtold)
+- Use autotools for d-feet (Thomas Bechtold)
+- Fix whitespaces (Thomas Bechtold)
+
+0.3.3 - Jan 12, 2013
+====================
+
+- Don't close dialog after method execution (Thomas Bechtold)
+- Add close-button to exception dialog (Thomas Bechtold)
+- Fix needed double click to close method execution dialog (Thomas Bechtold)
+- Update HACKING (Thomas Bechtold)
+
 0.3.2 - Jan 10, 2013
 ====================
 
