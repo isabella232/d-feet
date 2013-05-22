@@ -12,12 +12,8 @@ gnome-python-libwnck - for displaying application icons next to the application
 
 To run localy for testing:
 
-./d-feet --local-dirs
-
-or
-
-./d-feet -l
+DFEET_DEBUG=1 ./src/d-feet
 
 To install:
 
-setup.py install
+./configure && make && make install
