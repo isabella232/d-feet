@@ -59,7 +59,7 @@ class AddressInfo():
                 self.connection = Gio.bus_get_sync(self.address, None)
                 self.__label_address.set_text(
                     Gio.dbus_address_get_for_bus_sync(self.address, None))
-            elif Gio.dbus_is_supported_address(self.address):
+            elif Gio.dbus_is_address(self.address):
                 self.connection = Gio.DBusConnection.new_for_address_sync(
                     self.address,
                     Gio.DBusConnectionFlags.AUTHENTICATION_CLIENT |
