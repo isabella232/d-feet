@@ -78,19 +78,17 @@ class IntrospectionHelperTest(unittest.TestCase):
 class AddressInfoTest(unittest.TestCase):
     """tests for the AddressInfo class and the introspection stuff"""
 
-    def test_system_bus(self):
+    def setUp(self):
+        self.bus = Gio.TestDBus()
+        self.bus.unset()
+        self.bus.up()
+
+    def tearDown(self):
+        self.bus.stop()
+
+    def test_bus(self):
         """introspect a name on the system bus"""
-        ai = AddressInfo(DATA_DIR, Gio.BusType.SYSTEM, "org.freedesktop.DBus")
-
-    def test_session_bus(self):
-        """introspect a name on the session bus"""
-        ai = AddressInfo(DATA_DIR, Gio.BusType.SESSION, "org.freedesktop.DBus")
-
-    @unittest.skip("TODO: create another bus and test with the other bus")
-    def test_other_bus(self):
-        """test another bus"""
-        sysbus_addr = os.getenv("DBUS_SYSTEM_BUS_ADDRESS")
-        ai = AddressInfo(DATA_DIR, sysbus_addr, "org.freedesktop.DBus")
+        ai = AddressInfo(DATA_DIR, self.bus.get_bus_address(), "org.freedesktop.DBus")
 
     @unittest.skip("TODO:peer to peer test not implemented")
     def test_peer_to_peer(self):
