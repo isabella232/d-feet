@@ -10,7 +10,7 @@
   </object>
   <object class="GtkDialog" id="executedialog1">
     <property name="can_focus">False</property>
-    <property name="title" translatable="yes" context="yes">Execute D-Bus Method</property>
+    <property name="title" translatable="yes">Execute D-Bus Method</property>
     <property name="default_width">320</property>
     <property name="default_height">400</property>
     <property name="destroy_with_parent">True</property>
@@ -27,7 +27,7 @@
             <property name="layout_style">end</property>
             <child>
               <object class="GtkButton" id="closebutton1">
-                <property name="label" context="yes">gtk-close</property>
+                <property name="label">gtk-close</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="receives_default">False</property>
@@ -42,7 +42,7 @@
             </child>
             <child>
               <object class="GtkButton" id="executebutton1">
-                <property name="label" translatable="yes" context="yes">_Execute</property>
+                <property name="label" translatable="yes">_Execute</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="is_focus">True</property>
