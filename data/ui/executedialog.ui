@@ -94,8 +94,10 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="halign">start</property>
-                    <property name="label" translatable="yes">&lt;b&gt;Method name:&lt;/b&gt;</property>
-                    <property name="use_markup">True</property>
+                    <property name="label" translatable="yes">Method name:</property>
+                    <attributes>
+                     <attribute name="weight" value="bold"/>
+                    </attributes>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -109,8 +111,10 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="halign">start</property>
-                    <property name="label" translatable="yes">&lt;b&gt;Object Path:&lt;/b&gt;</property>
-                    <property name="use_markup">True</property>
+                    <property name="label" translatable="yes">Object Path:</property>
+                    <attributes>
+                     <attribute name="weight" value="bold"/>
+                    </attributes>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -124,8 +128,10 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="halign">start</property>
-                    <property name="label" translatable="yes">&lt;b&gt;Interface:&lt;/b&gt;</property>
-                    <property name="use_markup">True</property>
+                    <property name="label" translatable="yes">Interface:</property>
+                    <attributes>
+                     <attribute name="weight" value="bold"/>
+                    </attributes>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -177,8 +183,10 @@
                 <property name="can_focus">False</property>
                 <property name="halign">start</property>
                 <property name="margin_top">10</property>
-                <property name="label" translatable="yes">&lt;b&gt;Method input&lt;/b&gt;</property>
-                <property name="use_markup">True</property>
+                <property name="label" translatable="yes">Method input</property>
+                <attributes>
+                 <attribute name="weight" value="bold"/>
+                </attributes>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -212,8 +220,10 @@
                 <property name="margin_top">10</property>
                 <property name="yalign">0.49000000953674316</property>
                 <property name="xpad">1</property>
-                <property name="label" translatable="yes">&lt;b&gt;Method output&lt;/b&gt;</property>
-                <property name="use_markup">True</property>
+                <property name="label" translatable="yes">Method output</property>
+                <attributes>
+                 <attribute name="weight" value="bold"/>
+                </attributes>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -306,8 +316,10 @@
                     <property name="halign">start</property>
                     <property name="yalign">0.49000000953674316</property>
                     <property name="xpad">1</property>
-                    <property name="label" translatable="yes">&lt;b&gt;Method execution&lt;/b&gt;</property>
-                    <property name="use_markup">True</property>
+                    <property name="label" translatable="yes">Method execution</property>
+                    <attributes>
+                     <attribute name="weight" value="bold"/>
+                    </attributes>
                   </object>
                   <packing>
                     <property name="expand">False</property>
