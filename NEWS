@@ -1,3 +1,22 @@
+0.3.5 - Jun 9, 2013
+===================
+- Fix Annotation handling (Thomas Bechtold)
+- Czech translation (Marek Černocký)
+- Added Czech language (Marek Černocký)
+- Added sl for Slovenian translation (Matej Urbančič)
+- Added Slovenian translation (Matej Urbančič)
+- Updated Spanish translation (Daniel Mustieles)
+- Added Spanish language lo LINGUAS (Daniel Mustieles)
+- Removed markup from Ui files. See https://live.gnome.org/GnomeGoals/RemoveMarkupInMessages (Daniel Mustieles)
+- Add empty (for now) LINGUAS file to satisfy Damned Lies (Piotr Drąg)
+- Remove unneeded context from strings (Piotr Drąg)
+- Updated POTFILES.in and POTFILES.skip (Piotr Drąg)
+- Use GTestDBus instead of Systembus and Sessionbus (Thomas Bechtold)
+- Use dbus_is_address() instead of dbus_is_supported_address() (Thomas Bechtold)
+- Require gobject introspection >= 0.9.6 (Thomas Bechtold)
+- GI imports: require Gtk 3.0 (Dominique Leuenberger)
+- Update HACKING (Thomas Bechtold)
+
 0.3.4 - May 22, 2013
 ====================
 - Update README and HACKING (Thomas Bechtold)
