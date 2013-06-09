@@ -1,0 +1,165 @@
+# Czech translation for d-feet.
+# Copyright (C) 2013 d-feet's COPYRIGHT HOLDER
+# This file is distributed under the same license as the d-feet package.
+#
+# Marek Černocký <marek@manet.cz>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: d-feet master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-"
+"feet&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-06-03 19:50+0000\n"
+"PO-Revision-Date: 2013-06-09 07:58+0200\n"
+"Last-Translator: Marek Černocký <marek@manet.cz>\n"
+"Language-Team: Czech <gnome-cs-list@gnome.org>\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Gtranslator 2.91.6\n"
+
+#: ../data/d-feet.desktop.in.in.h:1
+msgid "D-Feet"
+msgstr "D-Feet"
+
+#: ../data/d-feet.desktop.in.in.h:2
+msgid "D-Bus Debugger"
+msgstr "Program pro ladění D-Bus"
+
+#: ../data/d-feet.desktop.in.in.h:3
+msgid "Debug D-Bus applications"
+msgstr "Ladit aplikace používající sběrnici D-Bus"
+
+#: ../data/d-feet.desktop.in.in.h:4
+msgid "debug;d-bus;"
+msgstr "ladit;ladění;d-bus;"
+
+#: ../data/ui/addconnectiondialog.ui.h:1
+msgid "Add a Connection"
+msgstr "Přidání připojení"
+
+#: ../data/ui/addconnectiondialog.ui.h:2
+msgid "See http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
+msgstr "Viz http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
+
+#: ../data/ui/addconnectiondialog.ui.h:3 ../data/ui/introspection.ui.h:3
+msgid "Address:"
+msgstr "Adresa:"
+
+#: ../data/ui/buswatch.ui.h:1
+msgid "Filter:"
+msgstr "Filtr:"
+
+#: ../data/ui/buswatch.ui.h:2
+msgid "unique bus name"
+msgstr "jedinečný název sběrnice"
+
+#: ../data/ui/buswatch.ui.h:3
+msgid "Command line:"
+msgstr "Příkazový řádek:"
+
+#: ../data/ui/buswatch.ui.h:4
+msgid "Process ID:"
+msgstr "ID procesu:"
+
+#: ../data/ui/buswatch.ui.h:5 ../data/ui/introspection.ui.h:2
+msgid "Name:"
+msgstr "Název:"
+
+#: ../data/ui/executedialog.ui.h:1
+msgid "Execute D-Bus Method"
+msgstr "Nechat provést metodu D-Bus"
+
+#: ../data/ui/executedialog.ui.h:2
+msgid "_Execute"
+msgstr "_Provést"
+
+#: ../data/ui/executedialog.ui.h:3
+msgid "Method name:"
+msgstr "Název metody:"
+
+#: ../data/ui/executedialog.ui.h:4
+msgid "Object Path:"
+msgstr "Cesta k objektu:"
+
+#: ../data/ui/executedialog.ui.h:5
+msgid "Interface:"
+msgstr "Rozhraní:"
+
+#: ../data/ui/executedialog.ui.h:6
+msgid "Method input"
+msgstr "Vstupní metoda"
+
+#: ../data/ui/executedialog.ui.h:7
+msgid "Method output"
+msgstr "Výstupní metoda"
+
+#: ../data/ui/executedialog.ui.h:8
+msgid "Pretty print"
+msgstr "Hezký výpis"
+
+#: ../data/ui/executedialog.ui.h:9
+msgid "Source"
+msgstr "Zdroj"
+
+#: ../data/ui/executedialog.ui.h:10
+msgid "Method execution"
+msgstr "Provedení metody"
+
+#: ../data/ui/executedialog.ui.h:11
+msgid "Number of method executions"
+msgstr "Počet provedení metody"
+
+#: ../data/ui/executedialog.ui.h:12
+msgid "Ø:"
+msgstr "⌀"
+
+#: ../data/ui/executedialog.ui.h:13
+msgid "Average method execution time in seconds"
+msgstr "Průměrný čas provádění metody v sekundách"
+
+#: ../data/ui/executedialog.ui.h:14
+msgid "Min:"
+msgstr "Min:"
+
+#: ../data/ui/executedialog.ui.h:15
+msgid "Minimal method execution time in seconds"
+msgstr "Minimální čas provádění metody v sekundách"
+
+#: ../data/ui/executedialog.ui.h:16
+msgid "Max:"
+msgstr "Max:"
+
+#: ../data/ui/executedialog.ui.h:17
+msgid "Maximal method execution time in seconds"
+msgstr "Maximální čas provádění metody v sekundách"
+
+#: ../data/ui/introspection.ui.h:1
+msgid "Unique name:"
+msgstr "Jedinečný název"
+
+#: ../data/ui/introspection.ui.h:4
+msgid "Introspecting..."
+msgstr "Prozkoumává se…"
+
+#: ../data/ui/introspection.ui.h:5
+msgid "Object path"
+msgstr "Cesta k objektu"
+
+#: ../data/ui/mainwindow.ui.h:1
+msgid "Connect to System Bus"
+msgstr "Připojit k systémové sběrnici"
+
+#: ../data/ui/mainwindow.ui.h:2
+msgid "Connect to Session Bus"
+msgstr "Připojit ke sběrnici sezení"
+
+#: ../data/ui/mainwindow.ui.h:3
+msgid "Connect to other Bus"
+msgstr "Připojit k jiné sběrnici"
+
+#: ../data/ui/mainwindow.ui.h:4
+msgid "File"
+msgstr "Soubor"
