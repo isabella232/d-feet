@@ -11,6 +11,7 @@ from dfeet.introspection_helper import DBusInterface
 from dfeet.introspection_helper import DBusProperty
 from dfeet.introspection_helper import DBusSignal
 from dfeet.introspection_helper import DBusMethod
+from dfeet.introspection_helper import DBusAnnotation
 
 
 class AddressInfo():
@@ -217,14 +218,15 @@ class AddressInfo():
                                 self.__treemodel.append(
                                     iface_properties_iter,
                                     ["%s" % property_obj.markup_str, property_obj])
-                        #interface annotations #FIXME: add Annotation object!!!
+                        #interface annotations
                         if len(iface.annotations) > 0:
                             iface_annotations_iter = self.__treemodel.append(
                                 iface_iter, ["<b>Annotations</b>", None])
                             for iface_annotation in iface.annotations:
+                                annotation_obj = DBusAnnotation(iface_obj, iface_annotation)
                                 self.__treemodel.append(
                                     iface_annotations_iter,
-                                    ["%s" % iface_annotation.name, iface_annotation])
+                                    ["%s" % (annotation_obj.markup_str), annotation_obj])
 
             #are more nodes left?
             if len(node_info.nodes) > 0:

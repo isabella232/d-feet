@@ -221,3 +221,22 @@ class DBusMethod(DBusInterface):
     @property
     def out_args_markup_str(self):
         return self.__args_markup_str(self.out_args)
+
+
+class DBusAnnotation(DBusInterface):
+    """object to represent a DBus Annotation"""
+    def __init__(self, dbus_iface_obj, annotation_info):
+        DBusInterface.__init__(self, dbus_iface_obj,
+                               dbus_iface_obj.iface_info)
+        self.__annotation_info = annotation_info  # Gio.GDBusAnnotationInfo object
+
+    def __repr__(self):
+        return "%s: %s" % (self.annotation_info.key, self.annotation_info.value)
+
+    @property
+    def annotation_info(self):
+        return self.__annotation_info
+
+    @property
+    def markup_str(self):
+        return "%s: %s" % (self.annotation_info.key, self.annotation_info.value)
