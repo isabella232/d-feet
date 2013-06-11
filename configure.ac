@@ -21,8 +21,16 @@ PKG_CHECK_MODULES(DFEET, [
   gtk+-3.0 >= 3.6
 ])
 
-AC_CHECK_PROG([PEP8], [pep8], [yes])
-test -z "$PEP8" && AC_MSG_ERROR([pep8 binary not found but needed for testsuite])
+AC_ARG_ENABLE(tests,
+  AS_HELP_STRING([--disable-tests],
+                 [do not run tests]),
+    enable_tests=$enableval, enable_tests=yes)
+
+if test x$enable_tests = xyes; then
+  AC_CHECK_PROG([PEP8], [pep8], [yes])
+  test -z "$PEP8" && AC_MSG_ERROR([pep8 binary not found but needed for testsuite. either install it or run with the argument --disable-tests to not run the testsuite.])
+fi
+AM_CONDITIONAL(ENABLE_TESTS, test "x$enable_tests" = "xyes")
 
 # i18n stuff
 IT_PROG_INTLTOOL([0.40.0])

@@ -1,4 +1,8 @@
-SUBDIRS = dfeet tests
+SUBDIRS = dfeet
+
+if ENABLE_TESTS
+  SUBDIRS += tests
+endif
 
 bin_SCRIPTS = d-feet
 
