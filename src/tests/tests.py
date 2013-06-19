@@ -23,6 +23,7 @@ XML = """
     </method>
     <property name="TestString" type="s" access="readwrite"/>
     <property name="TestBool" type="b" access="read"/>
+    <property name="TestStruct" type="(suu)" access="read"/>
     <signal name="TestSignal">
       <arg name="SigString" type="s"/>
       <arg name="SigBool" type="b"/>
@@ -55,7 +56,7 @@ class IntrospectionHelperTest(unittest.TestCase):
         self.assertEqual(obj_iface.name, self.name)
         self.assertEqual(obj_iface.object_path, self.object_path)
         self.assertEqual(len(obj_iface.iface_info.methods), 1)
-        self.assertEqual(len(obj_iface.iface_info.properties), 2)
+        self.assertEqual(len(obj_iface.iface_info.properties), 3)
         self.assertEqual(len(obj_iface.iface_info.signals), 1)
 
     def test_dbus_property(self):
@@ -65,6 +66,10 @@ class IntrospectionHelperTest(unittest.TestCase):
         obj_prop = DBusProperty(obj_iface, obj_iface.iface_info.properties[0])
         self.assertEqual(obj_prop.name, self.name)
         self.assertEqual(obj_prop.object_path, self.object_path)
+        #get the markup string with value for struct prop (see bgo #702593)
+        obj_prop = DBusProperty(obj_iface, obj_iface.iface_info.properties[2])
+        obj_prop.value = ("string", 1, 2)
+        self.assertIn("'string', 1, 2", obj_prop.markup_str)
 
     def test_dbus_signal(self):
         """test DBusSignal class"""

@@ -87,7 +87,7 @@ class DBusProperty(DBusInterface):
             args_signature_markup(sig),
             args_name_markup(self.property_info.name), " / ".join(readwrite))
         if self.value:
-            s += " = %s" % (self.value)
+            s += " = %s" % (self.value,)
         return s
 
     @property
