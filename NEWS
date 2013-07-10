@@ -1,3 +1,11 @@
+0.3.6 - Jul 10, 2013
+====================
+- Replace live.gnome.org with wiki.gnome.org (Thomas Bechtold)
+- Added Brazilian Portuguese translation (Rafael Ferreira)
+- Add a flag to not run the testsuite (Jonh Wendell)
+- Fix markup string handling for tuple (Thomas Bechtold)
+- Update HACKING (Thomas Bechtold)
+
 0.3.5 - Jun 9, 2013
 ===================
 - Fix Annotation handling (Thomas Bechtold)
