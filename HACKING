@@ -9,9 +9,9 @@ Making a release
 5. Build tarball with: make clean; make dist-xz
 6. Upload tarball: scp d-feet-0.3.3.tar.xz toabctl@master.gnome.org:
 7. Install tarball: ssh toabctl@master.gnome.org 'ftpadmin install d-feet-0.3.3.tar.xz'
-8. update the wiki at https://live.gnome.org/DFeet
+8. update the wiki at https://wiki.gnome.org/DFeet
 9. blog about it if you would like
 10. Make post-release version bump
 11. Push the changes with 'git push && git push --tags'
 
-Based on http://live.gnome.org/MaintainersCorner/Releasing
+Based on http://wiki.gnome.org/MaintainersCorner/Releasing

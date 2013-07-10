@@ -3,7 +3,7 @@ AC_INIT([d-feet],
 	[0.3.6],
 	[http://bugzilla.gnome.org/enter_bug.cgi?product=d-feet],
         [d-feet],
-        [http://live.gnome.org/DFeet])
+        [http://wiki.gnome.org/DFeet])
 
 AM_INIT_AUTOMAKE([1.11 -Wall foreign no-define tar-ustar no-dist-gzip dist-xz])
 

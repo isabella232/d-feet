@@ -83,7 +83,7 @@ class DFeetAboutDialog(Gtk.AboutDialog):
         self.set_program_name(package)
         self.set_version(version)
         self.set_license_type(Gtk.License.GPL_2_0)
-        self.set_website("https://live.gnome.org/DFeet/")
+        self.set_website("https://wiki.gnome.org/DFeet/")
         self.set_logo_icon_name(package)
         self.connect("response", self.on_close_cb)
 
