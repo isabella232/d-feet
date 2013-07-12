@@ -1,0 +1,165 @@
+# Greek translation for d-feet.
+# Copyright (C) 2013 d-feet's COPYRIGHT HOLDER
+# This file is distributed under the same license as the d-feet package.
+# Dimitris Spingos <dmtrs32@gmail.com>, 2013.
+# Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: d-feet master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-feet"
+"&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-06-30 13:50+0000\n"
+"PO-Revision-Date: 2013-07-12 10:05+0300\n"
+"Last-Translator: Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>\n"
+"Language-Team: team@gnome.gr\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
+"X-Project-Style: gnome\n"
+
+#: ../data/d-feet.desktop.in.in.h:1
+msgid "D-Feet"
+msgstr "D-Feet"
+
+#: ../data/d-feet.desktop.in.in.h:2
+msgid "D-Bus Debugger"
+msgstr "Αποσφαλματωτής διαύλου δεδομένων"
+
+#: ../data/d-feet.desktop.in.in.h:3
+msgid "Debug D-Bus applications"
+msgstr "Αποσφαλμάτωση Εφαρμογών D-Bus"
+
+#: ../data/d-feet.desktop.in.in.h:4
+msgid "debug;d-bus;"
+msgstr "αποσφαλμάτωση;δίαυλος δεδομένων;"
+
+#: ../data/ui/addconnectiondialog.ui.h:1
+msgid "Add a Connection"
+msgstr "Προσθήκη σύνδεσης"
+
+#: ../data/ui/addconnectiondialog.ui.h:2
+msgid "See http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
+msgstr "Δείτε http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
+
+#: ../data/ui/addconnectiondialog.ui.h:3 ../data/ui/introspection.ui.h:3
+msgid "Address:"
+msgstr "Διεύθυνση:"
+
+#: ../data/ui/buswatch.ui.h:1
+msgid "Filter:"
+msgstr "Φίλτρο:"
+
+#: ../data/ui/buswatch.ui.h:2
+msgid "unique bus name"
+msgstr "μοναδικό όνομα διαύλου"
+
+#: ../data/ui/buswatch.ui.h:3
+msgid "Command line:"
+msgstr "Γραμμή εντολών:"
+
+#: ../data/ui/buswatch.ui.h:4
+msgid "Process ID:"
+msgstr "Αναγνωριστικό διεργασίας:"
+
+#: ../data/ui/buswatch.ui.h:5 ../data/ui/introspection.ui.h:2
+msgid "Name:"
+msgstr "Όνομα:"
+
+#: ../data/ui/executedialog.ui.h:1
+msgid "Execute D-Bus Method"
+msgstr "Εκτέλεση μεθόδου διαύλου δεδομένων"
+
+#: ../data/ui/executedialog.ui.h:2
+msgid "_Execute"
+msgstr "_Εκτέλεση"
+
+#: ../data/ui/executedialog.ui.h:3
+msgid "Method name:"
+msgstr "Όνομα μεθόδου:"
+
+#: ../data/ui/executedialog.ui.h:4
+msgid "Object Path:"
+msgstr "Διαδρομή αντικειμένου:"
+
+#: ../data/ui/executedialog.ui.h:5
+msgid "Interface:"
+msgstr "Διεπαφή:"
+
+#: ../data/ui/executedialog.ui.h:6
+msgid "Method input"
+msgstr "Είσοδος μεθόδου"
+
+#: ../data/ui/executedialog.ui.h:7
+msgid "Method output"
+msgstr "Έξοδος μεθόδου"
+
+#: ../data/ui/executedialog.ui.h:8
+msgid "Pretty print"
+msgstr "Όμορφη εκτύπωση"
+
+#: ../data/ui/executedialog.ui.h:9
+msgid "Source"
+msgstr "Πηγή"
+
+#: ../data/ui/executedialog.ui.h:10
+msgid "Method execution"
+msgstr "Εκτέλεση μεθόδου"
+
+#: ../data/ui/executedialog.ui.h:11
+msgid "Number of method executions"
+msgstr "Αριθμός εκτελέσεων μεθόδου"
+
+#: ../data/ui/executedialog.ui.h:12
+msgid "Ø:"
+msgstr "Ø:"
+
+#: ../data/ui/executedialog.ui.h:13
+msgid "Average method execution time in seconds"
+msgstr "Μέσος όρος χρόνου εκτέλεσης μεθόδου σε δευτερόλεπτα"
+
+#: ../data/ui/executedialog.ui.h:14
+msgid "Min:"
+msgstr "Ελάχιστο:"
+
+#: ../data/ui/executedialog.ui.h:15
+msgid "Minimal method execution time in seconds"
+msgstr "Ελάχιστος χρόνος εκτέλεσης μεθόδου σε δευτερόλεπτα"
+
+#: ../data/ui/executedialog.ui.h:16
+msgid "Max:"
+msgstr "Μέγιστο:"
+
+#: ../data/ui/executedialog.ui.h:17
+msgid "Maximal method execution time in seconds"
+msgstr "Μέγιστος χρόνος εκτέλεσης μεθόδου σε δευτερόλεπτα"
+
+#: ../data/ui/introspection.ui.h:1
+msgid "Unique name:"
+msgstr "Μοναδικό όνομα:"
+
+#: ../data/ui/introspection.ui.h:4
+msgid "Introspecting..."
+msgstr "Αυτοανάλυση..."
+
+#: ../data/ui/introspection.ui.h:5
+msgid "Object path"
+msgstr "Διαδρομή αντικειμένου"
+
+#: ../data/ui/mainwindow.ui.h:1
+msgid "Connect to System Bus"
+msgstr "Σύνδεση με τον δίαυλο συστήματος"
+
+#: ../data/ui/mainwindow.ui.h:2
+msgid "Connect to Session Bus"
+msgstr "Σύνδεση με τον δίαυλο συνεδρίας"
+
+#: ../data/ui/mainwindow.ui.h:3
+msgid "Connect to other Bus"
+msgstr "Σύνδεση με άλλο δίαυλο"
+
+#: ../data/ui/mainwindow.ui.h:4
+msgid "File"
+msgstr "Αρχείο"
