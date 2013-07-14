@@ -18,7 +18,7 @@ YELP_HELP_INIT
 AM_PATH_PYTHON([2.7])
 
 PKG_CHECK_MODULES(DFEET, [
-  gtk+-3.0 >= 3.6
+  gtk+-3.0 >= 3.9.4
 ])
 
 AC_ARG_ENABLE(tests,

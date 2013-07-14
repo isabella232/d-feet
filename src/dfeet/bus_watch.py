@@ -7,87 +7,130 @@ from dfeet.uiloader import UILoader
 from dfeet.introspection import AddressInfo
 
 
-class DBusBusName(GObject.GObject):
-    """class to represent a name on the bus"""
-    def __init__(self, bus_name_unique):
-        super(DBusBusName, self).__init__()
-        self.__bus_name_unique = bus_name_unique
-        self.__pid = 0
-        self.__cmdline = ''
+class BusNameBox(Gtk.VBox):
+    """class to represent a BusName (eg 'org.freedesktop.NetworkManager')"""
+    def __init__(self, bus_name):
+        super(BusNameBox, self).__init__(spacing=5, expand=True)
+        self.__bus_name = bus_name
+        self.__process_id = 0
+        self.__command_line = ''
+        self.__activatable = False
+
+        #first element
+        self.__label_bus_name = Gtk.Label()
+        self.__label_bus_name.set_markup("<b>{0}</b>".format(self.__bus_name))
+        self.__label_bus_name.set_halign(Gtk.Align.START)
+        self.pack_start(self.__label_bus_name, True, True, 0)
+        #second element
+        self.__label_info = Gtk.Label()
+        self.__label_info.set_halign(Gtk.Align.START)
+        self.pack_start(self.__label_info, True, True, 0)
+        #separator for the boxes
+        self.pack_end(Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL), True, True, 0)
+        #update widget information
+        self.__update_widget()
+        self.show_all()
+
+    def __update_widget(self):
+        """update the widget with the available information"""
+        #update the label info
+        label_info_str = "<small>"
+        if self.__activatable:
+            label_info_str += "activatable: yes"
+        else:
+            label_info_str += "activatable: no"
+        if self.__process_id:
+            label_info_str += ", pid: {0}".format(self.__process_id)
+        if self.__command_line:
+            label_info_str += ", cmd: {0}".format(self.__command_line)
+        label_info_str += "</small>"
+        self.__label_info.set_markup(label_info_str)
 
     def __repr__(self):
-        return "%s (pid: %s)" % (self.bus_name_unique, self.pid)
+        return "%s (pid: %s)" % (self.__bus_name, self.__process_id)
 
-    def __update_cmdline(self):
-        if self.pid > 0:
-            procpath = '/proc/' + str(self.pid) + '/cmdline'
+    def __update_command_line(self):
+        """get the command line of process-id is available"""
+        if self.__process_id > 0:
+            procpath = '/proc/' + str(self.__process_id) + '/cmdline'
             with open(procpath, 'r') as f:
-                self.__cmdline = " ".join(f.readline().split('\0'))
+                self.__command_line = " ".join(f.readline().split('\0'))
         else:
-            self.__cmdline = ''
+            self.__command_line = ''
 
     @property
-    def bus_name_unique(self):
-        return self.__bus_name_unique
+    def bus_name(self):
+        return self.__bus_name
 
     @property
-    def pid(self):
-        return self.__pid
+    def activatable(self):
+        return self.__activatable
 
-    @pid.setter
-    def pid(self, pid_new):
-        self.__pid = pid_new
+    @activatable.setter
+    def activatable(self, act_new):
+        self.__activatable = act_new
+
+        #update the shown widget
+        self.__update_widget()
+
+    @property
+    def process_id(self):
+        return self.__process_id
+
+    @process_id.setter
+    def process_id(self, process_id_new):
+        self.__process_id = process_id_new
         try:
-            self.__update_cmdline()
+            self.__update_command_line()
         except:
-            self.__cmdline = ''
-
-    @property
-    def cmdline(self):
-        return self.__cmdline
+            self.__command_line = ''
+        #update the shown widget
+        self.__update_widget()
 
 
 class BusWatch(object):
     """watch for a given bus"""
-    def __init__(self, data_dir, address):
-        self.data_dir = data_dir
-        self.address = address
+    def __init__(self, data_dir, bus_address):
+        self.__data_dir = data_dir
+        self.__bus_address = bus_address
         #setup UI
-        ui = UILoader(self.data_dir, UILoader.UI_BUSWATCH)
-        self.paned_buswatch = ui.get_root_widget()
-        self.liststore_model = ui.get_widget('liststore_buswatch')
-        self.treemodelfilter_buswatch = ui.get_widget('treemodelfilter_buswatch')
-        self.treemodelfilter_buswatch.set_visible_func(self.__treemodelfilter_buswatch_cb)
-        self.treemodelsort_buswatch = ui.get_widget("treemodelsort_buswatch")
-        self.treemodelsort_buswatch.set_sort_func(2, self.__sort_on_name)
-        self.treemodelsort_buswatch.set_sort_column_id(2, Gtk.SortType.ASCENDING)
-        self.treeview = ui.get_widget('treeview_buswatch')
-        self.entry_filter = ui.get_widget('entry_filter')
-        self.grid_bus_name_selected_info = ui.get_widget('grid_bus_name_info')
-        self.label_bus_name_selected_name = ui.get_widget('label_bus_name_selected_name')
-        self.label_bus_name_selected_pid = ui.get_widget('label_bus_name_selected_pid')
-        self.label_bus_name_selected_cmdline = ui.get_widget('label_bus_name_selected_cmdline')
-        self.addr_info = None  # hold the currently selected AddressInfo object
-
-        self.treeview.connect('cursor-changed',
-                              self.__tree_view_cursor_changed_cb)
-        self.entry_filter.connect("changed",
-                                  self.__entry_filter_changed_cb)
-
-        #setup the conection
-        if self.address == Gio.BusType.SYSTEM or self.address == Gio.BusType.SESSION:
-            self.connection = Gio.bus_get_sync(self.address, None)
-        elif Gio.dbus_is_supported_address(self.address):
+        ui = UILoader(self.__data_dir, UILoader.UI_BUS)
+        self.__box_bus = ui.get_root_widget()
+        self.__scrolledwindow_listbox = ui.get_widget("scrolledwindow_listbox")
+        self.__bus_name_filter = ui.get_widget('entry_filter')
+        #create a listbox for all the busnames
+        self.__listbox = Gtk.ListBox(hexpand=True, vexpand=True, expand=True)
+        self.__listbox.set_sort_func(self.__listbox_sort_by_name, None)
+        self.__listbox.set_filter_func(self.__listbox_filter_by_name, None)
+        self.__scrolledwindow_listbox.add(self.__listbox)
+        self.__scrolledwindow_listbox.show_all()
+        #setup the bus connection
+        if self.__bus_address == Gio.BusType.SYSTEM or self.__bus_address == Gio.BusType.SESSION:
+            #TODO: do this async
+            self.connection = Gio.bus_get_sync(self.__bus_address, None)
+        elif Gio.dbus_is_supported_address(self.__bus_address):
+            #TODO: do this async
             self.connection = Gio.DBusConnection.new_for_address_sync(
-                self.address,
+                self.__bus_address,
                 Gio.DBusConnectionFlags.AUTHENTICATION_CLIENT |
                 Gio.DBusConnectionFlags.MESSAGE_BUS_CONNECTION,
                 None, None)
+        else:
+            raise ValueError("Invalid bus address '{0}'".format(self.__bus_address))
 
         #setup signals
         self.connection.signal_subscribe(None, "org.freedesktop.DBus", "NameOwnerChanged",
                                          None, None, 0, self.__name_owner_changed_cb, None)
 
+        #refilter if someone wants to filter the busbox list
+        self.__bus_name_filter.connect("changed",
+                                       self.__bus_name_filter_changed_cb)
+
+        #change bus detail tree if a different bus is selected
+        self.__listbox.connect("row-selected",
+                               self.__listbox_row_selected_cb)
+
+        #TODO: do this async
         self.bus_proxy = Gio.DBusProxy.new_sync(self.connection,
                                                 Gio.DBusProxyFlags.NONE,
                                                 None,
@@ -95,74 +138,46 @@ class BusWatch(object):
                                                 '/org/freedesktop/DBus',
                                                 'org.freedesktop.DBus', None)
 
+        #get a list with activatable names
+        self.bus_proxy.ListActivatableNames('()',
+                                            result_handler=self.__list_act_names_handler,
+                                            error_handler=self.__list_act_names_error_handler)
+
         #list all names
         self.bus_proxy.ListNames('()',
                                  result_handler=self.__list_names_handler,
                                  error_handler=self.__list_names_error_handler)
 
-    def __treemodelfilter_buswatch_cb(self, model, iter, user_data):
-        #return model.get_value(iter, 1) in data
-        bus_name_obj = model.get(iter, 0)[0]
-        filter_text = self.entry_filter.get_text()
-        return filter_text.lower() in bus_name_obj.bus_name_unique.lower()
+    @property
+    def box_bus(self):
+        """the main widget for the bus"""
+        return self.__box_bus
 
-    def __entry_filter_changed_cb(self, entry_filter):
-        self.treemodelfilter_buswatch.refilter()
+    def __bus_name_filter_changed_cb(self, bus_name_filter):
+        """someone typed something in the searchbox - refilter"""
+        self.__listbox.invalidate_filter()
 
-    def __tree_view_cursor_changed_cb(self, treeview):
-        """do something when a row is selected"""
-        selection = self.treeview.get_selection()
-        if selection:
-            model, iter_ = selection.get_selected()
-            if not iter_:
-                return
+    def __listbox_row_selected_cb(self, listbox, listbox_row):
+        """someone selected a different row of the listbox"""
+        childs = self.box_bus.get_children()
+        #never remove first element - that's the listbox with the busnames
+        if len(childs) > 1:
+            self.box_bus.remove(childs[-1])
 
-            bus_name_obj = model.get(iter_, 0)[0]
-            #remove current child
-            c2 = self.paned_buswatch.get_child2()
-            if c2:
-                c2.destroy()
-            try:
-                del(self.addr_info)
-            except:
-                pass
+        try:
+            del(self.__addr_info)
+        except:
+            pass
 
-            #add Introspection to paned
-            self.addr_info = AddressInfo(
-                self.data_dir, self.address, bus_name_obj.bus_name_unique, connection_is_bus=True)
-            self.paned_buswatch.add2(self.addr_info.introspect_box)
-
-            #update info about selected bus name
-            self.label_bus_name_selected_name.set_text(bus_name_obj.bus_name_unique)
-            self.label_bus_name_selected_pid.set_text("%s" % bus_name_obj.pid)
-            self.label_bus_name_selected_cmdline.set_text(bus_name_obj.cmdline)
-            self.grid_bus_name_selected_info.set_visible(True)
-
-    def __liststore_model_add(self, bus_name_obj):
-        """add a DBusBusName object to the liststore model"""
-        #update bus info stuff
-        self.bus_proxy.GetConnectionUnixProcessID(
-            '(s)', bus_name_obj.bus_name_unique,
-            result_handler=self.__get_unix_process_id_cb,
-            error_handler=self.__get_unix_process_id_error_cb,
-            user_data=bus_name_obj)
-        #add bus to liststore
-        return self.liststore_model.append(
-            [bus_name_obj, 0, "%s" % (bus_name_obj.bus_name_unique), bus_name_obj.cmdline])
-
-    def __liststore_model_remove(self, bus_name_obj):
-        """remove a DBusBusName object to the liststore model"""
-        for n, obj in enumerate(self.liststore_model):
-            if obj[2] == bus_name_obj.bus_name_unique:
-                del(self.liststore_model[n])
-                break
-
-    def __liststore_model_get(self, bus_name_obj):
-        """get a object from the liststore"""
-        for n, obj in enumerate(self.liststore_model):
-            if obj[2] == bus_name_obj.bus_name_unique:
-                return obj
-        raise Exception("bus name object '%s' not found in liststore" % (bus_name_obj))
+        #get the selected busname
+        if listbox_row:
+            row_childs = listbox_row.get_children()
+            bus_name_box = row_childs[0]
+            #add the introspection info to the left side
+            self.__addr_info = AddressInfo(
+                self.__data_dir, self.__bus_address, bus_name_box.bus_name, connection_is_bus=True)
+            self.box_bus.pack_end(self.__addr_info.introspect_box, True, True, 0)
+        self.box_bus.show_all()
 
     def __name_owner_changed_cb(self, connection, sender_name,
                                 object_path, interface_name, signal_name,
@@ -172,39 +187,73 @@ class BusWatch(object):
         old_owner = parameters[1]
         new_owner = parameters[2]
 
-        bus_name_obj = DBusBusName(bus_name)
-
         if bus_name[0] == ':':
             if not old_owner:
-                self.__liststore_model_add(bus_name_obj)
+                bus_name_box = BusNameBox(bus_name)
+                self.__listbox_add_bus_name(bus_name_box)
             else:
-                self.__liststore_model_remove(bus_name_obj)
+                self.__listbox_remove_bus_name(bus_name)
         else:
             if new_owner:
-                self.__liststore_model_add(bus_name_obj)
+                bus_name_box = BusNameBox(bus_name)
+                self.__listbox_add_bus_name(bus_name_box)
             if old_owner:
-                self.__liststore_model_remove(bus_name_obj)
+                self.__listbox_remove_bus_name(bus_name)
+
+    def __listbox_remove_bus_name(self, bus_name):
+        """remove the given busname from the listbox"""
+        for listbox_child in self.__listbox.get_children():
+            if listbox_child.get_children()[0].bus_name == bus_name:
+                self.__listbox.remove(listbox_child)
+
+    def __listbox_add_bus_name(self, bus_name_box):
+        """add the given busnamebox to the listbox and update the info"""
+        #update bus info stuff
+        self.bus_proxy.GetConnectionUnixProcessID(
+            '(s)', bus_name_box.bus_name,
+            result_handler=self.__get_unix_process_id_cb,
+            error_handler=self.__get_unix_process_id_error_cb,
+            user_data=bus_name_box)
+        #check if bus name is dbus activatable
+        if bus_name_box.bus_name in self.__activatable_names:
+            bus_name_box.activatable = True
+        else:
+            bus_name_box.activatable = False
+        self.__listbox.add(bus_name_box)
 
     def __list_names_handler(self, obj, names, userdata):
         for n in names:
-            bus_name_obj = DBusBusName(n)
-            self.__liststore_model_add(bus_name_obj)
+            bus_name_box = BusNameBox(n)
+            self.__listbox_add_bus_name(bus_name_box)
 
     def __list_names_error_handler(self, obj, error, userdata):
         print("error getting bus names: %s" % str(error))
 
-    def __get_unix_process_id_cb(self, obj, pid, bus_name_obj):
-        bus_name_obj.pid = pid
+    def __list_act_names_handler(self, obj, act_names, userdata):
+        self.__activatable_names = act_names
 
-    def __get_unix_process_id_error_cb(self, obj, error, bus_name_obj):
-        print(
-            "error getting unix process id for %s: %s" % (
-                bus_name_obj.bus_name_unique, str(error)))
-        bus_name_obj.pid = 0
+    def __list_act_names_error_handler(self, obj, error, userdata):
+        self.__activatable_names = []
+        print("error getting activatable names: %s" % str(error))
 
-    def __sort_on_name(self, model, iter1, iter2, user_data):
-        un1 = model.get_value(iter1, 2)
-        un2 = model.get_value(iter2, 2)
+    def __get_unix_process_id_cb(self, obj, pid, bus_name_box):
+        bus_name_box.process_id = pid
+
+    def __get_unix_process_id_error_cb(self, obj, error, bus_name_box):
+        #print("error getting unix process id for %s: %s" % (
+        #    bus_name_box.bus_name, str(error)))
+        bus_name_box.process_id = 0
+
+    def __listbox_filter_by_name(self, row, user_data):
+        bus_name_box_list = row.get_children()
+        return self.__bus_name_filter.get_text().lower() in bus_name_box_list[0].bus_name.lower()
+
+    def __listbox_sort_by_name(self, row1, row2, user_data):
+        """sort function for listbox"""
+        child1 = row1.get_children()
+        child2 = row2.get_children()
+        un1 = child1[0].bus_name
+        un2 = child2[0].bus_name
 
         # covert to integers if comparing two unique names
         if un1[0] == ':' and un2[0] == ':':

@@ -114,7 +114,7 @@ class DFeetWindow(Gtk.ApplicationWindow):
         """connect to system bus"""
         try:
             bw = BusWatch(self.data_dir, Gio.BusType.SYSTEM)
-            self.__notebook_append_page(bw.paned_buswatch, "System Bus")
+            self.__notebook_append_page(bw.box_bus, "System Bus")
         except Exception as e:
             print(e)
 
@@ -122,7 +122,7 @@ class DFeetWindow(Gtk.ApplicationWindow):
         """connect to session bus"""
         try:
             bw = BusWatch(self.data_dir, Gio.BusType.SESSION)
-            self.__notebook_append_page(bw.paned_buswatch, "Session Bus")
+            self.__notebook_append_page(bw.box_bus, "Session Bus")
         except Exception as e:
             print(e)
 

@@ -10,9 +10,9 @@ class UILoader:
 
     (UI_MAINWINDOW,
      UI_INTROSPECTION,
-     UI_BUSWATCH,
      UI_EXECUTEDIALOG,
-     UI_ADDCONNECTIONDIALOG
+     UI_ADDCONNECTIONDIALOG,
+     UI_BUS
      ) = range(UI_COUNT)
 
     # {ui_id: ((files,...), root widget)}
@@ -20,12 +20,12 @@ class UILoader:
                                'appwindow1'),
                UI_INTROSPECTION: (('introspection.ui',),
                                   'box_introspectview'),
-               UI_BUSWATCH: (('buswatch.ui',),
-                             'paned_buswatch'),
                UI_EXECUTEDIALOG: (('executedialog.ui',),
                                   'executedialog1'),
                UI_ADDCONNECTIONDIALOG: (('addconnectiondialog.ui',),
-                                        'add_connection_dialog1')
+                                        'add_connection_dialog1'),
+               UI_BUS: (('bus.ui',),
+                        'box_bus')
                }
 
     def __init__(self, data_dir, ui):
