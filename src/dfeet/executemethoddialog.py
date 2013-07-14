@@ -108,7 +108,7 @@ class ExecuteMethodDialog:
             #output result
             if result:
                 self.source_textview.get_buffer().set_text(str(result))
-                self.prettyprint_textview.get_buffer().set_text(str(result.unpack()[0]))
+                self.prettyprint_textview.get_buffer().set_text(pformat(result.unpack()[0]))
             else:
                 self.prettyprint_textview.get_buffer().set_text(
                     'This method did not return anything')
