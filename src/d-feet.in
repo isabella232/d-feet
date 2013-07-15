@@ -46,7 +46,6 @@ from dfeet.application import DFeetApp
 
 
 if __name__ == "__main__":
-    GObject.threads_init()
     data_dir = "@pkgdatadir@"
     #use local paths when debugging
     if os.getenv("DFEET_DEBUG") is not None:
