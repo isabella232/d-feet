@@ -1,8 +1,8 @@
+# -*- coding: utf-8 -*-
 # This module facilitates the optional use of libwnck to get application
 # icon information. If the wnck module is not installed we fallback to default
 # behvior
 
-from gi.repository import GObject
 from gi.repository import Gtk
 
 try:
@@ -12,7 +12,7 @@ except:
     has_libwnck = False
 
 
-class IconTable:
+class IconTable(object):
     instance = None
 
     def __init__(self):
@@ -24,6 +24,7 @@ class IconTable:
 
         if has_libwnck:
             screen = Wnck.Screen.get_default()
+            Wnck.Screen.force_update(screen)
             screen.connect('application_opened', self.on_app_open)
             screen.connect('application_closed', self.on_app_close)
 

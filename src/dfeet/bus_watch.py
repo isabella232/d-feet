@@ -5,6 +5,7 @@ from gi.repository import GObject, Gtk, Gio
 
 from dfeet.uiloader import UILoader
 from dfeet.introspection import AddressInfo
+from dfeet.wnck_utils import IconTable
 
 
 class BusNameBox(Gtk.VBox):
@@ -15,16 +16,26 @@ class BusNameBox(Gtk.VBox):
         self.__process_id = 0
         self.__command_line = ''
         self.__activatable = False
+        self.__icon_table = IconTable.get_instance()
+        self.__icon_image = Gtk.Image.new_from_pixbuf(self.__icon_table.default_icon)
+
+        self.__hbox = Gtk.HBox(spacing=5, halign=Gtk.Align.START)
+        self.pack_start(self.__hbox, True, True, 0)
+        #icon
+        self.__hbox.pack_start(self.__icon_image, True, True, 0)
+        #other information
+        self.__vbox_right = Gtk.VBox(spacing=5, expand=True)
+        self.__hbox.pack_start(self.__vbox_right, True, True, 0)
 
         #first element
         self.__label_bus_name = Gtk.Label()
         self.__label_bus_name.set_markup("<b>{0}</b>".format(self.__bus_name))
         self.__label_bus_name.set_halign(Gtk.Align.START)
-        self.pack_start(self.__label_bus_name, True, True, 0)
+        self.__vbox_right.pack_start(self.__label_bus_name, True, True, 0)
         #second element
         self.__label_info = Gtk.Label()
         self.__label_info.set_halign(Gtk.Align.START)
-        self.pack_start(self.__label_info, True, True, 0)
+        self.__vbox_right.pack_start(self.__label_info, True, True, 0)
         #separator for the boxes
         self.pack_end(Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL), True, True, 0)
         #update widget information
@@ -41,6 +52,11 @@ class BusNameBox(Gtk.VBox):
             label_info_str += "activatable: no"
         if self.__process_id:
             label_info_str += ", pid: {0}".format(self.__process_id)
+            #get the icon (if available)
+            if self.__process_id in self.__icon_table.app_map.keys():
+                self.__icon_image.set_from_pixbuf(self.__icon_table.app_map[self.__process_id])
+            else:
+                self.__icon_image.set_from_pixbuf(self.__icon_table.default_icon)
         if self.__command_line:
             label_info_str += ", cmd: {0}".format(self.__command_line)
         label_info_str += "</small>"
