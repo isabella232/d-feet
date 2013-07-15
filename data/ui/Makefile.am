@@ -2,7 +2,7 @@ uidir = $(datadir)/d-feet/ui/
 
 ui_DATA = 			\
 	addconnectiondialog.ui	\
-	buswatch.ui		\
+	bus.ui			\
 	executedialog.ui	\
 	introspection.ui	\
 	mainwindow.ui		\
