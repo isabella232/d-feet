@@ -7,7 +7,8 @@ icon16_DATA = \
 	hicolor/16x16/apps/dfeet-property-category.png \
 	hicolor/16x16/apps/dfeet-property.png \
 	hicolor/16x16/apps/dfeet-signal-category.png \
-	hicolor/16x16/apps/dfeet-signal.png
+	hicolor/16x16/apps/dfeet-signal.png \
+	hicolor/16x16/apps/dfeet-icon-default-service.png
 
 icon24dir = $(datadir)/icons/hicolor/24x24/apps
 icon24_DATA = hicolor/24x24/apps/d-feet.png
