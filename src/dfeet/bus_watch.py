@@ -216,14 +216,38 @@ class BusWatch(object):
             if old_owner:
                 self.__listbox_remove_bus_name(bus_name)
 
-    def __listbox_remove_bus_name(self, bus_name):
-        """remove the given busname from the listbox"""
+    def __listbox_find_bus_name(self, bus_name):
+        """find the given busname in the listbox or return None if not found"""
         for listbox_child in self.__listbox.get_children():
             if listbox_child.get_children()[0].bus_name == bus_name:
-                self.__listbox.remove(listbox_child)
+                return listbox_child
+        #busname not found
+        return None
+
+    def __listbox_remove_bus_name(self, bus_name):
+        """remove the given busname from the listbox"""
+        obj = self.__listbox_find_bus_name(bus_name)
+        if obj:
+            self.__listbox.remove(obj)
+            #if bus is activatable, add the bus name again
+            if bus_name in self.__activatable_names:
+                bnb = BusNameBox(bus_name)
+                self.__listbox_add_bus_name(bnb)
+        else:
+            print("can not remove busname '{0}'. busname not found".format(bus_name))
 
     def __listbox_add_bus_name(self, bus_name_box):
         """add the given busnamebox to the listbox and update the info"""
+        #first check if busname is already listed
+        #ie an activatable (but inactive) busname
+        bn = self.__listbox_find_bus_name(bus_name_box.bus_name)
+        if bn:
+            #bus name is already in the list - use this
+            bus_name_box = bn.get_children()[0]
+        else:
+            #add busnamebox to the list
+            self.__listbox.add(bus_name_box)
+
         #update bus info stuff
         self.bus_proxy.GetConnectionUnixProcessID(
             '(s)', bus_name_box.bus_name,
@@ -235,7 +259,6 @@ class BusWatch(object):
             bus_name_box.activatable = True
         else:
             bus_name_box.activatable = False
-        self.__listbox.add(bus_name_box)
 
     def __list_names_handler(self, obj, names, userdata):
         for n in names:
@@ -246,7 +269,12 @@ class BusWatch(object):
         print("error getting bus names: %s" % str(error))
 
     def __list_act_names_handler(self, obj, act_names, userdata):
+        #remember the activatable bus names
         self.__activatable_names = act_names
+        #add all activatable bus names to the list
+        for name in act_names:
+            bnb = BusNameBox(name)
+            self.__listbox_add_bus_name(bnb)
 
     def __list_act_names_error_handler(self, obj, error, userdata):
         self.__activatable_names = []

@@ -5,6 +5,3 @@
    methods, properties and interfaces
 * Add menu entry to start a service by name
    (org.freedesktop.DBus.StartServiceByName)
-* Add a list with activateable services
-   (org.freedesktop.DBus.ListActivatableNames)
-
