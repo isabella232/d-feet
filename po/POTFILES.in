@@ -3,7 +3,7 @@
 data/d-feet.desktop.in.in
 data/org.gnome.d-feet.gschema.xml
 [type: gettext/glade]data/ui/addconnectiondialog.ui
-[type: gettext/glade]data/ui/buswatch.ui
+[type: gettext/glade]data/ui/bus.ui
 [type: gettext/glade]data/ui/executedialog.ui
 [type: gettext/glade]data/ui/introspection.ui
 [type: gettext/glade]data/ui/mainwindow.ui
