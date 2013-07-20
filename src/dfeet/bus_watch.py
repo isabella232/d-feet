@@ -29,7 +29,6 @@ class BusNameBox(Gtk.VBox):
 
         #first element
         self.__label_bus_name = Gtk.Label()
-        self.__label_bus_name.set_markup("<b>{0}</b>".format(self.__bus_name))
         self.__label_bus_name.set_halign(Gtk.Align.START)
         self.__vbox_right.pack_start(self.__label_bus_name, True, True, 0)
         #second element
@@ -44,6 +43,10 @@ class BusNameBox(Gtk.VBox):
 
     def __update_widget(self):
         """update the widget with the available information"""
+        if self.__process_id > 0:
+            self.__label_bus_name.set_markup("<b>{0}</b>".format(self.__bus_name))
+        else:
+            self.__label_bus_name.set_markup("<b><i>{0}</i></b>".format(self.__bus_name))
         #update the label info
         label_info_str = "<small>"
         if self.__activatable:
