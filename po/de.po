@@ -1,0 +1,165 @@
+# German translation for d-feet.
+# Copyright (C) 2013 d-feet's COPYRIGHT HOLDER
+# This file is distributed under the same license as the d-feet package.
+# Christian Kirbach <christian.kirbach@gmail.com>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: d-feet master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-"
+"feet&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-07-12 07:08+0000\n"
+"PO-Revision-Date: 2013-07-23 19:36+0100\n"
+"Last-Translator: Benjamin Steinwender <b@stbe.at>\n"
+"Language-Team: Deutsch <gnome-de@gnome.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.7\n"
+
+#: ../data/d-feet.desktop.in.in.h:1
+msgid "D-Feet"
+msgstr "D-Feet"
+
+#: ../data/d-feet.desktop.in.in.h:2
+msgid "D-Bus Debugger"
+msgstr "D-Bus-Fehlerdiagnose"
+
+#: ../data/d-feet.desktop.in.in.h:3
+msgid "Debug D-Bus applications"
+msgstr "Fehlerdiagnose für D-Bus-Anwendungen"
+
+#: ../data/d-feet.desktop.in.in.h:4
+msgid "debug;d-bus;"
+msgstr "debug;d-bus;"
+
+#: ../data/ui/addconnectiondialog.ui.h:1
+msgid "Add a Connection"
+msgstr "Eine Verbindung hinzufügen"
+
+#: ../data/ui/addconnectiondialog.ui.h:2
+msgid "See http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
+msgstr ""
+"Lesen Sie http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
+
+#: ../data/ui/addconnectiondialog.ui.h:3 ../data/ui/introspection.ui.h:3
+msgid "Address:"
+msgstr "Adresse:"
+
+#: ../data/ui/buswatch.ui.h:1
+msgid "Filter:"
+msgstr "Filter:"
+
+#: ../data/ui/buswatch.ui.h:2
+msgid "unique bus name"
+msgstr "Eindeutiger Busname"
+
+#: ../data/ui/buswatch.ui.h:3
+msgid "Command line:"
+msgstr "Befehlszeile:"
+
+#: ../data/ui/buswatch.ui.h:4
+msgid "Process ID:"
+msgstr "Prozess-Kennung:"
+
+#: ../data/ui/buswatch.ui.h:5 ../data/ui/introspection.ui.h:2
+msgid "Name:"
+msgstr "Name:"
+
+#: ../data/ui/executedialog.ui.h:1
+msgid "Execute D-Bus Method"
+msgstr "D-Bus-Methode ausführen"
+
+#: ../data/ui/executedialog.ui.h:2
+msgid "_Execute"
+msgstr "_Ausführen"
+
+#: ../data/ui/executedialog.ui.h:3
+msgid "Method name:"
+msgstr "Methodenname:"
+
+#: ../data/ui/executedialog.ui.h:4
+msgid "Object Path:"
+msgstr "Objektpfad:"
+
+#: ../data/ui/executedialog.ui.h:5
+msgid "Interface:"
+msgstr "Schnittstelle:"
+
+#: ../data/ui/executedialog.ui.h:6
+msgid "Method input"
+msgstr "Eingabemethode"
+
+#: ../data/ui/executedialog.ui.h:7
+msgid "Method output"
+msgstr "Ausgabemethode"
+
+#: ../data/ui/executedialog.ui.h:8
+msgid "Pretty print"
+msgstr "Formatiert ausgeben"
+
+#: ../data/ui/executedialog.ui.h:9
+msgid "Source"
+msgstr "Quelle"
+
+#: ../data/ui/executedialog.ui.h:10
+msgid "Method execution"
+msgstr "Methodenausführung"
+
+#: ../data/ui/executedialog.ui.h:11
+msgid "Number of method executions"
+msgstr "Anzahl der Methodenausführungen"
+
+#: ../data/ui/executedialog.ui.h:12
+msgid "Ø:"
+msgstr "Ø:"
+
+#: ../data/ui/executedialog.ui.h:13
+msgid "Average method execution time in seconds"
+msgstr "Durchschnittliche Methodenausführungszeit in Sekunden"
+
+#: ../data/ui/executedialog.ui.h:14
+msgid "Min:"
+msgstr "Min:"
+
+#: ../data/ui/executedialog.ui.h:15
+msgid "Minimal method execution time in seconds"
+msgstr "Kürzeste Methodenausführungszeit in Sekunden"
+
+#: ../data/ui/executedialog.ui.h:16
+msgid "Max:"
+msgstr "Max:"
+
+#: ../data/ui/executedialog.ui.h:17
+msgid "Maximal method execution time in seconds"
+msgstr "Längste Methodenausführungszeit in Sekunden"
+
+#: ../data/ui/introspection.ui.h:1
+msgid "Unique name:"
+msgstr "Eindeutiger Name:"
+
+#: ../data/ui/introspection.ui.h:4
+msgid "Introspecting..."
+msgstr "Prüfen …"
+
+#: ../data/ui/introspection.ui.h:5
+msgid "Object path"
+msgstr "Objektpfad"
+
+#: ../data/ui/mainwindow.ui.h:1
+msgid "Connect to System Bus"
+msgstr "Mit Systembus verbinden"
+
+#: ../data/ui/mainwindow.ui.h:2
+msgid "Connect to Session Bus"
+msgstr "Mit Sitzungsbus verbinden"
+
+#: ../data/ui/mainwindow.ui.h:3
+msgid "Connect to other Bus"
+msgstr "Mit anderem Bus verbinden"
+
+#: ../data/ui/mainwindow.ui.h:4
+msgid "File"
+msgstr "Datei"
