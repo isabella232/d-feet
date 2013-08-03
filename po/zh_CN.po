@@ -1,0 +1,164 @@
+# Chinese (China) translation for d-feet.
+# Copyright (C) 2013 d-feet's authors and contributors.
+# This file is distributed under the same license as the d-feet package.
+# tuhaihe <1132321739qq@gmail.com>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: d-feet master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-"
+"feet&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-06-09 10:15+0000\n"
+"PO-Revision-Date: 2013-06-12 20:32+0800\n"
+"Last-Translator: tuhaihe <1132321739qq@gmail.com>\n"
+"Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: ../data/d-feet.desktop.in.in.h:1
+msgid "D-Feet"
+msgstr "D-Feet"
+
+#: ../data/d-feet.desktop.in.in.h:2
+msgid "D-Bus Debugger"
+msgstr "D-Bus 调试器"
+
+#: ../data/d-feet.desktop.in.in.h:3
+msgid "Debug D-Bus applications"
+msgstr "调试 D-Bus 应用程序"
+
+#: ../data/d-feet.desktop.in.in.h:4
+msgid "debug;d-bus;"
+msgstr "debug;调试;d-bus;"
+
+#: ../data/ui/addconnectiondialog.ui.h:1
+msgid "Add a Connection"
+msgstr "添加连接"
+
+#: ../data/ui/addconnectiondialog.ui.h:2
+msgid "See http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
+msgstr "参阅 http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
+
+#: ../data/ui/addconnectiondialog.ui.h:3 ../data/ui/introspection.ui.h:3
+msgid "Address:"
+msgstr "地址："
+
+#: ../data/ui/buswatch.ui.h:1
+msgid "Filter:"
+msgstr "过滤器："
+
+#: ../data/ui/buswatch.ui.h:2
+msgid "unique bus name"
+msgstr "唯一总线名称"
+
+#: ../data/ui/buswatch.ui.h:3
+msgid "Command line:"
+msgstr "命令行："
+
+#: ../data/ui/buswatch.ui.h:4
+msgid "Process ID:"
+msgstr "进程 ID："
+
+#: ../data/ui/buswatch.ui.h:5 ../data/ui/introspection.ui.h:2
+msgid "Name:"
+msgstr "名称："
+
+#: ../data/ui/executedialog.ui.h:1
+msgid "Execute D-Bus Method"
+msgstr "运行 D-Bus 方法"
+
+#: ../data/ui/executedialog.ui.h:2
+msgid "_Execute"
+msgstr "运行(_E)"
+
+#: ../data/ui/executedialog.ui.h:3
+msgid "Method name:"
+msgstr "方法名称："
+
+#: ../data/ui/executedialog.ui.h:4
+msgid "Object Path:"
+msgstr "对象路径："
+
+#: ../data/ui/executedialog.ui.h:5
+msgid "Interface:"
+msgstr "接口："
+
+#: ../data/ui/executedialog.ui.h:6
+msgid "Method input"
+msgstr "方法输入"
+
+#: ../data/ui/executedialog.ui.h:7
+msgid "Method output"
+msgstr "方法输出"
+
+#: ../data/ui/executedialog.ui.h:8
+#, fuzzy
+msgid "Pretty print"
+msgstr "代码美化"
+
+#: ../data/ui/executedialog.ui.h:9
+msgid "Source"
+msgstr "来源"
+
+#: ../data/ui/executedialog.ui.h:10
+msgid "Method execution"
+msgstr "方法运行"
+
+#: ../data/ui/executedialog.ui.h:11
+msgid "Number of method executions"
+msgstr "方法运行的次数"
+
+#: ../data/ui/executedialog.ui.h:12
+msgid "Ø:"
+msgstr "Ø："
+
+#: ../data/ui/executedialog.ui.h:13
+msgid "Average method execution time in seconds"
+msgstr "方法运行平均时间(秒)"
+
+#: ../data/ui/executedialog.ui.h:14
+msgid "Min:"
+msgstr "最小值："
+
+#: ../data/ui/executedialog.ui.h:15
+msgid "Minimal method execution time in seconds"
+msgstr "方法运行最短时间(秒)"
+
+#: ../data/ui/executedialog.ui.h:16
+msgid "Max:"
+msgstr "最大值："
+
+#: ../data/ui/executedialog.ui.h:17
+msgid "Maximal method execution time in seconds"
+msgstr "方法运行最长时间(秒)"
+
+#: ../data/ui/introspection.ui.h:1
+msgid "Unique name:"
+msgstr "唯一名称："
+
+#: ../data/ui/introspection.ui.h:4
+msgid "Introspecting..."
+msgstr "内省中..."
+
+#: ../data/ui/introspection.ui.h:5
+msgid "Object path"
+msgstr "对象路径"
+
+#: ../data/ui/mainwindow.ui.h:1
+msgid "Connect to System Bus"
+msgstr "连接到系统总线"
+
+#: ../data/ui/mainwindow.ui.h:2
+msgid "Connect to Session Bus"
+msgstr "连接到会话总线"
+
+#: ../data/ui/mainwindow.ui.h:3
+msgid "Connect to other Bus"
+msgstr "连接到其他总线"
+
+#: ../data/ui/mainwindow.ui.h:4
+msgid "File"
+msgstr "文件"
