@@ -1,0 +1,170 @@
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# Aviary.pl
+# Jeśli masz jakiekolwiek uwagi odnoszące się do tłumaczenia lub chcesz
+# pomóc w jego rozwijaniu i pielęgnowaniu, napisz do nas:
+# gnomepl@aviary.pl
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# Piotr Drąg <piotrdrag@gmail.com>, 2013.
+# Aviary.pl <gnomepl@aviary.pl>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: d-feet\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-08-11 01:44+0200\n"
+"PO-Revision-Date: 2013-08-11 01:45+0200\n"
+"Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
+"Language-Team: Polish <gnomepl@aviary.pl>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Poedit-Language: Polish\n"
+"X-Poedit-Country: Poland\n"
+
+#: ../data/d-feet.desktop.in.in.h:1
+msgid "D-Feet"
+msgstr "D-Feet"
+
+#: ../data/d-feet.desktop.in.in.h:2
+msgid "D-Bus Debugger"
+msgstr "Debuger D-Bus"
+
+#: ../data/d-feet.desktop.in.in.h:3
+msgid "Debug D-Bus applications"
+msgstr "Debugowanie programów D-Bus"
+
+#: ../data/d-feet.desktop.in.in.h:4
+msgid "debug;d-bus;"
+msgstr "debugger;debugowanie;debuggowanie;debuguj;debugguj;d-bus;dbus;"
+
+#: ../data/ui/addconnectiondialog.ui.h:1
+msgid "Add a Connection"
+msgstr "Dodaj połączenie"
+
+#: ../data/ui/addconnectiondialog.ui.h:2
+msgid "See http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
+msgstr ""
+"Proszę zobaczyć http://dbus.freedesktop.org/doc/dbus-specification."
+"html#addresses"
+
+#: ../data/ui/addconnectiondialog.ui.h:3 ../data/ui/introspection.ui.h:3
+msgid "Address:"
+msgstr "Adres:"
+
+#: ../data/ui/buswatch.ui.h:1
+msgid "Filter:"
+msgstr "Filtr:"
+
+#: ../data/ui/buswatch.ui.h:2
+msgid "unique bus name"
+msgstr "unikalna nazwa magistrali"
+
+#: ../data/ui/buswatch.ui.h:3
+msgid "Command line:"
+msgstr "Wiersz poleceń:"
+
+#: ../data/ui/buswatch.ui.h:4
+msgid "Process ID:"
+msgstr "Identyfikator procesu:"
+
+#: ../data/ui/buswatch.ui.h:5 ../data/ui/introspection.ui.h:2
+msgid "Name:"
+msgstr "Nazwa:"
+
+#: ../data/ui/executedialog.ui.h:1
+msgid "Execute D-Bus Method"
+msgstr "Wykonaj metodę D-Bus"
+
+#: ../data/ui/executedialog.ui.h:2
+msgid "_Execute"
+msgstr "_Wykonaj"
+
+#: ../data/ui/executedialog.ui.h:3
+msgid "Method name:"
+msgstr "Nazwa metody:"
+
+#: ../data/ui/executedialog.ui.h:4
+msgid "Object Path:"
+msgstr "Ścieżka obiektu:"
+
+#: ../data/ui/executedialog.ui.h:5
+msgid "Interface:"
+msgstr "Interfejs:"
+
+#: ../data/ui/executedialog.ui.h:6
+msgid "Method input"
+msgstr "Wejście metody"
+
+#: ../data/ui/executedialog.ui.h:7
+msgid "Method output"
+msgstr "Wyjście metody"
+
+#: ../data/ui/executedialog.ui.h:8
+msgid "Pretty print"
+msgstr "Wyświetlanie czytelne dla człowieka"
+
+#: ../data/ui/executedialog.ui.h:9
+msgid "Source"
+msgstr "Źródło"
+
+#: ../data/ui/executedialog.ui.h:10
+msgid "Method execution"
+msgstr "Wykonanie metody"
+
+#: ../data/ui/executedialog.ui.h:11
+msgid "Number of method executions"
+msgstr "Liczba wykonań metody"
+
+#: ../data/ui/executedialog.ui.h:12
+msgid "Ø:"
+msgstr "Ø:"
+
+#: ../data/ui/executedialog.ui.h:13
+msgid "Average method execution time in seconds"
+msgstr "Średni czas wykonania metody w sekundach"
+
+#: ../data/ui/executedialog.ui.h:14
+msgid "Min:"
+msgstr "Minimalny:"
+
+#: ../data/ui/executedialog.ui.h:15
+msgid "Minimal method execution time in seconds"
+msgstr "Minimalny czas wykonania metody w sekundach"
+
+#: ../data/ui/executedialog.ui.h:16
+msgid "Max:"
+msgstr "Maksymalny:"
+
+#: ../data/ui/executedialog.ui.h:17
+msgid "Maximal method execution time in seconds"
+msgstr "Maksymalny czas wykonania metody w sekundach"
+
+#: ../data/ui/introspection.ui.h:1
+msgid "Unique name:"
+msgstr "Unikalna nazwa:"
+
+#: ../data/ui/introspection.ui.h:4
+msgid "Introspecting..."
+msgstr "Badanie..."
+
+#: ../data/ui/introspection.ui.h:5
+msgid "Object path"
+msgstr "Ścieżka obiektu"
+
+#: ../data/ui/mainwindow.ui.h:1
+msgid "Connect to System Bus"
+msgstr "Połącz z magistralą systemową"
+
+#: ../data/ui/mainwindow.ui.h:2
+msgid "Connect to Session Bus"
+msgstr "Połącz z magistralą sesji"
+
+#: ../data/ui/mainwindow.ui.h:3
+msgid "Connect to other Bus"
+msgstr "Połącz z inną magistralą"
+
+#: ../data/ui/mainwindow.ui.h:4
+msgid "File"
+msgstr "Plik"
