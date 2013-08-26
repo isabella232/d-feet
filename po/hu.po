@@ -1,0 +1,166 @@
+# Hungarian translation for d-feet.
+# Copyright (C) 2013 d-feet's COPYRIGHT HOLDER
+# This file is distributed under the same license as the d-feet package.
+#
+# Balázs Úr <urbalazs at gmail dot com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: d-feet master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-"
+"feet&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-08-10 23:45+0000\n"
+"PO-Revision-Date: 2013-08-26 19:24+0200\n"
+"Last-Translator: Balázs Úr <urbalazs at gmail dot com>\n"
+"Language-Team: Hungarian <gnome-hu-list@gnome.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.2\n"
+
+#: ../data/d-feet.desktop.in.in.h:1
+msgid "D-Feet"
+msgstr "D-Feet"
+
+#: ../data/d-feet.desktop.in.in.h:2
+msgid "D-Bus Debugger"
+msgstr "D-Bus hibakereső"
+
+#: ../data/d-feet.desktop.in.in.h:3
+msgid "Debug D-Bus applications"
+msgstr "D-Bus alkalmazások hibakeresése"
+
+#: ../data/d-feet.desktop.in.in.h:4
+msgid "debug;d-bus;"
+msgstr "hibakeresés;d-bus;"
+
+#: ../data/ui/addconnectiondialog.ui.h:1
+msgid "Add a Connection"
+msgstr "Kapcsolat hozzáadása"
+
+#: ../data/ui/addconnectiondialog.ui.h:2
+msgid "See http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
+msgstr ""
+"Lásd: http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
+
+#: ../data/ui/addconnectiondialog.ui.h:3 ../data/ui/introspection.ui.h:3
+msgid "Address:"
+msgstr "Cím:"
+
+#: ../data/ui/buswatch.ui.h:1
+msgid "Filter:"
+msgstr "Szűrő:"
+
+#: ../data/ui/buswatch.ui.h:2
+msgid "unique bus name"
+msgstr "egyedi busznév"
+
+#: ../data/ui/buswatch.ui.h:3
+msgid "Command line:"
+msgstr "Parancssor:"
+
+#: ../data/ui/buswatch.ui.h:4
+msgid "Process ID:"
+msgstr "Folyamat azonosító:"
+
+#: ../data/ui/buswatch.ui.h:5 ../data/ui/introspection.ui.h:2
+msgid "Name:"
+msgstr "Név:"
+
+#: ../data/ui/executedialog.ui.h:1
+msgid "Execute D-Bus Method"
+msgstr "D-Bus eljárás végrehajtása"
+
+#: ../data/ui/executedialog.ui.h:2
+msgid "_Execute"
+msgstr "_Végrehajtás"
+
+#: ../data/ui/executedialog.ui.h:3
+msgid "Method name:"
+msgstr "Eljárás neve:"
+
+#: ../data/ui/executedialog.ui.h:4
+msgid "Object Path:"
+msgstr "Objektum útvonala:"
+
+#: ../data/ui/executedialog.ui.h:5
+msgid "Interface:"
+msgstr "Csatoló:"
+
+#: ../data/ui/executedialog.ui.h:6
+msgid "Method input"
+msgstr "Eljárás bemenet"
+
+#: ../data/ui/executedialog.ui.h:7
+msgid "Method output"
+msgstr "Eljárás kimenet"
+
+#: ../data/ui/executedialog.ui.h:8
+msgid "Pretty print"
+msgstr "Szép nyomtatás"
+
+#: ../data/ui/executedialog.ui.h:9
+msgid "Source"
+msgstr "Forrás"
+
+#: ../data/ui/executedialog.ui.h:10
+msgid "Method execution"
+msgstr "Eljárás végrehajtás"
+
+#: ../data/ui/executedialog.ui.h:11
+msgid "Number of method executions"
+msgstr "Eljárás végrehajtásainak száma"
+
+#: ../data/ui/executedialog.ui.h:12
+msgid "Ø:"
+msgstr "Ø:"
+
+#: ../data/ui/executedialog.ui.h:13
+msgid "Average method execution time in seconds"
+msgstr "Átlagos eljárás végrehajtási idő másodpercben"
+
+#: ../data/ui/executedialog.ui.h:14
+msgid "Min:"
+msgstr "Min:"
+
+#: ../data/ui/executedialog.ui.h:15
+msgid "Minimal method execution time in seconds"
+msgstr "Legkisebb eljárás végrehajtási idő másodpercben"
+
+#: ../data/ui/executedialog.ui.h:16
+msgid "Max:"
+msgstr "Max:"
+
+#: ../data/ui/executedialog.ui.h:17
+msgid "Maximal method execution time in seconds"
+msgstr "Legnagyobb eljárás végrehajtási idő másodpercben"
+
+#: ../data/ui/introspection.ui.h:1
+msgid "Unique name:"
+msgstr "Egyedi név:"
+
+#: ../data/ui/introspection.ui.h:4
+msgid "Introspecting..."
+msgstr "Önelemzés…"
+
+#: ../data/ui/introspection.ui.h:5
+msgid "Object path"
+msgstr "Objektum útvonala"
+
+#: ../data/ui/mainwindow.ui.h:1
+msgid "Connect to System Bus"
+msgstr "Csatlakozás a rendszerbuszhoz"
+
+#: ../data/ui/mainwindow.ui.h:2
+msgid "Connect to Session Bus"
+msgstr "Csatlakozás a munkamenetbuszhoz"
+
+#: ../data/ui/mainwindow.ui.h:3
+msgid "Connect to other Bus"
+msgstr "Csatlakozás más buszhoz"
+
+#: ../data/ui/mainwindow.ui.h:4
+msgid "File"
+msgstr "Fájl"
+
