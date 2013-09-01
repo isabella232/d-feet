@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: d-feet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-11 01:44+0200\n"
-"PO-Revision-Date: 2013-08-11 01:45+0200\n"
+"POT-Creation-Date: 2013-09-01 20:18+0200\n"
+"PO-Revision-Date: 2013-09-01 20:19+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -53,25 +53,9 @@ msgstr ""
 msgid "Address:"
 msgstr "Adres:"
 
-#: ../data/ui/buswatch.ui.h:1
-msgid "Filter:"
-msgstr "Filtr:"
-
-#: ../data/ui/buswatch.ui.h:2
-msgid "unique bus name"
-msgstr "unikalna nazwa magistrali"
-
-#: ../data/ui/buswatch.ui.h:3
-msgid "Command line:"
-msgstr "Wiersz poleceń:"
-
-#: ../data/ui/buswatch.ui.h:4
-msgid "Process ID:"
-msgstr "Identyfikator procesu:"
-
-#: ../data/ui/buswatch.ui.h:5 ../data/ui/introspection.ui.h:2
-msgid "Name:"
-msgstr "Nazwa:"
+#: ../data/ui/bus.ui.h:1
+msgid "Filter busnames:"
+msgstr "Filtrowanie nazw magistrali:"
 
 #: ../data/ui/executedialog.ui.h:1
 msgid "Execute D-Bus Method"
@@ -144,6 +128,10 @@ msgstr "Maksymalny czas wykonania metody w sekundach"
 #: ../data/ui/introspection.ui.h:1
 msgid "Unique name:"
 msgstr "Unikalna nazwa:"
+
+#: ../data/ui/introspection.ui.h:2
+msgid "Name:"
+msgstr "Nazwa:"
 
 #: ../data/ui/introspection.ui.h:4
 msgid "Introspecting..."
