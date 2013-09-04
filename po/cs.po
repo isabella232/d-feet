@@ -7,9 +7,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: d-feet master\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-14 11:52+0200\n"
-"PO-Revision-Date: 2013-06-09 07:58+0200\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-"
+"feet&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-09-01 06:00+0000\n"
+"PO-Revision-Date: 2013-09-04 21:39+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -47,25 +48,9 @@ msgstr "Viz http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
 msgid "Address:"
 msgstr "Adresa:"
 
-#: ../data/ui/buswatch.ui.h:1
-msgid "Filter:"
-msgstr "Filtr:"
-
-#: ../data/ui/buswatch.ui.h:2
-msgid "unique bus name"
-msgstr "jedinečný název sběrnice"
-
-#: ../data/ui/buswatch.ui.h:3
-msgid "Command line:"
-msgstr "Příkazový řádek:"
-
-#: ../data/ui/buswatch.ui.h:4
-msgid "Process ID:"
-msgstr "ID procesu:"
-
-#: ../data/ui/buswatch.ui.h:5 ../data/ui/introspection.ui.h:2
-msgid "Name:"
-msgstr "Název:"
+#: ../data/ui/bus.ui.h:1
+msgid "Filter busnames:"
+msgstr "Filtrovat názvy sběrnice:"
 
 #: ../data/ui/executedialog.ui.h:1
 msgid "Execute D-Bus Method"
@@ -138,6 +123,10 @@ msgstr "Maximální čas provádění metody v sekundách"
 #: ../data/ui/introspection.ui.h:1
 msgid "Unique name:"
 msgstr "Jedinečný název"
+
+#: ../data/ui/introspection.ui.h:2
+msgid "Name:"
+msgstr "Název:"
 
 #: ../data/ui/introspection.ui.h:4
 msgid "Introspecting..."
