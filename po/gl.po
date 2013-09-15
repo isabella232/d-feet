@@ -1,0 +1,151 @@
+# English translations for PACKAGE package.
+# Copyright (C) 2013 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Fran Diéguez <fran@openhost.es>, 2013.
+# Fran Dieguez <frandieguez@gnome.org>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-09-15 17:26+0200\n"
+"PO-Revision-Date: 2013-09-15 17:33+0200\n"
+"Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
+"Language-Team: gnome-l10n-gl@gnome.org\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
+
+#: ../data/d-feet.desktop.in.in.h:1
+msgid "D-Feet"
+msgstr "D-Feet"
+
+#: ../data/d-feet.desktop.in.in.h:2
+msgid "D-Bus Debugger"
+msgstr "Depurador D-Bus"
+
+#: ../data/d-feet.desktop.in.in.h:3
+msgid "Debug D-Bus applications"
+msgstr "Aplicativos de depuración de D-Bus"
+
+#: ../data/d-feet.desktop.in.in.h:4
+msgid "debug;d-bus;"
+msgstr "depuración;d-bus;"
+
+#: ../data/ui/addconnectiondialog.ui.h:1
+msgid "Add a Connection"
+msgstr "Engadir unha conexión"
+
+#: ../data/ui/addconnectiondialog.ui.h:2
+msgid "See http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
+msgstr "Vexa http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
+
+#: ../data/ui/addconnectiondialog.ui.h:3 ../data/ui/introspection.ui.h:3
+msgid "Address:"
+msgstr "Enderezo:"
+
+#: ../data/ui/bus.ui.h:1
+msgid "Filter busnames:"
+msgstr "Filtrar nomes de bus:"
+
+#: ../data/ui/executedialog.ui.h:1
+msgid "Execute D-Bus Method"
+msgstr "Executar método D-Bus"
+
+#: ../data/ui/executedialog.ui.h:2
+msgid "_Execute"
+msgstr "_Executar"
+
+#: ../data/ui/executedialog.ui.h:3
+msgid "Method name:"
+msgstr "Nome do método:"
+
+#: ../data/ui/executedialog.ui.h:4
+msgid "Object Path:"
+msgstr "Ruta do obxecto:"
+
+#: ../data/ui/executedialog.ui.h:5
+msgid "Interface:"
+msgstr "Interface:"
+
+#: ../data/ui/executedialog.ui.h:6
+msgid "Method input"
+msgstr "Método de entrada"
+
+#: ../data/ui/executedialog.ui.h:7
+msgid "Method output"
+msgstr "Método de saída"
+
+#: ../data/ui/executedialog.ui.h:8
+msgid "Pretty print"
+msgstr "Impresión mellorada"
+
+#: ../data/ui/executedialog.ui.h:9
+msgid "Source"
+msgstr "Orixe"
+
+#: ../data/ui/executedialog.ui.h:10
+msgid "Method execution"
+msgstr "Execución do método"
+
+#: ../data/ui/executedialog.ui.h:11
+msgid "Number of method executions"
+msgstr "Número de execucións do método"
+
+#: ../data/ui/executedialog.ui.h:12
+msgid "Ø:"
+msgstr "Ø:"
+
+#: ../data/ui/executedialog.ui.h:13
+msgid "Average method execution time in seconds"
+msgstr "Tempo medio de execución do método en segundos"
+
+#: ../data/ui/executedialog.ui.h:14
+msgid "Min:"
+msgstr "Min:"
+
+#: ../data/ui/executedialog.ui.h:15
+msgid "Minimal method execution time in seconds"
+msgstr "Tempo mínimo de execución do método en segundos"
+
+#: ../data/ui/executedialog.ui.h:16
+msgid "Max:"
+msgstr "Max:"
+
+#: ../data/ui/executedialog.ui.h:17
+msgid "Maximal method execution time in seconds"
+msgstr "Tempo máximo de execución do método en segundos"
+
+#: ../data/ui/introspection.ui.h:1
+msgid "Unique name:"
+msgstr "Nome único:"
+
+#: ../data/ui/introspection.ui.h:2
+msgid "Name:"
+msgstr "Nome:"
+
+#: ../data/ui/introspection.ui.h:4
+msgid "Introspecting..."
+msgstr "Introspeccionando..."
+
+#: ../data/ui/introspection.ui.h:5
+msgid "Object path"
+msgstr "Ruta do obxecto"
+
+#: ../data/ui/mainwindow.ui.h:1
+msgid "Connect to System Bus"
+msgstr "Conectarse ao bus do sistema"
+
+#: ../data/ui/mainwindow.ui.h:2
+msgid "Connect to Session Bus"
+msgstr "Conectarse ao bus de sesión"
+
+#: ../data/ui/mainwindow.ui.h:3
+msgid "Connect to other Bus"
+msgstr "Conectarse a outro bus"
+
+#: ../data/ui/mainwindow.ui.h:4
+msgid "File"
+msgstr "Ficheiro"
