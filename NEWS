@@ -1,3 +1,30 @@
+0.3.7 - Sep 25, 2013
+====================
+- Added Galician translations (Fran Diéguez)
+- Updated Czech translation (Marek Černocký)
+- Updated Hungarian translation (Balázs Úr)
+- Updated Brazilian Portuguese translation (Enrico Nicoletto)
+- Updated Spanish translation (Daniel Mustieles)
+- Added Slovenian translation (Matej Urbančič)
+- Updated Polish translation (Piotr Drąg)
+- Show inactive bus names in italic (Thomas Bechtold)
+- Also install dfeet-icon-default-service.png (Thomas Bechtold)
+- Update POTFILES.in (Thomas Bechtold)
+- Also show activatable bus names (Thomas Bechtold)
+- Remove duplicate if-clause (Thomas Bechtold)
+- Fix Makefile for data/ui (Thomas Bechtold)
+- threads_init no longer needs to be called (Thomas Bechtold)
+- Bring back the application icons (Thomas Bechtold)
+- Use pformat to show method call results (Thomas Bechtold)
+- Use GtkListBox instead of a TreeView (Thomas Bechtold)
+- Initial Hungarian translation (Balázs Úr)
+- Added hu entry (Balázs Úr)
+- Added Polish translation (Piotr Drąg)
+- Update Chinese simplified translation (tuhaihe)
+- Added German translation (Christian Kirbach)
+- Added Greek translation (Dimitris Spingos)
+- post release vesion bump to 0.3.7 (Thomas Bechtold)
+
 0.3.6 - Jul 10, 2013
 ====================
 - Replace live.gnome.org with wiki.gnome.org (Thomas Bechtold)
