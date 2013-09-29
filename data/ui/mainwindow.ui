@@ -1,101 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <!-- interface-requires gtk+ 3.0 -->
-  <object class="GtkAccelGroup" id="accelgroup_connect"/>
-  <object class="GtkActionGroup" id="actiongroup_connect">
-    <property name="accel_group">accelgroup_connect</property>
-    <child>
-      <object class="GtkAction" id="action_systembus_connect">
-        <property name="label" translatable="yes">Connect to System Bus</property>
-        <property name="short_label" translatable="yes">Connect to System Bus</property>
-        <property name="tooltip" translatable="yes">Connect to System Bus</property>
-        <property name="stock_id">gtk-connect</property>
-        <signal name="activate" handler="action_systembus_connect_activate_cb" swapped="no"/>
-      </object>
-    </child>
-    <child>
-      <object class="GtkAction" id="action_sessionbus_connect">
-        <property name="label" translatable="yes">Connect to Session Bus</property>
-        <property name="short_label" translatable="yes">Connect to Session Bus</property>
-        <property name="tooltip" translatable="yes">Connect to Session Bus</property>
-        <property name="stock_id">gtk-connect</property>
-        <signal name="activate" handler="action_sessionbus_connect_activate_cb" swapped="no"/>
-      </object>
-    </child>
-    <child>
-      <object class="GtkAction" id="action_otherbus_connect">
-        <property name="label" translatable="yes">Connect to other Bus</property>
-        <property name="short_label" translatable="yes">Connect to other Bus</property>
-        <property name="tooltip" translatable="yes">Connect to other Bus</property>
-        <property name="stock_id">gtk-connect</property>
-        <signal name="activate" handler="action_otherbus_connect_activate_cb" swapped="no"/>
-      </object>
-    </child>
-  </object>
-  <object class="GtkVBox" id="vbox1">
+  <!-- interface-requires gtk+ 3.10 -->
+  <menu id='gear_menu'>
+    <section>
+      <item>
+        <attribute name='label' translatable='yes'>Connect to System Bus</attribute>
+        <attribute name='action'>win.connect-system-bus</attribute>
+      </item>
+      <item>
+        <attribute name='label' translatable='yes'>Connect to Session Bus</attribute>
+        <attribute name='action'>win.connect-session-bus</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Connect to other Bus</attribute>
+        <attribute name="action">win.connect-other-bus</attribute>
+      </item>
+    </section>
+  </menu>
+  <object class="GtkHeaderBar" id="headerbar">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
+    <property name="show-close-button">True</property>
+    <property name="title">d-feet</property>
     <child>
-      <object class="GtkMenuBar" id="menubar1">
+      <object class="GtkMenuButton" id="gear_menu_button">
         <property name="visible">True</property>
+        <property name="valign">center</property>
         <property name="can_focus">False</property>
+        <property name="action_name">win.gear-menu</property>
+        <property name="menu_model">gear_menu</property>
+        <style>
+          <class name="image-button"/>
+        </style>
         <child>
-          <object class="GtkMenuItem" id="menuitem_file">
-            <property name="use_action_appearance">False</property>
+          <object class="GtkImage" id="gear_image">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="label" translatable="yes">File</property>
-            <property name="use_underline">True</property>
-            <child type="submenu">
-              <object class="GtkMenu" id="menu1">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <child>
-                  <object class="GtkMenuItem" id="menuitem_systembus">
-                    <property name="related_action">action_systembus_connect</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkMenuItem" id="menuitem_sessionbus">
-                    <property name="related_action">action_sessionbus_connect</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkMenuItem" id="menuitem_otherbus">
-                    <property name="related_action">action_otherbus_connect</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                  </object>
-                </child>
-              </object>
-            </child>
+            <property name="icon_size">1</property>
+            <property name="icon_name">emblem-system-symbolic</property>
           </object>
         </child>
       </object>
       <packing>
-        <property name="expand">False</property>
-        <property name="fill">True</property>
-        <property name="position">0</property>
+        <property name="pack_type">end</property>
       </packing>
     </child>
+  </object>
+  <object class="GtkNotebook" id="display_notebook">
+    <property name="visible">True</property>
+    <property name="can_focus">True</property>
+    <property name="scrollable">True</property>
     <child>
-      <object class="GtkNotebook" id="display_notebook">
-        <property name="visible">True</property>
-        <property name="can_focus">True</property>
-        <property name="scrollable">True</property>
-        <child>
-          <placeholder/>
-        </child>
-      </object>
-      <packing>
-        <property name="expand">True</property>
-        <property name="fill">True</property>
-        <property name="position">1</property>
-      </packing>
+      <placeholder/>
     </child>
   </object>
 </interface>

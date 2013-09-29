@@ -66,39 +66,45 @@ class DFeetWindow(Gtk.ApplicationWindow):
         self.data_dir = data_dir
         #setup the window
         self.set_default_size(600, 480)
-        self.set_title(self.package)
         self.set_icon_name(package)
 
-        signal_dict = {
-            'action_systembus_connect_activate_cb': self.__systembus_connect_cb,
-            'action_sessionbus_connect_activate_cb': self.__sessionbus_connect_cb,
-            'action_otherbus_connect_activate_cb': self.__otherbus_connect_cb,
-            'action_close_activate_cb': self.__close_cb,
-            }
+        #create actions
+        action = Gio.SimpleAction.new('connect-system-bus', None)
+        action.connect('activate', self.__action_connect_system_bus_cb)
+        self.add_action(action)
+
+        action = Gio.SimpleAction.new('connect-session-bus', None)
+        action.connect('activate', self.__action_connect_session_bus_cb)
+        self.add_action(action)
+
+        action = Gio.SimpleAction.new('connect-other-bus', None)
+        action.connect('activate', self.__action_connect_other_bus_cb)
+        self.add_action(action)
 
         #get settings
         settings = Settings.get_instance()
-
-        ui = UILoader(self.data_dir, UILoader.UI_MAINWINDOW)
-        vbox1 = ui.get_widget('vbox1')
-        self.add(vbox1)
-        self.connect('delete-event', self.__quit_dfeet)
+        self.connect('delete-event', self.__delete_cb)
         self.set_default_size(int(settings.general['windowwidth']),
                               int(settings.general['windowheight']))
 
+        #setup ui
+        ui = UILoader(self.data_dir, UILoader.UI_MAINWINDOW)
+        header = ui.get_widget('headerbar')
+        self.set_titlebar(header)
         self.notebook = ui.get_widget('display_notebook')
+        self.add(self.notebook)
         self.notebook.show_all()
         self.notebook_page_widget = ui.get_widget('box_notebook_page')
+
         #create bus history list and load entries from settings
         self.__bus_history = []
         for bus in settings.general['addbus_list']:
             if bus != '':
                 self.__bus_history.append(bus)
 
-        ui.connect_signals(signal_dict)
-        #add a System- and Session Bus tab
-        self.__systembus_connect_cb(None)
-        self.__sessionbus_connect_cb(None)
+        #add a System and Session Bus tab
+        self.activate_action('connect-system-bus', None)
+        self.activate_action('connect-session-bus', None)
 
         self.show_all()
 
@@ -110,7 +116,7 @@ class DFeetWindow(Gtk.ApplicationWindow):
     def bus_history(self, history_new):
         self.__bus_history = history_new
 
-    def __systembus_connect_cb(self, action):
+    def __action_connect_system_bus_cb(self, action, parameter):
         """connect to system bus"""
         try:
             bw = BusWatch(self.data_dir, Gio.BusType.SYSTEM)
@@ -118,7 +124,7 @@ class DFeetWindow(Gtk.ApplicationWindow):
         except Exception as e:
             print(e)
 
-    def __sessionbus_connect_cb(self, action):
+    def __action_connect_session_bus_cb(self, action, parameter):
         """connect to session bus"""
         try:
             bw = BusWatch(self.data_dir, Gio.BusType.SESSION)
@@ -126,17 +132,17 @@ class DFeetWindow(Gtk.ApplicationWindow):
         except Exception as e:
             print(e)
 
-    def __otherbus_connect_cb(self, action):
+    def __action_connect_other_bus_cb(self, action, parameter):
         """connect to other bus"""
         dialog = AddConnectionDialog(self.data_dir, self, self.bus_history)
         result = dialog.run()
         if result == Gtk.ResponseType.OK:
             address = dialog.address
             if address == 'Session Bus':
-                self.__sessionbus_connect_cb(None)
+                self.activate_action('connect-session-bus', None)
                 return
             elif address == 'System Bus':
-                self.__systembus_connect_cb(None)
+                self.activate_action('connect-system-bus', None)
                 return
             else:
                 try:
@@ -164,12 +170,8 @@ class DFeetWindow(Gtk.ApplicationWindow):
         nbr = self.notebook.page_num(widget)
         self.notebook.remove_page(nbr)
 
-    def __close_cb(self, action):
-        """quit program"""
-        self.__quit_dfeet(self, None)
-
-    def __quit_dfeet(self, main_window, event):
-        """quit d-feet application and store some settings"""
+    def __delete_cb(self, main_window, event):
+        """store some settings"""
         settings = Settings.get_instance()
         size = main_window.get_size()
         pos = main_window.get_position()
