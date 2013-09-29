@@ -6,9 +6,9 @@ ui_DATA = 			\
 	executedialog.ui	\
 	introspection.ui	\
 	mainwindow.ui		\
+	app-menu.ui		\
 	$(NULL)
 
 EXTRA_DIST = 			\
 	$(ui_DATA)		\
 	$(NULL)
-

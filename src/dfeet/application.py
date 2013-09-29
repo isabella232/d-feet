@@ -1,33 +1,9 @@
 # -*- coding: utf-8 -*-
-from __future__ import print_function
 
+from __future__    import print_function
 from gi.repository import Gtk, Gio, GObject, Gdk
-
-from dfeet.window import DFeetWindow
-
-
-APP_MENU = """
-<interface>
-  <menu id='app-menu'>
-    <section>
-      <item>
-        <attribute name='label' translatable='yes'>About</attribute>
-        <attribute name='action'>app.about</attribute>
-      </item>
-      <item>
-        <attribute name='label' translatable='yes'>Help</attribute>
-        <attribute name='action'>app.help</attribute>
-        <attribute name="accel">F1</attribute>
-      </item>
-      <item>
-        <attribute name="label" translatable="yes">Quit</attribute>
-        <attribute name="action">app.quit</attribute>
-        <attribute name="accel">&lt;Primary&gt;q</attribute>
-      </item>
-    </section>
-  </menu>
-</interface>
-"""
+from dfeet.window  import DFeetWindow
+import os
 
 
 class DFeetApp(Gtk.Application):
@@ -47,7 +23,7 @@ class DFeetApp(Gtk.Application):
     def do_startup(self):
         Gtk.Application.do_startup(self)
         builder = Gtk.Builder()
-        builder.add_from_string(APP_MENU)
+        builder.add_from_file(os.path.join(self.data_dir, "ui", "app-menu.ui"))
 
         #create actions
         action = Gio.SimpleAction.new("about", None)
