@@ -28,32 +28,6 @@ from dfeet.uiloader import UILoader
 from dfeet.addconnectiondialog import AddConnectionDialog
 from dfeet.executemethoddialog import ExecuteMethodDialog
 
-
-class NotebookTabLabel(Gtk.Box):
-    __gsignals__ = {
-        "close-clicked": (GObject.SIGNAL_RUN_FIRST, GObject.TYPE_NONE, ()),
-    }
-
-    def __init__(self, label_text):
-        Gtk.Box.__init__(self)
-        self.set_orientation(Gtk.Orientation.HORIZONTAL)
-        self.set_spacing(5)
-        # label
-        label = Gtk.Label(label_text)
-        self.pack_start(label, True, True, 0)
-        # close button
-        button = Gtk.Button()
-        button.set_relief(Gtk.ReliefStyle.NONE)
-        button.set_focus_on_click(False)
-        button.add(Gtk.Image.new_from_stock(Gtk.STOCK_CLOSE, Gtk.IconSize.MENU))
-        button.connect("clicked", self.__button_clicked)
-        self.pack_end(button, False, False, 0)
-        self.show_all()
-
-    def __button_clicked(self, button, data=None):
-        self.emit("close-clicked")
-
-
 class DFeetWindow(Gtk.ApplicationWindow):
     """the main window"""
 
@@ -91,10 +65,8 @@ class DFeetWindow(Gtk.ApplicationWindow):
         ui = UILoader(self.data_dir, UILoader.UI_MAINWINDOW)
         header = ui.get_widget('headerbar')
         self.set_titlebar(header)
-        self.notebook = ui.get_widget('display_notebook')
-        self.add(self.notebook)
-        self.notebook.show_all()
-        self.notebook_page_widget = ui.get_widget('box_notebook_page')
+        self.stack = ui.get_widget('buses_stack')
+        self.add(self.stack)
 
         #create bus history list and load entries from settings
         self.__bus_history = []
@@ -120,7 +92,7 @@ class DFeetWindow(Gtk.ApplicationWindow):
         """connect to system bus"""
         try:
             bw = BusWatch(self.data_dir, Gio.BusType.SYSTEM)
-            self.__notebook_append_page(bw.box_bus, "System Bus")
+            self.stack.add_titled(bw.box_bus, "System Bus", "System Bus")
         except Exception as e:
             print(e)
 
@@ -128,7 +100,7 @@ class DFeetWindow(Gtk.ApplicationWindow):
         """connect to session bus"""
         try:
             bw = BusWatch(self.data_dir, Gio.BusType.SESSION)
-            self.__notebook_append_page(bw.box_bus, "Session Bus")
+            self.stack.add_titled(bw.box_bus, "Session Bus", "Session Bus")
         except Exception as e:
             print(e)
 
@@ -147,7 +119,7 @@ class DFeetWindow(Gtk.ApplicationWindow):
             else:
                 try:
                     bw = BusWatch(self.data_dir, address)
-                    self.__notebook_append_page(bw.paned_buswatch, address)
+                    self.stack.add_titled(bw.paned_buswatch, address, address)
                     # Fill history
                     if address in self.bus_history:
                         self.bus_history.remove(address)
@@ -159,16 +131,6 @@ class DFeetWindow(Gtk.ApplicationWindow):
                     print("can not connect to '%s': %s" % (address, str(e)))
         dialog.destroy()
 
-    def __notebook_append_page(self, widget, text):
-        """add a page to the notebook"""
-        ntl = NotebookTabLabel(text)
-        page_nbr = self.notebook.append_page(widget, ntl)
-        ntl.connect("close-clicked", self.__notebook_page_close_clicked_cb, widget)
-
-    def __notebook_page_close_clicked_cb(self, button, widget):
-        """remove a page from the notebook"""
-        nbr = self.notebook.page_num(widget)
-        self.notebook.remove_page(nbr)
 
     def __delete_cb(self, main_window, event):
         """store some settings"""
