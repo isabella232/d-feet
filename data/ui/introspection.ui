@@ -133,12 +133,21 @@
         </child>
         <child>
           <object class="GtkButton" id="button_reload">
-            <property name="label">gtk-refresh</property>
             <property name="visible">True</property>
+            <property name="valign">center</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
-            <property name="use_stock">True</property>
             <signal name="clicked" handler="button_reload_clicked_cb" swapped="no"/>
+            <style>
+              <class name="image-button"/>
+            </style>
+            <child>
+              <object class="GtkImage" id="reload_image">
+                <property name="visible">True</property>
+                <property name="icon_size">1</property>
+                <property name="icon_name">reload</property>
+              </object>
+            </child>
           </object>
           <packing>
             <property name="expand">False</property>
