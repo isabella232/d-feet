@@ -67,6 +67,9 @@ class DFeetWindow(Gtk.ApplicationWindow):
         self.set_titlebar(header)
         self.stack = ui.get_widget('buses_stack')
         self.add(self.stack)
+        self.__stack_child_added_id = self.stack.connect('add', self.__stack_child_added_cb)
+        self.__stack_child_removed_id = self.stack.connect('remove', self.__stack_child_removed_cb)
+        self.connect('destroy', self.__on_destroy)
 
         #create bus history list and load entries from settings
         self.__bus_history = []
@@ -87,6 +90,22 @@ class DFeetWindow(Gtk.ApplicationWindow):
     @bus_history.setter
     def bus_history(self, history_new):
         self.__bus_history = history_new
+
+    def __stack_child_added_cb(self, stack, child):
+        existing = self.lookup_action('close-bus')
+        if existing is None:
+            action = Gio.SimpleAction.new('close-bus', None)
+            action.connect('activate', self.__action_close_bus_cb)
+            self.add_action(action)
+
+    def __stack_child_removed_cb(self, stack, child):
+        current = self.stack.get_visible_child()
+        if current is None:
+            self.remove_action('close-bus')
+
+    def __on_destroy(self, data=None):
+        self.stack.disconnect(self.__stack_child_added_id)
+        self.stack.disconnect(self.__stack_child_removed_id)
 
     def __action_connect_system_bus_cb(self, action, parameter):
         """connect to system bus"""
@@ -131,6 +150,13 @@ class DFeetWindow(Gtk.ApplicationWindow):
                     print("can not connect to '%s': %s" % (address, str(e)))
         dialog.destroy()
 
+    def __action_close_bus_cb(self, action, parameter):
+        """close current bus"""
+        try:
+            current = self.stack.get_visible_child()
+            self.stack.remove (current)
+        except Exception as e:
+            print(e)
 
     def __delete_cb(self, main_window, event):
         """store some settings"""

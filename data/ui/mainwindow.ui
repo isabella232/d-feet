@@ -16,6 +16,12 @@
         <attribute name="action">win.connect-other-bus</attribute>
       </item>
     </section>
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">Close Bus</attribute>
+        <attribute name="action">win.close-bus</attribute>
+      </item>
+    </section>
   </menu>
   <object class="GtkHeaderBar" id="headerbar">
     <property name="visible">True</property>
