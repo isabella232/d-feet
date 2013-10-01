@@ -38,6 +38,9 @@ class DFeetWindow(Gtk.ApplicationWindow):
         self.package = package
         self.version = version
         self.data_dir = data_dir
+        self.session_bus = None
+        self.system_bus = None
+
         #setup the window
         self.set_default_size(600, 480)
         self.set_icon_name(package)
@@ -103,6 +106,19 @@ class DFeetWindow(Gtk.ApplicationWindow):
         if current is None:
             self.remove_action('close-bus')
 
+        if child == self.system_bus:
+            self.system_bus = None
+            # Re-enable the action
+            action = Gio.SimpleAction.new('connect-system-bus', None)
+            action.connect('activate', self.__action_connect_system_bus_cb)
+            self.add_action(action)
+        elif child == self.session_bus:
+            self.session_bus = None
+            # Re-enable the action
+            action = Gio.SimpleAction.new('connect-session-bus', None)
+            action.connect('activate', self.__action_connect_session_bus_cb)
+            self.add_action(action)
+
     def __on_destroy(self, data=None):
         self.stack.disconnect(self.__stack_child_added_id)
         self.stack.disconnect(self.__stack_child_removed_id)
@@ -110,16 +126,24 @@ class DFeetWindow(Gtk.ApplicationWindow):
     def __action_connect_system_bus_cb(self, action, parameter):
         """connect to system bus"""
         try:
+            if self.system_bus is not None:
+                return
             bw = BusWatch(self.data_dir, Gio.BusType.SYSTEM)
-            self.stack.add_titled(bw.box_bus, "System Bus", "System Bus")
+            self.system_bus = bw.box_bus
+            self.stack.add_titled(self.system_bus, 'System Bus', 'System Bus')
+            self.remove_action('connect-system-bus')
         except Exception as e:
             print(e)
 
     def __action_connect_session_bus_cb(self, action, parameter):
         """connect to session bus"""
         try:
+            if self.session_bus is not None:
+                return
             bw = BusWatch(self.data_dir, Gio.BusType.SESSION)
-            self.stack.add_titled(bw.box_bus, "Session Bus", "Session Bus")
+            self.session_bus = bw.box_bus
+            self.stack.add_titled(self.session_bus, 'Session Bus', 'Session Bus')
+            self.remove_action('connect-session-bus')
         except Exception as e:
             print(e)
 
