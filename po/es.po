@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: d-feet master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-"
 "feet&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-09-01 06:00+0000\n"
-"PO-Revision-Date: 2013-09-02 17:36+0200\n"
+"POT-Creation-Date: 2013-10-03 15:52+0000\n"
+"PO-Revision-Date: 2013-10-03 18:19+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -47,10 +47,17 @@ msgstr ""
 msgid "Address:"
 msgstr "Dirección:"
 
-#: ../data/ui/bus.ui.h:1
-#| msgid "unique bus name"
-msgid "Filter busnames:"
-msgstr "Filtrar nombres de bus:"
+#: ../data/ui/app-menu.ui.h:1
+msgid "About"
+msgstr "Acerca de"
+
+#: ../data/ui/app-menu.ui.h:2
+msgid "Help"
+msgstr "Ayuda"
+
+#: ../data/ui/app-menu.ui.h:3
+msgid "Quit"
+msgstr "Salir"
 
 #: ../data/ui/executedialog.ui.h:1
 msgid "Execute D-Bus Method"
@@ -149,8 +156,15 @@ msgid "Connect to other Bus"
 msgstr "Conectar a otro bus"
 
 #: ../data/ui/mainwindow.ui.h:4
-msgid "File"
-msgstr "Archivo"
+msgid "Close Bus"
+msgstr "Cerrar bus"
+
+#~| msgid "unique bus name"
+#~ msgid "Filter busnames:"
+#~ msgstr "Filtrar nombres de bus:"
+
+#~ msgid "File"
+#~ msgstr "Archivo"
 
 #~ msgid "Filter:"
 #~ msgstr "Filtro:"
