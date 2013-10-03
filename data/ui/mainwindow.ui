@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <!-- interface-requires gtk+ 3.10 -->
-  <menu id='gear_menu'>
+  <menu id="gear_menu">
     <section>
       <item>
-        <attribute name='label' translatable='yes'>Connect to System Bus</attribute>
-        <attribute name='action'>win.connect-system-bus</attribute>
+        <attribute name="label" translatable="yes">Connect to System Bus</attribute>
+        <attribute name="action">win.connect-system-bus</attribute>
       </item>
       <item>
-        <attribute name='label' translatable='yes'>Connect to Session Bus</attribute>
-        <attribute name='action'>win.connect-session-bus</attribute>
+        <attribute name="label" translatable="yes">Connect to Session Bus</attribute>
+        <attribute name="action">win.connect-session-bus</attribute>
       </item>
       <item>
         <attribute name="label" translatable="yes">Connect to other Bus</attribute>
