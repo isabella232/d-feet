@@ -1,0 +1,153 @@
+# This file is distributed under the same license as the d-feet package.
+#
+# Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-"
+"feet&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-10-01 10:08+0000\n"
+"PO-Revision-Date: 2013-10-03 15:51+0300\n"
+"Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
+"Language-Team: Latvian <lata-l10n@googlegroups.com>\n"
+"Language: lv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
+"2);\n"
+"X-Generator: Lokalize 1.5\n"
+
+#: ../data/d-feet.desktop.in.in.h:1
+msgid "D-Feet"
+msgstr "D-Feet"
+
+#: ../data/d-feet.desktop.in.in.h:2
+msgid "D-Bus Debugger"
+msgstr "D-Bus atkļūdotājs"
+
+#: ../data/d-feet.desktop.in.in.h:3
+msgid "Debug D-Bus applications"
+msgstr "Atkļūdo D-Bus lietotnes"
+
+#: ../data/d-feet.desktop.in.in.h:4
+msgid "debug;d-bus;"
+msgstr "debug;d-bus;atkļūdošana;"
+
+#: ../data/ui/addconnectiondialog.ui.h:1
+msgid "Add a Connection"
+msgstr "Pievienot savienojumu"
+
+#: ../data/ui/addconnectiondialog.ui.h:2
+msgid "See http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
+msgstr ""
+"Skatiet http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
+
+#: ../data/ui/addconnectiondialog.ui.h:3 ../data/ui/introspection.ui.h:3
+msgid "Address:"
+msgstr "Adrese:"
+
+#: ../data/ui/bus.ui.h:1
+msgid "Filter busnames:"
+msgstr "Filtrēt kopņu nosaukums:"
+
+#: ../data/ui/executedialog.ui.h:1
+msgid "Execute D-Bus Method"
+msgstr "Izpildīt D-Bus metodi"
+
+#: ../data/ui/executedialog.ui.h:2
+msgid "_Execute"
+msgstr "Izpi_ldīt"
+
+#: ../data/ui/executedialog.ui.h:3
+msgid "Method name:"
+msgstr "Metodes nosaukums:"
+
+#: ../data/ui/executedialog.ui.h:4
+msgid "Object Path:"
+msgstr "Objekta ceļš:"
+
+#: ../data/ui/executedialog.ui.h:5
+msgid "Interface:"
+msgstr "Saskarne:"
+
+#: ../data/ui/executedialog.ui.h:6
+msgid "Method input"
+msgstr "Metodes ievade"
+
+#: ../data/ui/executedialog.ui.h:7
+msgid "Method output"
+msgstr "Metodes izvade"
+
+#: ../data/ui/executedialog.ui.h:8
+msgid "Pretty print"
+msgstr "Noformēt"
+
+#: ../data/ui/executedialog.ui.h:9
+msgid "Source"
+msgstr "Avots"
+
+#: ../data/ui/executedialog.ui.h:10
+msgid "Method execution"
+msgstr "Metodes izpilde"
+
+#: ../data/ui/executedialog.ui.h:11
+msgid "Number of method executions"
+msgstr "Izpildīto metožu skaits"
+
+#: ../data/ui/executedialog.ui.h:12
+msgid "Ø:"
+msgstr "Ø:"
+
+#: ../data/ui/executedialog.ui.h:13
+msgid "Average method execution time in seconds"
+msgstr "Vidējais metožu izpildes laiks sekundēs"
+
+#: ../data/ui/executedialog.ui.h:14
+msgid "Min:"
+msgstr "Min:"
+
+#: ../data/ui/executedialog.ui.h:15
+msgid "Minimal method execution time in seconds"
+msgstr "Minimālais metožu izpildes laiks sekundēs"
+
+#: ../data/ui/executedialog.ui.h:16
+msgid "Max:"
+msgstr "Maks:"
+
+#: ../data/ui/executedialog.ui.h:17
+msgid "Maximal method execution time in seconds"
+msgstr "Maksimālais metožu izpildes laiks sekundēs"
+
+#: ../data/ui/introspection.ui.h:1
+msgid "Unique name:"
+msgstr "Unikāls nosaukums:"
+
+#: ../data/ui/introspection.ui.h:2
+msgid "Name:"
+msgstr "Nosaukums:"
+
+#: ../data/ui/introspection.ui.h:4
+msgid "Introspecting..."
+msgstr "Introspektē..."
+
+#: ../data/ui/introspection.ui.h:5
+msgid "Object path"
+msgstr "Objekta ceļš"
+
+#: ../data/ui/mainwindow.ui.h:1
+msgid "Connect to System Bus"
+msgstr "Savienoties ar sistēmas kopni"
+
+#: ../data/ui/mainwindow.ui.h:2
+msgid "Connect to Session Bus"
+msgstr "Savienoties ar sesijas kopni"
+
+#: ../data/ui/mainwindow.ui.h:3
+msgid "Connect to other Bus"
+msgstr "Savienoties ar citu kopni"
+
+#: ../data/ui/mainwindow.ui.h:4
+msgid "File"
+msgstr "Datne"
+
