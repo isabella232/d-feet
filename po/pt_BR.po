@@ -7,9 +7,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: d-feet master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-feet&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-09-01 06:00+0000\n"
-"PO-Revision-Date: 2013-09-03 09:14-0300\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-"
+"feet&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-10-03 10:01+0000\n"
+"PO-Revision-Date: 2013-10-03 08:00-0300\n"
 "Last-Translator: Enrico Nicoletto <liverig@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.5.5\n"
+"X-Generator: Poedit 1.5.7\n"
 
 #: ../data/d-feet.desktop.in.in.h:1
 msgid "D-Feet"
@@ -43,15 +44,9 @@ msgstr "Adicionar uma conexão"
 msgid "See http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
 msgstr "Veja http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
 
-#: ../data/ui/addconnectiondialog.ui.h:3
-#: ../data/ui/introspection.ui.h:3
+#: ../data/ui/addconnectiondialog.ui.h:3 ../data/ui/introspection.ui.h:3
 msgid "Address:"
 msgstr "Endereço:"
-
-#: ../data/ui/bus.ui.h:1
-#| msgid "unique bus name"
-msgid "Filter busnames:"
-msgstr "Filtrar nomes de barramentos:"
 
 #: ../data/ui/executedialog.ui.h:1
 msgid "Execute D-Bus Method"
@@ -138,18 +133,22 @@ msgid "Object path"
 msgstr "Caminho do objeto"
 
 #: ../data/ui/mainwindow.ui.h:1
-msgid "Connect to System Bus"
-msgstr "Conectar ao barramento do sistema"
-
-#: ../data/ui/mainwindow.ui.h:2
-msgid "Connect to Session Bus"
-msgstr "Conectar ao barramento da sessão"
-
-#: ../data/ui/mainwindow.ui.h:3
 msgid "Connect to other Bus"
 msgstr "Conectar a outro barramento"
 
-#: ../data/ui/mainwindow.ui.h:4
-msgid "File"
-msgstr "Arquivo"
+#: ../data/ui/mainwindow.ui.h:2
+msgid "Close Bus"
+msgstr "Fechar barramento"
 
+#~| msgid "unique bus name"
+#~ msgid "Filter busnames:"
+#~ msgstr "Filtrar nomes de barramentos:"
+
+#~ msgid "Connect to System Bus"
+#~ msgstr "Conectar ao barramento do sistema"
+
+#~ msgid "Connect to Session Bus"
+#~ msgstr "Conectar ao barramento da sessão"
+
+#~ msgid "File"
+#~ msgstr "Arquivo"
