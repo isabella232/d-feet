@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: d-feet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-01 20:18+0200\n"
-"PO-Revision-Date: 2013-09-01 20:19+0200\n"
+"POT-Creation-Date: 2013-10-03 17:51+0200\n"
+"PO-Revision-Date: 2013-10-03 17:52+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -53,9 +53,17 @@ msgstr ""
 msgid "Address:"
 msgstr "Adres:"
 
-#: ../data/ui/bus.ui.h:1
-msgid "Filter busnames:"
-msgstr "Filtrowanie nazw magistrali:"
+#: ../data/ui/app-menu.ui.h:1
+msgid "About"
+msgstr "O programie"
+
+#: ../data/ui/app-menu.ui.h:2
+msgid "Help"
+msgstr "Pomoc"
+
+#: ../data/ui/app-menu.ui.h:3
+msgid "Quit"
+msgstr "Zakończ"
 
 #: ../data/ui/executedialog.ui.h:1
 msgid "Execute D-Bus Method"
@@ -154,5 +162,5 @@ msgid "Connect to other Bus"
 msgstr "Połącz z inną magistralą"
 
 #: ../data/ui/mainwindow.ui.h:4
-msgid "File"
-msgstr "Plik"
+msgid "Close Bus"
+msgstr "Zamknij magistralę"
