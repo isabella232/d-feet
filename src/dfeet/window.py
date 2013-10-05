@@ -28,6 +28,7 @@ from dfeet.uiloader import UILoader
 from dfeet.addconnectiondialog import AddConnectionDialog
 from dfeet.executemethoddialog import ExecuteMethodDialog
 
+
 class DFeetWindow(Gtk.ApplicationWindow):
     """the main window"""
 
@@ -178,7 +179,7 @@ class DFeetWindow(Gtk.ApplicationWindow):
         """close current bus"""
         try:
             current = self.stack.get_visible_child()
-            self.stack.remove (current)
+            self.stack.remove(current)
         except Exception as e:
             print(e)
 

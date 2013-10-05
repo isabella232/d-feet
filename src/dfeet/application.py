@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from __future__    import print_function
+from __future__ import print_function
 from gi.repository import Gtk, Gio, GObject, Gdk
-from dfeet.window  import DFeetWindow
+from dfeet.window import DFeetWindow
 import os
 
 
