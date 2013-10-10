@@ -10,9 +10,10 @@ from dfeet.wnck_utils import IconTable
 
 class BusNameBox(Gtk.VBox):
     """class to represent a BusName (eg 'org.freedesktop.NetworkManager')"""
-    def __init__(self, bus_name):
+    def __init__(self, bus_name, unique_name):
         super(BusNameBox, self).__init__(spacing=5, expand=True)
         self.__bus_name = bus_name
+        self.__unique_name = unique_name
         self.__process_id = 0
         self.__command_line = ''
         self.__activatable = False
@@ -80,6 +81,10 @@ class BusNameBox(Gtk.VBox):
     @property
     def bus_name(self):
         return self.__bus_name
+
+    @property
+    def unique_name(self):
+        return self.__unique_name
 
     @property
     def activatable(self):
@@ -193,8 +198,11 @@ class BusWatch(object):
             row_childs = listbox_row.get_children()
             bus_name_box = row_childs[0]
             #add the introspection info to the left side
-            self.__addr_info = AddressInfo(
-                self.__data_dir, self.__bus_address, bus_name_box.bus_name, connection_is_bus=True)
+            self.__addr_info = AddressInfo(self.__data_dir,
+                                           self.__bus_address,
+                                           bus_name_box.bus_name,
+                                           bus_name_box.unique_name,
+                                           connection_is_bus=True)
             self.box_bus.pack_end(self.__addr_info.introspect_box, True, True, 0)
         self.box_bus.show_all()
 
@@ -208,13 +216,13 @@ class BusWatch(object):
 
         if bus_name[0] == ':':
             if not old_owner:
-                bus_name_box = BusNameBox(bus_name)
+                bus_name_box = BusNameBox(bus_name, new_owner)
                 self.__listbox_add_bus_name(bus_name_box)
             else:
                 self.__listbox_remove_bus_name(bus_name)
         else:
             if new_owner:
-                bus_name_box = BusNameBox(bus_name)
+                bus_name_box = BusNameBox(bus_name, new_owner)
                 self.__listbox_add_bus_name(bus_name_box)
             if old_owner:
                 self.__listbox_remove_bus_name(bus_name)
@@ -234,7 +242,7 @@ class BusWatch(object):
             self.__listbox.remove(obj)
             #if bus is activatable, add the bus name again
             if bus_name in self.__activatable_names:
-                bnb = BusNameBox(bus_name)
+                bnb = BusNameBox(bus_name, '')
                 self.__listbox_add_bus_name(bnb)
         else:
             print("can not remove busname '{0}'. busname not found".format(bus_name))
@@ -263,10 +271,30 @@ class BusWatch(object):
         else:
             bus_name_box.activatable = False
 
-    def __list_names_handler(self, obj, names, userdata):
+    def __add_name(self, name, unique_name):
+        bus_name_box = BusNameBox(name, unique_name)
+        self.__listbox_add_bus_name(bus_name_box)
+
+    def __get_name_owner_cb(self, obj, unique_name, name):
+        self.__add_name(name, unique_name)
+
+    def __get_name_owner_error_cb(self, obj, error, name):
+        # no name owner, empty unique name
+        self.__add_name(name, '')
+
+    def __add_names(self, names):
         for n in names:
-            bus_name_box = BusNameBox(n)
-            self.__listbox_add_bus_name(bus_name_box)
+            #unique names are added right away
+            if n[0] == ':':
+                self.__add_name(n, n)
+            else:
+                self.bus_proxy.GetNameOwner('(s)', n,
+                                            result_handler=self.__get_name_owner_cb,
+                                            error_handler=self.__get_name_owner_error_cb,
+                                            user_data=n)
+
+    def __list_names_handler(self, obj, names, userdata):
+        self.__add_names(names)
 
     def __list_names_error_handler(self, obj, error, userdata):
         print("error getting bus names: %s" % str(error))
@@ -275,9 +303,7 @@ class BusWatch(object):
         #remember the activatable bus names
         self.__activatable_names = act_names
         #add all activatable bus names to the list
-        for name in act_names:
-            bnb = BusNameBox(name)
-            self.__listbox_add_bus_name(bnb)
+        self.__add_names(act_names)
 
     def __list_act_names_error_handler(self, obj, error, userdata):
         self.__activatable_names = []
