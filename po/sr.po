@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: d-feet\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-feet"
 "&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-09-27 21:19+0000\n"
-"PO-Revision-Date: 2013-10-01 11:58+0200\n"
+"POT-Creation-Date: 2013-10-03 15:52+0000\n"
+"PO-Revision-Date: 2013-10-11 22:44+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1? 3 : n%10==1 && n%100!=11 ? 0 : "
 "n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Project-Style: gnome\n"
 
 #: ../data/d-feet.desktop.in.in.h:1
 msgid "D-Feet"
@@ -47,9 +48,17 @@ msgstr ""
 msgid "Address:"
 msgstr "Адреса:"
 
-#: ../data/ui/bus.ui.h:1
-msgid "Filter busnames:"
-msgstr "Називи сабирнице пропусника:"
+#: ../data/ui/app-menu.ui.h:1
+msgid "About"
+msgstr "О програму"
+
+#: ../data/ui/app-menu.ui.h:2
+msgid "Help"
+msgstr "Помоћ"
+
+#: ../data/ui/app-menu.ui.h:3
+msgid "Quit"
+msgstr "Изађи"
 
 #: ../data/ui/executedialog.ui.h:1
 msgid "Execute D-Bus Method"
@@ -148,5 +157,5 @@ msgid "Connect to other Bus"
 msgstr "Повежи се на другу сабирницу"
 
 #: ../data/ui/mainwindow.ui.h:4
-msgid "File"
-msgstr "Датотека"
+msgid "Close Bus"
+msgstr "Затвори сабирницу"
