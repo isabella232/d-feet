@@ -26,6 +26,7 @@ configure
 data/d-feet.desktop
 data/d-feet.desktop.in
 data/org.gnome.d-feet.gschema.valid
+data/d-feet.appdata.xml
 install-sh
 m4/
 missing

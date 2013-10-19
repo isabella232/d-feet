@@ -11,6 +11,12 @@ desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 
 UPDATE_DESKTOP = update-desktop-database $(datadir)/applications || :
 
+@INTLTOOL_XML_RULE@
+appdatadir = $(datadir)/appdata
+appdata_DATA = $(appdata_in_files:.xml.in=.xml)
+appdata_in_files = d-feet.appdata.xml.in
+
+
 install-data-hook:
 	$(UPDATE_DESKTOP)
 uninstall-hook:
@@ -18,10 +24,12 @@ uninstall-hook:
 
 EXTRA_DIST =			\
 	$(desktop_in_files)	\
-	$(gsettings_SCHEMAS)
+	$(gsettings_SCHEMAS)	\
+	$(appdata_in_files)
 
 CLEANFILES =			\
-	$(DESKTOP_FILES)
+	$(DESKTOP_FILES)	\
+	$(appdata_DATA)
 
 DISTCLEANFILES =		\
 	$(desktop_DATA)
