@@ -1,0 +1,161 @@
+# Finnish translation for d-feet.
+# Copyright (C) 2013 d-feet's COPYRIGHT HOLDER
+# This file is distributed under the same license as the d-feet package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Jiri Grönroos <jiri.gronroos+l10n@iki.fi>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: d-feet master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-"
+"feet&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-10-06 16:57+0000\n"
+"PO-Revision-Date: 2013-10-09 23:40+0300\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
+"Language-Team: suomi <gnome-fi-laatu@lists.sourceforge.net>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Gtranslator 2.91.6\n"
+
+#: ../data/d-feet.desktop.in.in.h:1
+msgid "D-Feet"
+msgstr "D-Feet"
+
+#: ../data/d-feet.desktop.in.in.h:2
+msgid "D-Bus Debugger"
+msgstr "D-Bus-vianjäljitys"
+
+#: ../data/d-feet.desktop.in.in.h:3
+msgid "Debug D-Bus applications"
+msgstr "Jäljitä vikoja D-Bus-sovelluksista"
+
+#: ../data/d-feet.desktop.in.in.h:4
+msgid "debug;d-bus;"
+msgstr "debug;d-bus;vianetsintä;vianjäljitys;"
+
+#: ../data/ui/addconnectiondialog.ui.h:1
+msgid "Add a Connection"
+msgstr "Lisää yhteys"
+
+#: ../data/ui/addconnectiondialog.ui.h:2
+msgid "See http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
+msgstr "Lue http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
+
+#: ../data/ui/addconnectiondialog.ui.h:3 ../data/ui/introspection.ui.h:3
+msgid "Address:"
+msgstr "Osoite:"
+
+#: ../data/ui/app-menu.ui.h:1
+msgid "About"
+msgstr "Tietoja"
+
+#: ../data/ui/app-menu.ui.h:2
+msgid "Help"
+msgstr "Ohje"
+
+#: ../data/ui/app-menu.ui.h:3
+msgid "Quit"
+msgstr "Lopeta"
+
+#: ../data/ui/executedialog.ui.h:1
+msgid "Execute D-Bus Method"
+msgstr "Suorita D-Bus-menetelmä"
+
+#: ../data/ui/executedialog.ui.h:2
+msgid "_Execute"
+msgstr "_Suorita"
+
+#: ../data/ui/executedialog.ui.h:3
+msgid "Method name:"
+msgstr "Menetelmän nimi:"
+
+#: ../data/ui/executedialog.ui.h:4
+msgid "Object Path:"
+msgstr "Objektin polku:"
+
+#: ../data/ui/executedialog.ui.h:5
+msgid "Interface:"
+msgstr "Liitäntä:"
+
+#: ../data/ui/executedialog.ui.h:6
+msgid "Method input"
+msgstr "Menetelmän syöte"
+
+#: ../data/ui/executedialog.ui.h:7
+msgid "Method output"
+msgstr "Menetelmän tuloste"
+
+#: ../data/ui/executedialog.ui.h:8
+msgid "Pretty print"
+msgstr "Nätti tuloste"
+
+#: ../data/ui/executedialog.ui.h:9
+msgid "Source"
+msgstr "Lähde"
+
+#: ../data/ui/executedialog.ui.h:10
+msgid "Method execution"
+msgstr "Menetelmän suoritus"
+
+#: ../data/ui/executedialog.ui.h:11
+msgid "Number of method executions"
+msgstr "Menetelmän suoritusten lukumäärä"
+
+#: ../data/ui/executedialog.ui.h:12
+msgid "Ø:"
+msgstr "Ø:"
+
+#: ../data/ui/executedialog.ui.h:13
+msgid "Average method execution time in seconds"
+msgstr "Menetelmän keskimääräinen suoritusaika sekunneissa"
+
+#: ../data/ui/executedialog.ui.h:14
+msgid "Min:"
+msgstr "Pienimmillään:"
+
+#: ../data/ui/executedialog.ui.h:15
+msgid "Minimal method execution time in seconds"
+msgstr "Menetelmän pienin suoritusaika sekunneissa"
+
+#: ../data/ui/executedialog.ui.h:16
+msgid "Max:"
+msgstr "Suurimmillaan:"
+
+#: ../data/ui/executedialog.ui.h:17
+msgid "Maximal method execution time in seconds"
+msgstr "Menetelmän suurin suoritusaika sekunneissa"
+
+#: ../data/ui/introspection.ui.h:1
+msgid "Unique name:"
+msgstr "Yksilöllinen nimi:"
+
+#: ../data/ui/introspection.ui.h:2
+msgid "Name:"
+msgstr "Nimi:"
+
+#: ../data/ui/introspection.ui.h:4
+msgid "Introspecting..."
+msgstr "Havainnoidaan..."
+
+#: ../data/ui/introspection.ui.h:5
+msgid "Object path"
+msgstr "Objektin polku"
+
+#: ../data/ui/mainwindow.ui.h:1
+msgid "Connect to System Bus"
+msgstr "Yhdistä järjestelmäväylään"
+
+#: ../data/ui/mainwindow.ui.h:2
+msgid "Connect to Session Bus"
+msgstr "Yhdistä istuntoväylään"
+
+#: ../data/ui/mainwindow.ui.h:3
+msgid "Connect to other Bus"
+msgstr "Yhdistä muuhun väylään"
+
+#: ../data/ui/mainwindow.ui.h:4
+msgid "Close Bus"
+msgstr "Sulje väylä"
