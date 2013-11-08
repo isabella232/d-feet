@@ -9,7 +9,7 @@ desktopdir = $(datadir)/applications
 desktop_in_files = d-feet.desktop.in
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 
-UPDATE_DESKTOP = if test -z "$(DESTDIR)"; then update-desktop-database $(datadir)/applications || : fi
+UPDATE_DESKTOP = if test -z "$(DESTDIR)"; then update-desktop-database $(datadir)/applications || :; fi
 
 @INTLTOOL_XML_RULE@
 appdatadir = $(datadir)/appdata
