@@ -1,0 +1,161 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Yuri Myasoedov <ymyasoedov@yandex.ru>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: D-Feet\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-"
+"feet&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-11-08 00:38+0000\n"
+"PO-Revision-Date: 2013-12-18 22:56+0400\n"
+"Last-Translator: Yuri Myasoedov <ymyasoedov@yandex.ru>\n"
+"Language-Team: Russian <gnome-cyr@gnome.org>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 1.5.7\n"
+
+#: ../data/d-feet.desktop.in.in.h:1
+msgid "D-Feet"
+msgstr "D-Feet"
+
+#: ../data/d-feet.desktop.in.in.h:2
+msgid "D-Bus Debugger"
+msgstr "Отладчик D-Bus"
+
+#: ../data/d-feet.desktop.in.in.h:3
+msgid "Debug D-Bus applications"
+msgstr "Отладка приложений D-Bus"
+
+#: ../data/d-feet.desktop.in.in.h:4
+msgid "debug;d-bus;"
+msgstr "отладка;d-bus;"
+
+#: ../data/ui/addconnectiondialog.ui.h:1
+msgid "Add a Connection"
+msgstr "Добавить подключение"
+
+#: ../data/ui/addconnectiondialog.ui.h:2
+msgid "See http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
+msgstr "См. http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
+
+#: ../data/ui/addconnectiondialog.ui.h:3 ../data/ui/introspection.ui.h:3
+msgid "Address:"
+msgstr "Адрес:"
+
+#: ../data/ui/app-menu.ui.h:1
+msgid "About"
+msgstr "О программе"
+
+#: ../data/ui/app-menu.ui.h:2
+msgid "Help"
+msgstr "Справка"
+
+#: ../data/ui/app-menu.ui.h:3
+msgid "Quit"
+msgstr "Выйти"
+
+#: ../data/ui/executedialog.ui.h:1
+msgid "Execute D-Bus Method"
+msgstr "Выполнить метод D-Bus"
+
+#: ../data/ui/executedialog.ui.h:2
+msgid "_Execute"
+msgstr "_Выполнить"
+
+#: ../data/ui/executedialog.ui.h:3
+msgid "Method name:"
+msgstr "Имя метода:"
+
+#: ../data/ui/executedialog.ui.h:4
+msgid "Object Path:"
+msgstr "Путь к объекту:"
+
+#: ../data/ui/executedialog.ui.h:5
+msgid "Interface:"
+msgstr "Интерфейс:"
+
+#: ../data/ui/executedialog.ui.h:6
+msgid "Method input"
+msgstr "Ввод метода"
+
+#: ../data/ui/executedialog.ui.h:7
+msgid "Method output"
+msgstr "Вывод метода"
+
+#: ../data/ui/executedialog.ui.h:8
+msgid "Pretty print"
+msgstr "Структурированная печать"
+
+#: ../data/ui/executedialog.ui.h:9
+msgid "Source"
+msgstr "Источник"
+
+#: ../data/ui/executedialog.ui.h:10
+msgid "Method execution"
+msgstr "Выполнение метода"
+
+#: ../data/ui/executedialog.ui.h:11
+msgid "Number of method executions"
+msgstr "Количество выполнений метода"
+
+#: ../data/ui/executedialog.ui.h:12
+msgid "Ø:"
+msgstr "Ø:"
+
+#: ../data/ui/executedialog.ui.h:13
+msgid "Average method execution time in seconds"
+msgstr "Среднее время выполнения метода в секундах"
+
+#: ../data/ui/executedialog.ui.h:14
+msgid "Min:"
+msgstr "Мин.:"
+
+#: ../data/ui/executedialog.ui.h:15
+msgid "Minimal method execution time in seconds"
+msgstr "Минимальное время выполнения метода в секундах"
+
+#: ../data/ui/executedialog.ui.h:16
+msgid "Max:"
+msgstr "Макс.:"
+
+#: ../data/ui/executedialog.ui.h:17
+msgid "Maximal method execution time in seconds"
+msgstr "Максимальное время выполнения метода в секундах"
+
+#: ../data/ui/introspection.ui.h:1
+msgid "Unique name:"
+msgstr "Уникальное имя:"
+
+#: ../data/ui/introspection.ui.h:2
+msgid "Name:"
+msgstr "Имя:"
+
+#: ../data/ui/introspection.ui.h:4
+msgid "Introspecting..."
+msgstr "Интроспекция…"
+
+#: ../data/ui/introspection.ui.h:5
+msgid "Object path"
+msgstr "Путь к объекту"
+
+#: ../data/ui/mainwindow.ui.h:1
+msgid "Connect to System Bus"
+msgstr "Подключиться к системной щине"
+
+#: ../data/ui/mainwindow.ui.h:2
+msgid "Connect to Session Bus"
+msgstr "Подключиться к сессионной шине"
+
+#: ../data/ui/mainwindow.ui.h:3
+msgid "Connect to other Bus"
+msgstr "Подключиться к другой шине"
+
+#: ../data/ui/mainwindow.ui.h:4
+msgid "Close Bus"
+msgstr "Закрыть шину"
