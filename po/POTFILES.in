@@ -1,5 +1,6 @@
 # List of source files containing translatable strings.
 # Please keep this file sorted alphabetically.
+data/d-feet.appdata.xml.in
 data/d-feet.desktop.in.in
 data/org.gnome.d-feet.gschema.xml
 [type: gettext/glade]data/ui/addconnectiondialog.ui
