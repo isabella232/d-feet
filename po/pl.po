@@ -4,14 +4,14 @@
 # pomóc w jego rozwijaniu i pielęgnowaniu, napisz do nas:
 # gnomepl@aviary.pl
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-# Piotr Drąg <piotrdrag@gmail.com>, 2013.
-# Aviary.pl <gnomepl@aviary.pl>, 2013.
+# Piotr Drąg <piotrdrag@gmail.com>, 2013-2014.
+# Aviary.pl <gnomepl@aviary.pl>, 2013-2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: d-feet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-03 17:51+0200\n"
-"PO-Revision-Date: 2013-10-03 17:52+0200\n"
+"POT-Creation-Date: 2014-01-22 19:34+0100\n"
+"PO-Revision-Date: 2014-01-22 19:35+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -22,6 +22,16 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Poedit-Language: Polish\n"
 "X-Poedit-Country: Poland\n"
+
+#: ../data/d-feet.appdata.xml.in.h:1
+msgid ""
+"A simple application for debugging the message bus system D-Bus. D-Feet can "
+"be used to inspect D-Bus interfaces of running programs and invoke methods "
+"on those interfaces."
+msgstr ""
+"Prosty program do debugowania systemowej magistrali komunikatów D-Bus. "
+"Program D-Feet może być używany do badania interfejsów D-Bus uruchomionych "
+"programów i wywoływania metod na tych interfejsach."
 
 #: ../data/d-feet.desktop.in.in.h:1
 msgid "D-Feet"
