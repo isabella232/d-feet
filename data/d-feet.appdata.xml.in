@@ -4,7 +4,7 @@
   <id type="desktop">d-feet.desktop</id>
   <licence>CC0</licence>
   <description>
-    <p>A simple application for debugging the message bus system D-Bus. D-Feet can be used to inspect D-Bus interfaces of running programs and invoke methods on those interfaces.</p>
+    <_p>A simple application for debugging the message bus system D-Bus. D-Feet can be used to inspect D-Bus interfaces of running programs and invoke methods on those interfaces.</_p>
   </description>
   <screenshots>
     <screenshot width="1400" type="default" height="787">https://git.gnome.org/browse/d-feet/plain/data/screenshots/d-feet-overview.png</screenshot>
