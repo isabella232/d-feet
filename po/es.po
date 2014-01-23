@@ -1,15 +1,15 @@
 # Spanish translation for d-feet.
 # Copyright (C) 2013 d-feet's COPYRIGHT HOLDER
 # This file is distributed under the same license as the d-feet package.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2013.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2013, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: d-feet master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-"
 "feet&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-10-03 15:52+0000\n"
-"PO-Revision-Date: 2013-10-03 18:19+0200\n"
+"POT-Creation-Date: 2014-01-22 18:34+0000\n"
+"PO-Revision-Date: 2014-01-23 10:49+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -17,6 +17,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Generator: Gtranslator 2.91.5\n"
+
+#: ../data/d-feet.appdata.xml.in.h:1
+msgid ""
+"A simple application for debugging the message bus system D-Bus. D-Feet can "
+"be used to inspect D-Bus interfaces of running programs and invoke methods "
+"on those interfaces."
+msgstr ""
+"Una sencilla aplicación para depurar el bus de mensajes del sistema D-Bus. D-"
+"Feet se puede usar para inspeccionar interfaces D-Bus de programas en "
+"ejecución y para invocar métodos en esas interfaces."
 
 #: ../data/d-feet.desktop.in.in.h:1
 msgid "D-Feet"
