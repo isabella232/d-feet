@@ -1,15 +1,15 @@
 # Czech translation for d-feet.
 # Copyright (C) 2013 d-feet's COPYRIGHT HOLDER
 # This file is distributed under the same license as the d-feet package.
-# Marek Černocký <marek@manet.cz>, 2013.
+# Marek Černocký <marek@manet.cz>, 2013, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: d-feet master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-"
 "feet&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-10-03 15:52+0000\n"
-"PO-Revision-Date: 2013-10-04 10:43+0200\n"
+"POT-Creation-Date: 2014-01-22 18:34+0000\n"
+"PO-Revision-Date: 2014-01-25 22:36+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -18,6 +18,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Gtranslator 2.91.6\n"
+
+#: ../data/d-feet.appdata.xml.in.h:1
+msgid ""
+"A simple application for debugging the message bus system D-Bus. D-Feet can "
+"be used to inspect D-Bus interfaces of running programs and invoke methods "
+"on those interfaces."
+msgstr ""
+"Jednoduchá aplikace sloužící k ladění systémové sběrnice zpráv D-Bus. D-Feet "
+"se používá ke sledování rozhraní D-Bus běžících aplikací a k volání metod "
+"těchto rozhraní."
 
 #: ../data/d-feet.desktop.in.in.h:1
 msgid "D-Feet"
