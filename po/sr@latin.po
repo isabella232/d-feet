@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the d-feet package.
-# Miroslav Nikolić <miroslavnikolic@rocketmail.com>, 2013.
+# Miroslav Nikolić <miroslavnikolic@rocketmail.com>, 2013, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: d-feet\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-feet"
 "&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-10-03 15:52+0000\n"
-"PO-Revision-Date: 2013-10-11 22:44+0200\n"
+"POT-Creation-Date: 2014-01-22 18:34+0000\n"
+"PO-Revision-Date: 2014-01-27 22:47+0200\n"
 "Last-Translator: Miroslav Nikolić <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
@@ -18,6 +18,16 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=n==1? 3 : n%10==1 && n%100!=11 ? 0 : "
 "n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Project-Style: gnome\n"
+
+#: ../data/d-feet.appdata.xml.in.h:1
+msgid ""
+"A simple application for debugging the message bus system D-Bus. D-Feet can "
+"be used to inspect D-Bus interfaces of running programs and invoke methods "
+"on those interfaces."
+msgstr ""
+"Jednostavan program za pročišćavanje sistema sabirnice poruka D-sabirnice. "
+"D-stopa može biti upotrebljena za proveru sučelja D-sabirnice pokrenutih "
+"programa i za prizivanje postupaka na tim sučeljima."
 
 #: ../data/d-feet.desktop.in.in.h:1
 msgid "D-Feet"
