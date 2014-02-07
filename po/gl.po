@@ -2,21 +2,32 @@
 # Copyright (C) 2013 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Fran Diéguez <fran@openhost.es>, 2013.
-# Fran Dieguez <frandieguez@gnome.org>, 2013.
+# Fran Dieguez <frandieguez@gnome.org>, 2013, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-15 17:26+0200\n"
-"PO-Revision-Date: 2013-09-15 17:33+0200\n"
+"POT-Creation-Date: 2014-02-07 11:35+0100\n"
+"PO-Revision-Date: 2014-02-07 11:38+0200\n"
 "Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
 "Language-Team: gnome-l10n-gl@gnome.org\n"
-"Language: en\n"
+"Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Virtaal 0.7.1\n"
+"X-Project-Style: gnome\n"
+
+#: ../data/d-feet.appdata.xml.in.h:1
+msgid ""
+"A simple application for debugging the message bus system D-Bus. D-Feet can "
+"be used to inspect D-Bus interfaces of running programs and invoke methods "
+"on those interfaces."
+msgstr ""
+"Un aplicativo sinxelo para depurar o bus de mensaxes do sistema D-Bus. "
+"D-Feet pode usarse para inspeccionar interfaces de D-Bus dos programas en "
+"execución e invocar métodos nesas interfaces."
 
 #: ../data/d-feet.desktop.in.in.h:1
 msgid "D-Feet"
@@ -46,9 +57,17 @@ msgstr "Vexa http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
 msgid "Address:"
 msgstr "Enderezo:"
 
-#: ../data/ui/bus.ui.h:1
-msgid "Filter busnames:"
-msgstr "Filtrar nomes de bus:"
+#: ../data/ui/app-menu.ui.h:1
+msgid "About"
+msgstr "Sobre"
+
+#: ../data/ui/app-menu.ui.h:2
+msgid "Help"
+msgstr "Axuda"
+
+#: ../data/ui/app-menu.ui.h:3
+msgid "Quit"
+msgstr "Saír"
 
 #: ../data/ui/executedialog.ui.h:1
 msgid "Execute D-Bus Method"
@@ -147,5 +166,11 @@ msgid "Connect to other Bus"
 msgstr "Conectarse a outro bus"
 
 #: ../data/ui/mainwindow.ui.h:4
-msgid "File"
-msgstr "Ficheiro"
+msgid "Close Bus"
+msgstr "Pechar bus"
+
+#~ msgid "Filter busnames:"
+#~ msgstr "Filtrar nomes de bus:"
+
+#~ msgid "File"
+#~ msgstr "Ficheiro"
