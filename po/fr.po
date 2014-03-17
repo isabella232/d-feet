@@ -1,0 +1,170 @@
+# French translation for d-feet.
+# Copyright (C) 2014 d-feet's COPYRIGHT HOLDER
+# This file is distributed under the same license as the d-feet package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: d-feet master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-"
+"feet&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2014-03-17 04:10+0000\n"
+"PO-Revision-Date: 2014-03-17 11:44+0100\n"
+"Last-Translator: Michael Scherer <misc@zarb.org>\n"
+"Language-Team: French <gnomefr@traduc.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: ../data/d-feet.appdata.xml.in.h:1
+msgid ""
+"A simple application for debugging the message bus system D-Bus. D-Feet can "
+"be used to inspect D-Bus interfaces of running programs and invoke methods "
+"on those interfaces."
+msgstr ""
+"Une application simple pour déboguer le bus de message système D-Bus. D-Feet "
+"peut être utilisé pour inspecter les interfaces D-Bus des programmes en "
+"cours d’exécution et pour appeler les méthodes sur ces interfaces."
+
+#: ../data/d-feet.desktop.in.in.h:1
+msgid "D-Feet"
+msgstr "D-Feet"
+
+#: ../data/d-feet.desktop.in.in.h:2
+msgid "D-Bus Debugger"
+msgstr "Débogueur D-Bus"
+
+#: ../data/d-feet.desktop.in.in.h:3
+msgid "Debug D-Bus applications"
+msgstr "Débogue les applications D-Bus"
+
+#: ../data/d-feet.desktop.in.in.h:4
+msgid "debug;d-bus;"
+msgstr "débogage;d-bus"
+
+#: ../data/ui/addconnectiondialog.ui.h:1
+msgid "Add a Connection"
+msgstr "Ajouter une connexion"
+
+#: ../data/ui/addconnectiondialog.ui.h:2
+msgid "See http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
+msgstr "Voir http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
+
+#: ../data/ui/addconnectiondialog.ui.h:3 ../data/ui/introspection.ui.h:3
+msgid "Address:"
+msgstr "Adresse :"
+
+#: ../data/ui/app-menu.ui.h:1
+msgid "About"
+msgstr "À propos"
+
+#: ../data/ui/app-menu.ui.h:2
+msgid "Help"
+msgstr "Aide"
+
+#: ../data/ui/app-menu.ui.h:3
+msgid "Quit"
+msgstr "Quitter"
+
+#: ../data/ui/executedialog.ui.h:1
+msgid "Execute D-Bus Method"
+msgstr "Exécuter la méthode D-Bus"
+
+#: ../data/ui/executedialog.ui.h:2
+msgid "_Execute"
+msgstr "_Exécuter"
+
+#: ../data/ui/executedialog.ui.h:3
+msgid "Method name:"
+msgstr "Nom de la méthode :"
+
+#: ../data/ui/executedialog.ui.h:4
+msgid "Object Path:"
+msgstr "Chemin de l'objet :"
+
+#: ../data/ui/executedialog.ui.h:5
+msgid "Interface:"
+msgstr "Interface :"
+
+#: ../data/ui/executedialog.ui.h:6
+msgid "Method input"
+msgstr "Paramètres en entrée"
+
+#: ../data/ui/executedialog.ui.h:7
+msgid "Method output"
+msgstr "Données en sortie"
+
+#: ../data/ui/executedialog.ui.h:8
+msgid "Pretty print"
+msgstr "Affichage amélioré"
+
+#: ../data/ui/executedialog.ui.h:9
+msgid "Source"
+msgstr "Source"
+
+#: ../data/ui/executedialog.ui.h:10
+msgid "Method execution"
+msgstr "Exécution de la méthode"
+
+#: ../data/ui/executedialog.ui.h:11
+msgid "Number of method executions"
+msgstr "Nombre de lancements de la méthode"
+
+#: ../data/ui/executedialog.ui.h:12
+msgid "Ø:"
+msgstr "Moyenne :"
+
+#: ../data/ui/executedialog.ui.h:13
+msgid "Average method execution time in seconds"
+msgstr "Temps moyen d’exécution en secondes"
+
+#: ../data/ui/executedialog.ui.h:14
+msgid "Min:"
+msgstr "Minimum :"
+
+#: ../data/ui/executedialog.ui.h:15
+msgid "Minimal method execution time in seconds"
+msgstr "Temps minimal d’exécution en secondes"
+
+#: ../data/ui/executedialog.ui.h:16
+msgid "Max:"
+msgstr "Maximum :"
+
+#: ../data/ui/executedialog.ui.h:17
+msgid "Maximal method execution time in seconds"
+msgstr "Temps maximum d’exécution en secondes"
+
+#: ../data/ui/introspection.ui.h:1
+msgid "Unique name:"
+msgstr "Nom unique :"
+
+#: ../data/ui/introspection.ui.h:2
+msgid "Name:"
+msgstr "Nom :"
+
+#: ../data/ui/introspection.ui.h:4
+msgid "Introspecting..."
+msgstr "En cours d'introspection..."
+
+#: ../data/ui/introspection.ui.h:5
+msgid "Object path"
+msgstr "Chemin de l'objet"
+
+#: ../data/ui/mainwindow.ui.h:1
+msgid "Connect to System Bus"
+msgstr "Se connecter au bus système"
+
+#: ../data/ui/mainwindow.ui.h:2
+msgid "Connect to Session Bus"
+msgstr "Se connecter au bus de session"
+
+#: ../data/ui/mainwindow.ui.h:3
+msgid "Connect to other Bus"
+msgstr "Se connecter à un autre bus"
+
+#: ../data/ui/mainwindow.ui.h:4
+msgid "Close Bus"
+msgstr "Déconnecter du bus"
