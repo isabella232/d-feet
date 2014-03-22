@@ -2,15 +2,15 @@
 # Copyright (C) 2013 d-feet's COPYRIGHT HOLDER
 # This file is distributed under the same license as the d-feet package.
 #
-# Matej Urbančič <mateju@svn.gnome.org>, 2013.
+# Matej Urbančič <mateju@svn.gnome.org>, 2013-2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: d-feet master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-"
 "feet&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-10-05 11:31+0000\n"
-"PO-Revision-Date: 2013-10-06 18:50+0100\n"
+"POT-Creation-Date: 2014-03-22 04:10+0000\n"
+"PO-Revision-Date: 2014-03-22 09:25+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenščina <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -21,6 +21,16 @@ msgstr ""
 "%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Generator: Poedit 1.5.4\n"
+
+#: ../data/d-feet.appdata.xml.in.h:1
+msgid ""
+"A simple application for debugging the message bus system D-Bus. D-Feet can "
+"be used to inspect D-Bus interfaces of running programs and invoke methods "
+"on those interfaces."
+msgstr ""
+"Enostaven program za razhroščevanje sporočil sistema vodila D-Bus. Program D-"
+"Feet je mogoče uporabiti za nadzor vmesnikov D-Bus  zagnanih programov in za "
+"upravljanje."
 
 #: ../data/d-feet.desktop.in.in.h:1
 msgid "D-Feet"
