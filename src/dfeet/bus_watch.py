@@ -373,7 +373,7 @@ if __name__ == "__main__":
     win = Gtk.Window()
     win.connect("delete-event", Gtk.main_quit)
     win.set_default_size(1024, 768)
-    win.add(bw.paned_buswatch)
+    win.add(bw.box_bus)
     win.show_all()
     try:
         Gtk.main()
