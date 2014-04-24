@@ -6,19 +6,29 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: d-feet master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-feet"
-"&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-06-30 13:50+0000\n"
-"PO-Revision-Date: 2013-07-12 10:05+0300\n"
-"Last-Translator: Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-"
+"feet&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2014-01-22 18:34+0000\n"
+"PO-Revision-Date: 2014-04-24 19:27+0200\n"
+"Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
 "Language-Team: team@gnome.gr\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.7.1\n"
+"X-Generator: Poedit 1.6.4\n"
 "X-Project-Style: gnome\n"
+
+#: ../data/d-feet.appdata.xml.in.h:1
+msgid ""
+"A simple application for debugging the message bus system D-Bus. D-Feet can "
+"be used to inspect D-Bus interfaces of running programs and invoke methods "
+"on those interfaces."
+msgstr ""
+"Μια απλή εφαρμογή για την αποσφαλμάτωση μηνυμάτων του διάυλου συστήματος D-"
+"Bus. Το D-Feet μπορεί να χρησιμοποιηθεί για να επιθεωρήσει τις διεπαφές D-"
+"Bus των εκτελούμενων προγραμμάτων καθώς και τον μεθόδων των διεπαφών."
 
 #: ../data/d-feet.desktop.in.in.h:1
 msgid "D-Feet"
@@ -30,11 +40,11 @@ msgstr "Αποσφαλματωτής διαύλου δεδομένων"
 
 #: ../data/d-feet.desktop.in.in.h:3
 msgid "Debug D-Bus applications"
-msgstr "Αποσφαλμάτωση Εφαρμογών D-Bus"
+msgstr "Αποσφαλμάτωση εφαρμογών D-Bus"
 
 #: ../data/d-feet.desktop.in.in.h:4
 msgid "debug;d-bus;"
-msgstr "αποσφαλμάτωση;δίαυλος δεδομένων;"
+msgstr "αποσφαλμάτωση;δίαυλος δεδομένων;debug;d-bus;"
 
 #: ../data/ui/addconnectiondialog.ui.h:1
 msgid "Add a Connection"
@@ -42,31 +52,24 @@ msgstr "Προσθήκη σύνδεσης"
 
 #: ../data/ui/addconnectiondialog.ui.h:2
 msgid "See http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
-msgstr "Δείτε http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
+msgstr ""
+"Δείτε http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
 
 #: ../data/ui/addconnectiondialog.ui.h:3 ../data/ui/introspection.ui.h:3
 msgid "Address:"
 msgstr "Διεύθυνση:"
 
-#: ../data/ui/buswatch.ui.h:1
-msgid "Filter:"
-msgstr "Φίλτρο:"
+#: ../data/ui/app-menu.ui.h:1
+msgid "About"
+msgstr "Περί"
 
-#: ../data/ui/buswatch.ui.h:2
-msgid "unique bus name"
-msgstr "μοναδικό όνομα διαύλου"
+#: ../data/ui/app-menu.ui.h:2
+msgid "Help"
+msgstr "Βοήθεια"
 
-#: ../data/ui/buswatch.ui.h:3
-msgid "Command line:"
-msgstr "Γραμμή εντολών:"
-
-#: ../data/ui/buswatch.ui.h:4
-msgid "Process ID:"
-msgstr "Αναγνωριστικό διεργασίας:"
-
-#: ../data/ui/buswatch.ui.h:5 ../data/ui/introspection.ui.h:2
-msgid "Name:"
-msgstr "Όνομα:"
+#: ../data/ui/app-menu.ui.h:3
+msgid "Quit"
+msgstr "Έξοδος"
 
 #: ../data/ui/executedialog.ui.h:1
 msgid "Execute D-Bus Method"
@@ -140,6 +143,10 @@ msgstr "Μέγιστος χρόνος εκτέλεσης μεθόδου σε δ�
 msgid "Unique name:"
 msgstr "Μοναδικό όνομα:"
 
+#: ../data/ui/introspection.ui.h:2
+msgid "Name:"
+msgstr "Όνομα:"
+
 #: ../data/ui/introspection.ui.h:4
 msgid "Introspecting..."
 msgstr "Αυτοανάλυση..."
@@ -161,5 +168,20 @@ msgid "Connect to other Bus"
 msgstr "Σύνδεση με άλλο δίαυλο"
 
 #: ../data/ui/mainwindow.ui.h:4
-msgid "File"
-msgstr "Αρχείο"
+msgid "Close Bus"
+msgstr "Κλείσιμο διαύλου"
+
+#~ msgid "Filter:"
+#~ msgstr "Φίλτρο:"
+
+#~ msgid "unique bus name"
+#~ msgstr "μοναδικό όνομα διαύλου"
+
+#~ msgid "Command line:"
+#~ msgstr "Γραμμή εντολών:"
+
+#~ msgid "Process ID:"
+#~ msgstr "Αναγνωριστικό διεργασίας:"
+
+#~ msgid "File"
+#~ msgstr "Αρχείο"
