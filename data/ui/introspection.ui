@@ -145,7 +145,7 @@
               <object class="GtkImage" id="reload_image">
                 <property name="visible">True</property>
                 <property name="icon_size">1</property>
-                <property name="icon_name">reload</property>
+                <property name="icon_name">view-refresh-symbolic</property>
               </object>
             </child>
           </object>
