@@ -1,3 +1,27 @@
+0.3.9 - Jun 8, 2014
+===================
+- Wrap method signature in exec dialog (Thomas Bechtold)
+- Remove references to the obsoleted paned_buswatch (Zheng Li)
+- introspection.ui: Use symbolic icons for the reload button (Yosef Or Boczko)
+- Updated Greek translation (Tom Tryfonidis)
+- Updated Slovenian translation (Matej Urbančič)
+- Added French translation (Michael Scherer)
+- Updated Hungarian translation (Balázs Úr)
+- Updated Galician translations (Fran Diéguez)
+- Updated Brazilian Portuguese translation (Rafael Ferreira)
+- Updated Serbian translation (Мирослав Николић)
+- Updated Czech translation (Marek Černocký)
+- Updated Spanish translation (Daniel Mustieles)
+- Updated Polish translation (Piotr Drąg)
+- Updated POTFILES.in (Piotr Drąg)
+- Make AppData file translatable (Daniel Mustieles)
+- Update wiki page link (Thomas Bechtold)
+- Added Russian translation (Yuri Myasoedov)
+- build: Fix previous commit (Colin Walters)
+- data: Don't run update-desktop-database if DESTDIR is set (Colin Walters)
+- Finnish translation update (Jiri Grönroos)
+- Post release vesion bump to 0.3.9 (Thomas Bechtold)
+
 0.3.8 - Oct 19, 2013
 ====================
 - Fix appdata distribution (Thomas Bechtold)
