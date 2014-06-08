@@ -9,6 +9,6 @@
   <screenshots>
     <screenshot width="1400" type="default" height="787">https://git.gnome.org/browse/d-feet/plain/data/screenshots/d-feet-overview.png</screenshot>
   </screenshots>
-  <url type="homepage">https://wiki.gnome.org/DFeet/</url>
+  <url type="homepage">https://wiki.gnome.org/Apps/DFeet</url>
   <updatecontact>thomasbechtold_at_jpberlin_de</updatecontact>
 </application>
