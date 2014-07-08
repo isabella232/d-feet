@@ -2,7 +2,7 @@
 _Name=D-Feet
 _GenericName=D-Bus Debugger
 _Comment=Debug D-Bus applications
-_Keywords=debug;d-bus;
+_Keywords=debug;d-bus;dbus;dfeet;
 Exec=@PACKAGE@
 Icon=@PACKAGE@
 Terminal=false
