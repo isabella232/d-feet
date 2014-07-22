@@ -1,14 +1,14 @@
-# SOME DESCRIPTIVE TITLE.
+# Serbian translation of d-feet.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the d-feet package.
-# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2013, 2014.
+# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2013—2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: d-feet\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-feet"
 "&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-01-22 18:34+0000\n"
-"PO-Revision-Date: 2014-01-27 22:47+0200\n"
+"POT-Creation-Date: 2014-07-08 18:21+0000\n"
+"PO-Revision-Date: 2014-07-22 10:40+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
@@ -42,8 +42,9 @@ msgid "Debug D-Bus applications"
 msgstr "Прочистите програме Д-сабирнице"
 
 #: ../data/d-feet.desktop.in.in.h:4
-msgid "debug;d-bus;"
-msgstr "прочисти;уклони грешке;д-сабирница;"
+#| msgid "debug;d-bus;"
+msgid "debug;d-bus;dbus;dfeet;"
+msgstr "прочисти;д-сабирница;дстопа;"
 
 #: ../data/ui/addconnectiondialog.ui.h:1
 msgid "Add a Connection"
