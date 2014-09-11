@@ -2,15 +2,15 @@
 # Copyright (C) 2013 d-feet's COPYRIGHT HOLDER
 # This file is distributed under the same license as the d-feet package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# Jiri Grönroos <jiri.gronroos+l10n@iki.fi>, 2013.
+# Jiri Grönroos <jiri.gronroos+l10n@iki.fi>, 2013, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: d-feet master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-"
 "feet&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-10-06 16:57+0000\n"
-"PO-Revision-Date: 2013-10-09 23:40+0300\n"
+"POT-Creation-Date: 2014-07-08 18:21+0000\n"
+"PO-Revision-Date: 2014-09-10 16:44+0300\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <gnome-fi-laatu@lists.sourceforge.net>\n"
 "Language: fi\n"
@@ -19,6 +19,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Gtranslator 2.91.6\n"
+
+#: ../data/d-feet.appdata.xml.in.h:1
+msgid ""
+"A simple application for debugging the message bus system D-Bus. D-Feet can "
+"be used to inspect D-Bus interfaces of running programs and invoke methods "
+"on those interfaces."
+msgstr ""
+"Yksinkertainen sovellus D-Bus-viestiväyläjärjestelmän vianjäljitykseen. D-"
+"Feetiä voi käyttää käynnissä olevian ohjelmien D-Bus-liittymien tutkimiseen "
+"kutsumalla eri menetelmiä."
 
 #: ../data/d-feet.desktop.in.in.h:1
 msgid "D-Feet"
@@ -33,8 +43,9 @@ msgid "Debug D-Bus applications"
 msgstr "Jäljitä vikoja D-Bus-sovelluksista"
 
 #: ../data/d-feet.desktop.in.in.h:4
-msgid "debug;d-bus;"
-msgstr "debug;d-bus;vianetsintä;vianjäljitys;"
+#| msgid "debug;d-bus;"
+msgid "debug;d-bus;dbus;dfeet;"
+msgstr "debug;d-bus;dbus;dfeet;vianetsintä;vianjäljitys;"
 
 #: ../data/ui/addconnectiondialog.ui.h:1
 msgid "Add a Connection"
