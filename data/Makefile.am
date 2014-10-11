@@ -25,7 +25,7 @@ uninstall-hook:
 EXTRA_DIST =			\
 	$(desktop_in_files)	\
 	$(gsettings_SCHEMAS)	\
-	$(appdata_DATA)
+	$(appdata_in_files)
 
 CLEANFILES =			\
 	$(DESKTOP_FILES)	\
