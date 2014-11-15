@@ -1,0 +1,170 @@
+# Portuguese translation for d-feet.
+# Copyright (C) 2014 d-feet's COPYRIGHT HOLDER
+# This file is distributed under the same license as the d-feet package.
+# Tiagosdot <almosthumane@portugalmail.pt>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: d-feet master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-"
+"feet&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2014-03-18 04:10+0000\n"
+"PO-Revision-Date: 2014-03-18 09:05+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Portuguese <gnome_pt@yahoogroups.com>\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: ../data/d-feet.appdata.xml.in.h:1
+msgid ""
+"A simple application for debugging the message bus system D-Bus. D-Feet can "
+"be used to inspect D-Bus interfaces of running programs and invoke methods "
+"on those interfaces."
+msgstr ""
+"Uma aplicação simples para depuração do sistema de barramento de mensagens D-"
+"Bus. D-Feet pode ser usado para inspecionar interfaces D-Bus de programas em "
+"execução e chamar métodos naquelas interfaces."
+
+#: ../data/d-feet.desktop.in.in.h:1
+msgid "D-Feet"
+msgstr "D-Feet"
+
+#: ../data/d-feet.desktop.in.in.h:2
+msgid "D-Bus Debugger"
+msgstr "Depurador de D-Bus"
+
+#: ../data/d-feet.desktop.in.in.h:3
+msgid "Debug D-Bus applications"
+msgstr "Depure aplicações D-Bus"
+
+#: ../data/d-feet.desktop.in.in.h:4
+msgid "debug;d-bus;"
+msgstr "depuração;debug;d-bus;barramento;"
+
+#: ../data/ui/addconnectiondialog.ui.h:1
+msgid "Add a Connection"
+msgstr "Adicionar uma conexão"
+
+#: ../data/ui/addconnectiondialog.ui.h:2
+msgid "See http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
+msgstr "Veja http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
+
+#: ../data/ui/addconnectiondialog.ui.h:3 ../data/ui/introspection.ui.h:3
+msgid "Address:"
+msgstr "Endereço:"
+
+#: ../data/ui/app-menu.ui.h:1
+msgid "About"
+msgstr "Sobre"
+
+#: ../data/ui/app-menu.ui.h:2
+msgid "Help"
+msgstr "Ajuda"
+
+#: ../data/ui/app-menu.ui.h:3
+msgid "Quit"
+msgstr "Sair"
+
+#: ../data/ui/executedialog.ui.h:1
+msgid "Execute D-Bus Method"
+msgstr "Executar método D-Bus"
+
+#: ../data/ui/executedialog.ui.h:2
+msgid "_Execute"
+msgstr "_Executar"
+
+#: ../data/ui/executedialog.ui.h:3
+msgid "Method name:"
+msgstr "Nome do método:"
+
+#: ../data/ui/executedialog.ui.h:4
+msgid "Object Path:"
+msgstr "Caminho do objeto:"
+
+#: ../data/ui/executedialog.ui.h:5
+msgid "Interface:"
+msgstr "Interface:"
+
+#: ../data/ui/executedialog.ui.h:6
+msgid "Method input"
+msgstr "Entrada do método"
+
+#: ../data/ui/executedialog.ui.h:7
+msgid "Method output"
+msgstr "Saída do método"
+
+#: ../data/ui/executedialog.ui.h:8
+msgid "Pretty print"
+msgstr "Apresentação organizada"
+
+#: ../data/ui/executedialog.ui.h:9
+msgid "Source"
+msgstr "Fonte"
+
+#: ../data/ui/executedialog.ui.h:10
+msgid "Method execution"
+msgstr "Execução do método"
+
+#: ../data/ui/executedialog.ui.h:11
+msgid "Number of method executions"
+msgstr "Número de execuções do método"
+
+#: ../data/ui/executedialog.ui.h:12
+msgid "Ø:"
+msgstr "Ø:"
+
+#: ../data/ui/executedialog.ui.h:13
+msgid "Average method execution time in seconds"
+msgstr "Tempo médio de execução do método, em segundos"
+
+#: ../data/ui/executedialog.ui.h:14
+msgid "Min:"
+msgstr "Mín:"
+
+#: ../data/ui/executedialog.ui.h:15
+msgid "Minimal method execution time in seconds"
+msgstr "Tempo mínimo de execução do método, em segundos"
+
+#: ../data/ui/executedialog.ui.h:16
+msgid "Max:"
+msgstr "Máx:"
+
+#: ../data/ui/executedialog.ui.h:17
+msgid "Maximal method execution time in seconds"
+msgstr "Tempo máximo de execução do método, em segundos"
+
+#: ../data/ui/introspection.ui.h:1
+msgid "Unique name:"
+msgstr "Nome único:"
+
+#: ../data/ui/introspection.ui.h:2
+msgid "Name:"
+msgstr "Nome:"
+
+#: ../data/ui/introspection.ui.h:4
+msgid "Introspecting..."
+msgstr "Introspectando..."
+
+#: ../data/ui/introspection.ui.h:5
+msgid "Object path"
+msgstr "Caminho do objeto"
+
+#: ../data/ui/mainwindow.ui.h:1
+msgid "Connect to System Bus"
+msgstr "Ligar ao barramento do sistema"
+
+#: ../data/ui/mainwindow.ui.h:2
+msgid "Connect to Session Bus"
+msgstr "Ligar ao barramento da sessão"
+
+#: ../data/ui/mainwindow.ui.h:3
+msgid "Connect to other Bus"
+msgstr "Ligar a outro barramento"
+
+#: ../data/ui/mainwindow.ui.h:4
+msgid "Close Bus"
+msgstr "Fechar barramento"
