@@ -17,6 +17,7 @@ do_subst = sed -e 's|@abs_top_srcdir[@]|$(abs_top_srcdir)|g' \
                -e 's|@pkglibdir[@]|$(pkglibdir)|g' \
                -e 's|@pkgdatadir[@]|$(pkgdatadir)|g' \
                -e 's|@pythondir[@]|$(pythondir)|g' \
+               -e 's|@PYTHON[@]|$(PYTHON)|g' \
                -e 's|@PACKAGE_NAME[@]|$(PACKAGE_NAME)|g' \
                -e 's|@PACKAGE_VERSION[@]|$(PACKAGE_VERSION)|g' \
                -e 's|@GETTEXT_PACKAGE[@]|$(GETTEXT_PACKAGE)|g'
