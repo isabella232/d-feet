@@ -1,0 +1,171 @@
+# Bosnian translation for bosnianuniversetranslation
+# Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
+# This file is distributed under the same license as the bosnianuniversetranslation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: bosnianuniversetranslation\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-"
+"feet&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2015-02-27 04:12+0000\n"
+"PO-Revision-Date: 2015-02-16 22:38+0000\n"
+"Last-Translator: Samir Ribić <Unknown>\n"
+"Language-Team: Bosnian <bs@li.org>\n"
+"Language: bs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2015-02-17 06:21+0000\n"
+"X-Generator: Launchpad (build 17341)\n"
+
+#: ../data/d-feet.appdata.xml.in.h:1
+msgid ""
+"A simple application for debugging the message bus system D-Bus. D-Feet can "
+"be used to inspect D-Bus interfaces of running programs and invoke methods "
+"on those interfaces."
+msgstr ""
+"Jednostavna aplikacija za otklanjanje grešaka u sistemu poruks D-Bus. D-Feet "
+"može da se koristi za inspekciju D-BUS interfejss za pokrenutih programa i "
+"pozove metode na tim interfejsima."
+
+#: ../data/d-feet.desktop.in.in.h:1
+msgid "D-Feet"
+msgstr "D-Feet"
+
+#: ../data/d-feet.desktop.in.in.h:2
+msgid "D-Bus Debugger"
+msgstr "D-Bus Debugger"
+
+#: ../data/d-feet.desktop.in.in.h:3
+msgid "Debug D-Bus applications"
+msgstr "Traženje grešaka za programe D-Bus"
+
+#: ../data/d-feet.desktop.in.in.h:4
+msgid "debug;d-bus;dbus;dfeet;"
+msgstr "debug;d-bus;dbus;dfeet;pomak"
+
+#: ../data/ui/addconnectiondialog.ui.h:1
+msgid "Add a Connection"
+msgstr "Dodaj konekciju"
+
+#: ../data/ui/addconnectiondialog.ui.h:2
+msgid "See http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
+msgstr ""
+"Vidi  http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
+
+#: ../data/ui/addconnectiondialog.ui.h:3 ../data/ui/introspection.ui.h:3
+msgid "Address:"
+msgstr "Adresa:"
+
+#: ../data/ui/app-menu.ui.h:1
+msgid "About"
+msgstr "O programu"
+
+#: ../data/ui/app-menu.ui.h:2
+msgid "Help"
+msgstr "Pomoć"
+
+#: ../data/ui/app-menu.ui.h:3
+msgid "Quit"
+msgstr "Izlaz"
+
+#: ../data/ui/executedialog.ui.h:1
+msgid "Execute D-Bus Method"
+msgstr "Izvrši D-Bus Način"
+
+#: ../data/ui/executedialog.ui.h:2
+msgid "_Execute"
+msgstr "_Izvrši"
+
+#: ../data/ui/executedialog.ui.h:3
+msgid "Method name:"
+msgstr "Ime Načina:"
+
+#: ../data/ui/executedialog.ui.h:4
+msgid "Object Path:"
+msgstr "Put do objekta:"
+
+#: ../data/ui/executedialog.ui.h:5
+msgid "Interface:"
+msgstr "Sučelje:"
+
+#: ../data/ui/executedialog.ui.h:6
+msgid "Method input"
+msgstr "Način ulaza"
+
+#: ../data/ui/executedialog.ui.h:7
+msgid "Method output"
+msgstr "Način izlala"
+
+#: ../data/ui/executedialog.ui.h:8
+msgid "Pretty print"
+msgstr "Lijepo štampanje"
+
+#: ../data/ui/executedialog.ui.h:9
+msgid "Source"
+msgstr "Izvor"
+
+#: ../data/ui/executedialog.ui.h:10
+msgid "Method execution"
+msgstr "Izvršenje metoda"
+
+#: ../data/ui/executedialog.ui.h:11
+msgid "Number of method executions"
+msgstr "Broj izvršenja metoda"
+
+#: ../data/ui/executedialog.ui.h:12
+msgid "Ø:"
+msgstr "Ø:"
+
+#: ../data/ui/executedialog.ui.h:13
+msgid "Average method execution time in seconds"
+msgstr "Prosjek vremena izvršenja metoda u sekundama"
+
+#: ../data/ui/executedialog.ui.h:14
+msgid "Min:"
+msgstr "Min:"
+
+#: ../data/ui/executedialog.ui.h:15
+msgid "Minimal method execution time in seconds"
+msgstr "Minimalno vrijeme izvršenja metoda u sekundama"
+
+#: ../data/ui/executedialog.ui.h:16
+msgid "Max:"
+msgstr "Maks:"
+
+#: ../data/ui/executedialog.ui.h:17
+msgid "Maximal method execution time in seconds"
+msgstr "Maksimalno vrijeme izvršenja metoda u sekundama"
+
+#: ../data/ui/introspection.ui.h:1
+msgid "Unique name:"
+msgstr "Jedinstveno ime:"
+
+#: ../data/ui/introspection.ui.h:2
+msgid "Name:"
+msgstr "Ime:"
+
+#: ../data/ui/introspection.ui.h:4
+msgid "Introspecting..."
+msgstr "Preispitujem...."
+
+#: ../data/ui/introspection.ui.h:5
+msgid "Object path"
+msgstr "Put do Objekta"
+
+#: ../data/ui/mainwindow.ui.h:1
+msgid "Connect to System Bus"
+msgstr "Poveži sa sistemskom sabirnicom"
+
+#: ../data/ui/mainwindow.ui.h:2
+msgid "Connect to Session Bus"
+msgstr "Poveži sa sesijskom sabirnicom"
+
+#: ../data/ui/mainwindow.ui.h:3
+msgid "Connect to other Bus"
+msgstr "Poveži sa drugom sabirnicom"
+
+#: ../data/ui/mainwindow.ui.h:4
+msgid "Close Bus"
+msgstr "Zatvori sabirnicu"
