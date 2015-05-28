@@ -1,0 +1,170 @@
+# Swedish translation for d-feet.
+# Copyright (C) 2015 d-feet's COPYRIGHT HOLDER
+# This file is distributed under the same license as the d-feet package.
+# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: d-feet master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-"
+"feet&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2015-02-17 16:11+0000\n"
+"PO-Revision-Date: 2015-05-06 00:02+0100\n"
+"Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
+"Language-Team: Swedish <gnome-se-list@gnome.org>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.7.6\n"
+
+#: ../data/d-feet.appdata.xml.in.h:1
+msgid ""
+"A simple application for debugging the message bus system D-Bus. D-Feet can "
+"be used to inspect D-Bus interfaces of running programs and invoke methods "
+"on those interfaces."
+msgstr ""
+"Ett enkelt program för att felsöka meddelandebussystemet D-Bus. D-Feet kan "
+"användas för att inspektera D-Bus-gränssnitt för körande program och anropa "
+"metoder på dessa gränssnitt."
+
+#: ../data/d-feet.desktop.in.in.h:1
+msgid "D-Feet"
+msgstr "D-Feet"
+
+#: ../data/d-feet.desktop.in.in.h:2
+msgid "D-Bus Debugger"
+msgstr "D-Bus-felsökare"
+
+#: ../data/d-feet.desktop.in.in.h:3
+msgid "Debug D-Bus applications"
+msgstr "Felsök D-Bus-program"
+
+#: ../data/d-feet.desktop.in.in.h:4
+msgid "debug;d-bus;dbus;dfeet;"
+msgstr "debug;felsökning;avlusning;d-bus;dbus;dfeet;"
+
+#: ../data/ui/addconnectiondialog.ui.h:1
+msgid "Add a Connection"
+msgstr "Lägg till en anslutning"
+
+#: ../data/ui/addconnectiondialog.ui.h:2
+msgid "See http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
+msgstr "Se http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
+
+#: ../data/ui/addconnectiondialog.ui.h:3 ../data/ui/introspection.ui.h:3
+msgid "Address:"
+msgstr "Adress:"
+
+#: ../data/ui/app-menu.ui.h:1
+msgid "About"
+msgstr "Om"
+
+#: ../data/ui/app-menu.ui.h:2
+msgid "Help"
+msgstr "Hjälp"
+
+#: ../data/ui/app-menu.ui.h:3
+msgid "Quit"
+msgstr "Avsluta"
+
+#: ../data/ui/executedialog.ui.h:1
+msgid "Execute D-Bus Method"
+msgstr "Kör D-Bus-metod"
+
+#: ../data/ui/executedialog.ui.h:2
+msgid "_Execute"
+msgstr "_Kör"
+
+#: ../data/ui/executedialog.ui.h:3
+msgid "Method name:"
+msgstr "Metodnamn:"
+
+#: ../data/ui/executedialog.ui.h:4
+msgid "Object Path:"
+msgstr "Objektsökväg:"
+
+#: ../data/ui/executedialog.ui.h:5
+msgid "Interface:"
+msgstr "Gränssnitt:"
+
+#: ../data/ui/executedialog.ui.h:6
+msgid "Method input"
+msgstr "Metodindata"
+
+#: ../data/ui/executedialog.ui.h:7
+msgid "Method output"
+msgstr "Metodutdata"
+
+#: ../data/ui/executedialog.ui.h:8
+msgid "Pretty print"
+msgstr "Läsvänlig utskrift"
+
+#: ../data/ui/executedialog.ui.h:9
+msgid "Source"
+msgstr "Källa"
+
+#: ../data/ui/executedialog.ui.h:10
+msgid "Method execution"
+msgstr "Metodexekvering"
+
+#: ../data/ui/executedialog.ui.h:11
+msgid "Number of method executions"
+msgstr "Antal exekveringar av metod"
+
+#: ../data/ui/executedialog.ui.h:12
+msgid "Ø:"
+msgstr "Ø:"
+
+#: ../data/ui/executedialog.ui.h:13
+msgid "Average method execution time in seconds"
+msgstr "Genomsnittlig exekveringstid för metod i sekunder"
+
+#: ../data/ui/executedialog.ui.h:14
+msgid "Min:"
+msgstr "Min:"
+
+#: ../data/ui/executedialog.ui.h:15
+msgid "Minimal method execution time in seconds"
+msgstr "Minimal exekveringstid för metod i sekunder"
+
+#: ../data/ui/executedialog.ui.h:16
+msgid "Max:"
+msgstr "Max:"
+
+#: ../data/ui/executedialog.ui.h:17
+msgid "Maximal method execution time in seconds"
+msgstr "Maximal exekveringstid för metod i sekunder"
+
+#: ../data/ui/introspection.ui.h:1
+msgid "Unique name:"
+msgstr "Unikt namn:"
+
+#: ../data/ui/introspection.ui.h:2
+msgid "Name:"
+msgstr "Namn:"
+
+#: ../data/ui/introspection.ui.h:4
+msgid "Introspecting..."
+msgstr "Introspekterar…"
+
+#: ../data/ui/introspection.ui.h:5
+msgid "Object path"
+msgstr "Objektsökväg"
+
+#: ../data/ui/mainwindow.ui.h:1
+msgid "Connect to System Bus"
+msgstr "Anslut till systembuss"
+
+#: ../data/ui/mainwindow.ui.h:2
+msgid "Connect to Session Bus"
+msgstr "Anslut till sessionsbuss"
+
+#: ../data/ui/mainwindow.ui.h:3
+msgid "Connect to other Bus"
+msgstr "Anslut till annan buss"
+
+#: ../data/ui/mainwindow.ui.h:4
+msgid "Close Bus"
+msgstr "Stäng buss"
