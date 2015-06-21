@@ -17,7 +17,7 @@ class DFeetApp(Gtk.Application):
 
     # Note that the function in C activate() becomes do_activate() in Python
     def do_activate(self):
-        win = DFeetWindow(self, self.package, self.version, self.data_dir)
+        self._main_win = DFeetWindow(self, self.package, self.version, self.data_dir)
 
     # Note that the function in C startup() becomes do_startup() in Python
     def do_startup(self):
@@ -45,6 +45,7 @@ class DFeetApp(Gtk.Application):
 
     def action_about_cb(self, action, parameter):
         aboutdialog = DFeetAboutDialog(self.package, self.version)
+        aboutdialog.set_transient_for(self._main_win)
         aboutdialog.show()
 
     def action_help_cb(self, action, parameter):

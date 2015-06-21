@@ -9,7 +9,7 @@ class AddConnectionDialog:
         ui = UILoader(data_dir, UILoader.UI_ADDCONNECTIONDIALOG)
 
         self.dialog = ui.get_root_widget()
-
+        self.dialog.set_transient_for(parent)
         # get the hbox and add address combo box with model
         hbox1 = ui.get_widget('hbox1')
         self.address_combo_box_store = Gtk.ListStore(str)
