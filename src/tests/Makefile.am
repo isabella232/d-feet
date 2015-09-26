@@ -9,4 +9,4 @@ EXTRA_DIST = tests.py
 PEP8_EXCLUDES=--exclude='.svn,CVS,.bzr,.hg,.git,__pycache__,.\#*'
 
 check-local:
-	pep8 --max-line-length=99 --ignore=E123 $(PEP8_EXCLUDES) $(top_srcdir)/src/
+	pep8 --max-line-length=99 --ignore=E123,E402 $(PEP8_EXCLUDES) $(top_srcdir)/src/
