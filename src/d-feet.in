@@ -35,10 +35,10 @@ import os
 import sys
 sys.path.insert(1, '@pythondir@')
 
-import gettext
+import gettext, locale
 from gettext import gettext as _
 gettext.textdomain("@GETTEXT_PACKAGE@")
-
+locale.textdomain("@GETTEXT_PACKAGE@")
 
 import gi
 gi.require_version('Gtk', '3.0')
