@@ -1,0 +1,118 @@
+# Swedish translation for d-feet.
+# Copyright © 2015 d-feet's COPYRIGHT HOLDER
+# This file is distributed under the same license as the d-feet package.
+# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: d-feet master\n"
+"POT-Creation-Date: 2015-11-04 16:21+0000\n"
+"PO-Revision-Date: 2015-11-04 21:46+0100\n"
+"Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
+"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.6\n"
+
+#. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
+msgctxt "_"
+msgid "translator-credits"
+msgstr "Anders Jonsson <anders.jonsson@norsjovallen.se>, 2015"
+
+#. (itstool) path: media
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/index.page:22
+msgctxt "_"
+msgid "external ref='figures/icon.png' md5='c45eac54a2a8b6303933c68fabc1c84b'"
+msgstr "external ref='figures/icon.png' md5='c45eac54a2a8b6303933c68fabc1c84b'"
+
+#. (itstool) path: info/title
+#: C/index.page:7
+msgctxt "text"
+msgid "d-feet"
+msgstr "d-feet"
+
+#. (itstool) path: info/desc
+#: C/index.page:8
+msgid "The <app>d-feet</app> help."
+msgstr "<app>d-feet</app>-hjälpen."
+
+#. (itstool) path: credit/name
+#: C/index.page:10 C/basics.page:8
+msgid "Thomas Bechtold"
+msgstr "Thomas Bechtold"
+
+#. (itstool) path: credit/years
+#: C/index.page:12
+msgid "2012"
+msgstr "2012"
+
+#. (itstool) path: license/p
+#: C/index.page:15
+msgid "Creative Commons Attribution-Share Alike 3.0 Unported License"
+msgstr "Creative Commons Attribution-Share Alike 3.0 Unported License"
+
+#. (itstool) path: page/title
+#: C/index.page:19
+msgid ""
+"<media type=\"image\" mime=\"image/png\" src=\"figures/icon.png\">[icon]</"
+"media> <app>d-feet</app> Help"
+msgstr ""
+"<media type=\"image\" mime=\"image/png\" src=\"figures/icon.png\">[icon]</"
+"media> Hjälp för <app>d-feet</app>"
+
+#. (itstool) path: page/p
+#: C/index.page:26
+msgid "This is for d-feet - a dbus debugger."
+msgstr "Detta är för d-feet - en dbus-felsökare."
+
+#. (itstool) path: section/title
+#: C/index.page:31
+msgid "Contents"
+msgstr "Innehåll"
+
+#. (itstool) path: credit/years
+#: C/basics.page:10
+msgid "2012-2013"
+msgstr "2012-2013"
+
+#. (itstool) path: info/desc
+#: C/basics.page:12
+msgid "Basic usage of d-feet"
+msgstr "Grundläggande användning av d-feet"
+
+#. (itstool) path: page/title
+#: C/basics.page:16
+msgid "Basics"
+msgstr "Grunder"
+
+#. (itstool) path: section/title
+#: C/basics.page:18
+msgid "Quick guide"
+msgstr "Snabbguide"
+
+#. (itstool) path: section/p
+#: C/basics.page:19
+msgid "Here is the quick guide howto use d-feet"
+msgstr "Här är snabbguiden över hur d-feet används"
+
+#. (itstool) path: item/p
+#: C/basics.page:21
+msgid "Select a bus you want to connect to (System Bus or Session Bus)"
+msgstr "Välj en buss du vill ansluta till (systembuss eller sessionsbuss)"
+
+#. (itstool) path: item/p
+#: C/basics.page:22
+msgid "Select a service you want information about"
+msgstr "Välj en tjänst du vill ha information om"
+
+#. (itstool) path: item/p
+#: C/basics.page:23
+msgid "Select a property or a method of the service"
+msgstr "Välj en egenskap eller metod hos tjänsten"
