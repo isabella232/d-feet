@@ -26,7 +26,7 @@ msgid ""
 "on those interfaces."
 msgstr ""
 "Jednoduchá aplikace sloužící k ladění systémové sběrnice zpráv D-Bus. D-Feet "
-"se používá ke sledování rozhraní D-Bus běžících aplikací a k volání metod "
+"se používá ke sledování rozhraní D-Bus u běžících aplikací a k volání metod "
 "těchto rozhraní."
 
 #: ../data/d-feet.desktop.in.in.h:1
