@@ -2,7 +2,7 @@
 
 HELP_ID = d-feet
 
-HELP_LINGUAS = cs sv
+HELP_LINGUAS = cs de sv
 
 HELP_MEDIA = \
 	figures/icon.png
