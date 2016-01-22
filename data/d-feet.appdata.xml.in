@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2013 Thomas Bechtold <thomasbechtold@jpberlin.de> -->
-<application>
-  <id type="desktop">d-feet.desktop</id>
-  <licence>CC0</licence>
+<component type="desktop">
+  <id>d-feet.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-2.0+</project_license>
+  <_name>D-Feet</_name>
+  <_summary>Debug D-Bus applications</_summary>
   <description>
-    <_p>A simple application for debugging the message bus system D-Bus. D-Feet can be used to inspect D-Bus interfaces of running programs and invoke methods on those interfaces.</_p>
+    <_p>
+      A simple application for debugging the message bus system D-Bus.
+      D-Feet can be used to inspect D-Bus interfaces of running programs and
+      invoke methods on those interfaces.
+    </_p>
   </description>
   <screenshots>
-    <screenshot width="1400" type="default" height="787">https://git.gnome.org/browse/d-feet/plain/data/screenshots/d-feet-overview.png</screenshot>
+    <screenshot height="787" type="default" width="1400">
+      <image>https://git.gnome.org/browse/d-feet/plain/data/screenshots/d-feet-overview.png</image>
+    </screenshot>
   </screenshots>
   <url type="homepage">https://wiki.gnome.org/Apps/DFeet</url>
-  <updatecontact>thomasbechtold_at_jpberlin_de</updatecontact>
-</application>
+  <url type="bugtracker">https://bugzilla.gnome.org/enter_bug.cgi?product=d-feet</url>
+  <url type="donation">http://www.gnome.org/friends/</url>
+  <update_contact>thomasbechtold_at_jpberlin_de</update_contact>
+  <project_group>GNOME</project_group>
+</component>
