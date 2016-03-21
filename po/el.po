@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: d-feet master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-"
 "feet&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-01-22 18:34+0000\n"
-"PO-Revision-Date: 2014-04-24 19:27+0200\n"
+"POT-Creation-Date: 2016-03-02 16:23+0000\n"
+"PO-Revision-Date: 2016-03-02 21:55+0200\n"
 "Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
 "Language-Team: team@gnome.gr\n"
 "Language: el\n"
@@ -17,10 +17,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.6.4\n"
+"X-Generator: Poedit 1.8.7\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/d-feet.appdata.xml.in.h:1
+#: ../data/d-feet.appdata.xml.in.h:1 ../data/d-feet.desktop.in.in.h:1
+msgid "D-Feet"
+msgstr "D-Feet"
+
+#: ../data/d-feet.appdata.xml.in.h:2 ../data/d-feet.desktop.in.in.h:3
+msgid "Debug D-Bus applications"
+msgstr "Αποσφαλμάτωση εφαρμογών D-Bus"
+
+#: ../data/d-feet.appdata.xml.in.h:3
 msgid ""
 "A simple application for debugging the message bus system D-Bus. D-Feet can "
 "be used to inspect D-Bus interfaces of running programs and invoke methods "
@@ -30,21 +38,13 @@ msgstr ""
 "Bus. Το D-Feet μπορεί να χρησιμοποιηθεί για να επιθεωρήσει τις διεπαφές D-"
 "Bus των εκτελούμενων προγραμμάτων καθώς και τον μεθόδων των διεπαφών."
 
-#: ../data/d-feet.desktop.in.in.h:1
-msgid "D-Feet"
-msgstr "D-Feet"
-
 #: ../data/d-feet.desktop.in.in.h:2
 msgid "D-Bus Debugger"
-msgstr "Αποσφαλματωτής διαύλου δεδομένων"
-
-#: ../data/d-feet.desktop.in.in.h:3
-msgid "Debug D-Bus applications"
-msgstr "Αποσφαλμάτωση εφαρμογών D-Bus"
+msgstr "Αποσφαλματωτής D-Bus"
 
 #: ../data/d-feet.desktop.in.in.h:4
-msgid "debug;d-bus;"
-msgstr "αποσφαλμάτωση;δίαυλος δεδομένων;debug;d-bus;"
+msgid "debug;d-bus;dbus;dfeet;"
+msgstr "αποσφαλμάτωση;δίαυλος δεδομένων;debug;d-bus;dbus;dfeet;"
 
 #: ../data/ui/addconnectiondialog.ui.h:1
 msgid "Add a Connection"
@@ -73,7 +73,7 @@ msgstr "Έξοδος"
 
 #: ../data/ui/executedialog.ui.h:1
 msgid "Execute D-Bus Method"
-msgstr "Εκτέλεση μεθόδου διαύλου δεδομένων"
+msgstr "Εκτέλεση μεθόδου D-Bus"
 
 #: ../data/ui/executedialog.ui.h:2
 msgid "_Execute"
