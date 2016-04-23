@@ -1,3 +1,22 @@
+0.3.11 - Apr 23, 2016
+=====================
+- Don't use Wnck to get app-icons under non-X11 (Simon McVittie)
+- Updated Greek translation (Γιάννης Κουτσούκος)
+- Added Occitan translation (Cédric Valmary)
+- Updated Spanish Translation (Daniel Mustieles)
+- Add a missing tag to the AppData file (Richard Hughes)
+- Update the AppData file to spec version 0.7+ (Richard Hughes)
+- Added German doc translation (Mario Blättermann)
+- Updated Czech translation (Marek Černocký)
+- Add Swedish help translation (Anders Jonsson)
+- UI: make the stack animation slide-left-right (Ben Iofel)
+- Added Czech language (Marek Černocký)
+- Czech translation (Marek Černocký)
+- Ignore pep8 E402 error (Thomas Bechtold)
+- Updated Polish translation (Piotr Drąg)
+- Updated Portuguese translation (Pedro Albuquerque)
+- Post release version bump to 0.3.11 (Thomas Bechtold)
+
 0.3.10 - Jun 22, 2015
 =====================
 - Remove deprecated {x,y}pad properties (Thomas Bechtold)
