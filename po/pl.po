@@ -1,29 +1,33 @@
-# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-# Aviary.pl
-# Jeśli masz jakiekolwiek uwagi odnoszące się do tłumaczenia lub chcesz
-# pomóc w jego rozwijaniu i pielęgnowaniu, napisz do nas:
-# gnomepl@aviary.pl
-# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-# Piotr Drąg <piotrdrag@gmail.com>, 2013-2015.
-# Aviary.pl <gnomepl@aviary.pl>, 2013-2015.
+# Polish translation for d-feet.
+# Copyright © 2013-2016 the d-feet authors.
+# This file is distributed under the same license as the d-feet package.
+# Piotr Drąg <piotrdrag@gmail.com>, 2013-2016.
+# Aviary.pl <community-poland@mozilla.org>, 2013-2016.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: d-feet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-02 17:37+0200\n"
-"PO-Revision-Date: 2015-09-02 17:38+0200\n"
+"POT-Creation-Date: 2016-08-19 17:52+0200\n"
+"PO-Revision-Date: 2016-08-19 17:53+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
-"Language-Team: Polish <gnomepl@aviary.pl>\n"
+"Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Poedit-Language: Polish\n"
-"X-Poedit-Country: Poland\n"
 
-#: ../data/d-feet.appdata.xml.in.h:1
+#: ../data/d-feet.appdata.xml.in.h:1 ../data/d-feet.desktop.in.in.h:1
+msgid "D-Feet"
+msgstr "D-Feet"
+
+#: ../data/d-feet.appdata.xml.in.h:2 ../data/d-feet.desktop.in.in.h:3
+msgid "Debug D-Bus applications"
+msgstr "Debugowanie programów D-Bus"
+
+#: ../data/d-feet.appdata.xml.in.h:3
 msgid ""
 "A simple application for debugging the message bus system D-Bus. D-Feet can "
 "be used to inspect D-Bus interfaces of running programs and invoke methods "
@@ -31,19 +35,11 @@ msgid ""
 msgstr ""
 "Prosty program do debugowania systemowej magistrali komunikatów D-Bus. "
 "Program D-Feet może być używany do badania interfejsów D-Bus uruchomionych "
-"programów i wywoływania metod na tych interfejsach."
-
-#: ../data/d-feet.desktop.in.in.h:1
-msgid "D-Feet"
-msgstr "D-Feet"
+"programów i wywoływania metod na tych interfejsach."
 
 #: ../data/d-feet.desktop.in.in.h:2
 msgid "D-Bus Debugger"
 msgstr "Debuger D-Bus"
-
-#: ../data/d-feet.desktop.in.in.h:3
-msgid "Debug D-Bus applications"
-msgstr "Debugowanie programów D-Bus"
 
 #: ../data/d-feet.desktop.in.in.h:4
 msgid "debug;d-bus;dbus;dfeet;"
@@ -65,7 +61,7 @@ msgstr "Adres:"
 
 #: ../data/ui/app-menu.ui.h:1
 msgid "About"
-msgstr "O programie"
+msgstr "O programie"
 
 #: ../data/ui/app-menu.ui.h:2
 msgid "Help"
@@ -125,7 +121,7 @@ msgstr "Ø:"
 
 #: ../data/ui/executedialog.ui.h:13
 msgid "Average method execution time in seconds"
-msgstr "Średni czas wykonania metody w sekundach"
+msgstr "Średni czas wykonania metody w sekundach"
 
 #: ../data/ui/executedialog.ui.h:14
 msgid "Min:"
@@ -133,7 +129,7 @@ msgstr "Minimalny:"
 
 #: ../data/ui/executedialog.ui.h:15
 msgid "Minimal method execution time in seconds"
-msgstr "Minimalny czas wykonania metody w sekundach"
+msgstr "Minimalny czas wykonania metody w sekundach"
 
 #: ../data/ui/executedialog.ui.h:16
 msgid "Max:"
@@ -141,7 +137,7 @@ msgstr "Maksymalny:"
 
 #: ../data/ui/executedialog.ui.h:17
 msgid "Maximal method execution time in seconds"
-msgstr "Maksymalny czas wykonania metody w sekundach"
+msgstr "Maksymalny czas wykonania metody w sekundach"
 
 #: ../data/ui/introspection.ui.h:1
 msgid "Unique name:"
@@ -161,15 +157,15 @@ msgstr "Ścieżka obiektu"
 
 #: ../data/ui/mainwindow.ui.h:1
 msgid "Connect to System Bus"
-msgstr "Połącz z magistralą systemową"
+msgstr "Połącz z magistralą systemową"
 
 #: ../data/ui/mainwindow.ui.h:2
 msgid "Connect to Session Bus"
-msgstr "Połącz z magistralą sesji"
+msgstr "Połącz z magistralą sesji"
 
 #: ../data/ui/mainwindow.ui.h:3
 msgid "Connect to other Bus"
-msgstr "Połącz z inną magistralą"
+msgstr "Połącz z inną magistralą"
 
 #: ../data/ui/mainwindow.ui.h:4
 msgid "Close Bus"
