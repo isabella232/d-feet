@@ -3,20 +3,22 @@
 # This file is distributed under the same license as the gnome-chat package.
 #
 # Klaus Rasmussen <claudius@gmx.co.uk>, 2014.
+# Alan Mortensen <alanmortensen.am@gmail.com>, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: d-feet\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-06 10:28+0200\n"
-"PO-Revision-Date: 2014-04-26 14:48+0200\n"
-"Last-Translator: Klaus Rasmussen <claudius@gmx.co.uk>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-"
+"feet&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2015-09-07 19:18+0000\n"
+"PO-Revision-Date: 2016-11-08 17:29+0100\n"
+"Last-Translator: Alan Mortensen <alanmortensen.am@gmail.com>\n"
 "Language-Team: dansk <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 #: ../data/d-feet.appdata.xml.in.h:1
 msgid ""
@@ -41,9 +43,8 @@ msgid "Debug D-Bus applications"
 msgstr "Fejlsøg D-Bus-programmer"
 
 #: ../data/d-feet.desktop.in.in.h:4
-#, fuzzy
 msgid "debug;d-bus;dbus;dfeet;"
-msgstr "fejlsøg;d-bus;"
+msgstr "fejlsøg;d-bus;dbus;dfeet;"
 
 #: ../data/ui/addconnectiondialog.ui.h:1
 msgid "Add a Connection"
