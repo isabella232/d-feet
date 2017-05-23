@@ -86,7 +86,7 @@ class DBusProperty(DBusInterface):
         s = "%s %s <small>(%s)</small>" % (
             args_signature_markup(sig),
             args_name_markup(self.property_info.name), " / ".join(readwrite))
-        if self.value:
+        if self.value is not None:
             s += " = %s" % (self.value,)
         return s
 
