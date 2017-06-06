@@ -3,9 +3,11 @@
 # icon information. If the wnck module is not installed we fallback to default
 # behvior
 
+import gi
 from gi.repository import Gtk
 
 try:
+    gi.require_version('Wnck', '3.0')
     from gi.repository import Wnck
     has_libwnck = True
 except:
