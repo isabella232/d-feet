@@ -4,9 +4,15 @@
 # behvior
 
 import gi
-from gi.repository import Gtk
+from gi.repository import Gtk, Gdk, GLib
+
+def running_in_x11():
+    display = Gdk.Display.get_default()
+    return display.__gtype__.name == 'GdkX11Display'
 
 try:
+    if not running_in_x11():
+        raise GLib.Error('Wnck is only meant to be used with X11')
     gi.require_version('Wnck', '3.0')
     from gi.repository import Wnck
     has_libwnck = True
@@ -26,7 +32,6 @@ class IconTable(object):
 
         if has_libwnck:
             screen = Wnck.Screen.get_default()
-            # screen is None under Wayland
             if screen is not None:
                 Wnck.Screen.force_update(screen)
                 screen.connect('application_opened', self.on_app_open)
