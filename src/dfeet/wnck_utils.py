@@ -32,18 +32,17 @@ class IconTable(object):
 
         if has_libwnck:
             screen = Wnck.Screen.get_default()
-            if screen is not None:
-                Wnck.Screen.force_update(screen)
-                screen.connect('application_opened', self.on_app_open)
-                screen.connect('application_closed', self.on_app_close)
+            Wnck.Screen.force_update(screen)
+            screen.connect('application_opened', self.on_app_open)
+            screen.connect('application_closed', self.on_app_close)
 
-                for w in screen.get_windows():
-                    app = w.get_application()
-                    pid = app.get_pid()
-                    icon = app.get_mini_icon()
+            for w in screen.get_windows():
+                app = w.get_application()
+                pid = app.get_pid()
+                icon = app.get_mini_icon()
 
-                    if pid not in self.app_map.keys():
-                        self.app_map[pid] = icon
+                if pid not in self.app_map.keys():
+                    self.app_map[pid] = icon
 
     def on_app_open(self, screen, app):
         icon = app.get_mini_icon()
