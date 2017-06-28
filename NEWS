@@ -1,3 +1,17 @@
+0.3.12 - Jun 28, 2017
+=====================
+- Make pep8 happy (Thomas Bechtold)
+- Revert "Don't use Wnck to get app-icons under non-X11" (Debarshi Ray)
+- Assume Wnck is absent on non-X11 (Debarshi Ray)
+- Specify the Wnck version to silence a warning (Debarshi Ray)
+- Add Polish help translation (Piotr Drąg)
+- Add Friulian translation (Fabio Tomat)
+- Updated Danish translation (Alan Mortensen)
+- Updated Polish translation (Piotr Drąg)
+- Add Language headers to po files (Piotr Drąg)
+- Fix desktop file keywords translations (Kalev Lember)
+- Post release version bump to 0.3.12 (Thomas Bechtold)
+
 0.3.11 - Apr 23, 2016
 =====================
 - Don't use Wnck to get app-icons under non-X11 (Simon McVittie)
