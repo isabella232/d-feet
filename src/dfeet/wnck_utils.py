@@ -6,6 +6,7 @@
 import gi
 from gi.repository import Gtk, Gdk, GLib
 
+
 def running_in_x11():
     display = Gdk.Display.get_default()
     return display.__gtype__.name == 'GdkX11Display'
