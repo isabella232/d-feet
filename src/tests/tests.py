@@ -102,6 +102,7 @@ class AddressInfoTest(unittest.TestCase):
         # (see http://developer.gnome.org/gio/unstable/GDBusServer.html#gdbus-peer-to-peer)
         pass
 
+
 if __name__ == "__main__":
     # run tests
     unittest.main()

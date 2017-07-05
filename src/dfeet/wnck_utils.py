@@ -11,6 +11,7 @@ def running_in_x11():
     display = Gdk.Display.get_default()
     return display.__gtype__.name == 'GdkX11Display'
 
+
 try:
     if not running_in_x11():
         raise GLib.Error('Wnck is only meant to be used with X11')
