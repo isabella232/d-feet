@@ -48,7 +48,7 @@ AC_CONFIG_FILES([
 	src/dfeet/Makefile
 	src/tests/Makefile
 	data/Makefile
-	data/d-feet.desktop.in
+	data/org.gnome.d-feet.desktop.in
 	data/icons/Makefile
 	data/ui/Makefile
 	help/Makefile
