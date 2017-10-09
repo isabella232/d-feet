@@ -1,0 +1,67 @@
+{
+    "id": "org.gnome.d-feet",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "master",
+    "branch": "master",
+    "sdk": "org.gnome.Sdk",
+    "command": "d-feet",
+    "tags": ["nightly"],
+    "desktop-file-name-prefix": "(Nightly) ",
+    "finish-args": [
+        "--share=ipc", "--socket=x11",
+        "--socket=wayland",
+        "--socket=system-bus", "--socket=session-bus",
+        "--filesystem=xdg-run/dconf", "--filesystem=~/.config/dconf:ro",
+        "--talk-name=ca.desrt.dconf", "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
+    ],
+    "modules": [
+        {
+            "name": "pycairo",
+            "buildsystem": "simple",
+            "build-commands": [
+                "python2 setup.py install --prefix=/app"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/pygobject/pycairo.git"
+                }
+            ],
+            "cleanup": [
+                "/include",
+                "/share/pkgconfig"
+            ]
+        },
+        {
+            "name": "pygobject",
+            "build-options" : {
+                "env": {
+                    "PYTHON": "/usr/bin/python2"
+                }
+            },
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://git.gnome.org/browse/pygobject"
+                }
+            ],
+            "cleanup": [
+                "/include",
+                "/lib/pkgconfig",
+                "/lib/python2.7/site-packages/gi/*.la"
+            ]
+        },
+        {
+            "name": "d-feet",
+            "config-opts": [
+                "--disable-tests"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://git.gnome.org/browse/d-feet"
+                }
+            ]
+        }
+    ]
+}
