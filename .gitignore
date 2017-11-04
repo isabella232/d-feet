@@ -9,6 +9,7 @@ d_feet.egg-info/
 test/
 dist/
 build/
+build-aux/
 Makefile
 Makefile.in
 Makefile.in.in
