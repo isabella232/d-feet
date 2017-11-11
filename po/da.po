@@ -7,9 +7,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: d-feet\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=d-"
 "feet&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-09-07 19:18+0000\n"
+"POT-Creation-Date: 2017-03-05 20:00+0000\n"
 "PO-Revision-Date: 2016-11-08 17:29+0100\n"
 "Last-Translator: Alan Mortensen <alanmortensen.am@gmail.com>\n"
 "Language-Team: dansk <dansk@dansk-gruppen.dk>\n"
@@ -20,7 +20,15 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.7.1\n"
 
-#: ../data/d-feet.appdata.xml.in.h:1
+#: ../data/d-feet.appdata.xml.in.h:1 ../data/d-feet.desktop.in.in.h:1
+msgid "D-Feet"
+msgstr "D-Feet"
+
+#: ../data/d-feet.appdata.xml.in.h:2 ../data/d-feet.desktop.in.in.h:3
+msgid "Debug D-Bus applications"
+msgstr "Fejlsøg D-Bus-programmer"
+
+#: ../data/d-feet.appdata.xml.in.h:3
 msgid ""
 "A simple application for debugging the message bus system D-Bus. D-Feet can "
 "be used to inspect D-Bus interfaces of running programs and invoke methods "
@@ -30,17 +38,9 @@ msgstr ""
 "kan bruges til inspicere D-Bus grænseflader af kørende programmer og kalde "
 "metoder hos disse grænseflader."
 
-#: ../data/d-feet.desktop.in.in.h:1
-msgid "D-Feet"
-msgstr "D-Feet"
-
 #: ../data/d-feet.desktop.in.in.h:2
 msgid "D-Bus Debugger"
 msgstr "D-Bus-fejlsøger"
-
-#: ../data/d-feet.desktop.in.in.h:3
-msgid "Debug D-Bus applications"
-msgstr "Fejlsøg D-Bus-programmer"
 
 #: ../data/d-feet.desktop.in.in.h:4
 msgid "debug;d-bus;dbus;dfeet;"
@@ -151,7 +151,7 @@ msgstr "Navn:"
 
 #: ../data/ui/introspection.ui.h:4
 msgid "Introspecting..."
-msgstr "Undersøger egentilstand..."
+msgstr "Undersøger egentilstand …"
 
 #: ../data/ui/introspection.ui.h:5
 msgid "Object path"
