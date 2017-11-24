@@ -7,7 +7,8 @@ from dfeet.uiloader import UILoader
 
 
 class ExecuteMethodDialog:
-    def __init__(self, data_dir, connection, connection_is_bus, bus_name, method_obj, parent_window):
+    def __init__(self, data_dir, connection, connection_is_bus, bus_name,
+                 method_obj, parent_window):
         signal_dict = {
             'execute_dbus_method_cb': self.execute_cb,
             'execute_dialog_close_cb': self.close_cb
