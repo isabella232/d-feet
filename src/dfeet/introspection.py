@@ -97,8 +97,10 @@ class AddressInfo():
 
         if isinstance(obj, DBusMethod):
             # execute the selected method
+            parent_window = self.introspect_box.get_toplevel()
             dialog = ExecuteMethodDialog(
-                self.data_dir, self.connection, self.connection_is_bus, self.name, obj)
+                self.data_dir, self.connection, self.connection_is_bus, self.name, obj,
+                parent_window)
             dialog.run()
         elif isinstance(obj, DBusProperty):
             # update the selected property (TODO: do this async)
