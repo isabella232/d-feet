@@ -1,3 +1,21 @@
+0.3.13 - Nov 24, 2017
+=====================
+- Use locale.textdomain otherwise gtkbuilder translations don't work (Sebastien Bacher)
+- .gitignore: Ignore generated localized help files (Simon McVittie)
+- build: Put various Autotools droppings in build-aux/ (Simon McVittie)
+- build: Stop using GNOME_COMPILE_WARNINGS (Simon McVittie)
+- build: Replace deprecated use of gnome-autogen.sh with recommended autogen.sh (Simon McVittie)
+- build: Put third-party macros in m4/ (Simon McVittie)
+- Make pep8 happy (Thomas Bechtold)
+- ExecuteMethodDialog: set_transient_for() (Will Thompson)
+- ExecuteMethodDialog: Pretty-print multiple results (Simon McVittie)
+- Fix PEP8 305 style error (Michael Biebl)
+- Added Norwegian bokmål translation. (Kjartan Maraas)
+- Added nb (Kjartan Maraas)
+- Updated Danish translation (Ask Hjorth Larsen)
+- Show values that have a logical False representation. (Benjamin Berg)
+- Post release version bump to 0.3.13 (Thomas Bechtold)
+
 0.3.12 - Jun 28, 2017
 =====================
 - Make pep8 happy (Thomas Bechtold)
