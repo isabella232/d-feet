@@ -12,7 +12,7 @@ desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 UPDATE_DESKTOP = if test -z "$(DESTDIR)"; then update-desktop-database $(datadir)/applications || :; fi
 
 @INTLTOOL_XML_RULE@
-appdatadir = $(datadir)/appdata
+appdatadir = $(datadir)/metainfo
 appdata_DATA = $(appdata_in_files:.xml.in=.xml)
 appdata_in_files = org.gnome.d-feet.appdata.xml.in
 
