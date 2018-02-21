@@ -45,7 +45,7 @@ class DFeetWindow(Gtk.ApplicationWindow):
 
         # setup the window
         self.set_default_size(600, 480)
-        self.set_icon_name(package)
+        self.set_icon_name(app.props.application_id)
 
         # create actions
         action = Gio.SimpleAction.new('connect-system-bus', None)
