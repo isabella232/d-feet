@@ -35,9 +35,8 @@ class DFeetWindow(Gtk.ApplicationWindow):
 
     HISTORY_MAX_SIZE = 10
 
-    def __init__(self, app, package, version, data_dir):
+    def __init__(self, app, version, data_dir):
         Gtk.Window.__init__(self, application=app)
-        self.package = package
         self.version = version
         self.data_dir = data_dir
         self.session_bus = None
