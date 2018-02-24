@@ -59,7 +59,7 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://git.gnome.org/browse/d-feet"
+                    "url": "https://gitlab.gnome.org/GNOME/d-feet.git"
                 }
             ]
         }
