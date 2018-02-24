@@ -42,7 +42,7 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://git.gnome.org/browse/pygobject"
+                    "url": "https://gitlab.gnome.org/GNOME/pygobject.git"
                 }
             ],
             "cleanup": [
