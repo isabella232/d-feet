@@ -17,7 +17,7 @@ class DFeetApp(Gtk.Application):
 
     # Note that the function in C activate() becomes do_activate() in Python
     def do_activate(self):
-        self._main_win = DFeetWindow(self, self.package, self.version, self.data_dir)
+        self._main_win = DFeetWindow(self, self.version, self.data_dir)
 
     # Note that the function in C startup() becomes do_startup() in Python
     def do_startup(self):
@@ -44,7 +44,8 @@ class DFeetApp(Gtk.Application):
         self.quit()
 
     def action_about_cb(self, action, parameter):
-        aboutdialog = DFeetAboutDialog(self.package, self.version)
+        aboutdialog = DFeetAboutDialog(self.package, self.version,
+                                       self.props.application_id)
         aboutdialog.set_transient_for(self._main_win)
         aboutdialog.show()
 
@@ -55,13 +56,13 @@ class DFeetApp(Gtk.Application):
 
 
 class DFeetAboutDialog(Gtk.AboutDialog):
-    def __init__(self, package, version):
+    def __init__(self, package, version, icon_name):
         Gtk.AboutDialog.__init__(self)
         self.set_program_name(package)
         self.set_version(version)
         self.set_license_type(Gtk.License.GPL_2_0)
         self.set_website("https://wiki.gnome.org/Apps/DFeet/")
-        self.set_logo_icon_name(package)
+        self.set_logo_icon_name(icon_name)
         self.connect("response", self.on_close_cb)
 
     def on_close_cb(self, action, parameter):
