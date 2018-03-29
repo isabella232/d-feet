@@ -34,6 +34,7 @@
         },
         {
             "name": "pygobject",
+            "buildsystem": "simple",
             "build-options" : {
                 "env": {
                     "PYTHON": "/usr/bin/python2"
