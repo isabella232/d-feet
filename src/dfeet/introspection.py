@@ -158,6 +158,10 @@ class AddressInfo():
         """introspect the given bus name and update the tree model"""
         # cleanup current tree model
         self.__treemodel.clear()
+
+        # Statistics
+        self.__get_stats()
+
         # start introspection
         self.__dbus_node_introspect("/")
 
@@ -258,6 +262,53 @@ class AddressInfo():
             self.name, object_path, 'org.freedesktop.DBus.Introspectable', 'Introspect',
             None, GLib.VariantType.new("(s)"), Gio.DBusCallFlags.NONE, -1,
             None, self.__dbus_node_introspect_cb, object_path)
+
+    def __get_stats_cb(self, connection, result_async, data):
+        """callback when the GetConnectionStats dbus function call finished"""
+        try:
+            res = connection.call_finish(result_async)
+        except:
+            # The stats interface might not be enabled. Ignore.
+            pass
+        else:
+            stats_iter = self.__treemodel.append(None, ["<b>Statistics</b>", None])
+            for k, v in sorted(res[0].items()):
+                self.__treemodel.append(stats_iter, [k + " = " + str(v), None])
+
+    def __get_match_rules_cb(self, connection, result_async, data):
+        """callback when the GetAllMatchRules dbus function call finished"""
+        try:
+            res = connection.call_finish(result_async)
+        except:
+            # The stats interface might not be enabled. Ignore.
+            pass
+        else:
+            if self.unique_name not in res[0]:
+                return
+
+            rules_iter = self.__treemodel.append(None, ["<b>Match rules</b>", None])
+            for v in res[0][self.unique_name]:
+                self.__treemodel.append(rules_iter, [v, None])
+
+    def __get_stats(self):
+        if self.name == 'org.freedesktop.DBus':
+            self.connection.call(
+                'org.freedesktop.DBus', '/org/freedesktop/DBus',
+                'org.freedesktop.DBus.Debug.Stats', 'GetStats',
+                None, GLib.VariantType.new("(a{sv})"), Gio.DBusCallFlags.NONE,
+                -1, None, self.__get_stats_cb, None)
+        elif self.name is not None:
+            self.connection.call(
+                'org.freedesktop.DBus', '/org/freedesktop/DBus',
+                'org.freedesktop.DBus.Debug.Stats', 'GetConnectionStats',
+                GLib.Variant('(s)', (self.name,)),
+                GLib.VariantType.new("(a{sv})"), Gio.DBusCallFlags.NONE,
+                -1, None, self.__get_stats_cb, None)
+        self.connection.call(
+            'org.freedesktop.DBus', '/org/freedesktop/DBus',
+            'org.freedesktop.DBus.Debug.Stats', 'GetAllMatchRules',
+            None, GLib.VariantType.new("(a{sas})"), Gio.DBusCallFlags.NONE, -1,
+            None, self.__get_match_rules_cb, None)
 
 
 if __name__ == "__main__":
