@@ -11,7 +11,7 @@ def fg_color():
     if _style_context is None:
         _style_context = Gtk.StyleContext()
         color = _style_context.get_color(Gtk.StateFlags.NORMAL)
-        _fg_color = "#%x%x%x" % (color.red * 255, color.green * 255, color.blue * 255)
+        _fg_color = "#%02x%02x%02x" % (int(color.red) * 255, int(color.green) * 255, int(color.blue) * 255)
     return _fg_color
 
 def args_signature_markup(arg_signature):
