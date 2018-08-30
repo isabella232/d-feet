@@ -2,24 +2,34 @@
 # Copyright (C) 2014 d-feet's COPYRIGHT HOLDER
 # This file is distributed under the same license as the d-feet package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Charles Monzat <charles.monzat@numericable.fr>, 2018.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: d-feet master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-"
-"feet&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-03-17 04:10+0000\n"
-"PO-Revision-Date: 2014-03-17 11:44+0100\n"
-"Last-Translator: Michael Scherer <misc@zarb.org>\n"
-"Language-Team: French <gnomefr@traduc.org>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/d-feet/issues\n"
+"POT-Creation-Date: 2018-02-16 16:42+0000\n"
+"PO-Revision-Date: 2018-08-30 19:57+0200\n"
+"Last-Translator: Charles Monzat <charles.monzat@numericable.fr>\n"
+"Language-Team: français <gnomefr@traduc.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Gtranslator 2.91.7\n"
 
-#: ../data/d-feet.appdata.xml.in.h:1
+#: ../data/org.gnome.dfeet.appdata.xml.in.h:1
+#: ../data/org.gnome.dfeet.desktop.in.in.h:1
+msgid "D-Feet"
+msgstr "D-Feet"
+
+#: ../data/org.gnome.dfeet.appdata.xml.in.h:2
+#: ../data/org.gnome.dfeet.desktop.in.in.h:3
+msgid "Debug D-Bus applications"
+msgstr "Débogue les applications D-Bus"
+
+#: ../data/org.gnome.dfeet.appdata.xml.in.h:3
 msgid ""
 "A simple application for debugging the message bus system D-Bus. D-Feet can "
 "be used to inspect D-Bus interfaces of running programs and invoke methods "
@@ -29,21 +39,14 @@ msgstr ""
 "peut être utilisé pour inspecter les interfaces D-Bus des programmes en "
 "cours d’exécution et pour appeler les méthodes sur ces interfaces."
 
-#: ../data/d-feet.desktop.in.in.h:1
-msgid "D-Feet"
-msgstr "D-Feet"
-
-#: ../data/d-feet.desktop.in.in.h:2
+#: ../data/org.gnome.dfeet.desktop.in.in.h:2
 msgid "D-Bus Debugger"
 msgstr "Débogueur D-Bus"
 
-#: ../data/d-feet.desktop.in.in.h:3
-msgid "Debug D-Bus applications"
-msgstr "Débogue les applications D-Bus"
-
-#: ../data/d-feet.desktop.in.in.h:4
-msgid "debug;d-bus;"
-msgstr "débogage;d-bus;"
+#: ../data/org.gnome.dfeet.desktop.in.in.h:4
+#| msgid "debug;d-bus;"
+msgid "debug;d-bus;dbus;dfeet;"
+msgstr "débogage;d-bus;dbus;dfeet;"
 
 #: ../data/ui/addconnectiondialog.ui.h:1
 msgid "Add a Connection"
@@ -83,7 +86,7 @@ msgstr "Nom de la méthode :"
 
 #: ../data/ui/executedialog.ui.h:4
 msgid "Object Path:"
-msgstr "Chemin de l'objet :"
+msgstr "Chemin de l’objet :"
 
 #: ../data/ui/executedialog.ui.h:5
 msgid "Interface:"
@@ -147,11 +150,11 @@ msgstr "Nom :"
 
 #: ../data/ui/introspection.ui.h:4
 msgid "Introspecting..."
-msgstr "En cours d'introspection..."
+msgstr "En cours d’introspection…"
 
 #: ../data/ui/introspection.ui.h:5
 msgid "Object path"
-msgstr "Chemin de l'objet"
+msgstr "Chemin de l’objet"
 
 #: ../data/ui/mainwindow.ui.h:1
 msgid "Connect to System Bus"
