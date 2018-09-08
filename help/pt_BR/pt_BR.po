@@ -1,0 +1,119 @@
+# Brazilian Portuguese translation for d-feet.
+# Copyright (C) 2018 d-feet's COPYRIGHT HOLDER
+# This file is distributed under the same license as the d-feet package.
+# Rafael Fontenelle <rafaelff@gnome.org>, 2018.
+msgid ""
+msgstr ""
+"Project-Id-Version: d-feet master\n"
+"POT-Creation-Date: 2018-08-30 19:51+0000\n"
+"PO-Revision-Date: 2018-09-08 00:22-0200\n"
+"Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
+"Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Virtaal 1.0.0-beta1\n"
+
+#. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
+msgctxt "_"
+msgid "translator-credits"
+msgstr "Rafael Fontenelle <rafaelff@gnome.org>, 2018"
+
+#. (itstool) path: info/title
+#: C/index.page:7
+msgctxt "text"
+msgid "d-feet"
+msgstr "d-feet"
+
+#. (itstool) path: info/desc
+#: C/index.page:8
+msgid "The <app>d-feet</app> help."
+msgstr "A ajuda do <app>d-feet</app>."
+
+#. (itstool) path: credit/name
+#: C/index.page:10 C/basics.page:8
+msgid "Thomas Bechtold"
+msgstr "Thomas Bechtold"
+
+#. (itstool) path: credit/years
+#: C/index.page:12
+msgid "2012"
+msgstr "2012"
+
+#. (itstool) path: license/p
+#: C/index.page:15
+msgid "Creative Commons Attribution-Share Alike 3.0 Unported License"
+msgstr "Creative Commons Atribuição-Compartilhada Igual 3.0 Não Adaptada"
+
+#. (itstool) path: title/media
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/index.page:22
+msgctxt "_"
+msgid "external ref='figures/icon.png' md5='c45eac54a2a8b6303933c68fabc1c84b'"
+msgstr "external ref='figures/icon.png' md5='c45eac54a2a8b6303933c68fabc1c84b'"
+
+#. (itstool) path: page/title
+#: C/index.page:19
+msgid ""
+"<media type=\"image\" mime=\"image/png\" src=\"figures/icon.png\">[icon]</"
+"media> <app>d-feet</app> Help"
+msgstr ""
+"<media type=\"image\" mime=\"image/png\" src=\"figures/icon.png\""
+">[ícone]</media> <app>d-feet</app> Help"
+
+#. (itstool) path: page/p
+#: C/index.page:26
+msgid "This is for d-feet - a dbus debugger."
+msgstr "Isso é para o d-feet - um depurador de dbus."
+
+#. (itstool) path: section/title
+#: C/index.page:31
+msgid "Contents"
+msgstr "Conteúdo"
+
+#. (itstool) path: credit/years
+#: C/basics.page:10
+msgid "2012-2013"
+msgstr "2012-2013"
+
+#. (itstool) path: info/desc
+#: C/basics.page:12
+msgid "Basic usage of d-feet"
+msgstr "Uso básico do d-feet"
+
+#. (itstool) path: page/title
+#: C/basics.page:16
+msgid "Basics"
+msgstr "Básico"
+
+#. (itstool) path: section/title
+#: C/basics.page:18
+msgid "Quick guide"
+msgstr "Guia rápido"
+
+#. (itstool) path: section/p
+#: C/basics.page:19
+msgid "Here is the quick guide howto use d-feet"
+msgstr "Aqui está um guia rápido de como usar o d-feet"
+
+#. (itstool) path: item/p
+#: C/basics.page:21
+msgid "Select a bus you want to connect to (System Bus or Session Bus)"
+msgstr ""
+"Selecione um barramento para você se conectar (barramento de sistema e "
+"barramento de sessão)"
+
+#. (itstool) path: item/p
+#: C/basics.page:22
+msgid "Select a service you want information about"
+msgstr "Selecione um serviço sobre o qual você deseja informações"
+
+#. (itstool) path: item/p
+#: C/basics.page:23
+msgid "Select a property or a method of the service"
+msgstr "Selecione uma propriedade ou um método do serviço"
