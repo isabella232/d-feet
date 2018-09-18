@@ -23,6 +23,7 @@ class ExecuteMethodDialog:
         self.dialog = ui.get_root_widget()
         self.dialog.set_transient_for(parent_window)
         self.label_method_name = ui.get_widget('label_method_name')
+        self.label_bus_name = ui.get_widget('label_bus_name')
         self.label_object_path = ui.get_widget('label_object_path')
         self.label_interface = ui.get_widget('label_interface')
         self.notebook = ui.get_widget('notebook1')
@@ -35,6 +36,7 @@ class ExecuteMethodDialog:
         self.label_max = ui.get_widget('label_max')
         ui.connect_signals(signal_dict)
         self.label_method_name.set_markup("%s" % (self.method_obj.markup_str))
+        self.label_bus_name.set_text(self.bus_name)
         self.label_object_path.set_markup("%s" % (self.method_obj.object_path))
         self.label_interface.set_markup("%s" % (self.method_obj.iface_info.name))
 
