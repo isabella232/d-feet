@@ -354,7 +354,6 @@ class BusWatch(object):
 
 if __name__ == "__main__":
     """for debugging"""
-    import sys
     import argparse
 
     parser = argparse.ArgumentParser(description='show a given bus address')

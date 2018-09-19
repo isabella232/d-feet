@@ -153,7 +153,6 @@ def type_list_to_string(type_list):
 
 def sig_to_markup(sig, span_attr_str):
     list_ = sig_to_type_list(sig)
-    markedup_list = []
     m = '<span ' + span_attr_str + '>'
     m += type_list_to_string(list_)
     m += '</span>'
