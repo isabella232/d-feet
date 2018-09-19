@@ -7,7 +7,7 @@
 try:
     # python2.x
     import ConfigParser as configparser
-except:
+except ImportError:
     # python3
     import configparser
 import os

@@ -11,7 +11,7 @@ def convert_complex_type(subsig):
     c_lookahead = ''
     try:
         c_lookahead = subsig[1]
-    except:
+    except IndexError:
         c_lookahead = ''
 
     if c == 'a' and c_lookahead == '{':  # handle dicts as a special case array
@@ -145,7 +145,7 @@ def type_list_to_string(type_list):
 
             try:
                 result += dbus_type
-            except:
+            except Exception:
                 print(type_list)
 
     return result[2:]

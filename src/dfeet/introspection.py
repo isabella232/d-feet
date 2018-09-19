@@ -22,7 +22,7 @@ class AddressInfo():
     def __del__(self):
         try:
             self.connection.close()
-        except:
+        except GLib.GError:
             pass
 
     def __init__(self, data_dir, address, name, unique_name, connection_is_bus=True):
@@ -267,7 +267,7 @@ class AddressInfo():
         """callback when the GetConnectionStats dbus function call finished"""
         try:
             res = connection.call_finish(result_async)
-        except:
+        except GLib.GError:
             # The stats interface might not be enabled. Ignore.
             pass
         else:
@@ -279,7 +279,7 @@ class AddressInfo():
         """callback when the GetAllMatchRules dbus function call finished"""
         try:
             res = connection.call_finish(result_async)
-        except:
+        except GLib.GError:
             # The stats interface might not be enabled. Ignore.
             pass
         else:
