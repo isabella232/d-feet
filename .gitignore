@@ -49,4 +49,5 @@ po/stamp-it
 po/*.gmo
 py-compile
 src/d-feet
+src/tests/tests.py
 test-driver
