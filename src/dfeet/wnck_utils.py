@@ -18,7 +18,11 @@ try:
     gi.require_version('Wnck', '3.0')
     from gi.repository import Wnck
     has_libwnck = True
-except:
+except (
+    GLib.Error,  # us
+    ValueError,  # gi.require_version
+    ImportError,  # from gi.repository import Wnck
+):
     has_libwnck = False
 
 

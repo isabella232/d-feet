@@ -6,19 +6,27 @@ from dfeet import dbus_utils
 _style_context = None
 _fg_color = "#000000"
 
+
 def fg_color():
     global _style_context, _fg_color
     if _style_context is None:
         _style_context = Gtk.StyleContext()
         color = _style_context.get_color(Gtk.StateFlags.NORMAL)
-        _fg_color = "#%02x%02x%02x" % (int(color.red) * 255, int(color.green) * 255, int(color.blue) * 255)
+        _fg_color = "#%02x%02x%02x" % (
+            int(color.red) * 255,
+            int(color.green) * 255,
+            int(color.blue) * 255,
+        )
     return _fg_color
+
 
 def args_signature_markup(arg_signature):
     return '<small><span foreground="#2E8B57">%s</span></small>' % (arg_signature)
 
+
 def args_name_markup(arg_name):
     return '<small><span foreground="%s">%s</span></small>' % (fg_color(), arg_name)
+
 
 class DBusNode(GObject.GObject):
     """object to represent a DBus Node (object path)"""

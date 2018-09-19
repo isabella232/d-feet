@@ -27,8 +27,8 @@ AC_ARG_ENABLE(tests,
     enable_tests=$enableval, enable_tests=yes)
 
 if test x$enable_tests = xyes; then
-  AC_CHECK_PROG([PEP8], [pep8], [yes])
-  test -z "$PEP8" && AC_MSG_ERROR([pep8 binary not found but needed for testsuite. either install it or run with the argument --disable-tests to not run the testsuite.])
+  AC_CHECK_PROGS([PYCODESTYLE], [pycodestyle-3 pycodestyle pep8], [yes])
+  test -z "$PYCODESTYLE" && AC_MSG_ERROR([pycodestyle binary not found but needed for testsuite. either install it or run with the argument --disable-tests to not run the testsuite.])
 fi
 AM_CONDITIONAL(ENABLE_TESTS, test "x$enable_tests" = "xyes")
 

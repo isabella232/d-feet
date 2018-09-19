@@ -106,7 +106,7 @@ class BusNameBox(Gtk.VBox):
         self.__process_id = process_id_new
         try:
             self.__update_command_line()
-        except:
+        except OSError:
             self.__command_line = ''
         # update the shown widget
         self.__update_widget()
@@ -190,7 +190,7 @@ class BusWatch(object):
 
         try:
             del(self.__addr_info)
-        except:
+        except AttributeError:
             pass
 
         # get the selected busname
@@ -354,7 +354,6 @@ class BusWatch(object):
 
 if __name__ == "__main__":
     """for debugging"""
-    import sys
     import argparse
 
     parser = argparse.ArgumentParser(description='show a given bus address')

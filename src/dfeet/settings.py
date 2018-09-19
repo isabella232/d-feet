@@ -7,7 +7,7 @@
 try:
     # python2.x
     import ConfigParser as configparser
-except:
+except ImportError:
     # python3
     import configparser
 import os
@@ -18,15 +18,16 @@ class ConfigTokenizer():
     COMMA = re.compile(",")
     FALLTHROUGH = re.compile('(?:[^,.])+')
     # FIXME: String re does not ignore escaped quotes (e.g. \") correctly
-    STRING = re.compile('"((?:[^\\"]|\\.)*)"' + "|'((?:[^\\']|\\.)*)'")
-    NUMBER = re.compile('[+-]?[0-9]*\.?[0-9]+')
-    WHITESPACE = re.compile('\s')
+    STRING = re.compile(r'"((?:[^\"]|\.)*)"' +
+                        r"|'((?:[^\']|\.)*)'")
+    NUMBER = re.compile(r'[+-]?[0-9]*\.?[0-9]+')
+    WHITESPACE = re.compile(r'\s')
 
     _parse_order = [STRING, NUMBER, WHITESPACE, COMMA, FALLTHROUGH]
 
     class Match():
-        ENDWHITESPACE = re.compile('\s$')
-        UNESCAPE = re.compile('\\\(.)')
+        ENDWHITESPACE = re.compile(r'\s$')
+        UNESCAPE = re.compile(r'\\\(.)')
 
         def __init__(self, match, regex):
             self.match = match

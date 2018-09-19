@@ -27,7 +27,6 @@ from dfeet.bus_watch import BusWatch
 from dfeet.settings import Settings
 from dfeet.uiloader import UILoader
 from dfeet.addconnectiondialog import AddConnectionDialog
-from dfeet.executemethoddialog import ExecuteMethodDialog
 
 
 class DFeetWindow(Gtk.ApplicationWindow):
