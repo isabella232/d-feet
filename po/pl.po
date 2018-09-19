@@ -1,15 +1,15 @@
 # Polish translation for d-feet.
-# Copyright © 2013-2016 the d-feet authors.
+# Copyright © 2013-2018 the d-feet authors.
 # This file is distributed under the same license as the d-feet package.
-# Piotr Drąg <piotrdrag@gmail.com>, 2013-2016.
-# Aviary.pl <community-poland@mozilla.org>, 2013-2016.
+# Piotr Drąg <piotrdrag@gmail.com>, 2013-2018.
+# Aviary.pl <community-poland@mozilla.org>, 2013-2018.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: d-feet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-19 17:52+0200\n"
-"PO-Revision-Date: 2016-08-19 17:53+0200\n"
+"POT-Creation-Date: 2018-09-19 22:00+0200\n"
+"PO-Revision-Date: 2018-09-19 22:01+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -19,29 +19,31 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
-#: ../data/d-feet.appdata.xml.in.h:1 ../data/d-feet.desktop.in.in.h:1
+#: ../data/org.gnome.dfeet.appdata.xml.in.h:1
+#: ../data/org.gnome.dfeet.desktop.in.in.h:1
 msgid "D-Feet"
 msgstr "D-Feet"
 
-#: ../data/d-feet.appdata.xml.in.h:2 ../data/d-feet.desktop.in.in.h:3
+#: ../data/org.gnome.dfeet.appdata.xml.in.h:2
+#: ../data/org.gnome.dfeet.desktop.in.in.h:3
 msgid "Debug D-Bus applications"
 msgstr "Debugowanie programów D-Bus"
 
-#: ../data/d-feet.appdata.xml.in.h:3
+#: ../data/org.gnome.dfeet.appdata.xml.in.h:3
 msgid ""
 "A simple application for debugging the message bus system D-Bus. D-Feet can "
 "be used to inspect D-Bus interfaces of running programs and invoke methods "
 "on those interfaces."
 msgstr ""
-"Prosty program do debugowania systemowej magistrali komunikatów D-Bus. "
-"Program D-Feet może być używany do badania interfejsów D-Bus uruchomionych "
-"programów i wywoływania metod na tych interfejsach."
+"Prosty program do debugowania systemowej magistrali komunikatów D-Bus. D-"
+"Feet może być używany do badania interfejsów D-Bus uruchomionych programów "
+"i wywoływania metod na tych interfejsach."
 
-#: ../data/d-feet.desktop.in.in.h:2
+#: ../data/org.gnome.dfeet.desktop.in.in.h:2
 msgid "D-Bus Debugger"
 msgstr "Debuger D-Bus"
 
-#: ../data/d-feet.desktop.in.in.h:4
+#: ../data/org.gnome.dfeet.desktop.in.in.h:4
 msgid "debug;d-bus;dbus;dfeet;"
 msgstr "debugger;debugowanie;debuggowanie;debuguj;debugguj;d-bus;dbus;dfeet;"
 
@@ -92,50 +94,54 @@ msgid "Interface:"
 msgstr "Interfejs:"
 
 #: ../data/ui/executedialog.ui.h:6
+msgid "Bus Name:"
+msgstr "Nazwa magistrali:"
+
+#: ../data/ui/executedialog.ui.h:7
 msgid "Method input"
 msgstr "Wejście metody"
 
-#: ../data/ui/executedialog.ui.h:7
+#: ../data/ui/executedialog.ui.h:8
 msgid "Method output"
 msgstr "Wyjście metody"
 
-#: ../data/ui/executedialog.ui.h:8
+#: ../data/ui/executedialog.ui.h:9
 msgid "Pretty print"
 msgstr "Wyświetlanie czytelne dla człowieka"
 
-#: ../data/ui/executedialog.ui.h:9
+#: ../data/ui/executedialog.ui.h:10
 msgid "Source"
 msgstr "Źródło"
 
-#: ../data/ui/executedialog.ui.h:10
+#: ../data/ui/executedialog.ui.h:11
 msgid "Method execution"
 msgstr "Wykonanie metody"
 
-#: ../data/ui/executedialog.ui.h:11
+#: ../data/ui/executedialog.ui.h:12
 msgid "Number of method executions"
 msgstr "Liczba wykonań metody"
 
-#: ../data/ui/executedialog.ui.h:12
+#: ../data/ui/executedialog.ui.h:13
 msgid "Ø:"
 msgstr "Ø:"
 
-#: ../data/ui/executedialog.ui.h:13
+#: ../data/ui/executedialog.ui.h:14
 msgid "Average method execution time in seconds"
 msgstr "Średni czas wykonania metody w sekundach"
 
-#: ../data/ui/executedialog.ui.h:14
+#: ../data/ui/executedialog.ui.h:15
 msgid "Min:"
 msgstr "Minimalny:"
 
-#: ../data/ui/executedialog.ui.h:15
+#: ../data/ui/executedialog.ui.h:16
 msgid "Minimal method execution time in seconds"
 msgstr "Minimalny czas wykonania metody w sekundach"
 
-#: ../data/ui/executedialog.ui.h:16
+#: ../data/ui/executedialog.ui.h:17
 msgid "Max:"
 msgstr "Maksymalny:"
 
-#: ../data/ui/executedialog.ui.h:17
+#: ../data/ui/executedialog.ui.h:18
 msgid "Maximal method execution time in seconds"
 msgstr "Maksymalny czas wykonania metody w sekundach"
 
