@@ -27,7 +27,7 @@ class ConfigTokenizer():
 
     class Match():
         ENDWHITESPACE = re.compile(r'\s$')
-        UNESCAPE = re.compile(r'\\\(.)')
+        UNESCAPE = re.compile(r'\\(.)')
 
         def __init__(self, match, regex):
             self.match = match

@@ -2,11 +2,13 @@
 # -*- coding: utf-8 -*-
 import sys
 import os
+import tempfile
 sys.path.insert(0, os.path.abspath(os.path.join(__file__, "../../")))
 
 from gi.repository import Gtk
 from gi.repository import Gio
 from gi.repository import GLib
+from dfeet.settings import Settings
 from dfeet.introspection import AddressInfo
 from dfeet.introspection_helper import DBusNode
 from dfeet.introspection_helper import DBusInterface
@@ -102,6 +104,41 @@ class AddressInfoTest(unittest.TestCase):
         # TODO: setup a gdbus server and test a peer to peer connection
         # (see http://developer.gnome.org/gio/unstable/GDBusServer.html#gdbus-peer-to-peer)
         pass
+
+
+class SettingsTest(unittest.TestCase):
+    """Tests for the Settings class.
+
+    Why does it reimplement list values around ConfigParser rather than using
+    GKeyFile which supports list values directly? Nobody knows.
+    """
+
+    def setUp(self):
+        self.tempfile = tempfile.NamedTemporaryFile()
+
+    def tearDown(self):
+        self.tempfile.close()
+
+    def test_read_empty(self):
+        settings = Settings(self.tempfile.name)
+
+        self.assertIn('windowwidth', settings.general)
+        self.assertIn('windowheight', settings.general)
+        self.assertEqual([], settings.general['addbus_list'])
+
+    def test_write(self):
+        settings = Settings(self.tempfile.name)
+        settings.general['windowwidth'] = 800
+        settings.general['windowheight'] = 600
+        settings.general['addbus_list'] = ['a', 'b']
+        settings.write()
+
+        # Reload with a new instance
+        settings = Settings(self.tempfile.name)
+        # FIXME: yes, these come back out as strings
+        self.assertEqual('800', settings.general['windowwidth'])
+        self.assertEqual('600', settings.general['windowheight'])
+        self.assertEqual(['a', 'b'], settings.general['addbus_list'])
 
 
 if __name__ == "__main__":
