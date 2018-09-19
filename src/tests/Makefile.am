@@ -13,5 +13,5 @@ tests.py: tests.py.in
 PYCODESTYLE_EXCLUDES=--exclude='.svn,CVS,.bzr,.hg,.git,__pycache__,.\#*'
 
 check-local:
-	$(PYCODESTYLE) --max-line-length=99 --ignore=E123,E402 \
+	$(PYCODESTYLE) --max-line-length=99 --ignore=E123,E402,W504 \
 		$(PYCODESTYLE_EXCLUDES) $(top_srcdir)/src/
