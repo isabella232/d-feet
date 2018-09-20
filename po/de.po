@@ -2,24 +2,34 @@
 # Copyright (C) 2013 d-feet's COPYRIGHT HOLDER
 # This file is distributed under the same license as the d-feet package.
 # Christian Kirbach <christian.kirbach@gmail.com>, 2013.
+# Mario Blättermann <mario.blaettermann@gmail.com>, 2018.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: d-feet master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-"
-"feet&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-08-08 03:08+0000\n"
-"PO-Revision-Date: 2014-08-14 13:08+0100\n"
-"Last-Translator: Christian Kirbach <christian.kirbach@gmail.com>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/d-feet/issues\n"
+"POT-Creation-Date: 2018-09-19 18:03+0000\n"
+"PO-Revision-Date: 2018-09-20 11:49+0200\n"
+"Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 2.1.1\n"
 
-#: ../data/d-feet.appdata.xml.in.h:1
+#: ../data/org.gnome.dfeet.appdata.xml.in.h:1
+#: ../data/org.gnome.dfeet.desktop.in.in.h:1
+msgid "D-Feet"
+msgstr "D-Feet"
+
+#: ../data/org.gnome.dfeet.appdata.xml.in.h:2
+#: ../data/org.gnome.dfeet.desktop.in.in.h:3
+msgid "Debug D-Bus applications"
+msgstr "Fehlerdiagnose für D-Bus-Anwendungen"
+
+#: ../data/org.gnome.dfeet.appdata.xml.in.h:3
 msgid ""
 "A simple application for debugging the message bus system D-Bus. D-Feet can "
 "be used to inspect D-Bus interfaces of running programs and invoke methods "
@@ -30,19 +40,11 @@ msgstr ""
 "Schnittstellen laufender Programme verwendet werden und Methoden dieser "
 "Schnittstellen aufrufen."
 
-#: ../data/d-feet.desktop.in.in.h:1
-msgid "D-Feet"
-msgstr "D-Feet"
-
-#: ../data/d-feet.desktop.in.in.h:2
+#: ../data/org.gnome.dfeet.desktop.in.in.h:2
 msgid "D-Bus Debugger"
 msgstr "D-Bus-Fehlerdiagnose"
 
-#: ../data/d-feet.desktop.in.in.h:3
-msgid "Debug D-Bus applications"
-msgstr "Fehlerdiagnose für D-Bus-Anwendungen"
-
-#: ../data/d-feet.desktop.in.in.h:4
+#: ../data/org.gnome.dfeet.desktop.in.in.h:4
 msgid "debug;d-bus;dbus;dfeet;"
 msgstr "debug;d-bus;dbus;dfeet;"
 
@@ -92,50 +94,54 @@ msgid "Interface:"
 msgstr "Schnittstelle:"
 
 #: ../data/ui/executedialog.ui.h:6
+msgid "Bus Name:"
+msgstr "Bus-Name:"
+
+#: ../data/ui/executedialog.ui.h:7
 msgid "Method input"
 msgstr "Eingabemethode"
 
-#: ../data/ui/executedialog.ui.h:7
+#: ../data/ui/executedialog.ui.h:8
 msgid "Method output"
 msgstr "Ausgabemethode"
 
-#: ../data/ui/executedialog.ui.h:8
+#: ../data/ui/executedialog.ui.h:9
 msgid "Pretty print"
 msgstr "Formatiert ausgeben"
 
-#: ../data/ui/executedialog.ui.h:9
+#: ../data/ui/executedialog.ui.h:10
 msgid "Source"
 msgstr "Quelle"
 
-#: ../data/ui/executedialog.ui.h:10
+#: ../data/ui/executedialog.ui.h:11
 msgid "Method execution"
 msgstr "Methodenausführung"
 
-#: ../data/ui/executedialog.ui.h:11
+#: ../data/ui/executedialog.ui.h:12
 msgid "Number of method executions"
 msgstr "Anzahl der Methodenausführungen"
 
-#: ../data/ui/executedialog.ui.h:12
+#: ../data/ui/executedialog.ui.h:13
 msgid "Ø:"
 msgstr "Ø:"
 
-#: ../data/ui/executedialog.ui.h:13
+#: ../data/ui/executedialog.ui.h:14
 msgid "Average method execution time in seconds"
 msgstr "Durchschnittliche Methodenausführungszeit in Sekunden"
 
-#: ../data/ui/executedialog.ui.h:14
+#: ../data/ui/executedialog.ui.h:15
 msgid "Min:"
 msgstr "Min:"
 
-#: ../data/ui/executedialog.ui.h:15
+#: ../data/ui/executedialog.ui.h:16
 msgid "Minimal method execution time in seconds"
 msgstr "Kürzeste Methodenausführungszeit in Sekunden"
 
-#: ../data/ui/executedialog.ui.h:16
+#: ../data/ui/executedialog.ui.h:17
 msgid "Max:"
 msgstr "Max:"
 
-#: ../data/ui/executedialog.ui.h:17
+#: ../data/ui/executedialog.ui.h:18
 msgid "Maximal method execution time in seconds"
 msgstr "Längste Methodenausführungszeit in Sekunden"
 
@@ -170,18 +176,3 @@ msgstr "Mit anderem Bus verbinden"
 #: ../data/ui/mainwindow.ui.h:4
 msgid "Close Bus"
 msgstr "Bus schließen"
-
-#~ msgid "Filter:"
-#~ msgstr "Filter:"
-
-#~ msgid "unique bus name"
-#~ msgstr "Eindeutiger Busname"
-
-#~ msgid "Command line:"
-#~ msgstr "Befehlszeile:"
-
-#~ msgid "Process ID:"
-#~ msgstr "Prozess-Kennung:"
-
-#~ msgid "File"
-#~ msgstr "Datei"
