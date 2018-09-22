@@ -6,19 +6,28 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: d-feet master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-"
-"feet&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-10-11 07:28+0000\n"
-"PO-Revision-Date: 2014-10-16 14:19+0700\n"
-"Last-Translator: Andika Triwidada <andika@gmail.com>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/d-feet/issues\n"
+"POT-Creation-Date: 2018-09-19 18:03+0000\n"
+"PO-Revision-Date: 2018-09-22 15:27+0700\n"
+"Last-Translator: Kukuh Syafaat <kukuhsyafaat@gnome.org>\n"
 "Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 2.0.6\n"
 
-#: ../data/d-feet.appdata.xml.in.h:1
+#: ../data/org.gnome.dfeet.appdata.xml.in.h:1
+#: ../data/org.gnome.dfeet.desktop.in.in.h:1
+msgid "D-Feet"
+msgstr "D-Feet"
+
+#: ../data/org.gnome.dfeet.appdata.xml.in.h:2
+#: ../data/org.gnome.dfeet.desktop.in.in.h:3
+msgid "Debug D-Bus applications"
+msgstr "Mengawakutu aplikasi-aplikasi D-Bus"
+
+#: ../data/org.gnome.dfeet.appdata.xml.in.h:3
 msgid ""
 "A simple application for debugging the message bus system D-Bus. D-Feet can "
 "be used to inspect D-Bus interfaces of running programs and invoke methods "
@@ -28,19 +37,11 @@ msgstr ""
 "dapat dipakai untuk memeriksa antar muka D-Bus dari program-program yang "
 "berjalan dan memanggil metode-metode pada antar muka tersebut."
 
-#: ../data/d-feet.desktop.in.in.h:1
-msgid "D-Feet"
-msgstr "D-Feet"
-
-#: ../data/d-feet.desktop.in.in.h:2
+#: ../data/org.gnome.dfeet.desktop.in.in.h:2
 msgid "D-Bus Debugger"
 msgstr "Pengawakutu D-Bus"
 
-#: ../data/d-feet.desktop.in.in.h:3
-msgid "Debug D-Bus applications"
-msgstr "Mengawakutu aplikasi-aplikasi D-Bus"
-
-#: ../data/d-feet.desktop.in.in.h:4
+#: ../data/org.gnome.dfeet.desktop.in.in.h:4
 msgid "debug;d-bus;dbus;dfeet;"
 msgstr "debug;d-bus;dbus;dfeet;awakutu;"
 
@@ -90,50 +91,54 @@ msgid "Interface:"
 msgstr "Antar Muka:"
 
 #: ../data/ui/executedialog.ui.h:6
+msgid "Bus Name:"
+msgstr "Nama Bus:"
+
+#: ../data/ui/executedialog.ui.h:7
 msgid "Method input"
 msgstr "Masukan metoda"
 
-#: ../data/ui/executedialog.ui.h:7
+#: ../data/ui/executedialog.ui.h:8
 msgid "Method output"
 msgstr "Keluaran metoda"
 
-#: ../data/ui/executedialog.ui.h:8
+#: ../data/ui/executedialog.ui.h:9
 msgid "Pretty print"
 msgstr "Cetak cantik"
 
-#: ../data/ui/executedialog.ui.h:9
+#: ../data/ui/executedialog.ui.h:10
 msgid "Source"
 msgstr "Sumber"
 
-#: ../data/ui/executedialog.ui.h:10
+#: ../data/ui/executedialog.ui.h:11
 msgid "Method execution"
 msgstr "Eksekusi metode"
 
-#: ../data/ui/executedialog.ui.h:11
+#: ../data/ui/executedialog.ui.h:12
 msgid "Number of method executions"
 msgstr "Cacah eksekusi metode"
 
-#: ../data/ui/executedialog.ui.h:12
+#: ../data/ui/executedialog.ui.h:13
 msgid "Ø:"
 msgstr "Ø:"
 
-#: ../data/ui/executedialog.ui.h:13
+#: ../data/ui/executedialog.ui.h:14
 msgid "Average method execution time in seconds"
 msgstr "Rerata waktu eksekusi metode dalam detik"
 
-#: ../data/ui/executedialog.ui.h:14
+#: ../data/ui/executedialog.ui.h:15
 msgid "Min:"
 msgstr "Min:"
 
-#: ../data/ui/executedialog.ui.h:15
+#: ../data/ui/executedialog.ui.h:16
 msgid "Minimal method execution time in seconds"
 msgstr "Minimum waktu eksekusi metode dalam detik"
 
-#: ../data/ui/executedialog.ui.h:16
+#: ../data/ui/executedialog.ui.h:17
 msgid "Max:"
 msgstr "Maks:"
 
-#: ../data/ui/executedialog.ui.h:17
+#: ../data/ui/executedialog.ui.h:18
 msgid "Maximal method execution time in seconds"
 msgstr "Maksimum waktu eksekusi metode dalam detik"
 
