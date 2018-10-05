@@ -1,26 +1,34 @@
 # Brazilian Portuguese translation for d-feet.
-# Copyright (C) 2013 d-feet's COPYRIGHT HOLDER
+# Copyright (C) 2018 d-feet's COPYRIGHT HOLDER
 # This file is distributed under the same license as the d-feet package.
-# Rafael Ferreira <rafael.f.f1@gmail.com>, 2013, 2014.
 # Enrico Nicoletto <liverig@gmail.com>, 2013.
-#
+# Rafael Fontenelle <rafaelff@gnome.org>, 2013, 2014, 2018.
 msgid ""
 msgstr ""
 "Project-Id-Version: d-feet master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-"
-"feet&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-07-08 18:21+0000\n"
-"PO-Revision-Date: 2014-07-14 22:00-0300\n"
-"Last-Translator: Rafael Ferreira <rafael.f.f1@gmail.com>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/d-feet/issues\n"
+"POT-Creation-Date: 2018-09-19 18:03+0000\n"
+"PO-Revision-Date: 2018-10-05 08:00-0200\n"
+"Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.6.5\n"
+"X-Generator: Virtaal 1.0.0-beta1\n"
 
-#: ../data/d-feet.appdata.xml.in.h:1
+#: ../data/org.gnome.dfeet.appdata.xml.in.h:1
+#: ../data/org.gnome.dfeet.desktop.in.in.h:1
+msgid "D-Feet"
+msgstr "D-Feet"
+
+#: ../data/org.gnome.dfeet.appdata.xml.in.h:2
+#: ../data/org.gnome.dfeet.desktop.in.in.h:3
+msgid "Debug D-Bus applications"
+msgstr "Depure aplicativos D-Bus"
+
+#: ../data/org.gnome.dfeet.appdata.xml.in.h:3
 msgid ""
 "A simple application for debugging the message bus system D-Bus. D-Feet can "
 "be used to inspect D-Bus interfaces of running programs and invoke methods "
@@ -30,20 +38,11 @@ msgstr ""
 "Bus. D-Feet pode ser usado para inspecionar interfaces D-Bus de programas em "
 "execução e chamar métodos naquelas interfaces."
 
-#: ../data/d-feet.desktop.in.in.h:1
-msgid "D-Feet"
-msgstr "D-Feet"
-
-#: ../data/d-feet.desktop.in.in.h:2
+#: ../data/org.gnome.dfeet.desktop.in.in.h:2
 msgid "D-Bus Debugger"
 msgstr "Depurador de D-Bus"
 
-#: ../data/d-feet.desktop.in.in.h:3
-msgid "Debug D-Bus applications"
-msgstr "Depure aplicativos D-Bus"
-
-#: ../data/d-feet.desktop.in.in.h:4
-#| msgid "debug;d-bus;"
+#: ../data/org.gnome.dfeet.desktop.in.in.h:4
 msgid "debug;d-bus;dbus;dfeet;"
 msgstr "depuração;debug;d-bus;dfeet;"
 
@@ -92,50 +91,54 @@ msgid "Interface:"
 msgstr "Interface:"
 
 #: ../data/ui/executedialog.ui.h:6
+msgid "Bus Name:"
+msgstr "Nome do barramento:"
+
+#: ../data/ui/executedialog.ui.h:7
 msgid "Method input"
 msgstr "Entrada do método"
 
-#: ../data/ui/executedialog.ui.h:7
+#: ../data/ui/executedialog.ui.h:8
 msgid "Method output"
 msgstr "Saída do método"
 
-#: ../data/ui/executedialog.ui.h:8
+#: ../data/ui/executedialog.ui.h:9
 msgid "Pretty print"
 msgstr "Exibição organizada"
 
-#: ../data/ui/executedialog.ui.h:9
+#: ../data/ui/executedialog.ui.h:10
 msgid "Source"
 msgstr "Fonte"
 
-#: ../data/ui/executedialog.ui.h:10
+#: ../data/ui/executedialog.ui.h:11
 msgid "Method execution"
 msgstr "Execução do método"
 
-#: ../data/ui/executedialog.ui.h:11
+#: ../data/ui/executedialog.ui.h:12
 msgid "Number of method executions"
 msgstr "Número de execuções do método"
 
-#: ../data/ui/executedialog.ui.h:12
+#: ../data/ui/executedialog.ui.h:13
 msgid "Ø:"
 msgstr "Ø:"
 
-#: ../data/ui/executedialog.ui.h:13
+#: ../data/ui/executedialog.ui.h:14
 msgid "Average method execution time in seconds"
 msgstr "Tempo médio de execução do método, em segundos"
 
-#: ../data/ui/executedialog.ui.h:14
+#: ../data/ui/executedialog.ui.h:15
 msgid "Min:"
 msgstr "Mín:"
 
-#: ../data/ui/executedialog.ui.h:15
+#: ../data/ui/executedialog.ui.h:16
 msgid "Minimal method execution time in seconds"
 msgstr "Tempo mínimo de execução do método, em segundos"
 
-#: ../data/ui/executedialog.ui.h:16
+#: ../data/ui/executedialog.ui.h:17
 msgid "Max:"
 msgstr "Máx:"
 
-#: ../data/ui/executedialog.ui.h:17
+#: ../data/ui/executedialog.ui.h:18
 msgid "Maximal method execution time in seconds"
 msgstr "Tempo máximo de execução do método, em segundos"
 
@@ -149,7 +152,7 @@ msgstr "Nome:"
 
 #: ../data/ui/introspection.ui.h:4
 msgid "Introspecting..."
-msgstr "Introspectando..."
+msgstr "Introspectando…"
 
 #: ../data/ui/introspection.ui.h:5
 msgid "Object path"
@@ -170,10 +173,3 @@ msgstr "Conectar a outro barramento"
 #: ../data/ui/mainwindow.ui.h:4
 msgid "Close Bus"
 msgstr "Fechar barramento"
-
-#~| msgid "unique bus name"
-#~ msgid "Filter busnames:"
-#~ msgstr "Filtrar nomes de barramentos:"
-
-#~ msgid "File"
-#~ msgstr "Arquivo"
