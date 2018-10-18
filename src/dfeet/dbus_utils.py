@@ -16,6 +16,7 @@ SIMPLE_TYPE_NAMES = {
     'g': 'Signature',
     'd': 'Double',
     'v': 'Variant',
+    'h': 'File Descriptor',
 }
 
 
