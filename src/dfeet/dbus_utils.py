@@ -2,17 +2,34 @@
 from __future__ import print_function
 
 
+SIMPLE_TYPE_NAMES = {
+    'n': 'Int16',
+    'q': 'UInt16',
+    'i': 'Int32',
+    'u': 'UInt32',
+    'x': 'Int64',
+    't': 'UInt64',
+    's': 'String',
+    'b': 'Boolean',
+    'y': 'Byte',
+    'o': 'Object Path',
+    'g': 'Signature',
+    'd': 'Double',
+    'v': 'Variant',
+    'h': 'File Descriptor',
+}
+
+
+def convert_simple_type(c):
+    return SIMPLE_TYPE_NAMES.get(c)
+
+
 def convert_complex_type(subsig):
     result = None
     len_consumed = 0
 
     c = subsig[0]
-
-    c_lookahead = ''
-    try:
-        c_lookahead = subsig[1]
-    except IndexError:
-        c_lookahead = ''
+    c_lookahead = subsig[1:2]
 
     if c == 'a' and c_lookahead == '{':  # handle dicts as a special case array
         ss = subsig[2:]
@@ -67,39 +84,6 @@ def convert_complex_type(subsig):
         result = ['Struct of (', sig_to_type_list(ss), ')']
 
     return (result, len_consumed)
-
-
-def convert_simple_type(c):
-    result = None
-
-    if c == 'n':
-        result = 'Int16'
-    elif c == 'q':
-        result = 'UInt16'
-    elif c == 'i':
-        result = 'Int32'
-    elif c == 'u':
-        result = 'UInt32'
-    elif c == 'x':
-        result = 'Int64'
-    elif c == 't':
-        result = 'UInt64'
-    elif c == 's':
-        result = 'String'
-    elif c == 'b':
-        result = 'Boolean'
-    elif c == 'y':
-        result = 'Byte'
-    elif c == 'o':
-        result = 'Object Path'
-    elif c == 'g':
-        result = 'Signature'
-    elif c == 'd':
-        result = 'Double'
-    elif c == 'v':
-        result = 'Variant'
-
-    return result
 
 
 def sig_to_type_list(sig):
