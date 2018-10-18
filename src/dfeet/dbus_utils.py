@@ -7,12 +7,7 @@ def convert_complex_type(subsig):
     len_consumed = 0
 
     c = subsig[0]
-
-    c_lookahead = ''
-    try:
-        c_lookahead = subsig[1]
-    except IndexError:
-        c_lookahead = ''
+    c_lookahead = subsig[1:2]
 
     if c == 'a' and c_lookahead == '{':  # handle dicts as a special case array
         ss = subsig[2:]
