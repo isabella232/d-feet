@@ -2,49 +2,50 @@
 # Copyright (C) 2013 d-feet's COPYRIGHT HOLDER
 # This file is distributed under the same license as the d-feet package.
 #
-# Matej Urbančič <mateju@svn.gnome.org>, 2013-2014.
+# Matej Urbančič <mateju@svn.gnome.org>, 2013–2018.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: d-feet master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-"
-"feet&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-08-06 03:07+0000\n"
-"PO-Revision-Date: 2014-08-06 14:43+0100\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/d-feet/issues\n"
+"POT-Creation-Date: 2018-10-18 18:48+0000\n"
+"PO-Revision-Date: 2018-10-19 17:43+0200\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenščina <gnome-si@googlegroups.com>\n"
-"Language: sl\n"
+"Language: sl_SI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 2.1.1\n"
 
-#: ../data/d-feet.appdata.xml.in.h:1
+#: ../data/org.gnome.dfeet.appdata.xml.in.h:1
+#: ../data/org.gnome.dfeet.desktop.in.in.h:1
+msgid "D-Feet"
+msgstr "D-Feet"
+
+#: ../data/org.gnome.dfeet.appdata.xml.in.h:2
+#: ../data/org.gnome.dfeet.desktop.in.in.h:3
+msgid "Debug D-Bus applications"
+msgstr "Razhroščevanje programov vodila D-Bus"
+
+#: ../data/org.gnome.dfeet.appdata.xml.in.h:3
 msgid ""
 "A simple application for debugging the message bus system D-Bus. D-Feet can "
 "be used to inspect D-Bus interfaces of running programs and invoke methods "
 "on those interfaces."
 msgstr ""
 "Enostaven program za razhroščevanje sporočil sistema vodila D-Bus. Program D-"
-"Feet je mogoče uporabiti za nadzor vmesnikov D-Bus  zagnanih programov in za "
+"Feet je mogoče uporabiti za nadzor vmesnikov D-Bus zagnanih programov in za "
 "upravljanje."
 
-#: ../data/d-feet.desktop.in.in.h:1
-msgid "D-Feet"
-msgstr "D-Feet"
-
-#: ../data/d-feet.desktop.in.in.h:2
+#: ../data/org.gnome.dfeet.desktop.in.in.h:2
 msgid "D-Bus Debugger"
 msgstr "Razhroščevalnik vodila D-Bus"
 
-#: ../data/d-feet.desktop.in.in.h:3
-msgid "Debug D-Bus applications"
-msgstr "Razhroščevanje programov vodila D-Bus"
-
-#: ../data/d-feet.desktop.in.in.h:4
+#: ../data/org.gnome.dfeet.desktop.in.in.h:4
 msgid "debug;d-bus;dbus;dfeet;"
 msgstr "razhroščevanje;debug;d-bus;dbus;dfeet;"
 
@@ -94,50 +95,54 @@ msgid "Interface:"
 msgstr "Vmesnik:"
 
 #: ../data/ui/executedialog.ui.h:6
+msgid "Bus Name:"
+msgstr "Ime vodila:"
+
+#: ../data/ui/executedialog.ui.h:7
 msgid "Method input"
 msgstr "Dovod načina"
 
-#: ../data/ui/executedialog.ui.h:7
+#: ../data/ui/executedialog.ui.h:8
 msgid "Method output"
 msgstr "Odvod načina"
 
-#: ../data/ui/executedialog.ui.h:8
+#: ../data/ui/executedialog.ui.h:9
 msgid "Pretty print"
 msgstr "Oblikovno izrisovanje"
 
-#: ../data/ui/executedialog.ui.h:9
+#: ../data/ui/executedialog.ui.h:10
 msgid "Source"
 msgstr "Vir"
 
-#: ../data/ui/executedialog.ui.h:10
+#: ../data/ui/executedialog.ui.h:11
 msgid "Method execution"
 msgstr "Izvajanje načina"
 
-#: ../data/ui/executedialog.ui.h:11
+#: ../data/ui/executedialog.ui.h:12
 msgid "Number of method executions"
 msgstr "Število izvedbe načina"
 
-#: ../data/ui/executedialog.ui.h:12
+#: ../data/ui/executedialog.ui.h:13
 msgid "Ø:"
 msgstr "Ø:"
 
-#: ../data/ui/executedialog.ui.h:13
+#: ../data/ui/executedialog.ui.h:14
 msgid "Average method execution time in seconds"
 msgstr "Povprečni čas izvajanja načina v sekundah"
 
-#: ../data/ui/executedialog.ui.h:14
+#: ../data/ui/executedialog.ui.h:15
 msgid "Min:"
 msgstr "Najmanj:"
 
-#: ../data/ui/executedialog.ui.h:15
+#: ../data/ui/executedialog.ui.h:16
 msgid "Minimal method execution time in seconds"
 msgstr "Najkrajši čas izvajanja načina v sekundah"
 
-#: ../data/ui/executedialog.ui.h:16
+#: ../data/ui/executedialog.ui.h:17
 msgid "Max:"
 msgstr "Največ:"
 
-#: ../data/ui/executedialog.ui.h:17
+#: ../data/ui/executedialog.ui.h:18
 msgid "Maximal method execution time in seconds"
 msgstr "Najdaljši čas izvajanja načina v sekundah"
 
@@ -167,7 +172,7 @@ msgstr "Poveži z vodilom seje"
 
 #: ../data/ui/mainwindow.ui.h:3
 msgid "Connect to other Bus"
-msgstr "Poveži z drdugim sistemskim vodilom"
+msgstr "Poveži z drugim sistemskim vodilom"
 
 #: ../data/ui/mainwindow.ui.h:4
 msgid "Close Bus"
