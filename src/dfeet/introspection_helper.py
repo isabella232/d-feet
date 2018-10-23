@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from gi.repository import GObject, Gio
+from gi.repository import GLib, GObject, Gio
 from dfeet import dbus_utils
 
 
@@ -87,7 +87,7 @@ class DBusProperty(DBusInterface):
             args_signature_markup(sig),
             args_name_markup(self.property_info.name), " / ".join(readwrite))
         if self.value is not None:
-            s += " = %s" % (self.value,)
+            s += " = %s" % (GLib.markup_escape_text(self.value.print_(False)),)
         return s
 
     @property

@@ -115,7 +115,7 @@ class AddressInfo():
                                                -1,
                                                None)
             # update the object value so markup string is calculated correct
-            obj.value = result[0]
+            obj.value = result.get_child_value(0).get_child_value(0)
             # set new markup string
             model[iter_][0] = obj.markup_str
         else:
