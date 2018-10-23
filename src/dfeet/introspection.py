@@ -104,14 +104,16 @@ class AddressInfo():
             dialog.run()
         elif isinstance(obj, DBusProperty):
             # update the selected property (TODO: do this async)
-            proxy = Gio.DBusProxy.new_sync(self.connection,
-                                           Gio.DBusProxyFlags.NONE,
-                                           None,
-                                           self.name,
-                                           obj.object_path,
-                                           "org.freedesktop.DBus.Properties", None)
             args = GLib.Variant('(ss)', (obj.iface_info.name, obj.property_info.name))
-            result = proxy.call_sync("Get", args, 0, -1, None)
+            result = self.connection.call_sync(self.name,
+                                               obj.object_path,
+                                               "org.freedesktop.DBus.Properties",
+                                               "Get",
+                                               args,
+                                               GLib.VariantType('(v)'),
+                                               Gio.DBusCallFlags.NONE,
+                                               -1,
+                                               None)
             # update the object value so markup string is calculated correct
             obj.value = result[0]
             # set new markup string
