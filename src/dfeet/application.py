@@ -3,7 +3,10 @@
 from __future__ import print_function
 from gi.repository import Gtk, Gio, GObject, Gdk
 from dfeet.window import DFeetWindow
+import gettext
 import os
+
+_ = gettext.gettext
 
 
 class DFeetApp(Gtk.Application):
@@ -22,8 +25,6 @@ class DFeetApp(Gtk.Application):
     # Note that the function in C startup() becomes do_startup() in Python
     def do_startup(self):
         Gtk.Application.do_startup(self)
-        builder = Gtk.Builder()
-        builder.add_from_file(os.path.join(self.data_dir, "ui", "app-menu.ui"))
 
         # create actions
         action = Gio.SimpleAction.new("about", None)
@@ -37,8 +38,6 @@ class DFeetApp(Gtk.Application):
         action = Gio.SimpleAction.new("quit", None)
         action.connect("activate", self.action_quit_cb)
         self.add_action(action)
-
-        self.set_app_menu(builder.get_object("app-menu"))
 
     def action_quit_cb(self, action, parameter):
         self.quit()
@@ -58,7 +57,7 @@ class DFeetApp(Gtk.Application):
 class DFeetAboutDialog(Gtk.AboutDialog):
     def __init__(self, package, version, icon_name):
         Gtk.AboutDialog.__init__(self)
-        self.set_program_name(package)
+        self.set_program_name(_("D-Feet"))
         self.set_version(version)
         self.set_license_type(Gtk.License.GPL_2_0)
         self.set_website("https://wiki.gnome.org/Apps/DFeet/")
