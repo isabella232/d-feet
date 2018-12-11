@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: d-feet master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/d-feet/issues\n"
-"POT-Creation-Date: 2018-09-19 18:03+0000\n"
-"PO-Revision-Date: 2018-10-05 08:00-0200\n"
+"POT-Creation-Date: 2018-12-10 12:04+0000\n"
+"PO-Revision-Date: 2018-12-10 22:32-0200\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
@@ -19,7 +19,7 @@ msgstr ""
 "X-Generator: Virtaal 1.0.0-beta1\n"
 
 #: ../data/org.gnome.dfeet.appdata.xml.in.h:1
-#: ../data/org.gnome.dfeet.desktop.in.in.h:1
+#: ../data/org.gnome.dfeet.desktop.in.in.h:1 ../src/dfeet/application.py:60
 msgid "D-Feet"
 msgstr "D-Feet"
 
@@ -57,18 +57,6 @@ msgstr "Veja http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
 #: ../data/ui/addconnectiondialog.ui.h:3 ../data/ui/introspection.ui.h:3
 msgid "Address:"
 msgstr "Endereço:"
-
-#: ../data/ui/app-menu.ui.h:1
-msgid "About"
-msgstr "Sobre"
-
-#: ../data/ui/app-menu.ui.h:2
-msgid "Help"
-msgstr "Ajuda"
-
-#: ../data/ui/app-menu.ui.h:3
-msgid "Quit"
-msgstr "Sair"
 
 #: ../data/ui/executedialog.ui.h:1
 msgid "Execute D-Bus Method"
@@ -173,3 +161,18 @@ msgstr "Conectar a outro barramento"
 #: ../data/ui/mainwindow.ui.h:4
 msgid "Close Bus"
 msgstr "Fechar barramento"
+
+#: ../data/ui/mainwindow.ui.h:5
+#| msgid "D-Feet"
+msgid "About D-Feet"
+msgstr "Sobre o D-Feet"
+
+#: ../data/ui/mainwindow.ui.h:6
+msgid "Help"
+msgstr "Ajuda"
+
+#~ msgid "About"
+#~ msgstr "Sobre"
+
+#~ msgid "Quit"
+#~ msgstr "Sair"
