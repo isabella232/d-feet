@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: d-feet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-19 22:00+0200\n"
-"PO-Revision-Date: 2018-09-19 22:01+0200\n"
+"POT-Creation-Date: 2018-12-13 19:41+0100\n"
+"PO-Revision-Date: 2018-12-13 19:41+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -20,7 +20,7 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 
 #: ../data/org.gnome.dfeet.appdata.xml.in.h:1
-#: ../data/org.gnome.dfeet.desktop.in.in.h:1
+#: ../data/org.gnome.dfeet.desktop.in.in.h:1 ../src/dfeet/application.py:60
 msgid "D-Feet"
 msgstr "D-Feet"
 
@@ -60,18 +60,6 @@ msgstr ""
 #: ../data/ui/addconnectiondialog.ui.h:3 ../data/ui/introspection.ui.h:3
 msgid "Address:"
 msgstr "Adres:"
-
-#: ../data/ui/app-menu.ui.h:1
-msgid "About"
-msgstr "O programie"
-
-#: ../data/ui/app-menu.ui.h:2
-msgid "Help"
-msgstr "Pomoc"
-
-#: ../data/ui/app-menu.ui.h:3
-msgid "Quit"
-msgstr "Zakończ"
 
 #: ../data/ui/executedialog.ui.h:1
 msgid "Execute D-Bus Method"
@@ -176,3 +164,11 @@ msgstr "Połącz z inną magistralą"
 #: ../data/ui/mainwindow.ui.h:4
 msgid "Close Bus"
 msgstr "Zamknij magistralę"
+
+#: ../data/ui/mainwindow.ui.h:5
+msgid "About D-Feet"
+msgstr "O programie"
+
+#: ../data/ui/mainwindow.ui.h:6
+msgid "Help"
+msgstr "Pomoc"
