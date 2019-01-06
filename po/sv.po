@@ -1,14 +1,14 @@
 # Swedish translation for d-feet.
-# Copyright © 2015, 2018 d-feet's COPYRIGHT HOLDER
+# Copyright © 2015, 2018, 2019 d-feet's COPYRIGHT HOLDER
 # This file is distributed under the same license as the d-feet package.
-# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2015, 2018.
+# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2015, 2018, 2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: d-feet master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/d-feet/issues\n"
-"POT-Creation-Date: 2018-09-19 18:03+0000\n"
-"PO-Revision-Date: 2018-09-23 20:07+0200\n"
+"POT-Creation-Date: 2018-12-10 12:04+0000\n"
+"PO-Revision-Date: 2019-01-06 20:24+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -16,10 +16,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.1.1\n"
+"X-Generator: Poedit 2.2\n"
 
 #: ../data/org.gnome.dfeet.appdata.xml.in.h:1
-#: ../data/org.gnome.dfeet.desktop.in.in.h:1
+#: ../data/org.gnome.dfeet.desktop.in.in.h:1 ../src/dfeet/application.py:60
 msgid "D-Feet"
 msgstr "D-Feet"
 
@@ -57,18 +57,6 @@ msgstr "Se http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
 #: ../data/ui/addconnectiondialog.ui.h:3 ../data/ui/introspection.ui.h:3
 msgid "Address:"
 msgstr "Adress:"
-
-#: ../data/ui/app-menu.ui.h:1
-msgid "About"
-msgstr "Om"
-
-#: ../data/ui/app-menu.ui.h:2
-msgid "Help"
-msgstr "Hjälp"
-
-#: ../data/ui/app-menu.ui.h:3
-msgid "Quit"
-msgstr "Avsluta"
 
 #: ../data/ui/executedialog.ui.h:1
 msgid "Execute D-Bus Method"
@@ -173,3 +161,17 @@ msgstr "Anslut till annan buss"
 #: ../data/ui/mainwindow.ui.h:4
 msgid "Close Bus"
 msgstr "Stäng buss"
+
+#: ../data/ui/mainwindow.ui.h:5
+msgid "About D-Feet"
+msgstr "Om D-Feet"
+
+#: ../data/ui/mainwindow.ui.h:6
+msgid "Help"
+msgstr "Hjälp"
+
+#~ msgid "About"
+#~ msgstr "Om"
+
+#~ msgid "Quit"
+#~ msgstr "Avsluta"
