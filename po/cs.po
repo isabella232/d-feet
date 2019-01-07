@@ -1,14 +1,14 @@
 # Czech translation for d-feet.
 # Copyright (C) 2013 d-feet's COPYRIGHT HOLDER
 # This file is distributed under the same license as the d-feet package.
-# Marek Černocký <marek@manet.cz>, 2013, 2014, 2018.
+# Marek Černocký <marek@manet.cz>, 2013, 2014, 2018, 2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: d-feet master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/d-feet/issues\n"
-"POT-Creation-Date: 2018-09-19 18:03+0000\n"
-"PO-Revision-Date: 2018-09-22 10:00+0200\n"
+"POT-Creation-Date: 2018-12-10 12:04+0000\n"
+"PO-Revision-Date: 2019-01-07 11:23+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -19,14 +19,14 @@ msgstr ""
 "X-Generator: Gtranslator 2.91.6\n"
 
 #: ../data/org.gnome.dfeet.appdata.xml.in.h:1
-#: ../data/org.gnome.dfeet.desktop.in.in.h:1
+#: ../data/org.gnome.dfeet.desktop.in.in.h:1 ../src/dfeet/application.py:60
 msgid "D-Feet"
 msgstr "D-Feet"
 
 #: ../data/org.gnome.dfeet.appdata.xml.in.h:2
 #: ../data/org.gnome.dfeet.desktop.in.in.h:3
 msgid "Debug D-Bus applications"
-msgstr "Ladit aplikace používající sběrnici D-Bus"
+msgstr "Laďte aplikace používající sběrnici D-Bus"
 
 #: ../data/org.gnome.dfeet.appdata.xml.in.h:3
 msgid ""
@@ -57,18 +57,6 @@ msgstr "Viz http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
 #: ../data/ui/addconnectiondialog.ui.h:3 ../data/ui/introspection.ui.h:3
 msgid "Address:"
 msgstr "Adresa:"
-
-#: ../data/ui/app-menu.ui.h:1
-msgid "About"
-msgstr "O aplikaci"
-
-#: ../data/ui/app-menu.ui.h:2
-msgid "Help"
-msgstr "Nápověda"
-
-#: ../data/ui/app-menu.ui.h:3
-msgid "Quit"
-msgstr "Ukončit"
 
 #: ../data/ui/executedialog.ui.h:1
 msgid "Execute D-Bus Method"
@@ -173,3 +161,11 @@ msgstr "Připojit k jiné sběrnici"
 #: ../data/ui/mainwindow.ui.h:4
 msgid "Close Bus"
 msgstr "Zavřít sběrnici"
+
+#: ../data/ui/mainwindow.ui.h:5
+msgid "About D-Feet"
+msgstr "O aplikaci D-Feet"
+
+#: ../data/ui/mainwindow.ui.h:6
+msgid "Help"
+msgstr "Nápověda"
