@@ -5,6 +5,8 @@ import os
 import tempfile
 sys.path.insert(0, os.path.abspath(os.path.join(__file__, "@SRC_DIR@")))
 
+import gi
+gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 from gi.repository import Gio
 from gi.repository import GLib
