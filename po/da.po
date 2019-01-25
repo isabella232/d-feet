@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the gnome-chat package.
 #
 # Klaus Rasmussen <claudius@gmx.co.uk>, 2014.
-# Alan Mortensen <alanmortensen.am@gmail.com>, 2016.
+# Alan Mortensen <alanmortensen.am@gmail.com>, 2016, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: d-feet\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/d-feet/issues\n"
-"POT-Creation-Date: 2018-09-19 18:03+0000\n"
-"PO-Revision-Date: 2018-10-27 16:10+0200\n"
+"POT-Creation-Date: 2018-12-10 12:04+0000\n"
+"PO-Revision-Date: 2019-01-22 19:32+0100\n"
 "Last-Translator: Alan Mortensen <alanmortensen.am@gmail.com>\n"
 "Language-Team: dansk <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Generator: Poedit 2.0.6\n"
 
 #: ../data/org.gnome.dfeet.appdata.xml.in.h:1
-#: ../data/org.gnome.dfeet.desktop.in.in.h:1
+#: ../data/org.gnome.dfeet.desktop.in.in.h:1 ../src/dfeet/application.py:60
 msgid "D-Feet"
 msgstr "D-Feet"
 
@@ -58,18 +58,6 @@ msgstr "Se http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
 #: ../data/ui/addconnectiondialog.ui.h:3 ../data/ui/introspection.ui.h:3
 msgid "Address:"
 msgstr "Adresse:"
-
-#: ../data/ui/app-menu.ui.h:1
-msgid "About"
-msgstr "Om"
-
-#: ../data/ui/app-menu.ui.h:2
-msgid "Help"
-msgstr "Hjælp"
-
-#: ../data/ui/app-menu.ui.h:3
-msgid "Quit"
-msgstr "Afslut"
 
 #: ../data/ui/executedialog.ui.h:1
 msgid "Execute D-Bus Method"
@@ -177,3 +165,17 @@ msgstr "Forbind til anden bus"
 #: ../data/ui/mainwindow.ui.h:4
 msgid "Close Bus"
 msgstr "Luk bus"
+
+#: ../data/ui/mainwindow.ui.h:5
+msgid "About D-Feet"
+msgstr "Om D-Feet"
+
+#: ../data/ui/mainwindow.ui.h:6
+msgid "Help"
+msgstr "Hjælp"
+
+#~ msgid "About"
+#~ msgstr "Om"
+
+#~ msgid "Quit"
+#~ msgstr "Afslut"
