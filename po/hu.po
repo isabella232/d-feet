@@ -1,18 +1,16 @@
 # Hungarian translation for d-feet.
-# Copyright (C) 2013 d-feet's COPYRIGHT HOLDER
+# Copyright (C) 2013, 2014, 2019 The Free Software Foundation, inc.
 # This file is distributed under the same license as the d-feet package.
 #
-# Balázs Úr <urbalazs at gmail dot com>, 2013, 2014.
-# Balázs Úr <urbalazs@gmail.com>, 2014.
+# Balázs Úr <urbalazs at gmail dot com>, 2013, 2014, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: d-feet master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-"
-"feet&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-07-08 18:21+0000\n"
-"PO-Revision-Date: 2014-09-11 19:20+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/d-feet/issues\n"
+"POT-Creation-Date: 2018-12-10 12:04+0000\n"
+"PO-Revision-Date: 2019-01-26 21:09+0100\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
-"Language-Team: Hungarian <gnome-hu-list@gnome.org>\n"
+"Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +18,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.2\n"
 
-#: ../data/d-feet.appdata.xml.in.h:1
+#: ../data/org.gnome.dfeet.appdata.xml.in.h:1
+#: ../data/org.gnome.dfeet.desktop.in.in.h:1 ../src/dfeet/application.py:60
+msgid "D-Feet"
+msgstr "D-Feet"
+
+#: ../data/org.gnome.dfeet.appdata.xml.in.h:2
+#: ../data/org.gnome.dfeet.desktop.in.in.h:3
+msgid "Debug D-Bus applications"
+msgstr "D-Bus alkalmazások hibakeresése"
+
+#: ../data/org.gnome.dfeet.appdata.xml.in.h:3
 msgid ""
 "A simple application for debugging the message bus system D-Bus. D-Feet can "
 "be used to inspect D-Bus interfaces of running programs and invoke methods "
@@ -30,20 +38,11 @@ msgstr ""
 "Feet használható a futó programok D-Bus csatolóinak megfigyeléséhez és "
 "metódusok meghívásához azokon a csatolókon."
 
-#: ../data/d-feet.desktop.in.in.h:1
-msgid "D-Feet"
-msgstr "D-Feet"
-
-#: ../data/d-feet.desktop.in.in.h:2
+#: ../data/org.gnome.dfeet.desktop.in.in.h:2
 msgid "D-Bus Debugger"
 msgstr "D-Bus hibakereső"
 
-#: ../data/d-feet.desktop.in.in.h:3
-msgid "Debug D-Bus applications"
-msgstr "D-Bus alkalmazások hibakeresése"
-
-#: ../data/d-feet.desktop.in.in.h:4
-#| msgid "debug;d-bus;"
+#: ../data/org.gnome.dfeet.desktop.in.in.h:4
 msgid "debug;d-bus;dbus;dfeet;"
 msgstr "hibakeresés;d-bus;dbus;dfeet;"
 
@@ -59,18 +58,6 @@ msgstr ""
 #: ../data/ui/addconnectiondialog.ui.h:3 ../data/ui/introspection.ui.h:3
 msgid "Address:"
 msgstr "Cím:"
-
-#: ../data/ui/app-menu.ui.h:1
-msgid "About"
-msgstr "Névjegy"
-
-#: ../data/ui/app-menu.ui.h:2
-msgid "Help"
-msgstr "Súgó"
-
-#: ../data/ui/app-menu.ui.h:3
-msgid "Quit"
-msgstr "Kilépés"
 
 #: ../data/ui/executedialog.ui.h:1
 msgid "Execute D-Bus Method"
@@ -93,50 +80,55 @@ msgid "Interface:"
 msgstr "Csatoló:"
 
 #: ../data/ui/executedialog.ui.h:6
+#| msgid "Name:"
+msgid "Bus Name:"
+msgstr "Busz neve:"
+
+#: ../data/ui/executedialog.ui.h:7
 msgid "Method input"
 msgstr "Eljárás bemenet"
 
-#: ../data/ui/executedialog.ui.h:7
+#: ../data/ui/executedialog.ui.h:8
 msgid "Method output"
 msgstr "Eljárás kimenet"
 
-#: ../data/ui/executedialog.ui.h:8
+#: ../data/ui/executedialog.ui.h:9
 msgid "Pretty print"
 msgstr "Szép nyomtatás"
 
-#: ../data/ui/executedialog.ui.h:9
+#: ../data/ui/executedialog.ui.h:10
 msgid "Source"
 msgstr "Forrás"
 
-#: ../data/ui/executedialog.ui.h:10
+#: ../data/ui/executedialog.ui.h:11
 msgid "Method execution"
 msgstr "Eljárás végrehajtás"
 
-#: ../data/ui/executedialog.ui.h:11
+#: ../data/ui/executedialog.ui.h:12
 msgid "Number of method executions"
 msgstr "Eljárás végrehajtásainak száma"
 
-#: ../data/ui/executedialog.ui.h:12
+#: ../data/ui/executedialog.ui.h:13
 msgid "Ø:"
 msgstr "Ø:"
 
-#: ../data/ui/executedialog.ui.h:13
+#: ../data/ui/executedialog.ui.h:14
 msgid "Average method execution time in seconds"
 msgstr "Átlagos eljárás végrehajtási idő másodpercben"
 
-#: ../data/ui/executedialog.ui.h:14
+#: ../data/ui/executedialog.ui.h:15
 msgid "Min:"
 msgstr "Min:"
 
-#: ../data/ui/executedialog.ui.h:15
+#: ../data/ui/executedialog.ui.h:16
 msgid "Minimal method execution time in seconds"
 msgstr "Legkisebb eljárás végrehajtási idő másodpercben"
 
-#: ../data/ui/executedialog.ui.h:16
+#: ../data/ui/executedialog.ui.h:17
 msgid "Max:"
 msgstr "Max:"
 
-#: ../data/ui/executedialog.ui.h:17
+#: ../data/ui/executedialog.ui.h:18
 msgid "Maximal method execution time in seconds"
 msgstr "Legnagyobb eljárás végrehajtási idő másodpercben"
 
@@ -172,18 +164,11 @@ msgstr "Csatlakozás más buszhoz"
 msgid "Close Bus"
 msgstr "Busz bezárása"
 
-#~| msgid "unique bus name"
-#~ msgid "Filter busnames:"
-#~ msgstr "Busznevek szűrése:"
+#: ../data/ui/mainwindow.ui.h:5
+msgid "About D-Feet"
+msgstr "A D-Feet névjegye"
 
-#~ msgid "File"
-#~ msgstr "Fájl"
+#: ../data/ui/mainwindow.ui.h:6
+msgid "Help"
+msgstr "Súgó"
 
-#~ msgid "Filter:"
-#~ msgstr "Szűrő:"
-
-#~ msgid "Command line:"
-#~ msgstr "Parancssor:"
-
-#~ msgid "Process ID:"
-#~ msgstr "Folyamat azonosító:"
