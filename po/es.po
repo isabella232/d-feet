@@ -1,14 +1,14 @@
 # Spanish translation for d-feet.
 # Copyright (C) 2013 d-feet's COPYRIGHT HOLDER
 # This file is distributed under the same license as the d-feet package.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2013, 2014, 2018.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2013-2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: d-feet master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/d-feet/issues\n"
-"POT-Creation-Date: 2018-09-19 18:03+0000\n"
-"PO-Revision-Date: 2018-10-31 16:20+0100\n"
+"POT-Creation-Date: 2018-12-10 12:04+0000\n"
+"PO-Revision-Date: 2019-01-28 13:31+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: es <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -16,10 +16,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Gtranslator 2.91.7\n"
+"X-Generator: Gtranslator 3.31.0\n"
 
 #: ../data/org.gnome.dfeet.appdata.xml.in.h:1
-#: ../data/org.gnome.dfeet.desktop.in.in.h:1
+#: ../data/org.gnome.dfeet.desktop.in.in.h:1 ../src/dfeet/application.py:60
 msgid "D-Feet"
 msgstr "D-Feet"
 
@@ -59,18 +59,6 @@ msgstr ""
 msgid "Address:"
 msgstr "Dirección:"
 
-#: ../data/ui/app-menu.ui.h:1
-msgid "About"
-msgstr "Acerca de"
-
-#: ../data/ui/app-menu.ui.h:2
-msgid "Help"
-msgstr "Ayuda"
-
-#: ../data/ui/app-menu.ui.h:3
-msgid "Quit"
-msgstr "Salir"
-
 #: ../data/ui/executedialog.ui.h:1
 msgid "Execute D-Bus Method"
 msgstr "Ejecutar el método de D-Bus"
@@ -92,7 +80,6 @@ msgid "Interface:"
 msgstr "Interfaz:"
 
 #: ../data/ui/executedialog.ui.h:6
-#| msgid "Name:"
 msgid "Bus Name:"
 msgstr "Nombre del bus:"
 
@@ -175,6 +162,21 @@ msgstr "Conectar a otro bus"
 #: ../data/ui/mainwindow.ui.h:4
 msgid "Close Bus"
 msgstr "Cerrar bus"
+
+#: ../data/ui/mainwindow.ui.h:5
+#| msgid "D-Feet"
+msgid "About D-Feet"
+msgstr "Acerca de D-Feet"
+
+#: ../data/ui/mainwindow.ui.h:6
+msgid "Help"
+msgstr "Ayuda"
+
+#~ msgid "About"
+#~ msgstr "Acerca de"
+
+#~ msgid "Quit"
+#~ msgstr "Salir"
 
 #~| msgid "unique bus name"
 #~ msgid "Filter busnames:"
