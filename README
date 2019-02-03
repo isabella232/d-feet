@@ -10,10 +10,14 @@ Optional Requriements:
 
 gnome-python-libwnck - for displaying application icons next to the application 
 
-To run localy for testing:
+To run localy for testing, install it using the prefix option:
 
-DFEET_DEBUG=1 ./src/d-feet
+meson --prefix=/tmp/d-feet && ninja -C _build install
 
-To install:
+And then execute it:
 
-./configure && make && make install
+/tmp/d-feet/bin/d-feet
+
+To install in the system:
+
+meson _build && ninja -C _build install
