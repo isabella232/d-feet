@@ -4,7 +4,6 @@ from __future__ import print_function
 from gi.repository import Gtk, Gio, GLib
 from dfeet.executemethoddialog import ExecuteMethodDialog
 
-from dfeet.uiloader import UILoader
 
 from dfeet.introspection_helper import DBusNode
 from dfeet.introspection_helper import DBusInterface
@@ -13,53 +12,43 @@ from dfeet.introspection_helper import DBusSignal
 from dfeet.introspection_helper import DBusMethod
 from dfeet.introspection_helper import DBusAnnotation
 
-
-class AddressInfo():
+@Gtk.Template(resource_path='/org/gnome/dfeet/introspection.ui')
+class AddressInfo(Gtk.Box):
     """
     class to handle information about a name (eg "org.freedesktop.NetworkManager")
     on a given address (eg Gio.BusType.SYSTEM or unix:path=/var/run/dbus/system_bus_socket)
     """
+    __gtype_name__ = 'AddressInfo'
+
+    treemodel = Gtk.Template.Child('treestore')
+    spinner = Gtk.Template.Child()
+
+    label_name = Gtk.Template.Child()
+    label_unique_name = Gtk.Template.Child()
+    label_address = Gtk.Template.Child()
+
     def __del__(self):
         try:
             self.connection.close()
         except GLib.GError:
             pass
 
-    def __init__(self, data_dir, address, name, unique_name, connection_is_bus=True):
-        self.data_dir = data_dir
-        signal_dict = {
-            'treeview_row_activated_cb': self.__treeview_row_activated_cb,
-            'treeview_row_expanded_cb': self.__treeview_row_expanded_cb,
-            'button_reload_clicked_cb': self.__button_reload_clicked_cb,
-            }
+    def __init__(self, address, name, unique_name, connection_is_bus=True):
+        super(AddressInfo, self).__init__()
 
         self.address = address  # can be Gio.BusType.SYSTEM or Gio.BusType.SYSTEM or other address
         self.name = name  # the well-known name or None
         self.unique_name = unique_name  # the unique name or None
         self.connection_is_bus = connection_is_bus  # is it a bus or a p2p connection?
 
-        # setup UI
-        ui = UILoader(self.data_dir, UILoader.UI_INTROSPECTION)
-        self.introspect_box = ui.get_root_widget()  # this is the main box with the treeview
-        self.__spinner = ui.get_widget('spinner')  # progress during the introspection
-        self.__scrolledwindow = \
-            ui.get_widget('scrolledwindow')  # the scrolledwindow contains the treeview
-        self.__treemodel = ui.get_widget('treestore')
-        self.__treemodel.set_sort_func(0, self.__sort_model)
-        self.__treemodel.set_sort_column_id(0, Gtk.SortType.ASCENDING)
-        self.__treeview = ui.get_widget('treeview')
-        self.__label_name = ui.get_widget('label_name')
-        self.__label_unique_name = ui.get_widget('label_unique_name')
-        self.__label_address = ui.get_widget('label_address')
-        self.__messagedialog = ui.get_widget('messagedialog')
-        self.__messagedialog.connect("close", self.__messagedialog_close_cb)
-        # connect signals
-        ui.connect_signals(signal_dict)
+        self.treemodel.set_sort_func(0, self.__sort_model)
+        self.treemodel.set_sort_column_id(0, Gtk.SortType.ASCENDING)
+
         if self.connection_is_bus:
             # we expect a bus connection
             if self.address == Gio.BusType.SYSTEM or self.address == Gio.BusType.SESSION:
                 self.connection = Gio.bus_get_sync(self.address, None)
-                self.__label_address.set_text(
+                self.label_address.set_text(
                     Gio.dbus_address_get_for_bus_sync(self.address, None))
             elif Gio.dbus_is_address(self.address):
                 self.connection = Gio.DBusConnection.new_for_address_sync(
@@ -67,7 +56,7 @@ class AddressInfo():
                     Gio.DBusConnectionFlags.AUTHENTICATION_CLIENT |
                     Gio.DBusConnectionFlags.MESSAGE_BUS_CONNECTION,
                     None, None)
-                self.__label_address.set_text(self.address)
+                self.label_address.set_text(self.address)
             else:
                 self.connection = None
                 raise Exception("Invalid bus address '%s'" % (self.address))
@@ -78,7 +67,7 @@ class AddressInfo():
                     self.address,
                     Gio.DBusConnectionFlags.AUTHENTICATION_CLIENT,
                     None, None)
-                self.__label_address.set_text(self.address)
+                self.label_address.set_text(self.address)
             else:
                 self.connection = None
                 raise Exception("Invalid p2p address '%s'" % (self.address))
@@ -89,6 +78,7 @@ class AddressInfo():
     def __messagedialog_close_cb(self, dialog):
         self.__messagedialog.destroy()
 
+    @Gtk.Template.Callback('treeview_row_activated_cb')
     def __treeview_row_activated_cb(self, treeview, path, view_column):
         model = treeview.get_model()
         iter_ = model.get_iter(path)
@@ -97,10 +87,9 @@ class AddressInfo():
 
         if isinstance(obj, DBusMethod):
             # execute the selected method
-            parent_window = self.introspect_box.get_toplevel()
-            dialog = ExecuteMethodDialog(
-                self.data_dir, self.connection, self.connection_is_bus, self.name, obj,
-                parent_window)
+            parent_window = self.get_toplevel()
+            dialog = ExecuteMethodDialog(self.connection, self.connection_is_bus, self.name, 
+                                        obj, parent_window)
             dialog.run()
         elif isinstance(obj, DBusProperty):
             # update the selected property (TODO: do this async)
@@ -122,6 +111,7 @@ class AddressInfo():
             else:
                 treeview.expand_row(path, False)
 
+    @Gtk.Template.Callback('treeview_row_expanded_cb')
     def __treeview_row_expanded_cb(self, treeview, iter_, path):
         model = treeview.get_model()
         node = model.get(iter_, 1)[0]
@@ -165,6 +155,7 @@ class AddressInfo():
         # start introspection
         self.__dbus_node_introspect("/")
 
+    @Gtk.Template.Callback('button_reload_clicked_cb')
     def __button_reload_clicked_cb(self, widget):
         """reload the introspection data"""
         self.introspect_start()
@@ -175,10 +166,11 @@ class AddressInfo():
             res = connection.call_finish(result_async)
         except Exception as e:
             # got an exception (eg dbus timeout). show the exception
-            self.__messagedialog.set_title("DBus Exception")
-            self.__messagedialog.set_property("text", "%s : %s" % (self.name, str(e)))
-            self.__messagedialog.run()
-            self.__messagedialog.destroy()
+                dialog = Gtk.MessageDialog(self, 0, Gtk.MessageType.INFO,
+                                                Gtk.ButtonsType.OK, "DBus Exception")
+                dialog.format_secondary_text("%s : %s" % (self.name, str(e)))
+                dialog.run()
+                dialog.destroy()
         else:
             # we got a valid result from dbus call! Create nodes and add to treemodel
             node_info = Gio.DBusNodeInfo.new_for_xml(res[0])
@@ -244,19 +236,19 @@ class AddressInfo():
                     self.__dbus_node_introspect(object_path_new)
             else:
                 # no nodes left. we finished the introspection
-                self.__spinner.stop()
-                self.__spinner.set_visible(False)
+                self.spinner.stop()
+                self.spinner.set_visible(False)
                 # update name, unique name, ...
-                self.__label_name.set_text(self.name)
-                self.__label_unique_name.set_text(self.unique_name)
+                self.label_name.set_text(self.name)
+                self.label_unique_name.set_text(self.unique_name)
 
-                self.introspect_box.show_all()
+                self.show_all()
 
     def __dbus_node_introspect(self, object_path):
         """Introspect the given object path. This function will be called recursive"""
         # start spinner
-        self.__spinner.start()
-        self.__spinner.set_visible(True)
+        self.spinner.start()
+        self.spinner.set_visible(True)
         # start async dbus call
         self.connection.call(
             self.name, object_path, 'org.freedesktop.DBus.Introspectable', 'Introspect',

@@ -25,24 +25,24 @@ gettext.textdomain('d-feet')
 
 from dfeet.bus_watch import BusWatch
 from dfeet.settings import Settings
-from dfeet.uiloader import UILoader
 from dfeet.addconnectiondialog import AddConnectionDialog
 
-
+@Gtk.Template(resource_path='/org/gnome/dfeet/mainwindow.ui')
 class DFeetWindow(Gtk.ApplicationWindow):
     """the main window"""
+    __gtype_name__ = 'DFeetWindow'
+    
+    buses_stack = Gtk.Template.Child()
 
     HISTORY_MAX_SIZE = 10
 
-    def __init__(self, app, version, data_dir):
-        Gtk.Window.__init__(self, application=app)
+    def __init__(self, app, version):
+        Gtk.ApplicationWindow.__init__(self, application=app)
         self.version = version
-        self.data_dir = data_dir
         self.session_bus = None
         self.system_bus = None
 
         # setup the window
-        self.set_default_size(600, 480)
         self.set_icon_name(app.props.application_id)
 
         # create actions
@@ -60,19 +60,8 @@ class DFeetWindow(Gtk.ApplicationWindow):
 
         # get settings
         settings = Settings.get_instance()
-        self.connect('delete-event', self.__delete_cb)
         self.set_default_size(int(settings.general['windowwidth']),
                               int(settings.general['windowheight']))
-
-        # setup ui
-        ui = UILoader(self.data_dir, UILoader.UI_MAINWINDOW)
-        header = ui.get_widget('headerbar')
-        self.set_titlebar(header)
-        self.stack = ui.get_widget('buses_stack')
-        self.add(self.stack)
-        self.__stack_child_added_id = self.stack.connect('add', self.__stack_child_added_cb)
-        self.__stack_child_removed_id = self.stack.connect('remove', self.__stack_child_removed_cb)
-        self.connect('destroy', self.__on_destroy)
 
         # create bus history list and load entries from settings
         self.__bus_history = []
@@ -93,7 +82,8 @@ class DFeetWindow(Gtk.ApplicationWindow):
     @bus_history.setter
     def bus_history(self, history_new):
         self.__bus_history = history_new
-
+    
+    @Gtk.Template.Callback('stack_child_added')
     def __stack_child_added_cb(self, stack, child):
         existing = self.lookup_action('close-bus')
         if existing is None:
@@ -101,8 +91,9 @@ class DFeetWindow(Gtk.ApplicationWindow):
             action.connect('activate', self.__action_close_bus_cb)
             self.add_action(action)
 
+    @Gtk.Template.Callback('stack_child_removed')
     def __stack_child_removed_cb(self, stack, child):
-        current = self.stack.get_visible_child()
+        current = self.buses_stack.get_visible_child()
         if current is None:
             self.remove_action('close-bus')
 
@@ -119,18 +110,18 @@ class DFeetWindow(Gtk.ApplicationWindow):
             action.connect('activate', self.__action_connect_session_bus_cb)
             self.add_action(action)
 
+    @Gtk.Template.Callback('window_destroyed')
     def __on_destroy(self, data=None):
-        self.stack.disconnect(self.__stack_child_added_id)
-        self.stack.disconnect(self.__stack_child_removed_id)
+        self.buses_stack.disconnect(None)
 
     def __action_connect_system_bus_cb(self, action, parameter):
         """connect to system bus"""
         try:
             if self.system_bus is not None:
                 return
-            bw = BusWatch(self.data_dir, Gio.BusType.SYSTEM)
+            bw = BusWatch(Gio.BusType.SYSTEM)
             self.system_bus = bw.box_bus
-            self.stack.add_titled(self.system_bus, 'System Bus', 'System Bus')
+            self.buses_stack.add_titled(self.system_bus, 'System Bus', 'System Bus')
             self.remove_action('connect-system-bus')
         except Exception as e:
             print(e)
@@ -140,16 +131,16 @@ class DFeetWindow(Gtk.ApplicationWindow):
         try:
             if self.session_bus is not None:
                 return
-            bw = BusWatch(self.data_dir, Gio.BusType.SESSION)
+            bw = BusWatch(Gio.BusType.SESSION)
             self.session_bus = bw.box_bus
-            self.stack.add_titled(self.session_bus, 'Session Bus', 'Session Bus')
+            self.buses_stack.add_titled(self.session_bus, 'Session Bus', 'Session Bus')
             self.remove_action('connect-session-bus')
         except Exception as e:
             print(e)
 
     def __action_connect_other_bus_cb(self, action, parameter):
         """connect to other bus"""
-        dialog = AddConnectionDialog(self.data_dir, self, self.bus_history)
+        dialog = AddConnectionDialog(self, self.bus_history)
         result = dialog.run()
         if result == Gtk.ResponseType.OK:
             address = dialog.address
@@ -161,8 +152,8 @@ class DFeetWindow(Gtk.ApplicationWindow):
                 return
             else:
                 try:
-                    bw = BusWatch(self.data_dir, address)
-                    self.stack.add_titled(bw.box_bus, address, address)
+                    bw = BusWatch(address)
+                    self.buses_stack.add_titled(bw.box_bus, address, address)
                     # Fill history
                     if address in self.bus_history:
                         self.bus_history.remove(address)
@@ -177,11 +168,12 @@ class DFeetWindow(Gtk.ApplicationWindow):
     def __action_close_bus_cb(self, action, parameter):
         """close current bus"""
         try:
-            current = self.stack.get_visible_child()
-            self.stack.remove(current)
+            current = self.buses_stack.get_visible_child()
+            self.buses_stack.remove(current)
         except Exception as e:
             print(e)
 
+    @Gtk.Template.Callback('window_deleted')
     def __delete_cb(self, main_window, event):
         """store some settings"""
         settings = Settings.get_instance()
