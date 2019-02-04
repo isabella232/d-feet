@@ -1,23 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.22.0 -->
 <interface>
-  <requires lib="gtk+" version="3.10"/>
+  <requires lib="gtk+" version="3.12" />
+  <object class="GtkPopoverMenu" id="popover1">
+    <child>
+      <object class="GtkBox">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="margin">6</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkModelButton"> 
+            <property name="visible">True</property>
+            <property name="action_name">win.connect-system-bus</property>
+            <property name="text" translatable="yes">Connect to System Bus</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkModelButton">
+            <property name="visible">True</property>
+            <property name="action_name">win.connect-session-bus</property>
+            <property name="text" translatable="yes">Connect to Session Bus</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkModelButton">
+            <property name="visible">True</property>
+            <property name="action_name">win.connect-other-bus</property>
+            <property name="text" translatable="yes">Connect to other Bus</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkSeparator">
+            <property name="visible">True</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkModelButton">
+            <property name="visible">True</property>
+            <property name="action_name">win.close-bus</property>
+            <property name="text" translatable="yes">Close Bus</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkSeparator">
+            <property name="visible">True</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkModelButton">
+            <property name="visible">True</property>
+            <property name="action_name">app.help</property>
+            <property name="text" translatable="yes">Help</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkModelButton">
+            <property name="visible">True</property>
+            <property name="action_name">app.about</property>
+            <property name="text" translatable="yes">About D-Feet</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+
   <template class="DFeetWindow" parent="GtkApplicationWindow">
     <property name="can_focus">False</property>
     <property name="default_width">600</property>
     <property name="default_height">480</property>
-    <signal name="delete-event" handler="window_deleted" swapped="no"/>
-    <signal name="destroy" handler="window_destroyed" swapped="no"/>
+    <property name="icon_name">org.gnome.dfeet</property>
+    <signal name="delete-event" handler="window_deleted" swapped="no" />
     <child>
       <object class="GtkStack" id="buses_stack">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="transition_duration">300</property>
         <property name="transition_type">slide-left-right</property>
-        <signal name="add" handler="stack_child_added" swapped="no"/>
-        <signal name="remove" handler="stack_child_removed" swapped="no"/>
+        <signal name="add" handler="stack_child_added" swapped="no" />
+        <signal name="remove" handler="stack_child_removed" swapped="no" />
         <child>
-          <placeholder/>
+          <placeholder />
         </child>
       </object>
     </child>
@@ -40,7 +103,7 @@
             <property name="can_focus">False</property>
             <property name="receives_default">False</property>
             <property name="valign">center</property>
-            <property name="action_name">win.gear-menu</property>
+            <property name="popover">popover1</property>
             <child>
               <object class="GtkImage" id="gear_image">
                 <property name="visible">True</property>

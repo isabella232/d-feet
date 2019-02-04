@@ -9,6 +9,7 @@ class AddConnectionDialog(Gtk.Dialog):
     address_combo_box = Gtk.Template.Child()
     def __init__(self, parent, address_bus_history=[]):
         super(AddConnectionDialog, self).__init__()
+        self.init_template('AddConnectionDialog')
 
         self.set_transient_for(parent)
         address_combo_box_store = Gtk.ListStore(str)
@@ -16,11 +17,8 @@ class AddConnectionDialog(Gtk.Dialog):
         for el in address_bus_history:
             address_combo_box_store.append([el])
 
-        self.address_combo_box.set_entry_text_column(0)
         self.address_combo_box.set_model(address_combo_box_store)
         
-        self.dialog.add_button('gtk-cancel', Gtk.ResponseType.CANCEL)
-        self.dialog.add_button('gtk-connect', Gtk.ResponseType.OK)
 
     @property
     def address(self):
@@ -32,7 +30,7 @@ class AddConnectionDialog(Gtk.Dialog):
             entry = self.address_combo_box.get_child()
             return entry.get_text()
 
-    def run(self):
+    def start(self):
         response = self.run()
         if response == Gtk.ResponseType.CANCEL:
             return response
@@ -46,5 +44,5 @@ class AddConnectionDialog(Gtk.Dialog):
             else:
                 return Gtk.ResponseType.OK
 
-    def destroy(self):
+    def quit(self):
         self.destroy()

@@ -19,7 +19,8 @@ class DFeetApp(Gtk.Application):
 
     # Note that the function in C activate() becomes do_activate() in Python
     def do_activate(self):
-        self._main_win = DFeetWindow(self, self.version)
+        self._main_win = DFeetWindow()
+        self._main_win.set_application(self)
 
     # Note that the function in C startup() becomes do_startup() in Python
     def do_startup(self):

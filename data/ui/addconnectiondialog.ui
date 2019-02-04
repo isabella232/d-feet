@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.22.0 -->
 <interface>
-  <requires lib="gtk+" version="3.2"/>
+  <requires lib="gtk+" version="3.10"/>
   <template class="AddConnectionDialog" parent="GtkDialog">
     <property name="can_focus">False</property>
     <property name="border_width">5</property>
@@ -56,8 +56,8 @@
               <object class="GtkComboBoxText" id="address_combo_box">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="active">0</property>
                 <property name="has_entry">True</property>
+                <property name="active_id">0</property>
                 <child internal-child="entry">
                   <object class="GtkEntry">
                     <property name="can_focus">False</property>

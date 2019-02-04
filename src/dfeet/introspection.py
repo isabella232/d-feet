@@ -35,12 +35,13 @@ class AddressInfo(Gtk.Box):
 
     def __init__(self, address, name, unique_name, connection_is_bus=True):
         super(AddressInfo, self).__init__()
+        self.init_template('AddressInfo')
 
         self.address = address  # can be Gio.BusType.SYSTEM or Gio.BusType.SYSTEM or other address
         self.name = name  # the well-known name or None
         self.unique_name = unique_name  # the unique name or None
         self.connection_is_bus = connection_is_bus  # is it a bus or a p2p connection?
-
+    
         self.treemodel.set_sort_func(0, self.__sort_model)
         self.treemodel.set_sort_column_id(0, Gtk.SortType.ASCENDING)
 
@@ -147,7 +148,7 @@ class AddressInfo(Gtk.Box):
     def introspect_start(self):
         """introspect the given bus name and update the tree model"""
         # cleanup current tree model
-        self.__treemodel.clear()
+        self.treemodel.clear()
 
         # Statistics
         self.__get_stats()
@@ -178,58 +179,58 @@ class AddressInfo(Gtk.Box):
             tree_iter = None
             if len(node_info.interfaces) > 0:
                 node_obj = DBusNode(self.name, object_path, node_info)
-                tree_iter = self.__treemodel.append(tree_iter, ["%s" % object_path, node_obj])
-                # tree_iter = self.__treemodel.append(tree_iter, ["Hallo", None])
+                tree_iter = self.treemodel.append(tree_iter, ["%s" % object_path, node_obj])
+                # tree_iter = self.treemodel.append(tree_iter, ["Hallo", None])
 
                 # append interfaces to tree model
-                name_iter = self.__treemodel.append(tree_iter,
+                name_iter = self.treemodel.append(tree_iter,
                                                     ["<b>Interfaces</b>", None])
                 for iface in node_info.interfaces:
                     iface_obj = DBusInterface(node_obj, iface)
-                    iface_iter = self.__treemodel.append(
+                    iface_iter = self.treemodel.append(
                         name_iter,
                         ["%s" % iface.name, iface_obj])
                     # interface methods
                     if len(iface.methods) > 0:
-                        iface_methods_iter = self.__treemodel.append(
+                        iface_methods_iter = self.treemodel.append(
                             iface_iter, ["<b>Methods</b>", None])
                         for iface_method in iface.methods:
                             method_obj = DBusMethod(iface_obj, iface_method)
-                            self.__treemodel.append(
+                            self.treemodel.append(
                                 iface_methods_iter,
                                 ["%s" % method_obj.markup_str, method_obj])
                     # interface signals
                     if len(iface.signals) > 0:
-                        iface_signals_iter = self.__treemodel.append(
+                        iface_signals_iter = self.treemodel.append(
                             iface_iter, ["<b>Signals</b>", None])
                         for iface_signal in iface.signals:
                             signal_obj = DBusSignal(iface_obj, iface_signal)
-                            self.__treemodel.append(
+                            self.treemodel.append(
                                 iface_signals_iter,
                                 ["%s" % signal_obj.markup_str, signal_obj])
                     # interface properties
                     if len(iface.properties) > 0:
-                        iface_properties_iter = self.__treemodel.append(
+                        iface_properties_iter = self.treemodel.append(
                             iface_iter, ["<b>Properties</b>", None])
                         for iface_property in iface.properties:
                             property_obj = DBusProperty(iface_obj, iface_property)
-                            self.__treemodel.append(
+                            self.treemodel.append(
                                 iface_properties_iter,
                                 ["%s" % property_obj.markup_str, property_obj])
                     # interface annotations
                     if len(iface.annotations) > 0:
-                        iface_annotations_iter = self.__treemodel.append(
+                        iface_annotations_iter = self.treemodel.append(
                             iface_iter, ["<b>Annotations</b>", None])
                         for iface_annotation in iface.annotations:
                             annotation_obj = DBusAnnotation(iface_obj, iface_annotation)
-                            self.__treemodel.append(
+                            self.treemodel.append(
                                 iface_annotations_iter,
                                 ["%s" % (annotation_obj.markup_str), annotation_obj])
 
             # are more nodes left?
             if len(node_info.nodes) > 0:
                 for node in node_info.nodes:
-                    # node_iter = self.__treemodel.append(tree_iter, [node.path, node])
+                    # node_iter = self.treemodel.append(tree_iter, [node.path, node])
                     if object_path == "/":
                         object_path = ""
                     object_path_new = object_path + "/" + node.path
@@ -263,9 +264,9 @@ class AddressInfo(Gtk.Box):
             # The stats interface might not be enabled. Ignore.
             pass
         else:
-            stats_iter = self.__treemodel.append(None, ["<b>Statistics</b>", None])
+            stats_iter = self.treemodel.append(None, ["<b>Statistics</b>", None])
             for k, v in sorted(res[0].items()):
-                self.__treemodel.append(stats_iter, [k + " = " + str(v), None])
+                self.treemodel.append(stats_iter, [k + " = " + str(v), None])
 
     def __get_match_rules_cb(self, connection, result_async, data):
         """callback when the GetAllMatchRules dbus function call finished"""
@@ -278,9 +279,9 @@ class AddressInfo(Gtk.Box):
             if self.unique_name not in res[0]:
                 return
 
-            rules_iter = self.__treemodel.append(None, ["<b>Match rules</b>", None])
+            rules_iter = self.treemodel.append(None, ["<b>Match rules</b>", None])
             for v in res[0][self.unique_name]:
-                self.__treemodel.append(rules_iter, [v, None])
+                self.treemodel.append(rules_iter, [v, None])
 
     def __get_stats(self):
         if self.name == 'org.freedesktop.DBus':
@@ -325,7 +326,7 @@ if __name__ == "__main__":
     win = Gtk.Window()
     win.connect("delete-event", Gtk.main_quit)
     win.set_default_size(1024, 768)
-    win.add(ai.introspect_box)
+    win.add(ai)
     win.show_all()
     try:
         Gtk.main()

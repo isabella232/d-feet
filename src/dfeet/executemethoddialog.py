@@ -28,6 +28,7 @@ class ExecuteMethodDialog(Gtk.Dialog):
     def __init__(self, connection, connection_is_bus, bus_name,
                  method_obj, parent_window):
         super(ExecuteMethodDialog, self).__init__()
+        self.init_template('ExecuteMethodDialog')
 
         self.set_transient_for(parent_window)
 
@@ -124,12 +125,7 @@ class ExecuteMethodDialog(Gtk.Dialog):
             # output the exception
             self.source_textview.get_buffer().set_text(str(e))
             self.prettyprint_textview.get_buffer().set_text(pformat(str(e)))
-
-    def run(self):
-        response = self.run()
-        if response == Gtk.ResponseType.DELETE_EVENT or response == Gtk.ResponseType.CLOSE:
-            self.destroy()
-
+        
     @Gtk.Template.Callback('execute_dialog_close_cb')
     def close_cb(self, widget):
         self.destroy()

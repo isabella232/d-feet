@@ -36,15 +36,12 @@ class DFeetWindow(Gtk.ApplicationWindow):
 
     HISTORY_MAX_SIZE = 10
 
-    def __init__(self, app, version):
-        Gtk.ApplicationWindow.__init__(self, application=app)
-        self.version = version
+    def __init__(self):
+        super(DFeetWindow, self).__init__()
+        self.init_template('DFeetWindow')
+
         self.session_bus = None
         self.system_bus = None
-
-        # setup the window
-        self.set_icon_name(app.props.application_id)
-
         # create actions
         action = Gio.SimpleAction.new('connect-system-bus', None)
         action.connect('activate', self.__action_connect_system_bus_cb)
@@ -110,10 +107,6 @@ class DFeetWindow(Gtk.ApplicationWindow):
             action.connect('activate', self.__action_connect_session_bus_cb)
             self.add_action(action)
 
-    @Gtk.Template.Callback('window_destroyed')
-    def __on_destroy(self, data=None):
-        self.buses_stack.disconnect(None)
-
     def __action_connect_system_bus_cb(self, action, parameter):
         """connect to system bus"""
         try:
@@ -141,7 +134,7 @@ class DFeetWindow(Gtk.ApplicationWindow):
     def __action_connect_other_bus_cb(self, action, parameter):
         """connect to other bus"""
         dialog = AddConnectionDialog(self, self.bus_history)
-        result = dialog.run()
+        result = dialog.start()
         if result == Gtk.ResponseType.OK:
             address = dialog.address
             if address == 'Session Bus':
@@ -163,7 +156,7 @@ class DFeetWindow(Gtk.ApplicationWindow):
                         self.bus_history = self.bus_history[0:self.HISTORY_MAX_SIZE]
                 except Exception as e:
                     print("can not connect to '%s': %s" % (address, str(e)))
-        dialog.destroy()
+        dialog.quit()
 
     def __action_close_bus_cb(self, action, parameter):
         """close current bus"""

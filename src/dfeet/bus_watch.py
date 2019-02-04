@@ -20,13 +20,13 @@ class BusNameBox(Gtk.Box):
         self.__icon_table = IconTable.get_instance()
         self.__icon_image = Gtk.Image.new_from_pixbuf(self.__icon_table.default_icon)
 
-        self.__hbox = Gtk.Box(orientation=Gtk.Box.Orientation.HORIZONTAL, 
+        self.__hbox = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, 
                               spacing=5, halign=Gtk.Align.START)
         self.pack_start(self.__hbox, True, True, 0)
         # icon
         self.__hbox.pack_start(self.__icon_image, True, True, 0)
         # other information
-        self.__vbox_right = Gtk.Box(orientation=Gtk.Box.Orientation.VERTICAL, 
+        self.__vbox_right = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, 
                                     spacing=5, expand=True)
         self.__hbox.pack_start(self.__vbox_right, True, True, 0)
 
@@ -123,10 +123,10 @@ class BusWatch(Gtk.Box):
 
     """watch for a given bus"""
     def __init__(self, bus_address):
+        super(BusWatch, self).__init__()
+        self.init_template('BusWatch')
         self.__bus_address = bus_address
-
-        # create a listbox for all the busnames
-        listbox = Gtk.Template.Child('scrolledwindow_listbox').get_children()
+        
         self.bus_listbox.set_sort_func(self.__listbox_sort_by_name, None)
         self.bus_listbox.set_filter_func(self.__listbox_filter_by_name, None)
 
@@ -198,7 +198,7 @@ class BusWatch(Gtk.Box):
                                            bus_name_box.bus_name,
                                            bus_name_box.unique_name,
                                            connection_is_bus=True)
-            self.pack_end(self.__addr_info.introspect_box, True, True, 0)
+            self.pack_end(self.__addr_info, True, True, 0)
         self.show_all()
 
     def __name_owner_changed_cb(self, connection, sender_name,

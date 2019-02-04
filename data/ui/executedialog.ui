@@ -2,6 +2,13 @@
 <!-- Generated with glade 3.22.0 -->
 <interface>
   <requires lib="gtk+" version="3.12"/>
+  <object class="GtkAdjustment" id="adjustment1">
+    <property name="lower">1</property>
+    <property name="upper">100</property>
+    <property name="value">1</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
   <template class="ExecuteMethodDialog" parent="GtkDialog">
     <property name="can_focus">False</property>
     <property name="title" translatable="yes">Execute D-Bus Method</property>
@@ -336,9 +343,7 @@
                   <object class="GtkLabel" id="label_method_name">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="halign">start</property>
-                    <property name="margin_left">5</property>
-                    <property name="margin_start">5</property>
+                    <property name="halign">baseline</property>
                     <property name="use_markup">True</property>
                     <property name="wrap">True</property>
                     <property name="selectable">True</property>
@@ -399,9 +404,7 @@
                   <object class="GtkLabel" id="label_object_path">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="halign">start</property>
-                    <property name="margin_left">5</property>
-                    <property name="margin_start">5</property>
+                    <property name="halign">baseline</property>
                     <property name="use_markup">True</property>
                     <property name="selectable">True</property>
                   </object>
@@ -415,8 +418,6 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="halign">start</property>
-                    <property name="margin_left">5</property>
-                    <property name="margin_start">5</property>
                     <property name="use_markup">True</property>
                     <property name="selectable">True</property>
                   </object>
@@ -444,9 +445,7 @@
                   <object class="GtkLabel" id="label_bus_name">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="halign">start</property>
-                    <property name="margin_left">5</property>
-                    <property name="margin_start">5</property>
+                    <property name="halign">baseline</property>
                     <property name="use_markup">True</property>
                     <property name="selectable">True</property>
                   </object>
@@ -479,11 +478,4 @@
       <placeholder/>
     </child>
   </template>
-  <object class="GtkAdjustment" id="adjustment1">
-    <property name="lower">1</property>
-    <property name="upper">100</property>
-    <property name="value">1</property>
-    <property name="step_increment">1</property>
-    <property name="page_increment">10</property>
-  </object>
 </interface>
