@@ -2,14 +2,14 @@
 # Copyright (C) 2013 d-feet's COPYRIGHT HOLDER
 # This file is distributed under the same license as the d-feet package.
 #
-# Matej Urbančič <mateju@svn.gnome.org>, 2013–2018.
+# Matej Urbančič <mateju@svn.gnome.org>, 2013–2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: d-feet master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/d-feet/issues\n"
-"POT-Creation-Date: 2018-10-18 18:48+0000\n"
-"PO-Revision-Date: 2018-10-19 17:43+0200\n"
+"POT-Creation-Date: 2019-01-25 15:44+0000\n"
+"PO-Revision-Date: 2019-01-26 15:46+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenščina <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -22,7 +22,7 @@ msgstr ""
 "X-Generator: Poedit 2.1.1\n"
 
 #: ../data/org.gnome.dfeet.appdata.xml.in.h:1
-#: ../data/org.gnome.dfeet.desktop.in.in.h:1
+#: ../data/org.gnome.dfeet.desktop.in.in.h:1 ../src/dfeet/application.py:60
 msgid "D-Feet"
 msgstr "D-Feet"
 
@@ -61,18 +61,6 @@ msgstr ""
 #: ../data/ui/addconnectiondialog.ui.h:3 ../data/ui/introspection.ui.h:3
 msgid "Address:"
 msgstr "Naslov:"
-
-#: ../data/ui/app-menu.ui.h:1
-msgid "About"
-msgstr "O Programu"
-
-#: ../data/ui/app-menu.ui.h:2
-msgid "Help"
-msgstr "Pomoč"
-
-#: ../data/ui/app-menu.ui.h:3
-msgid "Quit"
-msgstr "Končaj"
 
 #: ../data/ui/executedialog.ui.h:1
 msgid "Execute D-Bus Method"
@@ -177,3 +165,17 @@ msgstr "Poveži z drugim sistemskim vodilom"
 #: ../data/ui/mainwindow.ui.h:4
 msgid "Close Bus"
 msgstr "Zapri vodilo"
+
+#: ../data/ui/mainwindow.ui.h:5
+msgid "About D-Feet"
+msgstr "O programu"
+
+#: ../data/ui/mainwindow.ui.h:6
+msgid "Help"
+msgstr "Pomoč"
+
+#~ msgid "About"
+#~ msgstr "O Programu"
+
+#~ msgid "Quit"
+#~ msgstr "Končaj"
