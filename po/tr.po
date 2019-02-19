@@ -2,24 +2,33 @@
 # Copyright (C) 2014 d-feet's COPYRIGHT HOLDER
 # This file is distributed under the same license as the d-feet package.
 # Muhammet Kara <muhammetk@gmail.com>, 2014.
+# Emin Tufan Çetin <etcetin@gmail.com>, 2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: d-feet master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=d-"
-"feet&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-12-12 16:11+0000\n"
-"PO-Revision-Date: 2014-12-12 21:33+0200\n"
-"Last-Translator: Muhammet Kara <muhammetk@gmail.com>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/d-feet/issues\n"
+"POT-Creation-Date: 2019-02-06 18:06+0000\n"
+"PO-Revision-Date: 2019-02-20 00:22+0300\n"
+"Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
 "Language-Team: Türkçe <gnome-turk@gnome.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"X-Generator: Gtranslator 3.30.1\n"
 
-#: ../data/d-feet.appdata.xml.in.h:1
+#: data/org.gnome.dfeet.appdata.xml.in:7 data/org.gnome.dfeet.desktop.in.in:3
+#: src/dfeet/application.py:60
+msgid "D-Feet"
+msgstr "D-Feet"
+
+#: data/org.gnome.dfeet.appdata.xml.in:8 data/org.gnome.dfeet.desktop.in.in:5
+msgid "Debug D-Bus applications"
+msgstr "D-Bus uygulamalarında hata ayıklama yapın"
+
+#: data/org.gnome.dfeet.appdata.xml.in:10
 msgid ""
 "A simple application for debugging the message bus system D-Bus. D-Feet can "
 "be used to inspect D-Bus interfaces of running programs and invoke methods "
@@ -29,143 +38,147 @@ msgstr ""
 "Feet; çalışmakta olan programların D-Bus arabirimlerini incelemek ve bu "
 "arabirimler üzerindeki yöntemleri çalıştırmak için kullanılır."
 
-#: ../data/d-feet.desktop.in.in.h:1
-msgid "D-Feet"
-msgstr "D-Feet"
-
-#: ../data/d-feet.desktop.in.in.h:2
+#: data/org.gnome.dfeet.desktop.in.in:4
 msgid "D-Bus Debugger"
 msgstr "D-Bus Hata Ayıklayıcı"
 
-#: ../data/d-feet.desktop.in.in.h:3
-msgid "Debug D-Bus applications"
-msgstr "D-Bus uygulamalarında hata ayıklama yapın"
-
-#: ../data/d-feet.desktop.in.in.h:4
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.dfeet.desktop.in.in:7
 msgid "debug;d-bus;dbus;dfeet;"
 msgstr "hata ayıklama;d-bus;dbus;dfeet;"
 
-#: ../data/ui/addconnectiondialog.ui.h:1
+#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+#: data/org.gnome.dfeet.desktop.in.in:10
+msgid "org.gnome.dfeet"
+msgstr "org.gnome.dfeet"
+
+#: data/ui/addconnectiondialog.ui:7
 msgid "Add a Connection"
 msgstr "Bağlantı Ekle"
 
-#: ../data/ui/addconnectiondialog.ui.h:2
+#: data/ui/addconnectiondialog.ui:25
 msgid "See http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
 msgstr ""
 "Bakınız: http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
 
-#: ../data/ui/addconnectiondialog.ui.h:3 ../data/ui/introspection.ui.h:3
+#: data/ui/addconnectiondialog.ui:27 data/ui/introspection.ui:85
 msgid "Address:"
 msgstr "Adres:"
 
-#: ../data/ui/app-menu.ui.h:1
-msgid "About"
-msgstr "Hakkında"
-
-#: ../data/ui/app-menu.ui.h:2
-msgid "Help"
-msgstr "Yardım"
-
-#: ../data/ui/app-menu.ui.h:3
-msgid "Quit"
-msgstr "Çık"
-
-#: ../data/ui/executedialog.ui.h:1
+#: data/ui/executedialog.ui:13
 msgid "Execute D-Bus Method"
 msgstr "D-Bus Yöntemi Çalıştır"
 
-#: ../data/ui/executedialog.ui.h:2
+#: data/ui/executedialog.ui:45
 msgid "_Execute"
 msgstr "_Çalıştır"
 
-#: ../data/ui/executedialog.ui.h:3
+#: data/ui/executedialog.ui:97
 msgid "Method name:"
 msgstr "Yöntem adı:"
 
-#: ../data/ui/executedialog.ui.h:4
+#: data/ui/executedialog.ui:114
 msgid "Object Path:"
 msgstr "Nesne Yolu:"
 
-#: ../data/ui/executedialog.ui.h:5
+#: data/ui/executedialog.ui:131
 msgid "Interface:"
 msgstr "Arabirim:"
 
-#: ../data/ui/executedialog.ui.h:6
+#: data/ui/executedialog.ui:180
+msgid "Bus Name:"
+msgstr "Veriyolu Adı:"
+
+#: data/ui/executedialog.ui:218
 msgid "Method input"
 msgstr "Yöntem girdisi"
 
-#: ../data/ui/executedialog.ui.h:7
+#: data/ui/executedialog.ui:254
 msgid "Method output"
 msgstr "Yöntem çıktısı"
 
-#: ../data/ui/executedialog.ui.h:8
+#: data/ui/executedialog.ui:295
 msgid "Pretty print"
 msgstr "Güzelleştirilmiş çıktı"
 
-#: ../data/ui/executedialog.ui.h:9
+#: data/ui/executedialog.ui:323
 msgid "Source"
 msgstr "Kaynak"
 
-#: ../data/ui/executedialog.ui.h:10
+#: data/ui/executedialog.ui:349
 msgid "Method execution"
 msgstr "Yöntem çalıştırma"
 
-#: ../data/ui/executedialog.ui.h:11
+#: data/ui/executedialog.ui:365 data/ui/executedialog.ui:366
 msgid "Number of method executions"
 msgstr "Yöntem çalıştırma sayısı"
 
-#: ../data/ui/executedialog.ui.h:12
+#: data/ui/executedialog.ui:395
 msgid "Ø:"
 msgstr "Ø:"
 
-#: ../data/ui/executedialog.ui.h:13
+#: data/ui/executedialog.ui:408 data/ui/executedialog.ui:409
 msgid "Average method execution time in seconds"
 msgstr "Saniye olarak ortalama yöntem çalıştırma süresi"
 
-#: ../data/ui/executedialog.ui.h:14
+#: data/ui/executedialog.ui:421
 msgid "Min:"
 msgstr "En Az:"
 
-#: ../data/ui/executedialog.ui.h:15
+#: data/ui/executedialog.ui:434 data/ui/executedialog.ui:435
 msgid "Minimal method execution time in seconds"
 msgstr "Saniye olarak en az yöntem çalıştırma süresi"
 
-#: ../data/ui/executedialog.ui.h:16
+#: data/ui/executedialog.ui:447
 msgid "Max:"
-msgstr "En Fazla:"
+msgstr "En Çok:"
 
-#: ../data/ui/executedialog.ui.h:17
+#: data/ui/executedialog.ui:460 data/ui/executedialog.ui:461
 msgid "Maximal method execution time in seconds"
 msgstr "Saniye olarak en çok yöntem çalıştırma süresi"
 
-#: ../data/ui/introspection.ui.h:1
+#: data/ui/introspection.ui:21
 msgid "Unique name:"
-msgstr "Özgün isim:"
+msgstr "Eşsiz ad:"
 
-#: ../data/ui/introspection.ui.h:2
+#: data/ui/introspection.ui:38
 msgid "Name:"
-msgstr "İsim:"
+msgstr "Ad:"
 
-#: ../data/ui/introspection.ui.h:4
+#: data/ui/introspection.ui:124
 msgid "Introspecting..."
 msgstr "İçgözlem Yapılıyor..."
 
-#: ../data/ui/introspection.ui.h:5
+#: data/ui/introspection.ui:185
 msgid "Object path"
 msgstr "Nesne yolu"
 
-#: ../data/ui/mainwindow.ui.h:1
+#: data/ui/mainwindow.ui:7
 msgid "Connect to System Bus"
 msgstr "Sistem Veriyoluna Bağlan"
 
-#: ../data/ui/mainwindow.ui.h:2
+#: data/ui/mainwindow.ui:11
 msgid "Connect to Session Bus"
 msgstr "Oturum Veriyoluna Bağlan"
 
-#: ../data/ui/mainwindow.ui.h:3
+#: data/ui/mainwindow.ui:15
 msgid "Connect to other Bus"
 msgstr "Diğer Veriyoluna Bağlan"
 
-#: ../data/ui/mainwindow.ui.h:4
+#: data/ui/mainwindow.ui:21
 msgid "Close Bus"
 msgstr "Veriyolunu Kapat"
+
+#: data/ui/mainwindow.ui:27
+msgid "About D-Feet"
+msgstr "D-Feet Hakkında"
+
+#: data/ui/mainwindow.ui:31
+msgid "Help"
+msgstr "Yardım"
+
+#~ msgid "About"
+#~ msgstr "Hakkında"
+
+#~ msgid "Quit"
+#~ msgstr "Çık"
