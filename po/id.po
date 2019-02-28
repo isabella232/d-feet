@@ -7,27 +7,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: d-feet master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/d-feet/issues\n"
-"POT-Creation-Date: 2018-09-19 18:03+0000\n"
-"PO-Revision-Date: 2018-09-22 15:27+0700\n"
+"POT-Creation-Date: 2019-02-03 13:59+0000\n"
+"PO-Revision-Date: 2019-02-28 13:39+0700\n"
 "Last-Translator: Kukuh Syafaat <kukuhsyafaat@gnome.org>\n"
 "Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.2.1\n"
 
-#: ../data/org.gnome.dfeet.appdata.xml.in.h:1
-#: ../data/org.gnome.dfeet.desktop.in.in.h:1
+#: data/org.gnome.dfeet.appdata.xml.in:7 data/org.gnome.dfeet.desktop.in.in:3
+#: src/dfeet/application.py:60
 msgid "D-Feet"
 msgstr "D-Feet"
 
-#: ../data/org.gnome.dfeet.appdata.xml.in.h:2
-#: ../data/org.gnome.dfeet.desktop.in.in.h:3
+#: data/org.gnome.dfeet.appdata.xml.in:8 data/org.gnome.dfeet.desktop.in.in:5
 msgid "Debug D-Bus applications"
 msgstr "Mengawakutu aplikasi-aplikasi D-Bus"
 
-#: ../data/org.gnome.dfeet.appdata.xml.in.h:3
+#: data/org.gnome.dfeet.appdata.xml.in:10
 msgid ""
 "A simple application for debugging the message bus system D-Bus. D-Feet can "
 "be used to inspect D-Bus interfaces of running programs and invoke methods "
@@ -37,139 +36,147 @@ msgstr ""
 "dapat dipakai untuk memeriksa antar muka D-Bus dari program-program yang "
 "berjalan dan memanggil metode-metode pada antar muka tersebut."
 
-#: ../data/org.gnome.dfeet.desktop.in.in.h:2
+#: data/org.gnome.dfeet.desktop.in.in:4
 msgid "D-Bus Debugger"
 msgstr "Pengawakutu D-Bus"
 
-#: ../data/org.gnome.dfeet.desktop.in.in.h:4
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.dfeet.desktop.in.in:7
 msgid "debug;d-bus;dbus;dfeet;"
 msgstr "debug;d-bus;dbus;dfeet;awakutu;"
 
-#: ../data/ui/addconnectiondialog.ui.h:1
+#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+#: data/org.gnome.dfeet.desktop.in.in:10
+msgid "org.gnome.dfeet"
+msgstr "org.gnome.dfeet"
+
+#: data/ui/addconnectiondialog.ui:7
 msgid "Add a Connection"
 msgstr "Tambah Koneksi"
 
-#: ../data/ui/addconnectiondialog.ui.h:2
+#: data/ui/addconnectiondialog.ui:25
 msgid "See http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
 msgstr ""
 "Lihat http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
 
-#: ../data/ui/addconnectiondialog.ui.h:3 ../data/ui/introspection.ui.h:3
+#: data/ui/addconnectiondialog.ui:27 data/ui/introspection.ui:85
 msgid "Address:"
 msgstr "Alamat:"
 
-#: ../data/ui/app-menu.ui.h:1
-msgid "About"
-msgstr "Tentang"
-
-#: ../data/ui/app-menu.ui.h:2
-msgid "Help"
-msgstr "Bantuan"
-
-#: ../data/ui/app-menu.ui.h:3
-msgid "Quit"
-msgstr "Keluar"
-
-#: ../data/ui/executedialog.ui.h:1
+#: data/ui/executedialog.ui:13
 msgid "Execute D-Bus Method"
 msgstr "Mengeksekusi Metoda D-Bus"
 
-#: ../data/ui/executedialog.ui.h:2
+#: data/ui/executedialog.ui:45
 msgid "_Execute"
 msgstr "_Eksekusi"
 
-#: ../data/ui/executedialog.ui.h:3
+#: data/ui/executedialog.ui:97
 msgid "Method name:"
 msgstr "Nama metode:"
 
-#: ../data/ui/executedialog.ui.h:4
+#: data/ui/executedialog.ui:114
 msgid "Object Path:"
 msgstr "Path Objek:"
 
-#: ../data/ui/executedialog.ui.h:5
+#: data/ui/executedialog.ui:131
 msgid "Interface:"
 msgstr "Antar Muka:"
 
-#: ../data/ui/executedialog.ui.h:6
+#: data/ui/executedialog.ui:180
 msgid "Bus Name:"
 msgstr "Nama Bus:"
 
-#: ../data/ui/executedialog.ui.h:7
+#: data/ui/executedialog.ui:218
 msgid "Method input"
 msgstr "Masukan metoda"
 
-#: ../data/ui/executedialog.ui.h:8
+#: data/ui/executedialog.ui:254
 msgid "Method output"
 msgstr "Keluaran metoda"
 
-#: ../data/ui/executedialog.ui.h:9
+#: data/ui/executedialog.ui:295
 msgid "Pretty print"
 msgstr "Cetak cantik"
 
-#: ../data/ui/executedialog.ui.h:10
+#: data/ui/executedialog.ui:323
 msgid "Source"
 msgstr "Sumber"
 
-#: ../data/ui/executedialog.ui.h:11
+#: data/ui/executedialog.ui:349
 msgid "Method execution"
 msgstr "Eksekusi metode"
 
-#: ../data/ui/executedialog.ui.h:12
+#: data/ui/executedialog.ui:365 data/ui/executedialog.ui:366
 msgid "Number of method executions"
 msgstr "Cacah eksekusi metode"
 
-#: ../data/ui/executedialog.ui.h:13
+#: data/ui/executedialog.ui:395
 msgid "Ø:"
 msgstr "Ø:"
 
-#: ../data/ui/executedialog.ui.h:14
+#: data/ui/executedialog.ui:408 data/ui/executedialog.ui:409
 msgid "Average method execution time in seconds"
 msgstr "Rerata waktu eksekusi metode dalam detik"
 
-#: ../data/ui/executedialog.ui.h:15
+#: data/ui/executedialog.ui:421
 msgid "Min:"
 msgstr "Min:"
 
-#: ../data/ui/executedialog.ui.h:16
+#: data/ui/executedialog.ui:434 data/ui/executedialog.ui:435
 msgid "Minimal method execution time in seconds"
 msgstr "Minimum waktu eksekusi metode dalam detik"
 
-#: ../data/ui/executedialog.ui.h:17
+#: data/ui/executedialog.ui:447
 msgid "Max:"
 msgstr "Maks:"
 
-#: ../data/ui/executedialog.ui.h:18
+#: data/ui/executedialog.ui:460 data/ui/executedialog.ui:461
 msgid "Maximal method execution time in seconds"
 msgstr "Maksimum waktu eksekusi metode dalam detik"
 
-#: ../data/ui/introspection.ui.h:1
+#: data/ui/introspection.ui:21
 msgid "Unique name:"
 msgstr "Nama unik:"
 
-#: ../data/ui/introspection.ui.h:2
+#: data/ui/introspection.ui:38
 msgid "Name:"
 msgstr "Nama:"
 
-#: ../data/ui/introspection.ui.h:4
+#: data/ui/introspection.ui:124
 msgid "Introspecting..."
 msgstr "Mengintrospeksi…"
 
-#: ../data/ui/introspection.ui.h:5
+#: data/ui/introspection.ui:185
 msgid "Object path"
 msgstr "Path objek"
 
-#: ../data/ui/mainwindow.ui.h:1
+#: data/ui/mainwindow.ui:7
 msgid "Connect to System Bus"
 msgstr "Menyambung ke Bus Sistem"
 
-#: ../data/ui/mainwindow.ui.h:2
+#: data/ui/mainwindow.ui:11
 msgid "Connect to Session Bus"
 msgstr "Menyambung ke Bus Sesi"
 
-#: ../data/ui/mainwindow.ui.h:3
+#: data/ui/mainwindow.ui:15
 msgid "Connect to other Bus"
 msgstr "Menyambung ke Bus lain"
 
-#: ../data/ui/mainwindow.ui.h:4
+#: data/ui/mainwindow.ui:21
 msgid "Close Bus"
 msgstr "Tutup Bus"
+
+#: data/ui/mainwindow.ui:27
+msgid "About D-Feet"
+msgstr "Tentang D-Feet"
+
+#: data/ui/mainwindow.ui:31
+msgid "Help"
+msgstr "Bantuan"
+
+#~ msgid "About"
+#~ msgstr "Tentang"
+
+#~ msgid "Quit"
+#~ msgstr "Keluar"
