@@ -1,3 +1,5 @@
+include: 'https://gitlab.gnome.org/GNOME/citemplates/raw/master/flatpak/flatpak_ci_initiative.yml'
+
 stages:
 - test
 - review
@@ -25,39 +27,23 @@ fedora:
         paths:
             - "${CI_PROJECT_DIR}/_build/meson-logs/testlog.txt"
 
-flatpak:
-    image: registry.gitlab.gnome.org/gnome/gnome-runtime-images/gnome:master
-    stage: test
 
+flatpak:
+    extends: .flatpak
     variables:
+        GIT_SUBMODULE_STRATEGY: normal
+
         # Replace with your manifest path
         MANIFEST_PATH: "org.gnome.dfeet.json"
-        RUNTIME_REPO: "https://sdk.gnome.org/gnome-nightly.flatpakrepo"
+        RUNTIME_REPO: "https://nightly.gnome.org/gnome-nightly.flatpakrepo"
+        # Replace with your application name, as written in the manifest
         FLATPAK_MODULE: "d-feet"
-        CONFIGURE_ARGS: "-Dtests=true"
-        DBUS_ID: "org.gnome.dfeet"
+        APP_ID: "org.gnome.dfeet"
         BUILD_DIR: ".app"
-
-    script:
-        - flatpak-builder --stop-at=${FLATPAK_MODULE} ${BUILD_DIR} ${MANIFEST_PATH}
-        - flatpak build ${BUILD_DIR} meson --prefix=/app --libdir=/app/lib ${CONFIGURE_ARGS} _build
-        - flatpak build ${BUILD_DIR} ninja -C _build install
-        - flatpak-builder --finish-only --repo=repo ${BUILD_DIR} ${MANIFEST_PATH}
-        # TODO: debug test timeouts and re-enable tests
-        # - xvfb-run -a -s "-screen 0 1024x768x24" flatpak build ${BUILD_DIR} ninja -C _build test
-        - flatpak build-bundle repo ${BUNDLE} --runtime-repo=${RUNTIME_REPO} ${DBUS_ID}
-
-    artifacts:
-        paths:
-            - ${BUNDLE}
-            - _build/meson-logs/meson-log.txt
-            - _build/meson-logs/testlog.txt
-        when: always
-        expire_in: 30 days
-
-    cache:
-        paths:
-             - .flatpak-builder/cache
+        # Make sure to keep this in sync with the Flatpak manifest, all arguments
+        # are passed except the config-args because we build it ourselves
+        MESON_ARGS: |
+          -Dtests=true
 
 review:
     stage: review
