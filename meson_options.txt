@@ -1,1 +1,2 @@
 option('tests', type: 'boolean', value: true, description: 'build tests')
+option('python', type: 'string', value: 'python3', description: 'Python installation to use')

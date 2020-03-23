@@ -11,6 +11,7 @@ df_prefix = get_option('prefix')
 df_bindir = get_option('bindir')
 df_datadir = get_option('datadir')
 df_libdir = get_option('libdir')
+df_python = get_option('python')
 
 df_pkgdatadir = df_datadir / df_name
 df_pkglibdir = df_libdir / df_name
@@ -19,7 +20,7 @@ df_namespace = 'org.gnome.dfeet'
 
 gnome = import('gnome')
 i18n = import('i18n')
-python = import('python').find_installation('python3')
+python = import('python').find_installation(df_python)
 
 source_root = meson.current_source_dir()
 
