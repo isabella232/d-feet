@@ -21,10 +21,6 @@ gnome = import('gnome')
 i18n = import('i18n')
 python = import('python').find_installation('python3')
 
-# FIXME: workaround for missing path method
-#        https://github.com/mesonbuild/meson/pull/4616
-python_path = find_program('python3').path()
-
 source_root = meson.current_source_dir()
 
 data_dir = source_root / 'data'
@@ -37,7 +33,7 @@ df_conf = configuration_data()
 
 values = [
   # python
-  ['PYTHON', python_path],
+  ['PYTHON', python.path()],
   ['pythondir', python.get_install_dir()],
   # directories
   ['pkglibdir', df_prefix / df_pkglibdir],
@@ -72,6 +68,6 @@ meson.add_install_script(
   'meson_post_install.py',
   df_datadir,
   gio_schemasdir,
-  python_path,
+  python.path(),
   python.get_install_dir(),
 )
