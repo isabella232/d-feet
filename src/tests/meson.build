@@ -1,5 +1,5 @@
 test_conf = configuration_data()
-test_conf.set('PYTHON', python_path)
+test_conf.set('PYTHON', python.path())
 test_conf.set('DATA_DIR', data_dir)
 test_conf.set('SRC_DIR', src_dir)
 

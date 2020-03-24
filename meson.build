@@ -11,6 +11,7 @@ df_prefix = get_option('prefix')
 df_bindir = get_option('bindir')
 df_datadir = get_option('datadir')
 df_libdir = get_option('libdir')
+df_python = get_option('python')
 
 df_pkgdatadir = df_datadir / df_name
 df_pkglibdir = df_libdir / df_name
@@ -19,11 +20,7 @@ df_namespace = 'org.gnome.dfeet'
 
 gnome = import('gnome')
 i18n = import('i18n')
-python = import('python').find_installation('python3')
-
-# FIXME: workaround for missing path method
-#        https://github.com/mesonbuild/meson/pull/4616
-python_path = find_program('python3').path()
+python = import('python').find_installation(df_python)
 
 source_root = meson.current_source_dir()
 
@@ -37,7 +34,7 @@ df_conf = configuration_data()
 
 values = [
   # python
-  ['PYTHON', python_path],
+  ['PYTHON', python.path()],
   ['pythondir', python.get_install_dir()],
   # directories
   ['pkglibdir', df_prefix / df_pkglibdir],
@@ -72,6 +69,6 @@ meson.add_install_script(
   'meson_post_install.py',
   df_datadir,
   gio_schemasdir,
-  python_path,
+  python.path(),
   python.get_install_dir(),
 )
