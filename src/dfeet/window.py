@@ -152,6 +152,7 @@ class DFeetWindow(Gtk.ApplicationWindow):
         try:
             bw = BusWatch(self.data_dir, address)
             self.stack.add_titled(bw.box_bus, address, address)
+            self.stack.set_visible_child_name(address)
             # Fill history
             if address in self.bus_history:
                 self.bus_history.remove(address)
