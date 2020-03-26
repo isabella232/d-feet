@@ -1,12 +1,26 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import print_function
-from gi.repository import Gtk, Gio, GObject, Gdk
+from gi.repository import Gtk, Gio, GObject, Gdk, GLib
 from dfeet.window import DFeetWindow
 import gettext
 import os
 
 _ = gettext.gettext
+
+
+def make_option(long_name, short_name=None, flags=0, arg=GLib.OptionArg.NONE,
+                arg_data=None, description=None, arg_description=None):
+    # surely something like this should exist inside PyGObject itself?!
+    option = GLib.OptionEntry()
+    option.long_name = long_name.lstrip('-')
+    option.short_name = 0 if not short_name else short_name.lstrip('-')
+    option.flags = flags
+    option.arg = arg
+    option.arg_data = arg_data
+    option.description = description
+    option.arg_description = arg_description
+    return option
 
 
 class DFeetApp(Gtk.Application):
@@ -17,6 +31,16 @@ class DFeetApp(Gtk.Application):
         self.data_dir = data_dir
         Gtk.Application.__init__(self, application_id="org.gnome.dfeet",
                                  flags=Gio.ApplicationFlags.FLAGS_NONE)
+        self.add_main_option_entries([
+            make_option("--version", description=_("Show version number and exit")),
+        ])
+
+    def do_handle_local_options(self, options):
+        self.options = options
+        if options.contains("version"):
+            print(_("D-Feet version: {}").format(self.version))
+            return 0
+        return -1
 
     # Note that the function in C activate() becomes do_activate() in Python
     def do_activate(self):
