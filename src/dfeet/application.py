@@ -33,6 +33,8 @@ class DFeetApp(Gtk.Application):
                                  flags=Gio.ApplicationFlags.FLAGS_NONE)
         self.add_main_option_entries([
             make_option("--version", description=_("Show version number and exit")),
+            make_option("--address", arg=GLib.OptionArg.STRING, arg_description="ADDRESS",
+                        description=_("Open the specified bus address")),
         ])
 
     def do_handle_local_options(self, options):
@@ -45,6 +47,10 @@ class DFeetApp(Gtk.Application):
     # Note that the function in C activate() becomes do_activate() in Python
     def do_activate(self):
         self._main_win = DFeetWindow(self, self.version, self.data_dir)
+        if self.options.contains("address"):
+            address = self.options.lookup_value("address").get_string()
+            if not self._main_win.connect_to(address):
+                self.quit()
 
     # Note that the function in C startup() becomes do_startup() in Python
     def do_startup(self):
