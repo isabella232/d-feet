@@ -1,0 +1,172 @@
+# Ukrainian translation for d-feet.
+# Copyright (C) 2020 d-feet's COPYRIGHT HOLDER
+# This file is distributed under the same license as the d-feet package.
+#
+# Yuri Chornoivan <yurchor@ukr.net>, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: d-feet master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/d-feet/issues\n"
+"POT-Creation-Date: 2020-03-23 04:30+0000\n"
+"PO-Revision-Date: 2020-03-31 13:16+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 20.07.70\n"
+
+#: data/org.gnome.dfeet.appdata.xml.in:7 data/org.gnome.dfeet.desktop.in.in:3
+#: src/dfeet/application.py:60
+msgid "D-Feet"
+msgstr "D-Feet"
+
+#: data/org.gnome.dfeet.appdata.xml.in:8 data/org.gnome.dfeet.desktop.in.in:5
+msgid "Debug D-Bus applications"
+msgstr "Діагностика програм із D-Bus"
+
+#: data/org.gnome.dfeet.appdata.xml.in:10
+msgid ""
+"A simple application for debugging the message bus system D-Bus. D-Feet can "
+"be used to inspect D-Bus interfaces of running programs and invoke methods "
+"on those interfaces."
+msgstr ""
+"Проста програма для діагностики системи шини повідомлень D-Bus. D-Feet можна"
+" скористатися для інспектування інтерфейсів D-Bus запущених програм і виклику"
+" методів на цих інтерфейсах."
+
+#: data/org.gnome.dfeet.desktop.in.in:4
+msgid "D-Bus Debugger"
+msgstr "Засіб діагностики D-Bus"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.dfeet.desktop.in.in:7
+msgid "debug;d-bus;dbus;dfeet;"
+msgstr "debug;d-bus;dbus;dfeet;діагностика;зневадження;дібас;ді-бас;діфіт;"
+
+#: data/ui/addconnectiondialog.ui:7
+msgid "Add a Connection"
+msgstr "Додати з'єднання"
+
+#: data/ui/addconnectiondialog.ui:25
+msgid "See http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
+msgstr "Див. http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
+
+#: data/ui/addconnectiondialog.ui:27 data/ui/introspection.ui:85
+msgid "Address:"
+msgstr "Адреса:"
+
+#: data/ui/executedialog.ui:13
+msgid "Execute D-Bus Method"
+msgstr "Виконати метод D-Bus"
+
+#: data/ui/executedialog.ui:45
+msgid "_Execute"
+msgstr "Вико_нати"
+
+#: data/ui/executedialog.ui:97
+msgid "Method name:"
+msgstr "Назва методу:"
+
+#: data/ui/executedialog.ui:114
+msgid "Object Path:"
+msgstr "Шлях до об'єкта:"
+
+#: data/ui/executedialog.ui:131
+msgid "Interface:"
+msgstr "Інтерфейс:"
+
+#: data/ui/executedialog.ui:180
+msgid "Bus Name:"
+msgstr "Назва шини:"
+
+#: data/ui/executedialog.ui:218
+msgid "Method input"
+msgstr "Вхідні дані методу"
+
+#: data/ui/executedialog.ui:254
+msgid "Method output"
+msgstr "Виведення методу"
+
+#: data/ui/executedialog.ui:295
+msgid "Pretty print"
+msgstr "Форматування за стилем друку"
+
+#: data/ui/executedialog.ui:323
+msgid "Source"
+msgstr "Джерело"
+
+#: data/ui/executedialog.ui:349
+msgid "Method execution"
+msgstr "Виконання методу"
+
+#: data/ui/executedialog.ui:365 data/ui/executedialog.ui:366
+msgid "Number of method executions"
+msgstr "Кількість виконань методу"
+
+#: data/ui/executedialog.ui:395
+msgid "Ø:"
+msgstr "Ø:"
+
+#: data/ui/executedialog.ui:408 data/ui/executedialog.ui:409
+msgid "Average method execution time in seconds"
+msgstr "Середня тривалість виконання методу"
+
+#: data/ui/executedialog.ui:421
+msgid "Min:"
+msgstr "Мін:"
+
+#: data/ui/executedialog.ui:434 data/ui/executedialog.ui:435
+msgid "Minimal method execution time in seconds"
+msgstr "Мінімальна тривалість виконання методу"
+
+#: data/ui/executedialog.ui:447
+msgid "Max:"
+msgstr "Макс.:"
+
+#: data/ui/executedialog.ui:460 data/ui/executedialog.ui:461
+msgid "Maximal method execution time in seconds"
+msgstr "Максимальна тривалість виконання методу"
+
+#: data/ui/introspection.ui:21
+msgid "Unique name:"
+msgstr "Унікальна назва:"
+
+#: data/ui/introspection.ui:38
+msgid "Name:"
+msgstr "Назва:"
+
+#: data/ui/introspection.ui:124
+msgid "Introspecting..."
+msgstr "Інтроспекція…"
+
+#: data/ui/introspection.ui:185
+msgid "Object path"
+msgstr "Шлях до об'єкта"
+
+#: data/ui/mainwindow.ui:7
+msgid "Connect to System Bus"
+msgstr "З'єднатися із шиною системи"
+
+#: data/ui/mainwindow.ui:11
+msgid "Connect to Session Bus"
+msgstr "З'єднатися із шиною сеансу"
+
+#: data/ui/mainwindow.ui:15
+msgid "Connect to other Bus"
+msgstr "З'єднатися із іншою шиною"
+
+#: data/ui/mainwindow.ui:21
+msgid "Close Bus"
+msgstr "Закрити шину"
+
+#: data/ui/mainwindow.ui:27
+msgid "About D-Feet"
+msgstr "Про D-Feet"
+
+#: data/ui/mainwindow.ui:31
+msgid "Help"
+msgstr "Довідка"
