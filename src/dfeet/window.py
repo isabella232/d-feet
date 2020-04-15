@@ -147,6 +147,24 @@ class DFeetWindow(Gtk.ApplicationWindow):
         except Exception as e:
             print(e)
 
+    def connect_to(self, address):
+        """connect to given bus address"""
+        try:
+            bw = BusWatch(self.data_dir, address)
+            self.stack.add_titled(bw.box_bus, address, address)
+            self.stack.set_visible_child_name(address)
+            # Fill history
+            if address in self.bus_history:
+                self.bus_history.remove(address)
+                self.bus_history.insert(0, address)
+                # Truncating history
+                if (len(self.bus_history) > self.HISTORY_MAX_SIZE):
+                    self.bus_history = self.bus_history[0:self.HISTORY_MAX_SIZE]
+        except Exception as e:
+            print("can not connect to '%s': %s" % (address, str(e)))
+            return False
+        return True
+
     def __action_connect_other_bus_cb(self, action, parameter):
         """connect to other bus"""
         dialog = AddConnectionDialog(self.data_dir, self, self.bus_history)
@@ -160,18 +178,7 @@ class DFeetWindow(Gtk.ApplicationWindow):
                 self.activate_action('connect-system-bus', None)
                 return
             else:
-                try:
-                    bw = BusWatch(self.data_dir, address)
-                    self.stack.add_titled(bw.box_bus, address, address)
-                    # Fill history
-                    if address in self.bus_history:
-                        self.bus_history.remove(address)
-                    self.bus_history.insert(0, address)
-                    # Truncating history
-                    if (len(self.bus_history) > self.HISTORY_MAX_SIZE):
-                        self.bus_history = self.bus_history[0:self.HISTORY_MAX_SIZE]
-                except Exception as e:
-                    print("can not connect to '%s': %s" % (address, str(e)))
+                self.connect_to(address)
         dialog.destroy()
 
     def __action_close_bus_cb(self, action, parameter):

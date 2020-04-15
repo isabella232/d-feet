@@ -16,4 +16,5 @@ df_data = files(
 python.install_sources(
   df_data,
   subdir: 'dfeet',
+  pure: true,
 )
