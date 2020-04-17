@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: d-feet master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/d-feet/issues\n"
-"POT-Creation-Date: 2020-03-23 04:30+0000\n"
-"PO-Revision-Date: 2020-03-31 13:16+0300\n"
+"POT-Creation-Date: 2020-04-15 09:53+0000\n"
+"PO-Revision-Date: 2020-04-17 08:21+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Generator: Lokalize 20.07.70\n"
 
 #: data/org.gnome.dfeet.appdata.xml.in:7 data/org.gnome.dfeet.desktop.in.in:3
-#: src/dfeet/application.py:60
+#: src/dfeet/application.py:90
 msgid "D-Feet"
 msgstr "D-Feet"
 
@@ -34,9 +34,9 @@ msgid ""
 "be used to inspect D-Bus interfaces of running programs and invoke methods "
 "on those interfaces."
 msgstr ""
-"Проста програма для діагностики системи шини повідомлень D-Bus. D-Feet можна"
-" скористатися для інспектування інтерфейсів D-Bus запущених програм і виклику"
-" методів на цих інтерфейсах."
+"Проста програма для діагностики системи шини повідомлень D-Bus. D-Feet можна "
+"скористатися для інспектування інтерфейсів D-Bus запущених програм і виклику "
+"методів на цих інтерфейсах."
 
 #: data/org.gnome.dfeet.desktop.in.in:4
 msgid "D-Bus Debugger"
@@ -170,3 +170,15 @@ msgstr "Про D-Feet"
 #: data/ui/mainwindow.ui:31
 msgid "Help"
 msgstr "Довідка"
+
+#: src/dfeet/application.py:35
+msgid "Show version number and exit"
+msgstr "Вивести номер версії і завершити роботу"
+
+#: src/dfeet/application.py:37
+msgid "Open the specified bus address"
+msgstr "Відкрити вказану адресу шини"
+
+#: src/dfeet/application.py:43
+msgid "D-Feet version: {}"
+msgstr "Версія D-Feet: {}"
