@@ -1,15 +1,15 @@
 # Polish translation for d-feet.
-# Copyright © 2013-2019 the d-feet authors.
+# Copyright © 2013-2020 the d-feet authors.
 # This file is distributed under the same license as the d-feet package.
-# Piotr Drąg <piotrdrag@gmail.com>, 2013-2019.
-# Aviary.pl <community-poland@mozilla.org>, 2013-2019.
+# Piotr Drąg <piotrdrag@gmail.com>, 2013-2020.
+# Aviary.pl <community-poland@mozilla.org>, 2013-2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: d-feet\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/d-feet/issues\n"
-"POT-Creation-Date: 2019-02-03 13:59+0000\n"
-"PO-Revision-Date: 2019-02-03 15:05+0100\n"
+"POT-Creation-Date: 2020-04-15 09:53+0000\n"
+"PO-Revision-Date: 2020-04-19 10:25+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -20,7 +20,7 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 
 #: data/org.gnome.dfeet.appdata.xml.in:7 data/org.gnome.dfeet.desktop.in.in:3
-#: src/dfeet/application.py:60
+#: src/dfeet/application.py:90
 msgid "D-Feet"
 msgstr "D-Feet"
 
@@ -46,11 +46,6 @@ msgstr "Debuger D-Bus"
 #: data/org.gnome.dfeet.desktop.in.in:7
 msgid "debug;d-bus;dbus;dfeet;"
 msgstr "debugger;debugowanie;debuggowanie;debuguj;debugguj;d-bus;dbus;dfeet;"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: data/org.gnome.dfeet.desktop.in.in:10
-msgid "org.gnome.dfeet"
-msgstr "org.gnome.dfeet"
 
 #: data/ui/addconnectiondialog.ui:7
 msgid "Add a Connection"
@@ -177,3 +172,15 @@ msgstr "O programie"
 #: data/ui/mainwindow.ui:31
 msgid "Help"
 msgstr "Pomoc"
+
+#: src/dfeet/application.py:35
+msgid "Show version number and exit"
+msgstr "Wyświetla numer wersji i kończy działanie"
+
+#: src/dfeet/application.py:37
+msgid "Open the specified bus address"
+msgstr "Otwiera podany adres magistrali"
+
+#: src/dfeet/application.py:43
+msgid "D-Feet version: {}"
+msgstr "Wersja programu D-Feet: {}"
