@@ -1,26 +1,26 @@
 # Brazilian Portuguese translation for d-feet.
-# Copyright (C) 2019 d-feet's COPYRIGHT HOLDER
+# Copyright (C) 2020 d-feet's COPYRIGHT HOLDER
 # This file is distributed under the same license as the d-feet package.
 # Enrico Nicoletto <liverig@gmail.com>, 2013.
-# Rafael Fontenelle <rafaelff@gnome.org>, 2013-2019.
+# Rafael Fontenelle <rafaelff@gnome.org>, 2013-2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: d-feet master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/d-feet/issues\n"
-"POT-Creation-Date: 2019-02-03 13:59+0000\n"
-"PO-Revision-Date: 2019-03-09 08:18-0300\n"
+"POT-Creation-Date: 2020-04-15 09:53+0000\n"
+"PO-Revision-Date: 2020-04-27 11:28-0300\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
-"Language-Team: Portuguese - Brazil <gnome-pt_br-list@gnome.org>\n"
+"Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
-"X-Generator: Gtranslator 3.31.90\n"
+"X-Generator: Gtranslator 3.36.0\n"
 
 #: data/org.gnome.dfeet.appdata.xml.in:7 data/org.gnome.dfeet.desktop.in.in:3
-#: src/dfeet/application.py:60
+#: src/dfeet/application.py:90
 msgid "D-Feet"
 msgstr "D-Feet"
 
@@ -46,11 +46,6 @@ msgstr "Depurador de D-Bus"
 #: data/org.gnome.dfeet.desktop.in.in:7
 msgid "debug;d-bus;dbus;dfeet;"
 msgstr "depuração;debug;d-bus;dfeet;"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: data/org.gnome.dfeet.desktop.in.in:10
-msgid "org.gnome.dfeet"
-msgstr "org.gnome.dfeet"
 
 #: data/ui/addconnectiondialog.ui:7
 msgid "Add a Connection"
@@ -175,6 +170,21 @@ msgstr "Sobre o D-Feet"
 #: data/ui/mainwindow.ui:31
 msgid "Help"
 msgstr "Ajuda"
+
+#: src/dfeet/application.py:35
+msgid "Show version number and exit"
+msgstr "Mostra o número da versão e sai"
+
+#: src/dfeet/application.py:37
+msgid "Open the specified bus address"
+msgstr "Abre o endereço de barramento especificado"
+
+#: src/dfeet/application.py:43
+msgid "D-Feet version: {}"
+msgstr "D-Feet versão {}"
+
+#~ msgid "org.gnome.dfeet"
+#~ msgstr "org.gnome.dfeet"
 
 #~ msgid "About"
 #~ msgstr "Sobre"
