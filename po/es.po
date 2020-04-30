@@ -1,14 +1,14 @@
 # Spanish translation for d-feet.
 # Copyright (C) 2013 d-feet's COPYRIGHT HOLDER
 # This file is distributed under the same license as the d-feet package.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2013-2019.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2013-2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: d-feet master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/d-feet/issues\n"
-"POT-Creation-Date: 2019-02-03 13:59+0000\n"
-"PO-Revision-Date: 2019-02-19 15:20+0100\n"
+"POT-Creation-Date: 2020-04-15 09:53+0000\n"
+"PO-Revision-Date: 2020-04-30 11:33+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: es <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -16,10 +16,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Gtranslator 3.31.90\n"
+"X-Generator: Gtranslator 3.36.0\n"
 
 #: data/org.gnome.dfeet.appdata.xml.in:7 data/org.gnome.dfeet.desktop.in.in:3
-#: src/dfeet/application.py:60
+#: src/dfeet/application.py:90
 msgid "D-Feet"
 msgstr "D-Feet"
 
@@ -45,11 +45,6 @@ msgstr "Depurador de D-Bus"
 #: data/org.gnome.dfeet.desktop.in.in:7
 msgid "debug;d-bus;dbus;dfeet;"
 msgstr "depurar;depurador;d-bus;dfeet;"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: data/org.gnome.dfeet.desktop.in.in:10
-msgid "org.gnome.dfeet"
-msgstr "org.gnome.dfeet"
 
 #: data/ui/addconnectiondialog.ui:7
 msgid "Add a Connection"
@@ -175,6 +170,21 @@ msgstr "Acerca de D-Feet"
 #: data/ui/mainwindow.ui:31
 msgid "Help"
 msgstr "Ayuda"
+
+#: src/dfeet/application.py:35
+msgid "Show version number and exit"
+msgstr "Mostrar número de versión y salir"
+
+#: src/dfeet/application.py:37
+msgid "Open the specified bus address"
+msgstr "Abrir la dirección de bus especificada"
+
+#: src/dfeet/application.py:43
+msgid "D-Feet version: {}"
+msgstr "Versión de D-Feet: {}"
+
+#~ msgid "org.gnome.dfeet"
+#~ msgstr "org.gnome.dfeet"
 
 #~ msgid "About"
 #~ msgstr "Acerca de"
