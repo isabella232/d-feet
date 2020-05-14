@@ -20,6 +20,9 @@ class AddressInfo():
     on a given address (eg Gio.BusType.SYSTEM or unix:path=/var/run/dbus/system_bus_socket)
     """
     def __del__(self):
+        if self.__introspection_idle_id:
+            GLib.source_remove(self.__introspection_idle_id)
+
         try:
             self.connection.close()
         except GLib.GError:
@@ -53,6 +56,8 @@ class AddressInfo():
         self.__label_address = ui.get_widget('label_address')
         self.__messagedialog = ui.get_widget('messagedialog')
         self.__messagedialog.connect("close", self.__messagedialog_close_cb)
+        self.__object_paths_to_introspect = []
+        self.__introspection_idle_id = 0
         # connect signals
         ui.connect_signals(signal_dict)
         if self.connection_is_bus:
@@ -163,7 +168,8 @@ class AddressInfo():
         self.__get_stats()
 
         # start introspection
-        self.__dbus_node_introspect("/")
+        self.__object_paths_to_introspect.append("/")
+        self.__dbus_node_introspect()
 
     def __button_reload_clicked_cb(self, widget):
         """reload the introspection data"""
@@ -240,9 +246,9 @@ class AddressInfo():
                     # node_iter = self.__treemodel.append(tree_iter, [node.path, node])
                     if object_path == "/":
                         object_path = ""
-                    object_path_new = object_path + "/" + node.path
-                    self.__dbus_node_introspect(object_path_new)
-            else:
+                    self.__object_paths_to_introspect.append(object_path + "/" + node.path)
+
+            if not self.__object_paths_to_introspect:
                 # no nodes left. we finished the introspection
                 self.__spinner.stop()
                 self.__spinner.set_visible(False)
@@ -251,10 +257,13 @@ class AddressInfo():
                 self.__label_unique_name.set_text(self.unique_name)
 
                 self.introspect_box.show_all()
+            else:
+                self.__introspection_idle_id = GLib.idle_add(self.__dbus_node_introspect)
 
-    def __dbus_node_introspect(self, object_path):
+    def __dbus_node_introspect(self):
         """Introspect the given object path. This function will be called recursive"""
         # start spinner
+        object_path = self.__object_paths_to_introspect.pop(0)
         self.__spinner.start()
         self.__spinner.set_visible(True)
         # start async dbus call
