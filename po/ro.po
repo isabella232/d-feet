@@ -1,0 +1,185 @@
+# Romanian translation for d-feet.
+# Copyright (C) 2020 d-feet's COPYRIGHT HOLDER
+# This file is distributed under the same license as the d-feet package.
+# Florentina Mușat <emryslokadottir@gmail.com>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: d-feet master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/d-feet/issues\n"
+"POT-Creation-Date: 2020-04-30 10:49+0000\n"
+"PO-Revision-Date: 2020-05-19 16:53+0300\n"
+"Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2);;\n"
+"Last-Translator: Florentina Mușat <emryslokadottir [at] gmail [dot] com>\n"
+"X-Generator: Poedit 2.3.1\n"
+
+#: data/org.gnome.dfeet.appdata.xml.in:7 data/org.gnome.dfeet.desktop.in.in:3
+#: src/dfeet/application.py:90
+msgid "D-Feet"
+msgstr "D-Feet"
+
+#: data/org.gnome.dfeet.appdata.xml.in:8 data/org.gnome.dfeet.desktop.in.in:5
+msgid "Debug D-Bus applications"
+msgstr "Aplicații de depanare D-Bus"
+
+#: data/org.gnome.dfeet.appdata.xml.in:10
+msgid ""
+"A simple application for debugging the message bus system D-Bus. D-Feet can "
+"be used to inspect D-Bus interfaces of running programs and invoke methods "
+"on those interfaces."
+msgstr ""
+"O aplicație simplă pentru depanarea D-Bus-ului sistemului magistralei de "
+"mesaje. D-Feet poate fi utilizat pentru a inspecta interfețe D-Bus ale "
+"programelor care rulează și poate invoca metode pe acele interfețe."
+
+#: data/org.gnome.dfeet.desktop.in.in:4
+msgid "D-Bus Debugger"
+msgstr "Depanator D-Bus"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.dfeet.desktop.in.in:7
+msgid "debug;d-bus;dbus;dfeet;"
+msgstr "debug;d-bus;dbus;dfeet;depanare;depanator;"
+
+#: data/ui/addconnectiondialog.ui:7
+msgid "Add a Connection"
+msgstr "Adaugă o conexiune"
+
+#: data/ui/addconnectiondialog.ui:25
+msgid "See http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
+msgstr ""
+"Vedeți http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
+
+#: data/ui/addconnectiondialog.ui:27 data/ui/introspection.ui:85
+msgid "Address:"
+msgstr "Adresă:"
+
+#: data/ui/executedialog.ui:13
+msgid "Execute D-Bus Method"
+msgstr "Execută metoda D-Bus"
+
+#: data/ui/executedialog.ui:45
+msgid "_Execute"
+msgstr "_Execută"
+
+#: data/ui/executedialog.ui:97
+msgid "Method name:"
+msgstr "Numele metodei:"
+
+#: data/ui/executedialog.ui:114
+msgid "Object Path:"
+msgstr "Calea obiectului:"
+
+#: data/ui/executedialog.ui:131
+msgid "Interface:"
+msgstr "Interfață:"
+
+#: data/ui/executedialog.ui:180
+msgid "Bus Name:"
+msgstr "Nume magistrală:"
+
+#: data/ui/executedialog.ui:218
+msgid "Method input"
+msgstr "Intrare metodă"
+
+#: data/ui/executedialog.ui:254
+msgid "Method output"
+msgstr "Ieșire metodă"
+
+#: data/ui/executedialog.ui:295
+msgid "Pretty print"
+msgstr "Tipărire frumoasă"
+
+#: data/ui/executedialog.ui:323
+msgid "Source"
+msgstr "Sursă"
+
+#: data/ui/executedialog.ui:349
+msgid "Method execution"
+msgstr "Execuție a metodei"
+
+#: data/ui/executedialog.ui:365 data/ui/executedialog.ui:366
+msgid "Number of method executions"
+msgstr "Numărul de execuție a metodei"
+
+#: data/ui/executedialog.ui:395
+msgid "Ø:"
+msgstr "Ø:"
+
+#: data/ui/executedialog.ui:408 data/ui/executedialog.ui:409
+msgid "Average method execution time in seconds"
+msgstr "Timpul mediu de execuție a metodei în secunde"
+
+#: data/ui/executedialog.ui:421
+msgid "Min:"
+msgstr "Min:"
+
+#: data/ui/executedialog.ui:434 data/ui/executedialog.ui:435
+msgid "Minimal method execution time in seconds"
+msgstr "Timpul minimal de execuție a metodei în secunde"
+
+#: data/ui/executedialog.ui:447
+msgid "Max:"
+msgstr "Max:"
+
+#: data/ui/executedialog.ui:460 data/ui/executedialog.ui:461
+msgid "Maximal method execution time in seconds"
+msgstr "Timpul maximal de execuție a metodei în secunde"
+
+#: data/ui/introspection.ui:21
+msgid "Unique name:"
+msgstr "Nume unic:"
+
+#: data/ui/introspection.ui:38
+msgid "Name:"
+msgstr "Nume:"
+
+#: data/ui/introspection.ui:124
+msgid "Introspecting..."
+msgstr "Se introspectează..."
+
+#: data/ui/introspection.ui:185
+msgid "Object path"
+msgstr "Calea obiectului"
+
+#: data/ui/mainwindow.ui:7
+msgid "Connect to System Bus"
+msgstr "Conectează la magistrala de sistem"
+
+#: data/ui/mainwindow.ui:11
+msgid "Connect to Session Bus"
+msgstr "Conectează la magistrala de sesiune"
+
+#: data/ui/mainwindow.ui:15
+msgid "Connect to other Bus"
+msgstr "Conectează la altă magistrală"
+
+#: data/ui/mainwindow.ui:21
+msgid "Close Bus"
+msgstr "Închide magistrala"
+
+#: data/ui/mainwindow.ui:27
+msgid "About D-Feet"
+msgstr "Despre D-Feet"
+
+#: data/ui/mainwindow.ui:31
+msgid "Help"
+msgstr "Ajutor"
+
+#: src/dfeet/application.py:35
+msgid "Show version number and exit"
+msgstr "Arată numărul versiunii și ieși"
+
+#: src/dfeet/application.py:37
+msgid "Open the specified bus address"
+msgstr "Deschide adresa de magistrală specificată"
+
+#: src/dfeet/application.py:43
+msgid "D-Feet version: {}"
+msgstr "Versiune D-Feet: {}"
