@@ -257,6 +257,7 @@ class AddressInfo():
                 self.__label_unique_name.set_text(self.unique_name)
 
                 self.introspect_box.show_all()
+                self.__introspection_idle_id = 0
             else:
                 self.__introspection_idle_id = GLib.idle_add(self.__dbus_node_introspect)
 
