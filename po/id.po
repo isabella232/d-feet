@@ -2,23 +2,23 @@
 # Copyright (C) 2014 d-feet's COPYRIGHT HOLDER
 # This file is distributed under the same license as the d-feet package.
 # Andika Triwidada <andika@gmail.com>, 2014.
-#
+# Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2018-2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: d-feet master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/d-feet/issues\n"
-"POT-Creation-Date: 2019-02-03 13:59+0000\n"
-"PO-Revision-Date: 2019-02-28 13:39+0700\n"
+"POT-Creation-Date: 2020-05-19 14:36+0000\n"
+"PO-Revision-Date: 2020-05-22 10:46+0700\n"
 "Last-Translator: Kukuh Syafaat <kukuhsyafaat@gnome.org>\n"
 "Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.3.1\n"
 
 #: data/org.gnome.dfeet.appdata.xml.in:7 data/org.gnome.dfeet.desktop.in.in:3
-#: src/dfeet/application.py:60
+#: src/dfeet/application.py:90
 msgid "D-Feet"
 msgstr "D-Feet"
 
@@ -44,11 +44,6 @@ msgstr "Pengawakutu D-Bus"
 #: data/org.gnome.dfeet.desktop.in.in:7
 msgid "debug;d-bus;dbus;dfeet;"
 msgstr "debug;d-bus;dbus;dfeet;awakutu;"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: data/org.gnome.dfeet.desktop.in.in:10
-msgid "org.gnome.dfeet"
-msgstr "org.gnome.dfeet"
 
 #: data/ui/addconnectiondialog.ui:7
 msgid "Add a Connection"
@@ -145,7 +140,7 @@ msgstr "Nama:"
 
 #: data/ui/introspection.ui:124
 msgid "Introspecting..."
-msgstr "Mengintrospeksi…"
+msgstr "Mengintrospeksi..."
 
 #: data/ui/introspection.ui:185
 msgid "Object path"
@@ -174,6 +169,21 @@ msgstr "Tentang D-Feet"
 #: data/ui/mainwindow.ui:31
 msgid "Help"
 msgstr "Bantuan"
+
+#: src/dfeet/application.py:35
+msgid "Show version number and exit"
+msgstr "Tampilkan nomor versi dan keluar"
+
+#: src/dfeet/application.py:37
+msgid "Open the specified bus address"
+msgstr "Buka alamat bus yang ditentukan"
+
+#: src/dfeet/application.py:43
+msgid "D-Feet version: {}"
+msgstr "Versi D-Feet: {}"
+
+#~ msgid "org.gnome.dfeet"
+#~ msgstr "org.gnome.dfeet"
 
 #~ msgid "About"
 #~ msgstr "Tentang"
