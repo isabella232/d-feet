@@ -1,0 +1,122 @@
+# Ukrainian translation for d-feet.
+# Copyright (C) 2020 d-feet's COPYRIGHT HOLDER
+# This file is distributed under the same license as the d-feet package.
+#
+# Yuri Chornoivan <yurchor@ukr.net>, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: d-feet master\n"
+"POT-Creation-Date: 2020-06-05 07:11+0000\n"
+"PO-Revision-Date: 2020-06-08 17:06+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 20.07.70\n"
+
+#. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
+msgctxt "_"
+msgid "translator-credits"
+msgstr "Юрій Чорноіван <yurchor@ukr.net>, 2020"
+
+#. (itstool) path: credit/name
+#: C/basics.page:8 C/index.page:10
+msgid "Thomas Bechtold"
+msgstr "Thomas Bechtold"
+
+#. (itstool) path: credit/years
+#: C/basics.page:10
+msgid "2012-2013"
+msgstr "2012-2013"
+
+#. (itstool) path: info/desc
+#: C/basics.page:12
+msgid "Basic usage of d-feet"
+msgstr "Основи користування d-feet"
+
+#. (itstool) path: page/title
+#: C/basics.page:16
+msgid "Basics"
+msgstr "Основи"
+
+#. (itstool) path: section/title
+#: C/basics.page:18
+msgid "Quick guide"
+msgstr "Короткі настанови"
+
+#. (itstool) path: section/p
+#: C/basics.page:19
+msgid "Here is the quick guide howto use d-feet"
+msgstr "Короткі настанови щодо того, як користуватися d-feet"
+
+#. (itstool) path: item/p
+#: C/basics.page:21
+msgid "Select a bus you want to connect to (System Bus or Session Bus)"
+msgstr ""
+"Виберіть шину, із якою слід встановити з'єднання (системну шину або шину"
+" сеансу)"
+
+#. (itstool) path: item/p
+#: C/basics.page:22
+msgid "Select a service you want information about"
+msgstr "Виберіть службу, відомості щодо якої вам потрібні"
+
+#. (itstool) path: item/p
+#: C/basics.page:23
+msgid "Select a property or a method of the service"
+msgstr "Виберіть властивість або метод цієї служби"
+
+#. (itstool) path: info/title
+#: C/index.page:7
+msgctxt "text"
+msgid "d-feet"
+msgstr "d-feet"
+
+#. (itstool) path: info/desc
+#: C/index.page:8
+msgid "The <app>d-feet</app> help."
+msgstr "Довідка з <app>d-feet</app>."
+
+#. (itstool) path: credit/years
+#: C/index.page:12
+msgid "2012"
+msgstr "2012"
+
+#. (itstool) path: license/p
+#: C/index.page:15
+msgid "Creative Commons Attribution-Share Alike 3.0 Unported License"
+msgstr "ліцензії Creative Commons Attribution-Share Alike 3.0 Unported"
+
+#. (itstool) path: title/media
+#. This is a reference to an external file such as an image or video. When
+#. the file changes, the md5 hash will change to let you know you need to
+#. update your localized copy. The msgstr is not used at all. Set it to
+#. whatever you like once you have updated your copy of the file.
+#: C/index.page:22
+msgctxt "_"
+msgid "external ref='figures/icon.png' md5='c45eac54a2a8b6303933c68fabc1c84b'"
+msgstr "external ref='figures/icon.png' md5='c45eac54a2a8b6303933c68fabc1c84b'"
+
+#. (itstool) path: page/title
+#: C/index.page:19
+msgid ""
+"<media type=\"image\" mime=\"image/png\" src=\"figures/icon.png\">[icon]</"
+"media> <app>d-feet</app> Help"
+msgstr ""
+"<media type=\"image\" mime=\"image/png\" src=\"figures/icon.png\""
+">[піктограма]</"
+"media> Довідка з <app>d-feet</app>"
+
+#. (itstool) path: page/p
+#: C/index.page:26
+msgid "This is for d-feet - a dbus debugger."
+msgstr "Це d-feet — програма для діагностики D-Bus."
+
+#. (itstool) path: section/title
+#: C/index.page:31
+msgid "Contents"
+msgstr "Зміст"
