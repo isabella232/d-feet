@@ -1,8 +1,5 @@
 include: 'https://gitlab.gnome.org/GNOME/citemplates/raw/master/flatpak/flatpak_ci_initiative.yml'
 
-stages:
-- test
-- review
 
 variables:
     BUNDLE: "dfeet-git.flatpak"
@@ -44,27 +41,3 @@ flatpak:
         # are passed except the config-args because we build it ourselves
         MESON_ARGS: |
           -Dtests=true
-
-review:
-    stage: review
-    dependencies:
-        - flatpak
-    script:
-        - echo "Generating flatpak deployment"
-    artifacts:
-        paths:
-            - ${BUNDLE}
-        expire_in: 30 days
-    environment:
-        name: review/$CI_COMMIT_REF_NAME
-        url: https://gitlab.gnome.org/$CI_PROJECT_PATH/-/jobs/$CI_JOB_ID/artifacts/raw/${BUNDLE}
-        on_stop: stop_review
-
-stop_review:
-    stage: review
-    script:
-        - echo "Stopping flatpak deployment"
-    when: manual
-    environment:
-        name: review/$CI_COMMIT_REF_NAME
-        action: stop
