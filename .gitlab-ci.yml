@@ -37,10 +37,7 @@ flatpak:
         FLATPAK_MODULE: "d-feet"
         APP_ID: "org.gnome.dfeet"
         BUILD_DIR: ".app"
-        # Make sure to keep this in sync with the Flatpak manifest, all arguments
-        # are passed except the config-args because we build it ourselves
-        MESON_ARGS: |
-          -Dtests=true
+
 
 nightly:
     extends: '.publish_nightly'
