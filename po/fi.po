@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: d-feet master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/d-feet/issues\n"
-"POT-Creation-Date: 2019-03-23 13:41+0000\n"
-"PO-Revision-Date: 2019-06-02 18:21+0300\n"
+"POT-Creation-Date: 2020-06-05 07:11+0000\n"
+"PO-Revision-Date: 2020-08-17 17:32+0300\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <gnome-fi-laatu@lists.sourceforge.net>\n"
 "Language: fi\n"
@@ -17,10 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.4.1\n"
 
 #: data/org.gnome.dfeet.appdata.xml.in:7 data/org.gnome.dfeet.desktop.in.in:3
-#: src/dfeet/application.py:60
+#: src/dfeet/application.py:90
 msgid "D-Feet"
 msgstr "D-Feet"
 
@@ -170,6 +170,18 @@ msgstr "Tietoja - D-Feet"
 #: data/ui/mainwindow.ui:31
 msgid "Help"
 msgstr "Ohje"
+
+#: src/dfeet/application.py:35
+msgid "Show version number and exit"
+msgstr "Näytä ohjelman versio ja lopeta"
+
+#: src/dfeet/application.py:37
+msgid "Open the specified bus address"
+msgstr "Avaa määritetty väyläosoite"
+
+#: src/dfeet/application.py:43
+msgid "D-Feet version: {}"
+msgstr "D-Feetin versio: {}"
 
 #~ msgid "About"
 #~ msgstr "Tietoja"
