@@ -1,14 +1,14 @@
 # Dutch translation for d-feet.
 # Copyright (C) 2019 d-feet's COPYRIGHT HOLDER
 # This file is distributed under the same license as the d-feet package.
-# Nathan Follens <nthn@unseen.is>, 2019.
+# Nathan Follens <nthn@unseen.is>, 2019-2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: d-feet master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/d-feet/issues\n"
-"POT-Creation-Date: 2019-02-03 13:59+0000\n"
-"PO-Revision-Date: 2019-02-27 15:17+0100\n"
+"POT-Creation-Date: 2020-06-05 07:11+0000\n"
+"PO-Revision-Date: 2020-08-25 21:33+0200\n"
 "Last-Translator: Nathan Follens <nthn@unseen.is>\n"
 "Language-Team: Dutch <gnome-nl-list@gnome.org>\n"
 "Language: nl\n"
@@ -16,10 +16,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.4.1\n"
 
 #: data/org.gnome.dfeet.appdata.xml.in:7 data/org.gnome.dfeet.desktop.in.in:3
-#: src/dfeet/application.py:60
+#: src/dfeet/application.py:90
 msgid "D-Feet"
 msgstr "D-Feet"
 
@@ -45,11 +45,6 @@ msgstr "D-Bus-debugger"
 #: data/org.gnome.dfeet.desktop.in.in:7
 msgid "debug;d-bus;dbus;dfeet;"
 msgstr "debug;d-bus;dbus;dfeet;"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: data/org.gnome.dfeet.desktop.in.in:10
-msgid "org.gnome.dfeet"
-msgstr "org.gnome.dfeet"
 
 #: data/ui/addconnectiondialog.ui:7
 msgid "Add a Connection"
@@ -175,3 +170,18 @@ msgstr "Over D-Feet"
 #: data/ui/mainwindow.ui:31
 msgid "Help"
 msgstr "Hulp"
+
+#: src/dfeet/application.py:35
+msgid "Show version number and exit"
+msgstr "Versienummer tonen en afsluiten"
+
+#: src/dfeet/application.py:37
+msgid "Open the specified bus address"
+msgstr "Open het opgegeven busadres"
+
+#: src/dfeet/application.py:43
+msgid "D-Feet version: {}"
+msgstr "D-Feet-versie: {}"
+
+#~ msgid "org.gnome.dfeet"
+#~ msgstr "org.gnome.dfeet"
