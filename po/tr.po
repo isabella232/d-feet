@@ -2,14 +2,14 @@
 # Copyright (C) 2014 d-feet's COPYRIGHT HOLDER
 # This file is distributed under the same license as the d-feet package.
 # Muhammet Kara <muhammetk@gmail.com>, 2014.
-# Emin Tufan Çetin <etcetin@gmail.com>, 2019.
+# Emin Tufan Çetin <etcetin@gmail.com>, 2019, 2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: d-feet master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/d-feet/issues\n"
-"POT-Creation-Date: 2019-02-06 18:06+0000\n"
-"PO-Revision-Date: 2019-02-20 00:22+0300\n"
+"POT-Creation-Date: 2020-06-05 07:11+0000\n"
+"PO-Revision-Date: 2020-09-21 01:05+0300\n"
 "Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
 "Language-Team: Türkçe <gnome-turk@gnome.org>\n"
 "Language: tr\n"
@@ -17,16 +17,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Gtranslator 3.30.1\n"
+"X-Generator: Poedit 2.2.3\n"
 
 #: data/org.gnome.dfeet.appdata.xml.in:7 data/org.gnome.dfeet.desktop.in.in:3
-#: src/dfeet/application.py:60
+#: src/dfeet/application.py:90
 msgid "D-Feet"
 msgstr "D-Feet"
 
 #: data/org.gnome.dfeet.appdata.xml.in:8 data/org.gnome.dfeet.desktop.in.in:5
 msgid "Debug D-Bus applications"
-msgstr "D-Bus uygulamalarında hata ayıklama yapın"
+msgstr "D-Bus uygulamalarında hata ayıkla"
 
 #: data/org.gnome.dfeet.appdata.xml.in:10
 msgid ""
@@ -34,9 +34,9 @@ msgid ""
 "be used to inspect D-Bus interfaces of running programs and invoke methods "
 "on those interfaces."
 msgstr ""
-"İleti veriyolu sistemi D-Bus'da hata ayıklama için basit bir uygulama. D-"
-"Feet; çalışmakta olan programların D-Bus arabirimlerini incelemek ve bu "
-"arabirimler üzerindeki yöntemleri çalıştırmak için kullanılır."
+"İleti veriyolu sistemi D-Bus’da hata ayıklama için basit uygulama. D-Feet, "
+"çalışan programların D-Bus arabirimlerini inceleme ve bu arabirimlerdeki "
+"yöntemleri çalıştırmada kullanılır."
 
 #: data/org.gnome.dfeet.desktop.in.in:4
 msgid "D-Bus Debugger"
@@ -45,12 +45,7 @@ msgstr "D-Bus Hata Ayıklayıcı"
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.dfeet.desktop.in.in:7
 msgid "debug;d-bus;dbus;dfeet;"
-msgstr "hata ayıklama;d-bus;dbus;dfeet;"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: data/org.gnome.dfeet.desktop.in.in:10
-msgid "org.gnome.dfeet"
-msgstr "org.gnome.dfeet"
+msgstr "hata ayıklama;d-bus;dbus;dfeet;debug;"
 
 #: data/ui/addconnectiondialog.ui:7
 msgid "Add a Connection"
@@ -176,6 +171,21 @@ msgstr "D-Feet Hakkında"
 #: data/ui/mainwindow.ui:31
 msgid "Help"
 msgstr "Yardım"
+
+#: src/dfeet/application.py:35
+msgid "Show version number and exit"
+msgstr "Sürüm numarasını göster ve çık"
+
+#: src/dfeet/application.py:37
+msgid "Open the specified bus address"
+msgstr "Belirtilen veriyolu adresini aç"
+
+#: src/dfeet/application.py:43
+msgid "D-Feet version: {}"
+msgstr "D-Feet sürümü: {}"
+
+#~ msgid "org.gnome.dfeet"
+#~ msgstr "org.gnome.dfeet"
 
 #~ msgid "About"
 #~ msgstr "Hakkında"
