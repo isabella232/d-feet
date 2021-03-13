@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: d-feet\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/d-feet/issues\n"
-"POT-Creation-Date: 2018-12-10 12:04+0000\n"
-"PO-Revision-Date: 2019-01-22 19:32+0100\n"
+"POT-Creation-Date: 2020-06-05 07:11+0000\n"
+"PO-Revision-Date: 2020-11-28 16:31+0100\n"
 "Last-Translator: Alan Mortensen <alanmortensen.am@gmail.com>\n"
 "Language-Team: dansk <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -17,19 +17,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.3\n"
 
-#: ../data/org.gnome.dfeet.appdata.xml.in.h:1
-#: ../data/org.gnome.dfeet.desktop.in.in.h:1 ../src/dfeet/application.py:60
+#: data/org.gnome.dfeet.appdata.xml.in:7 data/org.gnome.dfeet.desktop.in.in:3
+#: src/dfeet/application.py:90
 msgid "D-Feet"
 msgstr "D-Feet"
 
-#: ../data/org.gnome.dfeet.appdata.xml.in.h:2
-#: ../data/org.gnome.dfeet.desktop.in.in.h:3
+#: data/org.gnome.dfeet.appdata.xml.in:8 data/org.gnome.dfeet.desktop.in.in:5
 msgid "Debug D-Bus applications"
 msgstr "Fejlsøg D-Bus-programmer"
 
-#: ../data/org.gnome.dfeet.appdata.xml.in.h:3
+#: data/org.gnome.dfeet.appdata.xml.in:10
 msgid ""
 "A simple application for debugging the message bus system D-Bus. D-Feet can "
 "be used to inspect D-Bus interfaces of running programs and invoke methods "
@@ -39,140 +38,153 @@ msgstr ""
 "kan bruges til inspicere D-Bus grænseflader af kørende programmer og kalde "
 "metoder hos disse grænseflader."
 
-#: ../data/org.gnome.dfeet.desktop.in.in.h:2
+#: data/org.gnome.dfeet.desktop.in.in:4
 msgid "D-Bus Debugger"
 msgstr "D-Bus-fejlsøger"
 
-#: ../data/org.gnome.dfeet.desktop.in.in.h:4
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.dfeet.desktop.in.in:7
 msgid "debug;d-bus;dbus;dfeet;"
 msgstr "fejlsøg;d-bus;dbus;dfeet;"
 
-#: ../data/ui/addconnectiondialog.ui.h:1
+#: data/ui/addconnectiondialog.ui:7
 msgid "Add a Connection"
 msgstr "Tilføj en forbindelse"
 
-#: ../data/ui/addconnectiondialog.ui.h:2
+#: data/ui/addconnectiondialog.ui:25
 msgid "See http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
 msgstr "Se http://dbus.freedesktop.org/doc/dbus-specification.html#addresses"
 
-#: ../data/ui/addconnectiondialog.ui.h:3 ../data/ui/introspection.ui.h:3
+#: data/ui/addconnectiondialog.ui:27 data/ui/introspection.ui:85
 msgid "Address:"
 msgstr "Adresse:"
 
-#: ../data/ui/executedialog.ui.h:1
+#: data/ui/executedialog.ui:13
 msgid "Execute D-Bus Method"
 msgstr "Kald D-Bus-metode"
 
-#: ../data/ui/executedialog.ui.h:2
+#: data/ui/executedialog.ui:45
 msgid "_Execute"
 msgstr "_Kald"
 
-#: ../data/ui/executedialog.ui.h:3
+#: data/ui/executedialog.ui:97
 msgid "Method name:"
 msgstr "Metodenavn:"
 
-#: ../data/ui/executedialog.ui.h:4
+#: data/ui/executedialog.ui:114
 msgid "Object Path:"
 msgstr "Objektsti:"
 
-#: ../data/ui/executedialog.ui.h:5
+#: data/ui/executedialog.ui:131
 msgid "Interface:"
 msgstr "Grænseflade:"
 
-#: ../data/ui/executedialog.ui.h:6
+#: data/ui/executedialog.ui:180
 msgid "Bus Name:"
 msgstr "Busnavn:"
 
-#: ../data/ui/executedialog.ui.h:7
+#: data/ui/executedialog.ui:218
 msgid "Method input"
 msgstr "Metodeinddata"
 
-#: ../data/ui/executedialog.ui.h:8
+#: data/ui/executedialog.ui:254
 msgid "Method output"
 msgstr "Metodeuddata"
 
-#: ../data/ui/executedialog.ui.h:9
+#: data/ui/executedialog.ui:295
 msgid "Pretty print"
 msgstr "læsevenlig udskrift"
 
-#: ../data/ui/executedialog.ui.h:10
+#: data/ui/executedialog.ui:323
 msgid "Source"
 msgstr "Kilde"
 
-#: ../data/ui/executedialog.ui.h:11
+#: data/ui/executedialog.ui:349
 msgid "Method execution"
 msgstr "Metodeudførsel"
 
-#: ../data/ui/executedialog.ui.h:12
+#: data/ui/executedialog.ui:365 data/ui/executedialog.ui:366
 msgid "Number of method executions"
 msgstr "Antal metodeudførsler"
 
 # Noter:
 # Tilføj note
 # forslag: tom
-#: ../data/ui/executedialog.ui.h:13
+#: data/ui/executedialog.ui:395
 msgid "Ø:"
 msgstr "Ø:"
 
-#: ../data/ui/executedialog.ui.h:14
+#: data/ui/executedialog.ui:408 data/ui/executedialog.ui:409
 msgid "Average method execution time in seconds"
 msgstr "Gennemsnitlig metodeudførselstid i sekunder"
 
-#: ../data/ui/executedialog.ui.h:15
+#: data/ui/executedialog.ui:421
 msgid "Min:"
 msgstr "Minimum:"
 
-#: ../data/ui/executedialog.ui.h:16
+#: data/ui/executedialog.ui:434 data/ui/executedialog.ui:435
 msgid "Minimal method execution time in seconds"
 msgstr "Mindste metodeudførselstid i sekunder"
 
-#: ../data/ui/executedialog.ui.h:17
+#: data/ui/executedialog.ui:447
 msgid "Max:"
 msgstr "Maximum:"
 
-#: ../data/ui/executedialog.ui.h:18
+#: data/ui/executedialog.ui:460 data/ui/executedialog.ui:461
 msgid "Maximal method execution time in seconds"
 msgstr "Maximale metodeudførselstid i sekunder"
 
-#: ../data/ui/introspection.ui.h:1
+#: data/ui/introspection.ui:21
 msgid "Unique name:"
 msgstr "Éntydigt navn:"
 
-#: ../data/ui/introspection.ui.h:2
+#: data/ui/introspection.ui:38
 msgid "Name:"
 msgstr "Navn:"
 
-#: ../data/ui/introspection.ui.h:4
+#: data/ui/introspection.ui:124
 msgid "Introspecting..."
 msgstr "Undersøger egentilstand …"
 
-#: ../data/ui/introspection.ui.h:5
+#: data/ui/introspection.ui:185
 msgid "Object path"
 msgstr "Objektsti"
 
-#: ../data/ui/mainwindow.ui.h:1
+#: data/ui/mainwindow.ui:7
 msgid "Connect to System Bus"
 msgstr "Forbind til systembus"
 
-#: ../data/ui/mainwindow.ui.h:2
+#: data/ui/mainwindow.ui:11
 msgid "Connect to Session Bus"
 msgstr "Forbind til sessionsbus"
 
-#: ../data/ui/mainwindow.ui.h:3
+#: data/ui/mainwindow.ui:15
 msgid "Connect to other Bus"
 msgstr "Forbind til anden bus"
 
-#: ../data/ui/mainwindow.ui.h:4
+#: data/ui/mainwindow.ui:21
 msgid "Close Bus"
 msgstr "Luk bus"
 
-#: ../data/ui/mainwindow.ui.h:5
+#: data/ui/mainwindow.ui:27
 msgid "About D-Feet"
 msgstr "Om D-Feet"
 
-#: ../data/ui/mainwindow.ui.h:6
+#: data/ui/mainwindow.ui:31
 msgid "Help"
 msgstr "Hjælp"
+
+#: src/dfeet/application.py:35
+msgid "Show version number and exit"
+msgstr "Vis versionsnummer og afslut"
+
+#: src/dfeet/application.py:37
+msgid "Open the specified bus address"
+msgstr "Åbn den angivne busadresse"
+
+#: src/dfeet/application.py:43
+msgid "D-Feet version: {}"
+msgstr "D-Feet-version: {}"
 
 #~ msgid "About"
 #~ msgstr "Om"
